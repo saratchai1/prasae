@@ -656,9 +656,11 @@ function updateCompareView() {
   const imgL = `data/plots/${activePlot.id}/${prefixL}_${msL}.png`;
   const imgR = `data/plots/${activePlot.id}/${prefixR}_${msR}.png`;
   
+  const bgImg = document.getElementById('compare-bg-img');
   const beforeImg = document.getElementById('compare-before-img');
   const afterImg = document.getElementById('compare-after-img');
   
+  if (bgImg) bgImg.src = `data/plots/${activePlot.id}/esri_base.png`;
   if (beforeImg) beforeImg.src = imgL;
   if (afterImg) afterImg.src = imgR;
 

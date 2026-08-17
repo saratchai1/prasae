@@ -237,10 +237,16 @@
             </div>
             
             <div class="compare-stage" id="compare-container">
+              <!-- Layer 0: ESRI High-Res Satellite Base Map (Outside plot boundary) -->
+              <img id="compare-bg-img" class="compare-img compare-bg" src="" alt="ESRI Satellite Base" />
+              
+              <!-- Layer 1: Masked Sentinel-2 (After) -->
               <img id="compare-after-img" class="compare-img compare-after" src="" alt="After" />
+              
+              <!-- Layer 2: Masked Sentinel-2 (Before with clip-path) -->
               <img id="compare-before-img" class="compare-img compare-before" src="" alt="Before" />
               
-              <!-- Exact In-Boundary Polygon Outline Overlay -->
+              <!-- Layer 3: Exact In-Boundary Polygon Outline Overlay -->
               <svg id="compare-boundary-svg" class="compare-boundary-overlay" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
                 <!-- Dynamically generated polygons -->
               </svg>

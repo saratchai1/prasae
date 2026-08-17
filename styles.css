@@ -732,6 +732,10 @@ body {
   transition: none;
 }
 
+.compare-bg {
+  z-index: 0;
+}
+
 .compare-after {
   z-index: 1;
 }
