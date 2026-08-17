@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: verified-12-date-rebuild
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   smoke-test:
@@ -52,6 +52,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -72,14 +74,15 @@ jobs:
           PRASAE_MAX_SCENES: '5'
         run: python process_verified_12_dates.py
 
-      - name: Commit regenerated data
+      - name: Commit, rebase onto latest main, and deploy
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/plots_catalog.json data/plots.geojson data/timeseries_verified_12.json data/plots
-          if git diff --cached --quiet; then
-            echo "No regenerated data changes"
-            exit 0
+          if ! git diff --cached --quiet; then
+            git commit -m "Rebuild multi-index 12-date mangrove metrics"
           fi
-          git commit -m "Rebuild multi-index 12-date mangrove metrics"
-          git push
+          git fetch origin main gh-pages
+          git rebase origin/main
+          git push origin HEAD:main
+          git push --force-with-lease origin HEAD:gh-pages
