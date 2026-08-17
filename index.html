@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>การติดตามการเปลี่ยนแปลงแปลงฟื้นฟูป่าชายเลน ประแส ระยอง (Sep 2023 - Aug 2026)</title>
+  <meta name="description" content="ระบบวิเคราะห์ภาพถ่ายดาวเทียม Sentinel-2 L2A รายเดือน 36 เดือน ด้วยเทคนิค Cloud-free Temporal Compositing ติดตามแปลงป่าชายเลน 12.708824, 101.692934">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Navigation / Top Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">ระบบติดตามการเปลี่ยนแปลงแปลงฟื้นฟูป่าชายเลน</h1>
+          <p class="brand-subtitle">ปากน้ำประแส อ.แกลง จ.ระยอง (12.708824°N, 101.692934°E)</p>
+        </div>
+      </div>
+      <div class="header-meta">
+        <span class="meta-pill"><span class="pill-dot"></span> Sentinel-2 L2A (10m)</span>
+        <span class="meta-pill">Cloud-free Temporal Compositing</span>
+        <span class="meta-pill date-range-pill">ก.ย. 2023 – ส.ค. 2026 (36 เดือน)</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-content">
+    <!-- Key Metric Overview Cards -->
+    <section class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-label">จุดเริ่มต้น (กันยายน 2023)</div>
+        <div class="metric-value" id="val-initial-ndvi">-</div>
+        <div class="metric-desc">สภาพบ่อกุ้งเดิม ขังน้ำ ดินเลน ยังไม่มีพืชพรรณ</div>
+      </div>
+      <div class="metric-card highlight-card">
+        <div class="metric-label">ปัจจุบัน (สิงหาคม 2026)</div>
+        <div class="metric-value" id="val-current-ndvi">-</div>
+        <div class="metric-desc" id="val-current-desc">ทรงพุ่มป่าชายเลนเจริญเติบโตหนาแน่นสมบูรณ์</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">อัตราการเติบโตค่าดัชนี (NDVI Growth)</div>
+        <div class="metric-value text-success" id="val-ndvi-gain">+0.00</div>
+        <div class="metric-desc" id="val-ndvi-gain-pct">เพิ่มขึ้นอย่างต่อเนื่องหลังเริ่มปลูกปลายปี 2023</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-label">สัดส่วนพื้นที่สีเขียวในแปลง (% Canopy)</div>
+        <div class="metric-value" id="val-canopy-pct">0%</div>
+        <div class="metric-desc">คำนวณจากสัดส่วนพิกเซล NDVI > 0.25</div>
+      </div>
+    </section>
+
+    <!-- Main Workspace Container -->
+    <section class="viewer-section">
+      <div class="viewer-header">
+        <div class="viewer-tabs">
+          <button class="tab-btn active" id="tab-single" onclick="switchViewerTab('single')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            ไทม์ไลน์รายเดือน (Time-Series Player)
+          </button>
+          <button class="tab-btn" id="tab-compare" onclick="switchViewerTab('compare')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+            เปรียบเทียบก่อน-หลัง (Before / After Swipe)
+          </button>
+          <button class="tab-btn" id="tab-gallery" onclick="switchViewerTab('gallery')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+            คลังภาพ 36 เดือน (Monthly Gallery)
+          </button>
+        </div>
+
+        <!-- Band Mode Selector -->
+        <div class="band-selector">
+          <label class="band-label">รูปแบบการแสดงภาพ:</label>
+          <div class="band-btn-group">
+            <button class="band-btn active" data-band="rgb" onclick="setBandMode('rgb')">True Color (RGB)</button>
+            <button class="band-btn" data-band="false_color" onclick="setBandMode('false_color')">Color Infrared (CIR)</button>
+            <button class="band-btn" data-band="ndvi" onclick="setBandMode('ndvi')">NDVI Heatmap</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 1: SINGLE TIMELINE SCRUBBER -->
+      <div class="view-panel active" id="panel-single">
+        <div class="image-stage">
+          <div class="image-wrapper">
+            <img id="main-display-img" src="" alt="Satellite Composite" class="satellite-img">
+            
+            <!-- Map Overlay HUD -->
+            <div class="image-hud top-left">
+              <div class="hud-title" id="hud-month-title">กันยายน 2023</div>
+              <div class="hud-subtitle" id="hud-band-type">Sentinel-2 L2A True Color (RGB)</div>
+            </div>
+            
+            <div class="image-hud top-right">
+              <div class="hud-badge">Cloud-free SCL Masked</div>
+              <div class="hud-stat-line" id="hud-scenes-count">8 scenes composited</div>
+            </div>
+
+            <div class="image-hud bottom-left">
+              <div class="hud-coords">พิกัดศูนย์กลาง: 12.708824°N, 101.692934°E</div>
+              <div class="hud-res">ความละเอียดเชิงพื้นที่: 10 ม./พิกเซล</div>
+            </div>
+
+            <div class="image-hud bottom-right">
+              <div class="hud-metric-pill">
+                <span class="pill-title">Mean NDVI:</span>
+                <strong id="hud-mean-ndvi">0.000</strong>
+              </div>
+              <div class="hud-metric-pill">
+                <span class="pill-title">Canopy Cover:</span>
+                <strong id="hud-canopy-cover">0%</strong>
+              </div>
+            </div>
+
+            <!-- Legend Overlay (Visible when NDVI mode active) -->
+            <div class="ndvi-legend" id="ndvi-legend-overlay">
+              <div class="legend-title">สเกลค่าดัชนี NDVI</div>
+              <div class="legend-bar"></div>
+              <div class="legend-labels">
+                <span>&lt; 0.0 (น้ำ/ดินแฉะ)</span>
+                <span>0.2 (เริ่มแตกใบ)</span>
+                <span>0.4 (พุ่มไม้)</span>
+                <span>&gt; 0.6 (ป่าสมบูรณ์)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline Playback Controls -->
+        <div class="playback-controls">
+          <div class="control-actions">
+            <button class="btn-ctrl" id="btn-prev" onclick="prevMonth()" title="เดือนก่อนหน้า">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="btn-ctrl btn-play" id="btn-play" onclick="togglePlay()" title="เล่นแอนิเมชัน">
+              <svg id="play-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              <svg id="pause-icon" class="hidden" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+            </button>
+            <button class="btn-ctrl" id="btn-next" onclick="nextMonth()" title="เดือนถัดไป">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="current-month-display" id="control-date-display">
+              Sep 2023
+            </div>
+          </div>
+
+          <!-- Timeline Scrubber -->
+          <div class="scrubber-container">
+            <input type="range" id="timeline-slider" min="0" max="35" value="0" step="1" oninput="onSliderChange(this.value)">
+            <div class="timeline-ticks" id="timeline-ticks">
+              <!-- Dynamically populated year/milestone labels -->
+            </div>
+          </div>
+
+          <div class="playback-speed">
+            <span class="speed-label">ความเร็ว:</span>
+            <select id="speed-select" onchange="setSpeed(this.value)">
+              <option value="1000">0.5x</option>
+              <option value="500" selected>1.0x</option>
+              <option value="250">2.0x</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- VIEW 2: BEFORE / AFTER SWIPE COMPARISON -->
+      <div class="view-panel" id="panel-compare">
+        <div class="compare-selectors">
+          <div class="select-group">
+            <label for="compare-left-select">ภาพฝั่งซ้าย (Before):</label>
+            <select id="compare-left-select" onchange="updateCompareImages()"></select>
+          </div>
+          <div class="compare-icon-indicator">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="12" x2="17" y2="12"/><polyline points="13 8 17 12 13 16"/><polyline points="11 8 7 12 11 16"/></svg>
+          </div>
+          <div class="select-group">
+            <label for="compare-right-select">ภาพฝั่งขวา (After):</label>
+            <select id="compare-right-select" onchange="updateCompareImages()"></select>
+          </div>
+        </div>
+
+        <div class="compare-stage" id="compare-container">
+          <div class="compare-img-box after-img-box">
+            <img id="compare-img-after" src="" alt="After Image">
+            <div class="compare-label right-label" id="compare-label-after">Aug 2026</div>
+          </div>
+          <div class="compare-img-box before-img-box" id="compare-before-wrapper">
+            <img id="compare-img-before" src="" alt="Before Image">
+            <div class="compare-label left-label" id="compare-label-before">Sep 2023</div>
+          </div>
+          <div class="compare-handle" id="compare-divider">
+            <div class="handle-line"></div>
+            <div class="handle-circle">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"/></svg>
+            </div>
+          </div>
+        </div>
+        <p class="compare-hint">ลากเส้นแถบตรงกลางไปซ้าย-ขวาเพื่อเปรียบเทียบความเปลี่ยนแปลงก่อนและหลังการฟื้นฟู</p>
+      </div>
+
+      <!-- VIEW 3: 36-MONTH GALLERY -->
+      <div class="view-panel" id="panel-gallery">
+        <div class="gallery-toolbar">
+          <p class="gallery-desc">คลิกที่ภาพใดๆ เพื่อนำขึ้นแสดงผลในโหมดหลัก หรือดูรายละเอียดการเติบโต</p>
+          <div class="gallery-actions">
+            <a href="data/timelapse/timelapse_true_color.gif" download class="btn-download" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              ดาวน์โหลด Timelapse GIF (RGB)
+            </a>
+            <a href="data/timelapse/timelapse_ndvi.gif" download class="btn-download" target="_blank">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              ดาวน์โหลด Timelapse GIF (NDVI)
+            </a>
+          </div>
+        </div>
+        <div class="gallery-grid" id="gallery-grid-container">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Time-Series Chart Section -->
+    <section class="chart-section">
+      <div class="section-card">
+        <div class="card-header">
+          <div>
+            <h2 class="section-title">กราฟวิเคราะห์การเติบโตของแปลงป่าชายเลน (NDVI Time-Series Trend)</h2>
+            <p class="section-subtitle">สถิติค่าดัชนีพืชพรรณเฉลี่ย (Mean NDVI) และอัตราการปกคลุมทรงพุ่ม (% Canopy Cover) รายเดือน 2023 - 2026 (คลิกที่จุดบนกราฟเพื่อเลือกดูภาพของเดือนนั้น)</p>
+          </div>
+        </div>
+        <div class="chart-wrapper">
+          <canvas id="ndviChart"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Methodology & Growth Stages Section -->
+    <section class="info-section">
+      <div class="info-grid">
+        <div class="info-card">
+          <div class="info-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
+          <h3 class="info-card-title">หลักการสังเคราะห์ภาพแบบไร้เมฆ (Temporal Compositing)</h3>
+          <ul class="info-list">
+            <li><strong>Cloud & Shadow Masking:</strong> ตรวจสอบพิกเซลผ่าน Sentinel-2 Scene Classification Layer (SCL) เพื่อตัดเมฆหนา เมฆบาง ละอองเมฆ และเงาเมฆ (Classes 0, 1, 3, 8, 9, 10, 11) ออกอย่างสมบูรณ์</li>
+            <li><strong>Pixel-based Median Reduction:</strong> นำภาพที่ผ่านการตัดเมฆในแต่ละเดือน (5–12 ภาพ/เดือน) มาซ้อนทับเป็น Time-Series Stack และเลือกค่ามัธยฐานของค่าการสะท้อนแสง (Surface Reflectance)</li>
+            <li><strong>Max NDVI Selection:</strong> เลือกพิกเซลที่มีสุขภาพพืชพรรณและสภาพอากาศปลอดโปร่งที่สุด เพื่อให้ได้ภาพผืนดินและผืนน้ำที่คมชัดและไร้รอยต่อ</li>
+          </ul>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon text-success">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="info-card-title">ลำดับขั้นการฟื้นฟูของแปลงป่าชายเลน (Restoration Milestones)</h3>
+          <div class="milestones-timeline">
+            <div class="milestone-item">
+              <span class="m-badge">ก.ย. – ธ.ค. 2023</span>
+              <p><strong>สภาพก่อนปลูก:</strong> พื้นที่เดิมเป็นบ่อนากุ้งร้าง ขังน้ำลึก ค่า NDVI ต่ำ (-0.05 ถึง 0.12)</p>
+            </div>
+            <div class="milestone-item">
+              <span class="m-badge">ต้น – กลางปี 2024</span>
+              <p><strong>การปรับพื้นที่และเริ่มลงกล้า:</strong> ระบายน้ำ ปรับคันดิน เริ่มเห็นร่องแปลงปลูก ค่า NDVI เริ่มขยับขึ้นสู่ 0.20 – 0.30</p>
+            </div>
+            <div class="milestone-item">
+              <span class="m-badge">ปลายปี 2024 – 2025</span>
+              <p><strong>ระยะแตกกิ่งและขยายทรงพุ่ม:</strong> ต้นโกงกาง/แสมตั้งตัวได้ แตกใบและขยายทรงพุ่ม ท้องร่องน้ำเริ่มมีพืชพรรณปกคลุม</p>
+            </div>
+            <div class="milestone-item">
+              <span class="m-badge">2026 (ปัจจุบัน)</span>
+              <p><strong>เรือนยอดป่าชายเลนประสานตัว:</strong> พื้นที่บ่อเดิมเกือบทั้งหมดถูกปกคลุมด้วยเรือนยอดเขียวชอุ่ม ค่า NDVI สูงแตะ 0.55 – 0.65</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p>จัดทำโดยระบบประมวลผลภูมิสารสนเทศภาพถ่ายดาวเทียม Sentinel-2 L2A (European Space Agency / Microsoft Planetary Computer)</p>
+      <p class="copyright">พิกัดแปลง: 12.708824° N, 101.692934° E | ตำบลปากน้ำประแส อำเภอแกลง จังหวัดระยอง</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
