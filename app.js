@@ -605,6 +605,8 @@ function updateCompareView() {
   
   const leftIdx = parseInt(document.getElementById('comp-left-select').value, 10);
   const rightIdx = parseInt(document.getElementById('comp-right-select').value, 10);
+  const modeSelect = document.getElementById('comp-mode-select');
+  const mode = modeSelect ? modeSelect.value : 'rgb';
   
   const itemL = activePlot.timeseries[leftIdx];
   const itemR = activePlot.timeseries[rightIdx];
@@ -632,38 +634,37 @@ function updateCompareView() {
   const msL = getClosest(itemL.year, itemL.month_num);
   const msR = getClosest(itemR.year, itemR.month_num);
   
-  const imgL = `data/plots/${activePlot.id}/rgb_${msL}.png`;
-  const imgR = `data/plots/${activePlot.id}/rgb_${msR}.png`;
+  const prefix = mode === 'ndvi' ? 'ndvi' : 'rgb';
+  const imgL = `data/plots/${activePlot.id}/${prefix}_${msL}.png`;
+  const imgR = `data/plots/${activePlot.id}/${prefix}_${msR}.png`;
   
-  const container = document.getElementById('compare-container');
-  const beforeMap = document.getElementById('compare-before-map');
-  const afterMap = document.getElementById('compare-after-map');
+  const beforeImg = document.getElementById('compare-before-img');
+  const afterImg = document.getElementById('compare-after-img');
   
-  // CRITICAL: before-map must be sized to the CONTAINER, not the wrapper
-  // The wrapper clips it, but the image itself must fill the full container width
-  const containerW = container.offsetWidth;
-  const containerH = container.offsetHeight;
-  beforeMap.style.width = containerW + 'px';
-  beforeMap.style.height = containerH + 'px';
-  
-  beforeMap.style.backgroundImage = `url(${imgL})`;
-  beforeMap.style.backgroundSize = 'cover';
-  beforeMap.style.backgroundPosition = 'center';
-  beforeMap.style.backgroundRepeat = 'no-repeat';
+  if (beforeImg) beforeImg.src = imgL;
+  if (afterImg) afterImg.src = imgR;
+}
 
-  afterMap.style.backgroundImage = `url(${imgR})`;
-  afterMap.style.backgroundSize = 'cover';
-  afterMap.style.backgroundPosition = 'center';
-  afterMap.style.backgroundRepeat = 'no-repeat';
+let compareDividerPct = 50;
+
+function setCompareDividerPosition(pct) {
+  compareDividerPct = Math.max(0, Math.min(100, pct));
+  const beforeImg = document.getElementById('compare-before-img');
+  const divider = document.getElementById('comp-divider');
+  
+  if (beforeImg) {
+    beforeImg.style.clipPath = `polygon(0 0, ${compareDividerPct}% 0, ${compareDividerPct}% 100%, 0 100%)`;
+  }
+  if (divider) {
+    divider.style.left = `${compareDividerPct}%`;
+  }
 }
 
 function initCompareSlider() {
   const container = document.getElementById('compare-container');
-  const wrapper = document.getElementById('comp-before-wrapper');
-  const divider = document.getElementById('comp-divider');
   let isDragging = false;
 
-  if (!container || !wrapper || !divider) return;
+  if (!container) return;
 
   const slide = (e) => {
     if (!isDragging) return;
@@ -673,13 +674,10 @@ function initCompareSlider() {
     if (e.touches && e.touches.length > 0) clientX = e.touches[0].clientX;
     
     let x = clientX - rect.left;
-    x = Math.max(0, Math.min(x, rect.width));
     const pct = (x / rect.width) * 100;
-    wrapper.style.width = pct + '%';
-    divider.style.left = pct + '%';
+    setCompareDividerPosition(pct);
   };
 
-  // Allow dragging from anywhere in the container, not just the handle
   container.addEventListener('mousedown', (e) => { isDragging = true; slide(e); });
   container.addEventListener('touchstart', (e) => { isDragging = true; slide(e); }, {passive: false});
   
@@ -689,14 +687,7 @@ function initCompareSlider() {
   window.addEventListener('mousemove', slide);
   window.addEventListener('touchmove', slide, {passive: false});
   
-  // Re-size before-map on window resize
-  window.addEventListener('resize', () => {
-    const bm = document.getElementById('compare-before-map');
-    if (bm && container) {
-      bm.style.width = container.offsetWidth + 'px';
-      bm.style.height = container.offsetHeight + 'px';
-    }
-  });
+  setCompareDividerPosition(50);
 }
 
 document.addEventListener('DOMContentLoaded', initCompareSlider);

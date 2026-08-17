@@ -213,6 +213,13 @@
           <div class="compare-box">
             <div class="compare-selectors">
               <div class="select-group">
+                <label>โหมดภาพถ่าย:</label>
+                <select id="comp-mode-select" onchange="updateCompareView()">
+                  <option value="rgb">ภาพถ่ายดาวเทียมจริง (RGB True Color)</option>
+                  <option value="ndvi">ดัชนีพืชพรรณจริง (NDVI Heatmap)</option>
+                </select>
+              </div>
+              <div class="select-group">
                 <label>ภาพฝั่งซ้าย (Before):</label>
                 <select id="comp-left-select" onchange="updateCompareView()"></select>
               </div>
@@ -222,10 +229,8 @@
               </div>
             </div>
             <div class="compare-stage" id="compare-container">
-              <div class="compare-map-box" id="compare-after-map"></div>
-              <div class="compare-before-wrapper" id="comp-before-wrapper">
-                <div class="compare-map-box" id="compare-before-map"></div>
-              </div>
+              <img id="compare-after-img" class="compare-img compare-after" src="" alt="After" />
+              <img id="compare-before-img" class="compare-img compare-before" src="" alt="Before" />
               <div class="compare-label left-label" id="comp-label-before">ก.ย. 2023 (ก่อนปลูก)</div>
               <div class="compare-label right-label" id="comp-label-after">ส.ค. 2026 (ปัจจุบัน)</div>
               <div class="compare-handle" id="comp-divider">
