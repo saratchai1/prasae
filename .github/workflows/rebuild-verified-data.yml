@@ -2,6 +2,13 @@ name: Rebuild verified 12-date dataset
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - process_verified_12_dates.py
+      - requirements-verified.txt
+      - .github/workflows/rebuild-verified-data.yml
 
 permissions:
   contents: write
@@ -11,9 +18,36 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  rebuild:
+  smoke-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements-verified.txt
+
+      - name: Validate Python syntax
+        run: python -m py_compile process_verified_12_dates.py extract_kmz_plots.py
+
+      - name: Smoke-test one plot against live Sentinel-2 STAC
+        env:
+          PRASAE_WORKERS: '1'
+          PRASAE_MAX_SCENES: '2'
+          PRASAE_PLOT_IDS: '1'
+        run: python process_verified_12_dates.py
+
+  rebuild:
+    needs: smoke-test
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,9 +64,10 @@ jobs:
       - name: Re-extract exact plot geometry
         run: python extract_kmz_plots.py
 
-      - name: Build 12-date Sentinel-2 dataset
+      - name: Build multi-index 12-date Sentinel-2 dataset
         env:
-          PRASAE_WORKERS: '4'
+          PRASAE_WORKERS: '6'
+          PRASAE_MAX_SCENES: '5'
         run: python process_verified_12_dates.py
 
       - name: Commit regenerated data
@@ -44,5 +79,5 @@ jobs:
             echo "No regenerated data changes"
             exit 0
           fi
-          git commit -m "Rebuild verified 12-date Sentinel-2 dataset"
+          git commit -m "Rebuild multi-index 12-date mangrove metrics"
           git push
