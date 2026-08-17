@@ -3,176 +3,129 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ระบบติดตามแปลงฟื้นฟูป่าชายเลน 160 แปลงทั่วประเทศ (Nationwide Mangrove Monitoring)</title>
-  <meta name="description" content="ระบบวิเคราะห์ภาพถ่ายดาวเทียม Sentinel-2 L2A ติดตามการเปลี่ยนแปลงแปลงป่าชายเลน 160 แปลงทั่วประเทศ ด้วยการวิเคราะห์ดัชนี NDVI เฉพาะภายในกรอบแปลงที่ดิน (In-Boundary Masking)">
+  <title>Prasae Mangrove Monitoring — 12 Observation Dates</title>
+  <meta name="description" content="ระบบติดตามแปลงฟื้นฟูป่าชายเลนด้วย Sentinel-2 L2A จำนวน 12 observation/composite dates แสดงภาพเฉพาะในขอบเขตแปลงเหนือ Esri World Imagery">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Leaflet GIS Map CSS & JS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-  
-  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Header -->
   <header class="site-header">
     <div class="header-container">
       <div class="brand-group">
         <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
         </div>
         <div>
-          <h1 class="brand-title">ระบบติดตามแปลงฟื้นฟูป่าชายเลน 160 แปลงทั่วประเทศ</h1>
-          <p class="brand-subtitle">Sentinel-2 L2A In-Boundary NDVI Time-Series Analysis (ก.ย. 2023 – ส.ค. 2026)</p>
+          <h1 class="brand-title">ระบบติดตามแปลงฟื้นฟูป่าชายเลน</h1>
+          <p class="brand-subtitle">Sentinel-2 L2A • 12 observation/composite dates • exact polygon clipping</p>
         </div>
       </div>
       <div class="header-meta">
-        <span class="meta-pill"><span class="pill-dot"></span> 160+ แปลง (42,000+ ไร่)</span>
-        <span class="meta-pill mask-badge">In-Boundary Polygon Masking (เฉพาะในกรอบแปลง)</span>
-        <span class="meta-pill date-range-pill">36 เดือนต่อเนื่อง</span>
+        <span class="meta-pill"><span class="pill-dot"></span> กำลังโหลดชุดแปลง</span>
+        <span class="meta-pill mask-badge">Sentinel-2 inside polygon + Esri outside</span>
+        <span class="meta-pill date-range-pill">12 ช่วงเวลาภาพดาวเทียม</span>
       </div>
     </div>
   </header>
 
-  <!-- Main Portal Layout -->
   <div class="portal-layout">
-    <!-- Left Sidebar: Plot Navigator -->
     <aside class="plot-sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">ค้นหาและเลือกแปลงที่ดิน</h2>
         <div class="filter-group">
           <label for="province-filter">เลือกจังหวัด:</label>
-          <select id="province-filter" onchange="onProvinceFilterChange(this.value)">
-            <option value="ALL">ทุกจังหวัด (ทั้งหมด 160+ แปลง)</option>
-          </select>
+          <select id="province-filter" onchange="onProvinceFilterChange(this.value)"><option value="ALL">ทุกจังหวัด</option></select>
         </div>
         <div class="search-box">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <input type="text" id="plot-search-input" placeholder="พิมพ์ชื่อแปลง, รหัส หรือจังหวัด..." oninput="onPlotSearchInput(this.value)">
+          <input type="text" id="plot-search-input" placeholder="ชื่อแปลง รหัส หรือจังหวัด" oninput="onPlotSearchInput(this.value)">
         </div>
-        <div class="sidebar-stats" id="sidebar-count-display">
-          แสดง 0 จาก 0 แปลง
-        </div>
+        <div class="sidebar-stats" id="sidebar-count-display">กำลังโหลด...</div>
       </div>
-
-      <!-- Plot List Container -->
-      <div class="plot-list" id="plot-list-container">
-        <!-- Dynamically rendered -->
-      </div>
+      <div class="plot-list" id="plot-list-container"></div>
     </aside>
 
-    <!-- Right Main Workspace -->
     <main class="workspace-area">
-      <!-- National KPI Cards -->
       <section class="national-kpi-grid">
         <div class="kpi-card">
-          <div class="kpi-label">พื้นที่ป่าชายเลนที่ติดตามรวม</div>
-          <div class="kpi-value" id="kpi-total-area">42,167 ไร่</div>
-          <div class="kpi-sub">ครอบคลุม 16 จังหวัดชายฝั่งทะเล</div>
+          <div class="kpi-label">พื้นที่ที่ติดตามรวม</div>
+          <div class="kpi-value" id="kpi-total-area">—</div>
+          <div class="kpi-sub">คำนวณจากชุดขอบเขตแปลงปัจจุบัน</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">แปลงที่เลือกในปัจจุบัน</div>
-          <div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">-</div>
-          <div class="kpi-sub" id="kpi-current-plot-sub">-</div>
+          <div class="kpi-label">แปลงที่เลือก</div>
+          <div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">—</div>
+          <div class="kpi-sub" id="kpi-current-plot-sub">—</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">การเติบโต NDVI ในแปลง (In-Boundary Gain)</div>
-          <div class="kpi-value text-success" id="kpi-plot-ndvi-gain">+0.000</div>
-          <div class="kpi-sub" id="kpi-plot-gain-pct">เพิ่มขึ้น (เฉพาะพิกเซลในกรอบแปลง)</div>
+          <div class="kpi-label">การเปลี่ยนแปลง NDVI (observed dates only)</div>
+          <div class="kpi-value text-success" id="kpi-plot-ndvi-gain">—</div>
+          <div class="kpi-sub" id="kpi-plot-gain-pct">ไม่ใช้ interpolation หรือ synthetic fallback</div>
         </div>
         <div class="kpi-card">
-          <div class="kpi-label">สัดส่วนทรงพุ่มในแปลง (% Canopy)</div>
-          <div class="kpi-value" id="kpi-plot-canopy-pct">0%</div>
-          <div class="kpi-sub">คำนวณจาก In-Boundary Polygon Mask 100%</div>
+          <div class="kpi-label">Vegetation coverage proxy</div>
+          <div class="kpi-value" id="kpi-plot-canopy-pct">—</div>
+          <div class="kpi-sub">สัดส่วนพิกเซลในแปลงที่ NDVI &gt; 0.25; ไม่ใช่ canopy cover โดยตรง</div>
         </div>
       </section>
 
-      <!-- Portal Tabs -->
       <div class="workspace-card">
         <div class="workspace-tabs">
           <button class="w-tab-btn active" id="wtab-detail" onclick="switchWorkspaceTab('detail')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
-            วิเคราะห์แปลงรายเดือน (In-Boundary Analysis)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            วิเคราะห์ 12 ช่วงเวลา (Observed / Composite)
           </button>
           <button class="w-tab-btn" id="wtab-map" onclick="switchWorkspaceTab('map')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
-            แผนที่ GIS 160 แปลงทั่วประเทศ (Thailand Map)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/></svg>
+            แผนที่ GIS ทุกแปลง
           </button>
           <button class="w-tab-btn" id="wtab-compare" onclick="switchWorkspaceTab('compare')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
-            เปรียบเทียบก่อน-หลัง (Before / After Swipe)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+            เปรียบเทียบ Before / After
           </button>
           <button class="w-tab-btn" id="wtab-table" onclick="switchWorkspaceTab('table')">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
-            ตารางสรุป 160 แปลง (Overview Table)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/></svg>
+            ตารางสรุป
           </button>
         </div>
 
-        <!-- TAB 1: PLOT DETAIL & IN-BOUNDARY TIME-SERIES -->
         <div class="tab-content-panel active" id="panel-detail">
-          <!-- In-Boundary Time-Series Chart -->
           <div class="chart-box">
             <div class="chart-header-row">
               <div>
-                <h3 class="chart-box-title" id="chart-plot-title">กราฟวิเคราะห์การเติบโตของค่า NDVI ในแปลงที่ดิน (เฉพาะในกรอบแปลง)</h3>
-                <p class="chart-box-subtitle">คำนวณค่าดัชนีพืชพรรณ (NDVI) และสัดส่วนทรงพุ่มเขียว เฉพาะพิกเซลที่อยู่ภายในกรอบขอบเขตแปลง (In-Boundary Polygon) 100% ไม่นำพื้นที่นอกกรอบมาคิด</p>
+                <h3 class="chart-box-title" id="chart-plot-title">NDVI และ Vegetation Proxy — 12 observation/composite dates</h3>
+                <p class="chart-box-subtitle">ไม่มีการ interpolate ระหว่างเดือน และไม่มี synthetic fallback; ช่องที่ไม่มี observation จะแสดงเป็น No data</p>
               </div>
-              <div class="chart-badge-tag">Strict In-Boundary Masked</div>
+              <div class="chart-badge-tag">Verified statistics pending</div>
             </div>
-            <div class="chart-canvas-container">
-              <canvas id="plotNdviChart"></canvas>
-            </div>
+            <div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div>
           </div>
 
-          <!-- Dynamic Satellite GIS Stage with Exact KMZ Polygon Boundary -->
           <div class="viewer-wrapper">
             <div class="viewer-toolbar">
               <div class="band-btn-group">
-                <button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">แผนที่ฐาน (Esri High-Res)</button>
-                <button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">ภาพถ่ายดาวเทียมจริง (RGB)</button>
-                <button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">ดัชนีพืชพรรณจริง (NDVI Heatmap)</button>
+                <button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">Esri World Imagery</button>
+                <button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB (ในขอบเขตแปลง)</button>
+                <button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI (ในขอบเขตแปลง)</button>
               </div>
               <div class="boundary-toggle">
-                <label>
-                  <input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)">
-                  แสดงเส้นขอบเขตแปลงจาก KMZ (Polygon Outline)
-                </label>
+                <label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> แสดงเส้นขอบเขตแปลง</label>
               </div>
             </div>
 
             <div class="satellite-stage">
-              <!-- Interactive Plot Satellite Map -->
               <div id="plot-satellite-map" class="plot-satellite-map-container"></div>
-              
-              <!-- Map HUD Overlays -->
-              <div class="stage-hud top-left">
-                <div class="hud-main" id="hud-month-label">Sep 2023</div>
-                <div class="hud-sub" id="hud-plot-label">-</div>
-              </div>
-
-              <div class="stage-hud top-right">
-                <div class="hud-tag">Cloud-Free 100%</div>
-                <div class="hud-sub">SCL QA Masked</div>
-              </div>
-
-              <div class="stage-hud bottom-left">
-                <div class="hud-sub" id="hud-coords-label">0.0000° N, 0.0000° E</div>
-                <div class="hud-sub">High-Resolution Satellite Imagery</div>
-              </div>
-
-              <div class="stage-hud bottom-right">
-                <div class="hud-pill">In-Boundary Mean NDVI: <strong id="hud-in-ndvi">0.000</strong></div>
-                <div class="hud-pill">Canopy Cover: <strong id="hud-in-cover">0%</strong></div>
-              </div>
+              <div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กันยายน 2023</div><div class="hud-sub" id="hud-plot-label">—</div></div>
+              <div class="stage-hud top-right"><div class="hud-tag">Cloud-masked composite</div><div class="hud-sub">SCL QA • no interpolation</div></div>
+              <div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">Sentinel-2 L2A clipped over Esri World Imagery</div></div>
+              <div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">Vegetation proxy: <strong id="hud-in-cover">—</strong></div></div>
             </div>
 
-            <!-- Playback Scrubber Controls -->
             <div class="playback-bar">
               <div class="playback-btns">
                 <button class="p-btn" onclick="prevMonth()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg></button>
@@ -181,131 +134,51 @@
                   <svg id="pause-icon" class="hidden" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
                 </button>
                 <button class="p-btn" onclick="nextMonth()"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></button>
-                <div class="current-date-badge" id="playback-date-display">Sep 2023</div>
+                <div class="current-date-badge" id="playback-date-display">ก.ย. 2023</div>
               </div>
               <div class="slider-box">
-                <input type="range" id="month-slider" min="0" max="35" value="0" step="1" oninput="onMonthSliderChange(this.value)">
-                <div class="slider-ticks">
-                  <span>ก.ย. 2023 (เริ่มต้น)</span>
-                  <span>2024</span>
-                  <span>2025</span>
-                  <span>ส.ค. 2026 (ปัจจุบัน)</span>
-                </div>
+                <input type="range" id="month-slider" min="0" max="11" value="0" step="1" oninput="onMonthSliderChange(this.value)">
+                <div class="slider-ticks"><span>ก.ย. 2023</span><span>ก.ย. 2024</span><span>ก.ย. 2025</span><span>ส.ค. 2026</span></div>
               </div>
             </div>
           </div>
         </div>
 
-        <!-- TAB 2: NATIONWIDE GIS THAILAND MAP -->
         <div class="tab-content-panel" id="panel-map">
           <div class="map-toolbar">
-            <p class="map-hint">คลิกที่แปลงใดๆ บนแผนที่ประเทศไทย เพื่อดูขอบเขตแปลง (Polygon จาก KMZ) และกดเลือกวิเคราะห์แปลงนั้นได้ทันที</p>
-            <button class="btn-reset-zoom" onclick="resetMapZoom()">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-              ซูมภาพรวมประเทศไทย
-            </button>
+            <p class="map-hint">คลิก polygon เพื่อเลือกแปลง; basemap ใช้ Esri World Imagery</p>
+            <button class="btn-reset-zoom" onclick="resetMapZoom()">ซูมภาพรวมประเทศไทย</button>
           </div>
           <div id="thailand-map" class="thailand-gis-map"></div>
         </div>
 
-        <!-- TAB 3: BEFORE / AFTER SWIPE -->
         <div class="tab-content-panel" id="panel-compare">
           <div class="compare-box">
             <div class="compare-selectors">
-              <div class="select-group">
-                <label>โหมดภาพถ่าย:</label>
-                <select id="comp-mode-select" onchange="updateCompareView()">
-                  <option value="rgb">ภาพถ่ายดาวเทียมจริง (RGB True Color)</option>
-                  <option value="ndvi">ดัชนีพืชพรรณจริง (NDVI Heatmap)</option>
-                  <option value="rgb_vs_ndvi">เปรียบเทียบ RGB (ซ้าย) vs NDVI (ขวา)</option>
-                </select>
-              </div>
-              <div class="select-group">
-                <label>ภาพฝั่งซ้าย (Before):</label>
-                <select id="comp-left-select" onchange="updateCompareView()"></select>
-              </div>
-              <div class="select-group">
-                <label>ภาพฝั่งขวา (After):</label>
-                <select id="comp-right-select" onchange="updateCompareView()"></select>
-              </div>
-              <div class="select-group boundary-check-group">
-                <label class="checkbox-label">
-                  <input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)">
-                  แสดงกรอบแปลง (Polygon)
-                </label>
-              </div>
+              <div class="select-group"><label>โหมด:</label><select id="comp-mode-select" onchange="updateCompareView()"><option value="rgb">RGB</option><option value="ndvi">NDVI</option><option value="rgb_vs_ndvi">RGB vs NDVI</option></select></div>
+              <div class="select-group"><label>ซ้าย:</label><select id="comp-left-select" onchange="updateCompareView()"></select></div>
+              <div class="select-group"><label>ขวา:</label><select id="comp-right-select" onchange="updateCompareView()"></select></div>
+              <div class="select-group boundary-check-group"><label class="checkbox-label"><input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)"> แสดงกรอบแปลง</label></div>
             </div>
-            
             <div class="compare-stage" id="compare-container">
-              <!-- Layer 0: ESRI High-Res Satellite Base Map (Outside plot boundary) -->
-              <img id="compare-bg-img" class="compare-img compare-bg" src="" alt="ESRI Satellite Base" />
-              
-              <!-- Layer 1: Masked Sentinel-2 (After) -->
-              <img id="compare-after-img" class="compare-img compare-after" src="" alt="After" />
-              
-              <!-- Layer 2: Masked Sentinel-2 (Before with clip-path) -->
-              <img id="compare-before-img" class="compare-img compare-before" src="" alt="Before" />
-              
-              <!-- Layer 3: Exact In-Boundary Polygon Outline Overlay -->
-              <svg id="compare-boundary-svg" class="compare-boundary-overlay" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
-                <!-- Dynamically generated polygons -->
-              </svg>
-
               <div class="compare-label left-label" id="comp-label-before">ก.ย. 2023</div>
               <div class="compare-label right-label" id="comp-label-after">ส.ค. 2026</div>
-              <div class="compare-handle" id="comp-divider">
-                <div class="handle-circle">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"/></svg>
-                </div>
-              </div>
+              <div class="compare-handle" id="comp-divider"><div class="handle-circle">↔</div></div>
             </div>
-
-            <!-- In-Boundary Statistical Summary & Legend -->
             <div class="compare-meta-bar">
-              <div class="compare-stat-item">
-                <span class="meta-icon">📊</span>
-                <span>วิเคราะห์ In-Boundary: </span>
-                <span id="comp-in-stat-text">NDVI ก่อน: <strong>0.00</strong> ➔ หลัง: <strong>0.00</strong></span>
-                <span class="compare-stat-pill" id="comp-gain-pill">+0.00 (+0%)</span>
-              </div>
-              <div class="ndvi-legend-bar" id="comp-ndvi-legend">
-                <span>NDVI Index: -0.1 (น้ำ/ดิน)</span>
-                <div class="ndvi-gradient-strip"></div>
-                <span>0.8 (ป่าสมบูรณ์)</span>
-              </div>
+              <div class="compare-stat-item"><span>Observed-only statistics:</span><span id="comp-in-stat-text">Verified NDVI statistics ยังไม่ถูกสร้าง</span><span class="compare-stat-pill" id="comp-gain-pill">No verified metric</span></div>
+              <div class="ndvi-legend-bar" id="comp-ndvi-legend"><span>NDVI -0.1</span><div class="ndvi-gradient-strip"></div><span>0.8</span></div>
             </div>
-
-            <p class="compare-hint">💡 ลากเส้นสไลเดอร์ตรงกลางเพื่อเปรียบเทียบการเปลี่ยนแปลงของแปลงป่าชายเลนเฉพาะในกรอบแปลง (In-Boundary Polygon Outline)</p>
+            <p class="compare-hint">ลากเส้นกลางเพื่อเปรียบเทียบ 2 observation dates; Esri เป็น basemap และ Sentinel-2 แสดงเฉพาะในขอบเขตแปลง</p>
           </div>
         </div>
 
-        <!-- TAB 4: OVERVIEW TABLE -->
         <div class="tab-content-panel" id="panel-table">
-          <div class="table-toolbar">
-            <div class="table-count" id="table-count-label">แสดง 160 แปลง</div>
-            <button class="btn-download-csv" onclick="exportPlotsCSV()">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              ดาวน์โหลดตารางสรุป (CSV)
-            </button>
-          </div>
+          <div class="table-toolbar"><div class="table-count" id="table-count-label">กำลังโหลด...</div><button class="btn-download-csv" onclick="exportPlotsCSV()">ดาวน์โหลด CSV</button></div>
           <div class="table-container">
             <table class="plots-table" id="plots-data-table">
-              <thead>
-                <tr>
-                  <th>รหัสแปลง</th>
-                  <th>ชื่อแปลงที่ดิน</th>
-                  <th>จังหวัด</th>
-                  <th>เนื้อที่ (ไร่)</th>
-                  <th>NDVI เริ่มต้น (ก.ย. 23)</th>
-                  <th>NDVI ปัจจุบัน (ส.ค. 26)</th>
-                  <th>การเติบโต (Gain)</th>
-                  <th>% ทรงพุ่ม</th>
-                  <th>การกระทำ</th>
-                </tr>
-              </thead>
-              <tbody id="table-body">
-                <!-- Dynamically populated -->
-              </tbody>
+              <thead><tr><th>รหัสแปลง</th><th>ชื่อแปลง</th><th>จังหวัด</th><th>เนื้อที่ (ไร่)</th><th>NDVI ก.ย. 2023</th><th>NDVI ส.ค. 2026</th><th>NDVI Gain</th><th>Vegetation proxy (%)</th><th>การกระทำ</th></tr></thead>
+              <tbody id="table-body"></tbody>
             </table>
           </div>
         </div>
