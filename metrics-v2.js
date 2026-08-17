@@ -1,7 +1,7 @@
-// Enhanced mangrove metric presentation.
+// Enhanced mangrove metric presentation v3.
 // Keeps core plot selection / compare logic untouched.
 
-const METRIC_V2_VERSION = '20260817-2340';
+const METRIC_V2_VERSION = '20260817-2345';
 const baseNormalizePlotV2 = normalizePlot;
 
 normalizePlot = function(plot, catalogPlot) {
@@ -21,6 +21,8 @@ normalizePlot = function(plot, catalogPlot) {
       evi_median: numberOrNull('evi_median'),
       mfi_median: numberOrNull('mfi_median'),
       mfi_positive_pct: numberOrNull('mfi_positive_pct'),
+      mfi_only_signal_pct: numberOrNull('mfi_only_signal_pct'),
+      submerged_mangrove_signal_pct: numberOrNull('submerged_mangrove_signal_pct'),
       mndwi_median: numberOrNull('mndwi_median'),
       open_water_pct: numberOrNull('open_water_pct'),
       open_nonvegetated_pct: numberOrNull('open_nonvegetated_pct'),
@@ -37,6 +39,8 @@ normalizePlot = function(plot, catalogPlot) {
     ? plot.current_ndre_median : null;
   base.current_open_water_pct = isFiniteNumber(plot.current_open_water_pct)
     ? plot.current_open_water_pct : null;
+  base.current_submerged_mangrove_signal_pct = isFiniteNumber(plot.current_submerged_mangrove_signal_pct)
+    ? plot.current_submerged_mangrove_signal_pct : null;
   return base;
 };
 
@@ -53,7 +57,7 @@ function ensureMangroveMetricPanel() {
   style.id = 'mangrove-metric-v2-style';
   style.textContent = `
     .mangrove-metric-v2-panel {
-      display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:.65rem;
+      display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:.65rem;
       margin-top:1rem;
     }
     .mangrove-metric-v2-card {
@@ -63,7 +67,8 @@ function ensureMangroveMetricPanel() {
     .mangrove-metric-v2-label { font-size:.67rem; color:#94a3b8; font-weight:700; line-height:1.25; }
     .mangrove-metric-v2-value { font-size:1.08rem; font-weight:800; color:#f8fafc; margin-top:.18rem; }
     .mangrove-metric-v2-sub { font-size:.61rem; color:#64748b; margin-top:.15rem; line-height:1.3; }
-    @media(max-width:1000px){ .mangrove-metric-v2-panel{grid-template-columns:repeat(2,minmax(0,1fr));} }
+    @media(max-width:1200px){ .mangrove-metric-v2-panel{grid-template-columns:repeat(3,minmax(0,1fr));} }
+    @media(max-width:700px){ .mangrove-metric-v2-panel{grid-template-columns:repeat(2,minmax(0,1fr));} }
   `;
   document.head.appendChild(style);
 
@@ -72,9 +77,14 @@ function ensureMangroveMetricPanel() {
   panel.className = 'mangrove-metric-v2-panel';
   panel.innerHTML = `
     <div class="mangrove-metric-v2-card">
+      <div class="mangrove-metric-v2-label">GREEN COVER PROXY</div>
+      <div class="mangrove-metric-v2-value" id="metric-v2-cover">—</div>
+      <div class="mangrove-metric-v2-sub">Conservative: NDVI &gt; 0.25 เท่านั้น</div>
+    </div>
+    <div class="mangrove-metric-v2-card">
       <div class="mangrove-metric-v2-label">VEGETATION-ONLY NDVI</div>
       <div class="mangrove-metric-v2-value" id="metric-v2-canopy-ndvi">—</div>
-      <div class="mangrove-metric-v2-sub">Median NDVI เฉพาะพิกเซล vegetation proxy</div>
+      <div class="mangrove-metric-v2-sub">Median NDVI เฉพาะพิกเซล Green Cover</div>
     </div>
     <div class="mangrove-metric-v2-card">
       <div class="mangrove-metric-v2-label">NDRE • RED EDGE</div>
@@ -82,14 +92,14 @@ function ensureMangroveMetricPanel() {
       <div class="mangrove-metric-v2-sub">สัญญาณ red-edge ของ vegetation • native 20 m</div>
     </div>
     <div class="mangrove-metric-v2-card">
-      <div class="mangrove-metric-v2-label">TIDE-RESILIENT VEGETATION PROXY</div>
-      <div class="mangrove-metric-v2-value" id="metric-v2-cover">—</div>
-      <div class="mangrove-metric-v2-sub">NDVI &gt; 0.25 หรือ MFI &gt; 0 ภายในแปลง</div>
-    </div>
-    <div class="mangrove-metric-v2-card">
       <div class="mangrove-metric-v2-label">OPEN WATER</div>
       <div class="mangrove-metric-v2-value" id="metric-v2-water">—</div>
-      <div class="mangrove-metric-v2-sub">MNDWI water ที่ไม่มี vegetation/MFI signal</div>
+      <div class="mangrove-metric-v2-sub">MNDWI &gt; 0 และไม่ผ่าน Green Cover</div>
+    </div>
+    <div class="mangrove-metric-v2-card">
+      <div class="mangrove-metric-v2-label">MFI SIGNAL IN WATER</div>
+      <div class="mangrove-metric-v2-value" id="metric-v2-mfi-water">—</div>
+      <div class="mangrove-metric-v2-sub">Diagnostic ของ possible submerged mangrove • ไม่รวมเป็น cover</div>
     </div>
     <div class="mangrove-metric-v2-card">
       <div class="mangrove-metric-v2-label">OBSERVATION QA</div>
@@ -109,10 +119,11 @@ function renderMangroveMetricV2() {
     if (element) element.textContent = text;
   };
 
+  set('metric-v2-cover', fmtMetric(item.vegetation_coverage_proxy_pct, 1, '%'));
   set('metric-v2-canopy-ndvi', fmtMetric(item.canopy_ndvi_median, 3));
   set('metric-v2-ndre', fmtMetric(item.ndre_median, 3));
-  set('metric-v2-cover', fmtMetric(item.vegetation_coverage_proxy_pct, 1, '%'));
   set('metric-v2-water', fmtMetric(item.open_water_pct, 1, '%'));
+  set('metric-v2-mfi-water', fmtMetric(item.submerged_mangrove_signal_pct, 1, '%'));
   set('metric-v2-qa', fmtMetric(item.clear_pixel_pct, 0, '%'));
   set('metric-v2-qa-sub', `${item.scenes_used || 0} scene(s) • ${item.status || 'no_data'}`);
 
@@ -120,31 +131,29 @@ function renderMangroveMetricV2() {
   if (proxyCard) {
     const label = proxyCard.querySelector('.kpi-label');
     const sub = proxyCard.querySelector('.kpi-sub');
-    if (label) label.textContent = 'Tide-resilient Vegetation Proxy';
-    if (sub) sub.textContent = 'NDVI > 0.25 หรือ MFI > 0; แยก open water ออกต่างหาก';
+    if (label) label.textContent = 'Conservative Green Cover Proxy';
+    if (sub) sub.textContent = 'NDVI > 0.25; MFI แสดงแยกเป็น submerged-signal diagnostic';
   }
 
   const subtitle = document.querySelector('.chart-box-subtitle');
   if (subtitle) {
-    subtitle.textContent = 'NDVI = ความเขียวของทั้งแปลง • Vegetation Proxy ใช้ NDVI + Mangrove Forest Index เพื่อลดผลจากน้ำขึ้น • ไม่มี interpolation';
+    subtitle.textContent = 'NDVI = ความเขียวของทั้งแปลง • Green Cover = NDVI > 0.25 แบบ conservative • MFI แสดงแยกเพื่อบอกสัญญาณ mangrove ในน้ำ • ไม่มี interpolation';
   }
 
   if (plotNdviChart?.data?.datasets?.[1]) {
-    plotNdviChart.data.datasets[1].label = 'Tide-resilient Vegetation Proxy (NDVI or MFI)';
+    plotNdviChart.data.datasets[1].label = 'Conservative Green Cover Proxy (NDVI > 0.25)';
     plotNdviChart.update('none');
   }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   ensureMangroveMetricPanel();
-
   const watchIds = ['kpi-current-plot-name', 'playback-date-display'];
   const observer = new MutationObserver(() => setTimeout(renderMangroveMetricV2, 0));
   watchIds.forEach(id => {
     const node = document.getElementById(id);
     if (node) observer.observe(node, { childList: true, characterData: true, subtree: true });
   });
-
   document.getElementById('month-slider')?.addEventListener('input', () => setTimeout(renderMangroveMetricV2, 0));
   setTimeout(renderMangroveMetricV2, 800);
 });
