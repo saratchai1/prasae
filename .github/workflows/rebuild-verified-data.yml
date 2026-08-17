@@ -20,7 +20,7 @@ concurrency:
 jobs:
   smoke-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,12 +38,52 @@ jobs:
       - name: Validate Python syntax
         run: python -m py_compile process_verified_12_dates.py extract_kmz_plots.py
 
-      - name: Smoke-test one plot against live Sentinel-2 STAC
+      - name: Smoke-test mature and Prasae plots against live Sentinel-2 STAC
         env:
-          PRASAE_WORKERS: '1'
+          PRASAE_WORKERS: '2'
           PRASAE_MAX_SCENES: '2'
-          PRASAE_PLOT_IDS: '1'
+          PRASAE_PLOT_IDS: '1,76'
         run: python process_verified_12_dates.py
+
+      - name: Validate metric ranges and class partition
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          data = json.loads(Path('data/timeseries_verified_12.json').read_text(encoding='utf-8'))
+          assert {p['id'] for p in data} == {1, 76}, [p['id'] for p in data]
+          observed = 0
+          for plot in data:
+              print(f"\n{plot['code']} {plot['name']}")
+              for d in plot['timeseries']:
+                  if d['status'] not in {'observed_single_scene', 'observed_monthly_composite'}:
+                      print(d['month'], d['status'], 'clear', d.get('clear_pixel_pct'))
+                      continue
+                  observed += 1
+                  ndvi = d['mean_ndvi_inside']
+                  cover = d['vegetation_coverage_proxy_pct']
+                  water = d['open_water_pct']
+                  other = d['open_nonvegetated_pct']
+                  assert -1 <= ndvi <= 1, (plot['id'], d['month'], ndvi)
+                  assert 0 <= cover <= 100, (plot['id'], d['month'], cover)
+                  assert 0 <= water <= 100, (plot['id'], d['month'], water)
+                  assert 0 <= other <= 100, (plot['id'], d['month'], other)
+                  assert abs((cover + water + other) - 100) <= 0.3, (plot['id'], d['month'], cover, water, other)
+                  if d.get('ndre_median') is not None:
+                      assert -1 <= d['ndre_median'] <= 1
+                  print(
+                      d['month'],
+                      f"NDVI={ndvi:.3f}",
+                      f"veg={cover:.1f}%",
+                      f"water={water:.1f}%",
+                      f"open={other:.1f}%",
+                      f"NDRE={d.get('ndre_median')}",
+                      f"MFI={d.get('mfi_median')}",
+                      f"clear={d.get('clear_pixel_pct')}%",
+                  )
+          assert observed >= 8, f'too few observed smoke-test dates: {observed}'
+          PY
 
   rebuild:
     needs: smoke-test
@@ -73,6 +113,24 @@ jobs:
           PRASAE_WORKERS: '6'
           PRASAE_MAX_SCENES: '5'
         run: python process_verified_12_dates.py
+
+      - name: Validate full dataset
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          data = json.loads(Path('data/timeseries_verified_12.json').read_text(encoding='utf-8'))
+          assert len(data) >= 200, len(data)
+          for plot in data:
+              assert len(plot['timeseries']) == 12, (plot['id'], len(plot['timeseries']))
+              for d in plot['timeseries']:
+                  if d['status'] not in {'observed_single_scene', 'observed_monthly_composite'}:
+                      continue
+                  vals = [d['vegetation_coverage_proxy_pct'], d['open_water_pct'], d['open_nonvegetated_pct']]
+                  assert all(0 <= v <= 100 for v in vals), (plot['id'], d['month'], vals)
+                  assert abs(sum(vals) - 100) <= 0.3, (plot['id'], d['month'], vals)
+          print(f'Validated {len(data)} plots')
+          PY
 
       - name: Commit, rebase onto latest main, and deploy
         run: |
