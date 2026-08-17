@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="styles.css?v=20260817-2309">
+  <link rel="stylesheet" href="styles.css?v=20260817-2310">
 </head>
 <body>
   <header class="site-header">
@@ -33,50 +33,23 @@
       </div>
     </div>
   </header>
-
   <div class="portal-layout">
     <aside class="plot-sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">ค้นหาและเลือกแปลงที่ดิน</h2>
-        <div class="filter-group">
-          <label for="province-filter">เลือกจังหวัด:</label>
-          <select id="province-filter" onchange="onProvinceFilterChange(this.value)">
-            <option value="ALL">ทุกจังหวัด</option>
-          </select>
-        </div>
-        <div class="search-box">
-          <span>⌕</span>
-          <input type="text" id="plot-search-input" placeholder="ชื่อแปลง รหัส หรือจังหวัด" oninput="onPlotSearchInput(this.value)">
-        </div>
+        <div class="filter-group"><label for="province-filter">เลือกจังหวัด:</label><select id="province-filter" onchange="onProvinceFilterChange(this.value)"><option value="ALL">ทุกจังหวัด</option></select></div>
+        <div class="search-box"><span>⌕</span><input type="text" id="plot-search-input" placeholder="ชื่อแปลง รหัส หรือจังหวัด" oninput="onPlotSearchInput(this.value)"></div>
         <div class="sidebar-stats" id="sidebar-count-display">กำลังโหลด...</div>
       </div>
       <div class="plot-list" id="plot-list-container"></div>
     </aside>
-
     <main class="workspace-area">
       <section class="national-kpi-grid">
-        <div class="kpi-card">
-          <div class="kpi-label">พื้นที่ที่ติดตามรวม</div>
-          <div class="kpi-value" id="kpi-total-area">—</div>
-          <div class="kpi-sub">คำนวณจากชุดขอบเขตแปลงปัจจุบัน</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">แปลงที่เลือก</div>
-          <div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">—</div>
-          <div class="kpi-sub" id="kpi-current-plot-sub">—</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">การเปลี่ยนแปลง NDVI (observed dates only)</div>
-          <div class="kpi-value text-success" id="kpi-plot-ndvi-gain">—</div>
-          <div class="kpi-sub" id="kpi-plot-gain-pct">ไม่ใช้ interpolation หรือ synthetic fallback</div>
-        </div>
-        <div class="kpi-card">
-          <div class="kpi-label">Vegetation coverage proxy</div>
-          <div class="kpi-value" id="kpi-plot-canopy-pct">—</div>
-          <div class="kpi-sub">สัดส่วนพิกเซลในแปลงที่ NDVI &gt; 0.25; ไม่ใช่ canopy cover โดยตรง</div>
-        </div>
+        <div class="kpi-card"><div class="kpi-label">พื้นที่ที่ติดตามรวม</div><div class="kpi-value" id="kpi-total-area">—</div><div class="kpi-sub">คำนวณจากชุดขอบเขตแปลงปัจจุบัน</div></div>
+        <div class="kpi-card"><div class="kpi-label">แปลงที่เลือก</div><div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">—</div><div class="kpi-sub" id="kpi-current-plot-sub">—</div></div>
+        <div class="kpi-card"><div class="kpi-label">การเปลี่ยนแปลง NDVI (observed dates only)</div><div class="kpi-value text-success" id="kpi-plot-ndvi-gain">—</div><div class="kpi-sub" id="kpi-plot-gain-pct">ไม่ใช้ interpolation หรือ synthetic fallback</div></div>
+        <div class="kpi-card"><div class="kpi-label">Vegetation coverage proxy</div><div class="kpi-value" id="kpi-plot-canopy-pct">—</div><div class="kpi-sub">สัดส่วนพิกเซลในแปลงที่ NDVI &gt; 0.25; ไม่ใช่ canopy cover โดยตรง</div></div>
       </section>
-
       <div class="workspace-card">
         <div class="workspace-tabs">
           <button class="w-tab-btn active" id="wtab-detail" onclick="switchWorkspaceTab('detail')">วิเคราะห์ 12 ช่วงเวลา</button>
@@ -84,92 +57,20 @@
           <button class="w-tab-btn" id="wtab-compare" onclick="switchWorkspaceTab('compare')">เปรียบเทียบ Before / After</button>
           <button class="w-tab-btn" id="wtab-table" onclick="switchWorkspaceTab('table')">ตารางสรุป</button>
         </div>
-
         <div class="tab-content-panel active" id="panel-detail">
-          <div class="chart-box">
-            <div class="chart-header-row">
-              <div>
-                <h3 class="chart-box-title" id="chart-plot-title">NDVI และ Vegetation Proxy — 12 observation/composite dates</h3>
-                <p class="chart-box-subtitle">ไม่มีการ interpolate ระหว่างเดือน และไม่มี synthetic fallback; ช่องที่ไม่มี observation จะแสดงเป็น No data</p>
-              </div>
-              <div class="chart-badge-tag">Verified statistics pending</div>
-            </div>
-            <div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div>
-          </div>
-
+          <div class="chart-box"><div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI และ Vegetation Proxy — 12 observation/composite dates</h3><p class="chart-box-subtitle">ไม่มีการ interpolate ระหว่างเดือน และไม่มี synthetic fallback; ช่องที่ไม่มี observation จะแสดงเป็น No data</p></div><div class="chart-badge-tag">Verified statistics pending</div></div><div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div></div>
           <div class="viewer-wrapper">
-            <div class="viewer-toolbar">
-              <div class="band-btn-group">
-                <button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">Esri World Imagery</button>
-                <button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB (ในขอบเขตแปลง)</button>
-                <button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI (ในขอบเขตแปลง)</button>
-              </div>
-              <div class="boundary-toggle">
-                <label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> แสดงเส้นขอบเขตแปลง</label>
-              </div>
-            </div>
-
-            <div class="satellite-stage">
-              <div id="plot-satellite-map" class="plot-satellite-map-container"></div>
-              <div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กันยายน 2023</div><div class="hud-sub" id="hud-plot-label">—</div></div>
-              <div class="stage-hud top-right"><div class="hud-tag">Cloud-masked composite</div><div class="hud-sub">SCL QA • 12 dates • no interpolation</div></div>
-              <div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">Sentinel-2 clipped over Esri World Imagery</div></div>
-              <div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">Vegetation proxy: <strong id="hud-in-cover">—</strong></div></div>
-            </div>
-
-            <div class="playback-bar">
-              <div class="playback-btns">
-                <button class="p-btn" onclick="prevMonth()">‹</button>
-                <button class="p-btn p-play" id="btn-play" onclick="togglePlay()"><span id="play-icon">▶</span><span id="pause-icon" class="hidden">Ⅱ</span></button>
-                <button class="p-btn" onclick="nextMonth()">›</button>
-                <div class="current-date-badge" id="playback-date-display">ก.ย. 2023</div>
-              </div>
-              <div class="slider-box">
-                <input type="range" id="month-slider" min="0" max="11" value="0" step="1" oninput="onMonthSliderChange(this.value)">
-                <div class="slider-ticks"><span>ก.ย. 2023</span><span>ก.ย. 2024</span><span>ก.ย. 2025</span><span>ส.ค. 2026</span></div>
-              </div>
-            </div>
+            <div class="viewer-toolbar"><div class="band-btn-group"><button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">Esri World Imagery</button><button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB (ในขอบเขตแปลง)</button><button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI (ในขอบเขตแปลง)</button></div><div class="boundary-toggle"><label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> แสดงเส้นขอบเขตแปลง</label></div></div>
+            <div class="satellite-stage"><div id="plot-satellite-map" class="plot-satellite-map-container"></div><div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กันยายน 2023</div><div class="hud-sub" id="hud-plot-label">—</div></div><div class="stage-hud top-right"><div class="hud-tag">Cloud-masked composite</div><div class="hud-sub">SCL QA • 12 dates • no interpolation</div></div><div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">Sentinel-2 clipped over Esri World Imagery</div></div><div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">Vegetation proxy: <strong id="hud-in-cover">—</strong></div></div></div>
+            <div class="playback-bar"><div class="playback-btns"><button class="p-btn" onclick="prevMonth()">‹</button><button class="p-btn p-play" id="btn-play" onclick="togglePlay()"><span id="play-icon">▶</span><span id="pause-icon" class="hidden">Ⅱ</span></button><button class="p-btn" onclick="nextMonth()">›</button><div class="current-date-badge" id="playback-date-display">ก.ย. 2023</div></div><div class="slider-box"><input type="range" id="month-slider" min="0" max="11" value="0" step="1" oninput="onMonthSliderChange(this.value)"><div class="slider-ticks"><span>ก.ย. 2023</span><span>ก.ย. 2024</span><span>ก.ย. 2025</span><span>ส.ค. 2026</span></div></div></div>
           </div>
         </div>
-
-        <div class="tab-content-panel" id="panel-map">
-          <div class="map-toolbar">
-            <p class="map-hint">คลิก polygon เพื่อเลือกแปลง; basemap ใช้ Esri World Imagery</p>
-            <button class="btn-reset-zoom" onclick="resetMapZoom()">ซูมภาพรวมประเทศไทย</button>
-          </div>
-          <div id="thailand-map" class="thailand-gis-map"></div>
-        </div>
-
-        <div class="tab-content-panel" id="panel-compare">
-          <div class="compare-box">
-            <div class="compare-selectors">
-              <div class="select-group"><label>โหมด:</label><select id="comp-mode-select" onchange="updateCompareView()"><option value="rgb">RGB vs RGB</option><option value="ndvi">NDVI vs NDVI</option><option value="rgb_vs_ndvi">RGB vs NDVI</option></select></div>
-              <div class="select-group"><label>Before:</label><select id="comp-left-select" onchange="updateCompareView()"></select></div>
-              <div class="select-group"><label>After:</label><select id="comp-right-select" onchange="updateCompareView()"></select></div>
-              <div class="select-group boundary-check-group"><label class="checkbox-label"><input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)"> แสดงกรอบแปลง</label></div>
-            </div>
-            <div class="compare-stage" id="compare-container"></div>
-            <div class="compare-meta-bar">
-              <div class="compare-stat-item"><span>Observed-only statistics:</span><span id="comp-in-stat-text">Verified NDVI statistics ยังไม่ถูกสร้าง</span><span class="compare-stat-pill" id="comp-gain-pill">No verified metric</span></div>
-              <div class="ndvi-legend-bar" id="comp-ndvi-legend"><span>NDVI -0.1</span><div class="ndvi-gradient-strip"></div><span>0.8</span></div>
-            </div>
-            <p class="compare-hint">เปรียบเทียบสองช่วงเวลาแบบซ้าย/ขวา โดยทั้งสองฝั่งมี Esri World Imagery เป็นพื้นหลัง และ Sentinel-2 แสดงเฉพาะในขอบเขตแปลง</p>
-          </div>
-        </div>
-
-        <div class="tab-content-panel" id="panel-table">
-          <div class="table-toolbar"><div class="table-count" id="table-count-label">กำลังโหลด...</div><button class="btn-download-csv" onclick="exportPlotsCSV()">ดาวน์โหลด CSV</button></div>
-          <div class="table-container">
-            <table class="plots-table" id="plots-data-table">
-              <thead><tr><th>รหัสแปลง</th><th>ชื่อแปลง</th><th>จังหวัด</th><th>เนื้อที่ (ไร่)</th><th>NDVI ก.ย. 2023</th><th>NDVI ส.ค. 2026</th><th>NDVI Gain</th><th>Vegetation proxy (%)</th><th>การกระทำ</th></tr></thead>
-              <tbody id="table-body"></tbody>
-            </table>
-          </div>
-        </div>
+        <div class="tab-content-panel" id="panel-map"><div class="map-toolbar"><p class="map-hint">คลิก polygon เพื่อเลือกแปลง; basemap ใช้ Esri World Imagery</p><button class="btn-reset-zoom" onclick="resetMapZoom()">ซูมภาพรวมประเทศไทย</button></div><div id="thailand-map" class="thailand-gis-map"></div></div>
+        <div class="tab-content-panel" id="panel-compare"><div class="compare-box"><div class="compare-selectors"><div class="select-group"><label>โหมด:</label><select id="comp-mode-select" onchange="updateCompareView()"><option value="rgb">RGB vs RGB</option><option value="ndvi">NDVI vs NDVI</option><option value="rgb_vs_ndvi">RGB vs NDVI</option></select></div><div class="select-group"><label>Before:</label><select id="comp-left-select" onchange="updateCompareView()"></select></div><div class="select-group"><label>After:</label><select id="comp-right-select" onchange="updateCompareView()"></select></div><div class="select-group boundary-check-group"><label class="checkbox-label"><input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)"> แสดงกรอบแปลง</label></div></div><div class="compare-stage" id="compare-container"></div><div class="compare-meta-bar"><div class="compare-stat-item"><span>Observed-only statistics:</span><span id="comp-in-stat-text">Verified NDVI statistics ยังไม่ถูกสร้าง</span><span class="compare-stat-pill" id="comp-gain-pill">No verified metric</span></div><div class="ndvi-legend-bar" id="comp-ndvi-legend"><span>NDVI -0.1</span><div class="ndvi-gradient-strip"></div><span>0.8</span></div></div><p class="compare-hint">เปรียบเทียบสองช่วงเวลาแบบซ้าย/ขวา โดยทั้งสองฝั่งมี Esri World Imagery เป็นพื้นหลัง และ Sentinel-2 แสดงเฉพาะในขอบเขตแปลง</p></div></div>
+        <div class="tab-content-panel" id="panel-table"><div class="table-toolbar"><div class="table-count" id="table-count-label">กำลังโหลด...</div><button class="btn-download-csv" onclick="exportPlotsCSV()">ดาวน์โหลด CSV</button></div><div class="table-container"><table class="plots-table" id="plots-data-table"><thead><tr><th>รหัสแปลง</th><th>ชื่อแปลง</th><th>จังหวัด</th><th>เนื้อที่ (ไร่)</th><th>NDVI ก.ย. 2023</th><th>NDVI ส.ค. 2026</th><th>NDVI Gain</th><th>Vegetation proxy (%)</th><th>การกระทำ</th></tr></thead><tbody id="table-body"></tbody></table></div></div>
       </div>
     </main>
   </div>
-
-  <script src="app.js?v=20260817-2309"></script>
+  <script src="app.js?v=20260817-2310"></script>
 </body>
 </html>
