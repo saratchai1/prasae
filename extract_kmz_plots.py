@@ -1,208 +1,192 @@
-import os
-import sys
+#!/usr/bin/env python3
+"""Extract project plots from KMZ while preserving Polygon holes and MultiPolygons."""
+
+from __future__ import annotations
+
 import json
-import zipfile
 import re
+import zipfile
 from collections import defaultdict
+from pathlib import Path
+
 from bs4 import BeautifulSoup
-from shapely.geometry import Polygon, MultiPolygon, shape, mapping
+from pyproj import Geod
+from shapely.geometry import MultiPolygon, Polygon, mapping
 from shapely.ops import unary_union
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_DIR = os.path.join(BASE_DIR, "data")
-KMZ_PATH = os.path.join(BASE_DIR, "my-land", "STC_VSD_EVR.kmz")
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+KMZ_PATH = BASE_DIR / "my-land" / "STC_VSD_EVR.kmz"
+GEOD = Geod(ellps="WGS84")
 
-os.makedirs(DATA_DIR, exist_ok=True)
-
-print(f"Reading KMZ: {KMZ_PATH}...")
-with zipfile.ZipFile(KMZ_PATH, "r") as z:
-    kml_name = [n for n in z.namelist() if n.endswith(".kml")][0]
-    kml_bytes = z.read(kml_name)
-
-soup = BeautifulSoup(kml_bytes, "xml")
-placemarks = soup.find_all("Placemark")
-print(f"Total placemarks in KML: {len(placemarks)}")
-
-# Known provinces in Thailand for inference if not in name string
 PROVINCES_TH = [
-    "กระบี่", "พังงา", "ระยอง", "จันทบุรี", "สตูล", "ปัตตานี", 
-    "สมุทรสงคราม", "ตราด", "ภูเก็ต", "ตรัง", "ชุมพร", 
-    "ประจวบคีรีขันธ์", "นครศรีธรรมราช", "ระนอง", "สุราษฎร์ธานี", "ฉะเชิงเทรา",
-    "สมุทรปราการ", "สมุทรสาคร", "เพชรบุรี", "ชลบุรี", "สงขลา"
+    "กระบี่", "พังงา", "ระยอง", "จันทบุรี", "สตูล", "ปัตตานี",
+    "สมุทรสงคราม", "ตราด", "ภูเก็ต", "ตรัง", "ชุมพร",
+    "ประจวบคีรีขันธ์", "นครศรีธรรมราช", "ระนอง", "สุราษฎร์ธานี",
+    "ฉะเชิงเทรา", "สมุทรปราการ", "สมุทรสาคร", "เพชรบุรี", "ชลบุรี", "สงขลา"
 ]
 
-raw_parcels = []
 
-for idx, p in enumerate(placemarks):
-    name_el = p.find("name")
-    raw_name = name_el.text.strip() if name_el else f"Plot_{idx+1}"
-    
-    poly_els = p.find_all("Polygon")
-    if not poly_els:
-        continue
-        
-    poly_geoms = []
-    for poly_el in poly_els:
-        outer = poly_el.find("outerBoundaryIs")
-        if outer:
-            coord_el = outer.find("coordinates")
-            if coord_el:
-                pts = []
-                for pt in coord_el.text.strip().split():
-                    parts = pt.split(",")
-                    if len(parts) >= 2:
-                        pts.append((float(parts[0]), float(parts[1])))
-                if len(pts) >= 3:
-                    try:
-                        p_geom = Polygon(pts)
-                        if p_geom.is_valid:
-                            poly_geoms.append(p_geom)
-                        else:
-                            p_geom = p_geom.buffer(0)
-                            if p_geom.is_valid:
-                                poly_geoms.append(p_geom)
-                    except:
-                        pass
-                        
-    if not poly_geoms:
-        continue
-        
-    geom = poly_geoms[0] if len(poly_geoms) == 1 else MultiPolygon(poly_geoms)
-    
-    # Extract Province
-    prov = "ไม่ระบุ"
-    m_prov = re.search(r"จังหวัด\s*([^\s,]+)", raw_name)
-    if m_prov:
-        prov = m_prov.group(1)
-    else:
-        for pr in PROVINCES_TH:
-            if pr in raw_name:
-                prov = pr
-                break
-        # Infer province from coordinates if still unspecified:
-        if prov == "ไม่ระบุ":
-            lat, lon = geom.centroid.y, geom.centroid.x
-            if 12.4 <= lat <= 12.8 and 101.5 <= lon <= 101.9:
-                prov = "ระยอง"
-            elif 12.2 <= lat <= 12.8 and 101.9 <= lon <= 102.6:
-                prov = "จันทบุรี"
-            elif 7.8 <= lat <= 8.5 and 98.7 <= lon <= 99.2:
-                prov = "กระบี่"
-            elif 8.2 <= lat <= 8.8 and 98.3 <= lon <= 98.7:
-                prov = "พังงา"
-            elif 6.4 <= lat <= 7.0 and 99.8 <= lon <= 100.3:
-                prov = "สตูล"
-            elif 6.7 <= lat <= 7.0 and 101.1 <= lon <= 101.6:
-                prov = "ปัตตานี"
-            elif 13.2 <= lat <= 13.5 and 99.8 <= lon <= 100.2:
-                prov = "สมุทรสงคราม"
-            elif 9.5 <= lat <= 10.5 and 98.4 <= lon <= 98.8:
-                prov = "ระนอง"
-            elif 7.8 <= lat <= 8.2 and 98.2 <= lon <= 98.5:
-                prov = "ภูเก็ต"
-            elif 11.5 <= lat <= 12.5 and 99.5 <= lon <= 100.1:
-                prov = "ประจวบคีรีขันธ์"
-            elif 11.8 <= lat <= 12.5 and 102.4 <= lon <= 102.9:
-                prov = "ตราด"
+def parse_ring(boundary_element):
+    if boundary_element is None:
+        return []
+    coordinates = boundary_element.find("coordinates")
+    if coordinates is None:
+        return []
+    points = []
+    for token in coordinates.text.strip().split():
+        parts = token.split(",")
+        if len(parts) >= 2:
+            points.append((float(parts[0]), float(parts[1])))
+    return points
 
-    # Extract Area in Rai
-    m_area = re.search(r"เนื้อที่\s*([\d\.]+)\s*ไร่", raw_name)
-    area_rai = float(m_area.group(1)) if m_area else round(geom.area * 111319.5 * 111319.5 / 1600.0, 2)
-    
-    # Base Plot Key for clustering sub-parcels (e.g. แปลง 60(1) & 60(2) -> แปลง 60-STC)
-    m_plot_num = re.search(r"(แปลง\s*\d+)", raw_name)
-    if m_plot_num:
-        plot_key = f"{m_plot_num.group(1)}-{prov}"
-    else:
-        clean_name = re.sub(r"\(\d+\)", "", raw_name).strip()
-        plot_key = f"{clean_name}-{prov}"
-        
-    raw_parcels.append({
-        "raw_name": raw_name,
-        "plot_key": plot_key,
-        "province": prov,
-        "area_rai": area_rai,
-        "geom": geom
-    })
 
-print(f"Total valid polygon placemarks parsed: {len(raw_parcels)}")
+def parse_polygon(poly_element):
+    outer = parse_ring(poly_element.find("outerBoundaryIs"))
+    if len(outer) < 3:
+        return None
+    holes = []
+    for inner in poly_element.find_all("innerBoundaryIs"):
+        ring = parse_ring(inner)
+        if len(ring) >= 3:
+            holes.append(ring)
+    geom = Polygon(outer, holes=holes)
+    if not geom.is_valid:
+        geom = geom.buffer(0)
+    if geom.is_empty or not geom.is_valid:
+        return None
+    return geom
 
-# Group by plot_key into primary plots
-grouped = defaultdict(list)
-for p in raw_parcels:
-    grouped[p["plot_key"]].append(p)
 
-print(f"Total primary plot clusters: {len(grouped)}")
+def infer_province(raw_name: str, centroid_lat: float, centroid_lon: float) -> str:
+    match = re.search(r"จังหวัด\s*([^\s,]+)", raw_name)
+    if match:
+        return match.group(1)
+    for province in PROVINCES_TH:
+        if province in raw_name:
+            return province
 
-plots_catalog = []
-features = []
+    if 12.4 <= centroid_lat <= 12.8 and 101.5 <= centroid_lon <= 101.9:
+        return "ระยอง"
+    if 12.2 <= centroid_lat <= 12.8 and 101.9 <= centroid_lon <= 102.6:
+        return "จันทบุรี"
+    if 7.8 <= centroid_lat <= 8.5 and 98.7 <= centroid_lon <= 99.2:
+        return "กระบี่"
+    if 8.2 <= centroid_lat <= 8.8 and 98.3 <= centroid_lon <= 98.7:
+        return "พังงา"
+    if 6.4 <= centroid_lat <= 7.0 and 99.8 <= centroid_lon <= 100.3:
+        return "สตูล"
+    if 6.7 <= centroid_lat <= 7.0 and 101.1 <= centroid_lon <= 101.6:
+        return "ปัตตานี"
+    if 13.2 <= centroid_lat <= 13.5 and 99.8 <= centroid_lon <= 100.2:
+        return "สมุทรสงคราม"
+    if 9.5 <= centroid_lat <= 10.5 and 98.4 <= centroid_lon <= 98.8:
+        return "ระนอง"
+    if 7.8 <= centroid_lat <= 8.2 and 98.2 <= centroid_lon <= 98.5:
+        return "ภูเก็ต"
+    if 11.5 <= centroid_lat <= 12.5 and 99.5 <= centroid_lon <= 100.1:
+        return "ประจวบคีรีขันธ์"
+    if 11.8 <= centroid_lat <= 12.5 and 102.4 <= centroid_lon <= 102.9:
+        return "ตราด"
+    return "ไม่ระบุ"
 
-for idx, (plot_key, items) in enumerate(grouped.items()):
-    geoms = [it["geom"] for it in items]
-    merged_geom = unary_union(geoms) if len(geoms) > 1 else geoms[0]
-    
-    # Calculate area and centroid
-    total_area_rai = sum(it["area_rai"] for it in items)
-    province = items[0]["province"]
-    
-    # Clean display name
-    first_name = items[0]["raw_name"]
-    display_title = re.sub(r"\(\d+\)", "", first_name).strip()
-    if "เนื้อที่" in display_title:
-        # Format cleanly: แปลง XX-STC (YY ไร่) จังหวัด ZZ
-        display_title = re.sub(r"เนื้อที่\s*[\d\.]+\s*ไร่", f"เนื้อที่ {total_area_rai:.2f} ไร่", display_title)
-        
-    bounds = [round(b, 6) for b in merged_geom.bounds] # [min_lon, min_lat, max_lon, max_lat]
-    centroid = [round(merged_geom.centroid.y, 6), round(merged_geom.centroid.x, 6)] # [lat, lon]
-    
-    plot_entry = {
-        "id": idx + 1,
-        "code": f"PLOT_{idx+1:03d}",
-        "name": display_title,
-        "province": province,
-        "area_rai": round(total_area_rai, 2),
-        "parts_count": len(items),
-        "centroid": centroid,
-        "bounds": bounds,
-        "geometry": mapping(merged_geom)
-    }
-    plots_catalog.append(plot_entry)
-    
-    # GeoJSON feature
-    feature = {
-        "type": "Feature",
-        "id": idx + 1,
-        "geometry": mapping(merged_geom),
-        "properties": {
-            "id": idx + 1,
-            "code": f"PLOT_{idx+1:03d}",
+
+def geodesic_area_rai(geom) -> float:
+    area_m2, _ = GEOD.geometry_area_perimeter(geom)
+    return abs(area_m2) / 1600.0
+
+
+def main():
+    DATA_DIR.mkdir(parents=True, exist_ok=True)
+    print(f"Reading KMZ: {KMZ_PATH}")
+    with zipfile.ZipFile(KMZ_PATH, "r") as archive:
+        kml_files = [name for name in archive.namelist() if name.lower().endswith(".kml")]
+        if not kml_files:
+            raise RuntimeError("KMZ contains no KML file")
+        soup = BeautifulSoup(archive.read(kml_files[0]), "xml")
+
+    raw_parcels = []
+    for index, placemark in enumerate(soup.find_all("Placemark"), start=1):
+        name_element = placemark.find("name")
+        raw_name = name_element.text.strip() if name_element else f"Plot_{index}"
+        polygons = [parse_polygon(element) for element in placemark.find_all("Polygon")]
+        polygons = [polygon for polygon in polygons if polygon is not None]
+        if not polygons:
+            continue
+
+        geom = polygons[0] if len(polygons) == 1 else MultiPolygon(polygons)
+        if not geom.is_valid:
+            geom = geom.buffer(0)
+        if geom.is_empty:
+            continue
+
+        province = infer_province(raw_name, geom.centroid.y, geom.centroid.x)
+        area_match = re.search(r"เนื้อที่\s*([\d.]+)\s*ไร่", raw_name)
+        declared_area = float(area_match.group(1)) if area_match else None
+
+        plot_number = re.search(r"(แปลง\s*\d+)", raw_name)
+        if plot_number:
+            plot_key = f"{plot_number.group(1)}-{province}"
+        else:
+            plot_key = f"{re.sub(r'\(\d+\)', '', raw_name).strip()}-{province}"
+
+        raw_parcels.append({
+            "raw_name": raw_name,
+            "plot_key": plot_key,
+            "province": province,
+            "declared_area_rai": declared_area,
+            "geom": geom,
+        })
+
+    grouped = defaultdict(list)
+    for parcel in raw_parcels:
+        grouped[parcel["plot_key"]].append(parcel)
+
+    catalog = []
+    features = []
+    for index, (_, items) in enumerate(grouped.items(), start=1):
+        merged = unary_union([item["geom"] for item in items])
+        if not merged.is_valid:
+            merged = merged.buffer(0)
+        if merged.is_empty:
+            continue
+
+        declared_parts = [item["declared_area_rai"] for item in items if item["declared_area_rai"] is not None]
+        total_area = sum(declared_parts) if len(declared_parts) == len(items) else geodesic_area_rai(merged)
+        province = items[0]["province"]
+        display_title = re.sub(r"\(\d+\)", "", items[0]["raw_name"]).strip()
+        if "เนื้อที่" in display_title:
+            display_title = re.sub(r"เนื้อที่\s*[\d.]+\s*ไร่", f"เนื้อที่ {total_area:.2f} ไร่", display_title)
+
+        bounds = [round(value, 8) for value in merged.bounds]
+        centroid = [round(merged.centroid.y, 8), round(merged.centroid.x, 8)]
+        plot = {
+            "id": index,
+            "code": f"PLOT_{index:03d}",
             "name": display_title,
             "province": province,
-            "area_rai": round(total_area_rai, 2),
+            "area_rai": round(total_area, 2),
             "parts_count": len(items),
             "centroid": centroid,
-            "bounds": bounds
+            "bounds": bounds,
+            "geometry": mapping(merged),
         }
-    }
-    features.append(feature)
+        catalog.append(plot)
+        features.append({
+            "type": "Feature",
+            "id": index,
+            "geometry": plot["geometry"],
+            "properties": {key: value for key, value in plot.items() if key != "geometry"},
+        })
 
-geojson_doc = {
-    "type": "FeatureCollection",
-    "features": features
-}
+    with (DATA_DIR / "plots_catalog.json").open("w", encoding="utf-8") as handle:
+        json.dump(catalog, handle, ensure_ascii=False, indent=2)
+    with (DATA_DIR / "plots.geojson").open("w", encoding="utf-8") as handle:
+        json.dump({"type": "FeatureCollection", "features": features}, handle, ensure_ascii=False, indent=2)
 
-# Save Catalog JSON
-with open(os.path.join(DATA_DIR, "plots_catalog.json"), "w", encoding="utf-8") as f:
-    json.dump(plots_catalog, f, ensure_ascii=False, indent=2)
+    print(f"Generated {len(catalog)} primary plots")
+    print(f"Total area: {sum(plot['area_rai'] for plot in catalog):,.2f} rai")
 
-# Save GeoJSON
-with open(os.path.join(DATA_DIR, "plots.geojson"), "w", encoding="utf-8") as f:
-    json.dump(geojson_doc, f, ensure_ascii=False, indent=2)
 
-print(f"\n=======================================================")
-print(f"Successfully generated {len(plots_catalog)} plots catalog!")
-print(f"Data saved in:")
-print(f"  - {DATA_DIR}/plots_catalog.json")
-print(f"  - {DATA_DIR}/plots.geojson")
-print(f"Total Area: {sum(p['area_rai'] for p in plots_catalog):,.2f} ไร่")
-print("=======================================================")
+if __name__ == "__main__":
+    main()
