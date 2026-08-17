@@ -1,0 +1,698 @@
+{
+  "plot_id": 21,
+  "plot_code": "PLOT_021",
+  "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+  "collection": "sentinel-2-l2a",
+  "milestone_months": [
+    "2023-09",
+    "2023-12",
+    "2024-03",
+    "2024-06",
+    "2024-09",
+    "2024-12",
+    "2025-03",
+    "2025-06",
+    "2025-09",
+    "2025-12",
+    "2026-03",
+    "2026-08"
+  ],
+  "rules": {
+    "interpolation": false,
+    "synthetic_fallback": false,
+    "clip_to_exact_geometry": true,
+    "preserve_polygon_holes": true,
+    "reflectance_scale_offset_from_stac": true,
+    "cloud_scl_clear_classes": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "cloud_buffer_pixels_on_10m_grid": 1,
+    "vegetation_proxy_version": "v4_site_calibrated_green_cover",
+    "vegetation_proxy_definition": "NDVI > 0.250; conservative Green Cover proxy",
+    "open_water_definition": "MNDWI > 0.0 AND NOT vegetation_proxy",
+    "ndre_definition": "(B8A - B05) / (B8A + B05)",
+    "mndwi_definition": "(B03 - B11) / (B03 + B11)",
+    "mfi_definition": "Jia et al. 2019 Sentinel-2 Mangrove Forest Index",
+    "calibration_scope": "PLOT_076 uses 13-STC drone-density spatial holdout calibration when promoted; all other plots use NDVI > 0.25 conservative default.",
+    "mfi_role": "diagnostic only: MFI > 0.0; not merged into vegetation coverage",
+    "submerged_mangrove_signal_definition": "MNDWI > 0.0 AND MFI > 0.0 AND NOT vegetation_proxy"
+  },
+  "native_resolution_m": {
+    "ndvi": 10,
+    "rgb": 10,
+    "ndre": 20,
+    "mndwi": 20,
+    "mfi": 20
+  },
+  "grid": {
+    "crs": "EPSG:4326",
+    "target_resolution_approx_m": 10,
+    "bbox": [
+      98.93215101091822,
+      8.03399721084855,
+      98.94187124984485,
+      8.045050461251073
+    ],
+    "width": 107,
+    "height": 123
+  },
+  "dates": [
+    {
+      "month": "2023-09",
+      "year": 2023,
+      "month_num": 9,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 2,
+      "scene_ids": [
+        "S2B_MSIL2A_20230918T033539_R061_T47NMJ_20241013T024531",
+        "S2B_MSIL2A_20230918T033539_R061_T47NMJ_20230918T102757"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20230918T033539_R061_T47NMJ_20241013T024531",
+          "datetime": "2023-09-18T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 52.680379,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2B_MSIL2A_20230918T033539_R061_T47NMJ_20230918T102757",
+          "datetime": "2023-09-18T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 60.351902,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.09"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.2691,
+      "median_ndvi_inside": 0.277,
+      "ndvi_p10_inside": 0.0829,
+      "ndvi_p90_inside": 0.4633,
+      "canopy_ndvi_median": 0.3882,
+      "ndre_median": 0.2817,
+      "evi_median": 0.4189,
+      "mfi_median": 0.11893,
+      "mfi_positive_pct": 96.8,
+      "mfi_only_signal_pct": 42.1,
+      "submerged_mangrove_signal_pct": 17.2,
+      "mndwi_median": -0.0896,
+      "vegetation_coverage_proxy_pct": 54.6,
+      "open_water_pct": 20.4,
+      "open_nonvegetated_pct": 25.0,
+      "proxy_area_rai": 66.69,
+      "open_water_area_rai": 24.92
+    },
+    {
+      "month": "2023-12",
+      "year": 2023,
+      "month_num": 12,
+      "status": "observed_single_scene",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 1,
+      "scene_ids": [
+        "S2B_MSIL2A_20231217T034149_R061_T47NMJ_20231220T054418"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20231217T034149_R061_T47NMJ_20231220T054418",
+          "datetime": "2023-12-17T03:41:49.024000+00:00",
+          "catalog_cloud_cover_pct": 3.156938,
+          "clear_inside_pct": 66.7,
+          "processing_baseline": "05.10"
+        }
+      ],
+      "clear_pixel_pct": 66.7,
+      "mean_ndvi_inside": 0.3601,
+      "median_ndvi_inside": 0.3636,
+      "ndvi_p10_inside": 0.1996,
+      "ndvi_p90_inside": 0.5251,
+      "canopy_ndvi_median": 0.4226,
+      "ndre_median": 0.308,
+      "evi_median": 0.4867,
+      "mfi_median": 0.16972,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 26.6,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.167,
+      "vegetation_coverage_proxy_pct": 73.4,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 26.6,
+      "proxy_area_rai": 89.58,
+      "open_water_area_rai": 0.0
+    },
+    {
+      "month": "2024-03",
+      "year": 2024,
+      "month_num": 3,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 4,
+      "scene_ids": [
+        "S2B_MSIL2A_20240326T033539_R061_T47NMJ_20240326T091647",
+        "S2A_MSIL2A_20240301T033651_R061_T47NMJ_20240301T092117",
+        "S2A_MSIL2A_20240321T033541_R061_T47NMJ_20240321T090846",
+        "S2B_MSIL2A_20240316T033539_R061_T47NMJ_20240316T081218"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20240326T033539_R061_T47NMJ_20240326T091647",
+          "datetime": "2024-03-26T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 2.321616,
+          "clear_inside_pct": 28.53,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20240301T033651_R061_T47NMJ_20240301T092117",
+          "datetime": "2024-03-01T03:36:51.024000+00:00",
+          "catalog_cloud_cover_pct": 11.531846,
+          "clear_inside_pct": 98.07,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20240321T033541_R061_T47NMJ_20240321T090846",
+          "datetime": "2024-03-21T03:35:41.024000+00:00",
+          "catalog_cloud_cover_pct": 18.920502,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2B_MSIL2A_20240316T033539_R061_T47NMJ_20240316T081218",
+          "datetime": "2024-03-16T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 34.003946,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.10"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.2838,
+      "median_ndvi_inside": 0.2708,
+      "ndvi_p10_inside": 0.1453,
+      "ndvi_p90_inside": 0.4475,
+      "canopy_ndvi_median": 0.3704,
+      "ndre_median": 0.2545,
+      "evi_median": 0.4001,
+      "mfi_median": 0.12096,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 45.0,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.1734,
+      "vegetation_coverage_proxy_pct": 55.0,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 45.0,
+      "proxy_area_rai": 67.19,
+      "open_water_area_rai": 0.0
+    },
+    {
+      "month": "2024-06",
+      "year": 2024,
+      "month_num": 6,
+      "status": "observed_single_scene",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 1,
+      "scene_ids": [
+        "S2B_MSIL2A_20240604T033539_R061_T47NMJ_20240604T081404"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20240604T033539_R061_T47NMJ_20240604T081404",
+          "datetime": "2024-06-04T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 31.092921,
+          "clear_inside_pct": 9.24,
+          "processing_baseline": "05.10"
+        }
+      ],
+      "clear_pixel_pct": 9.24,
+      "mean_ndvi_inside": 0.2272,
+      "median_ndvi_inside": 0.2295,
+      "ndvi_p10_inside": 0.168,
+      "ndvi_p90_inside": 0.2857,
+      "canopy_ndvi_median": 0.2663,
+      "ndre_median": 0.1838,
+      "evi_median": 0.3522,
+      "mfi_median": 0.09155,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 67.0,
+      "submerged_mangrove_signal_pct": 3.3,
+      "mndwi_median": -0.0501,
+      "vegetation_coverage_proxy_pct": 33.0,
+      "open_water_pct": 3.3,
+      "open_nonvegetated_pct": 63.7,
+      "proxy_area_rai": 40.25,
+      "open_water_area_rai": 4.03
+    },
+    {
+      "month": "2024-09",
+      "year": 2024,
+      "month_num": 9,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 3,
+      "scene_ids": [
+        "S2A_MSIL2A_20240927T033541_R061_T47NMJ_20240927T085345",
+        "S2B_MSIL2A_20240922T033529_R061_T47NMJ_20240922T081602",
+        "S2B_MSIL2A_20240912T033539_R061_T47NMJ_20240912T082434"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2A_MSIL2A_20240927T033541_R061_T47NMJ_20240927T085345",
+          "datetime": "2024-09-27T03:35:41.024000+00:00",
+          "catalog_cloud_cover_pct": 21.860059,
+          "clear_inside_pct": 10.46,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20240922T033529_R061_T47NMJ_20240922T081602",
+          "datetime": "2024-09-22T03:35:29.024000+00:00",
+          "catalog_cloud_cover_pct": 31.42927,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20240912T033539_R061_T47NMJ_20240912T082434",
+          "datetime": "2024-09-12T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 56.649977,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.292,
+      "median_ndvi_inside": 0.2763,
+      "ndvi_p10_inside": 0.1421,
+      "ndvi_p90_inside": 0.4707,
+      "canopy_ndvi_median": 0.3819,
+      "ndre_median": 0.2824,
+      "evi_median": 0.4541,
+      "mfi_median": 0.13725,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 44.3,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.1366,
+      "vegetation_coverage_proxy_pct": 55.7,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 44.3,
+      "proxy_area_rai": 68.05,
+      "open_water_area_rai": 0.0
+    },
+    {
+      "month": "2024-12",
+      "year": 2024,
+      "month_num": 12,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 3,
+      "scene_ids": [
+        "S2A_MSIL2A_20241226T034151_R061_T47NMJ_20241226T064949",
+        "S2B_MSIL2A_20241231T034049_R061_T47NMJ_20241231T063102",
+        "S2A_MSIL2A_20241206T034131_R061_T47NMJ_20241206T070059"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2A_MSIL2A_20241226T034151_R061_T47NMJ_20241226T064949",
+          "datetime": "2024-12-26T03:41:51.024000+00:00",
+          "catalog_cloud_cover_pct": 10.810742,
+          "clear_inside_pct": 90.56,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20241231T034049_R061_T47NMJ_20241231T063102",
+          "datetime": "2024-12-31T03:40:49.024000+00:00",
+          "catalog_cloud_cover_pct": 17.880763,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2A_MSIL2A_20241206T034131_R061_T47NMJ_20241206T070059",
+          "datetime": "2024-12-06T03:41:31.024000+00:00",
+          "catalog_cloud_cover_pct": 19.675954,
+          "clear_inside_pct": 14.01,
+          "processing_baseline": "05.11"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.3118,
+      "median_ndvi_inside": 0.3127,
+      "ndvi_p10_inside": 0.1244,
+      "ndvi_p90_inside": 0.4971,
+      "canopy_ndvi_median": 0.4141,
+      "ndre_median": 0.3052,
+      "evi_median": 0.4277,
+      "mfi_median": 0.12853,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 37.7,
+      "submerged_mangrove_signal_pct": 0.2,
+      "mndwi_median": -0.1146,
+      "vegetation_coverage_proxy_pct": 62.3,
+      "open_water_pct": 0.2,
+      "open_nonvegetated_pct": 37.5,
+      "proxy_area_rai": 76.11,
+      "open_water_area_rai": 0.25
+    },
+    {
+      "month": "2025-03",
+      "year": 2025,
+      "month_num": 3,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 3,
+      "scene_ids": [
+        "S2C_MSIL2A_20250316T033601_R061_T47NMJ_20250316T090315",
+        "S2B_MSIL2A_20250301T033559_R061_T47NMJ_20250301T071311",
+        "S2A_MSIL2A_20250318T034201_R061_T47NMJ_20250318T114518"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2C_MSIL2A_20250316T033601_R061_T47NMJ_20250316T090315",
+          "datetime": "2025-03-16T03:36:01.024000+00:00",
+          "catalog_cloud_cover_pct": 8.148915,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20250301T033559_R061_T47NMJ_20250301T071311",
+          "datetime": "2025-03-01T03:35:59.024000+00:00",
+          "catalog_cloud_cover_pct": 8.740334,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2A_MSIL2A_20250318T034201_R061_T47NMJ_20250318T114518",
+          "datetime": "2025-03-18T03:42:01.024000+00:00",
+          "catalog_cloud_cover_pct": 17.401476,
+          "clear_inside_pct": 75.53,
+          "processing_baseline": "05.11"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.2701,
+      "median_ndvi_inside": 0.2871,
+      "ndvi_p10_inside": 0.0601,
+      "ndvi_p90_inside": 0.4737,
+      "canopy_ndvi_median": 0.3954,
+      "ndre_median": 0.2643,
+      "evi_median": 0.4298,
+      "mfi_median": 0.12339,
+      "mfi_positive_pct": 95.5,
+      "mfi_only_signal_pct": 39.7,
+      "submerged_mangrove_signal_pct": 14.9,
+      "mndwi_median": -0.0856,
+      "vegetation_coverage_proxy_pct": 55.8,
+      "open_water_pct": 19.4,
+      "open_nonvegetated_pct": 24.8,
+      "proxy_area_rai": 68.18,
+      "open_water_area_rai": 23.68
+    },
+    {
+      "month": "2025-06",
+      "year": 2025,
+      "month_num": 6,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 2,
+      "scene_ids": [
+        "S2B_MSIL2A_20250629T033539_R061_T47NMJ_20250629T063507",
+        "S2A_MSIL2A_20250606T034201_R061_T47NMJ_20250606T073218"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20250629T033539_R061_T47NMJ_20250629T063507",
+          "datetime": "2025-06-29T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 34.749424,
+          "clear_inside_pct": 38.78,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2A_MSIL2A_20250606T034201_R061_T47NMJ_20250606T073218",
+          "datetime": "2025-06-06T03:42:01.024000+00:00",
+          "catalog_cloud_cover_pct": 85.205704,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.3141,
+      "median_ndvi_inside": 0.3073,
+      "ndvi_p10_inside": 0.1871,
+      "ndvi_p90_inside": 0.4481,
+      "canopy_ndvi_median": 0.369,
+      "ndre_median": 0.2701,
+      "evi_median": 0.3975,
+      "mfi_median": 0.14065,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 33.2,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.1341,
+      "vegetation_coverage_proxy_pct": 66.8,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 33.2,
+      "proxy_area_rai": 81.57,
+      "open_water_area_rai": 0.0
+    },
+    {
+      "month": "2025-09",
+      "year": 2025,
+      "month_num": 9,
+      "status": "no_data",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "scenes_used": 0,
+      "scene_ids": [],
+      "scene_metadata": [],
+      "clear_pixel_pct": 0.0,
+      "mean_ndvi_inside": null,
+      "median_ndvi_inside": null,
+      "ndvi_p10_inside": null,
+      "ndvi_p90_inside": null,
+      "canopy_ndvi_median": null,
+      "ndre_median": null,
+      "evi_median": null,
+      "mfi_median": null,
+      "mfi_positive_pct": null,
+      "mndwi_median": null,
+      "vegetation_coverage_proxy_pct": null,
+      "open_water_pct": null,
+      "open_nonvegetated_pct": null,
+      "proxy_area_rai": null,
+      "open_water_area_rai": null,
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "submerged_mangrove_signal_pct": null,
+      "mfi_only_signal_pct": null
+    },
+    {
+      "month": "2025-12",
+      "year": 2025,
+      "month_num": 12,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 3,
+      "scene_ids": [
+        "S2B_MSIL2A_20251206T034029_R061_T47NMJ_20251206T055750",
+        "S2C_MSIL2A_20251221T034201_R061_T47NMJ_20251221T063507",
+        "S2C_MSIL2A_20251231T034151_R061_T47NMJ_20251231T062811"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20251206T034029_R061_T47NMJ_20251206T055750",
+          "datetime": "2025-12-06T03:40:29.024000+00:00",
+          "catalog_cloud_cover_pct": 9.364147,
+          "clear_inside_pct": 39.9,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2C_MSIL2A_20251221T034201_R061_T47NMJ_20251221T063507",
+          "datetime": "2025-12-21T03:42:01.024000+00:00",
+          "catalog_cloud_cover_pct": 9.88413,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2C_MSIL2A_20251231T034151_R061_T47NMJ_20251231T062811",
+          "datetime": "2025-12-31T03:41:51.025000+00:00",
+          "catalog_cloud_cover_pct": 34.294224,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.3107,
+      "median_ndvi_inside": 0.3121,
+      "ndvi_p10_inside": 0.1371,
+      "ndvi_p90_inside": 0.4945,
+      "canopy_ndvi_median": 0.3975,
+      "ndre_median": 0.2674,
+      "evi_median": 0.434,
+      "mfi_median": 0.13735,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 39.2,
+      "submerged_mangrove_signal_pct": 1.0,
+      "mndwi_median": -0.1237,
+      "vegetation_coverage_proxy_pct": 60.8,
+      "open_water_pct": 1.0,
+      "open_nonvegetated_pct": 38.2,
+      "proxy_area_rai": 74.25,
+      "open_water_area_rai": 1.24
+    },
+    {
+      "month": "2026-03",
+      "year": 2026,
+      "month_num": 3,
+      "status": "observed_monthly_composite",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 5,
+      "scene_ids": [
+        "S2B_MSIL2A_20260316T033529_R061_T47NMJ_20260316T072001",
+        "S2C_MSIL2A_20260301T033701_R061_T47NMJ_20260301T091613",
+        "S2A_MSIL2A_20260313T034201_R061_T47NMJ_20260313T083010",
+        "S2B_MSIL2A_20260326T033529_R061_T47NMJ_20260326T072041",
+        "S2C_MSIL2A_20260321T033541_R061_T47NMJ_20260321T090910"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20260316T033529_R061_T47NMJ_20260316T072001",
+          "datetime": "2026-03-16T03:35:29.024000+00:00",
+          "catalog_cloud_cover_pct": 4.675947,
+          "clear_inside_pct": 93.91,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2C_MSIL2A_20260301T033701_R061_T47NMJ_20260301T091613",
+          "datetime": "2026-03-01T03:37:01.025000+00:00",
+          "catalog_cloud_cover_pct": 5.27265,
+          "clear_inside_pct": 55.53,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2A_MSIL2A_20260313T034201_R061_T47NMJ_20260313T083010",
+          "datetime": "2026-03-13T03:42:01.027000+00:00",
+          "catalog_cloud_cover_pct": 5.423556,
+          "clear_inside_pct": 7.11,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2B_MSIL2A_20260326T033529_R061_T47NMJ_20260326T072041",
+          "datetime": "2026-03-26T03:35:29.024000+00:00",
+          "catalog_cloud_cover_pct": 7.504265,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2C_MSIL2A_20260321T033541_R061_T47NMJ_20260321T090910",
+          "datetime": "2026-03-21T03:35:41.025000+00:00",
+          "catalog_cloud_cover_pct": 9.534007,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.12"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.2928,
+      "median_ndvi_inside": 0.2862,
+      "ndvi_p10_inside": 0.1311,
+      "ndvi_p90_inside": 0.4821,
+      "canopy_ndvi_median": 0.3943,
+      "ndre_median": 0.2572,
+      "evi_median": 0.3885,
+      "mfi_median": 0.12204,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 42.6,
+      "submerged_mangrove_signal_pct": 5.3,
+      "mndwi_median": -0.1528,
+      "vegetation_coverage_proxy_pct": 57.4,
+      "open_water_pct": 5.3,
+      "open_nonvegetated_pct": 37.4,
+      "proxy_area_rai": 70.04,
+      "open_water_area_rai": 6.45
+    },
+    {
+      "month": "2026-08",
+      "year": 2026,
+      "month_num": 8,
+      "status": "observed_single_scene",
+      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "proxy_version": "v4_site_calibrated_green_cover",
+      "green_proxy_threshold": 0.25,
+      "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+      "green_proxy_calibration_source": "portfolio conservative default",
+      "scenes_used": 1,
+      "scene_ids": [
+        "S2B_MSIL2A_20260803T033539_R061_T47NMJ_20260803T072631"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20260803T033539_R061_T47NMJ_20260803T072631",
+          "datetime": "2026-08-03T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 20.603059,
+          "clear_inside_pct": 64.06,
+          "processing_baseline": "05.12"
+        }
+      ],
+      "clear_pixel_pct": 64.06,
+      "mean_ndvi_inside": 0.349,
+      "median_ndvi_inside": 0.3612,
+      "ndvi_p10_inside": 0.1701,
+      "ndvi_p90_inside": 0.5177,
+      "canopy_ndvi_median": 0.4223,
+      "ndre_median": 0.3034,
+      "evi_median": 0.4632,
+      "mfi_median": 0.16501,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 28.7,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.1432,
+      "vegetation_coverage_proxy_pct": 71.3,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 28.7,
+      "proxy_area_rai": 87.08,
+      "open_water_area_rai": 0.0
+    }
+  ],
+  "proxy_version": "v4_site_calibrated_green_cover",
+  "green_proxy_threshold": 0.25,
+  "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
+  "green_proxy_calibration_source": "portfolio conservative default"
+}
