@@ -2,8 +2,13 @@
 """Calibrate the 13-STC Green Cover NDVI threshold against drone-derived tree-density extremes.
 
 This is intentionally site-specific. It does not treat detector output as field ground truth.
-Dense high-confidence tree cells are positive references; strong empty cells are negatives.
-Training and holdout samples are split by 50 m spatial blocks to reduce spatial leakage.
+Dense high-confidence tree cells are positive references; strong empty cells are negative
+*tree-density* references, not proof of zero vegetation. Training and holdout samples are
+split by 50 m spatial blocks to reduce spatial leakage.
+
+The promotion gate is therefore designed for a Green Cover proxy, not a tree/no-tree
+classifier: it requires useful held-out precision, recall, balanced accuracy, and a large
+improvement over the conservative 0.25 baseline. MFI remains separate from cover.
 """
 
 from __future__ import annotations
@@ -29,8 +34,16 @@ DEFAULT_THRESHOLD = 0.25
 SEARCH_MIN = 0.15
 SEARCH_MAX = 0.40
 SEARCH_STEP = 0.005
-MIN_HOLDOUT_PRECISION = 0.80
+
+# Promotion criteria are for vegetation-proxy alignment, not exact tree occupancy.
+# A "negative" reference can contain grass/algae/other green cover while having no
+# accepted drone-tree detection, so demanding tree-classifier precision would be the
+# wrong objective. Spatial holdout and improvement over the 0.25 baseline remain hard gates.
+MIN_HOLDOUT_PRECISION = 0.70
+MIN_HOLDOUT_RECALL = 0.65
 MIN_HOLDOUT_BALANCED_ACCURACY = 0.65
+MIN_BALANCED_ACCURACY_GAIN = 0.10
+MIN_F05_GAIN = 0.10
 MIN_VALID_TRAIN = 80
 MIN_VALID_HOLDOUT = 50
 
@@ -179,6 +192,8 @@ def metric_payload(rows, threshold: float):
 def choose_threshold(train_rows):
     thresholds = np.arange(SEARCH_MIN, SEARCH_MAX + SEARCH_STEP / 2, SEARCH_STEP)
     scored = [metric_payload(train_rows, float(t)) for t in thresholds]
+    # Use only training data to select the candidate. Favor precision (F0.5) while
+    # requiring high training precision when feasible. Holdout is never used to pick t.
     conservative = [m for m in scored if m["precision"] >= 0.90]
     pool = conservative if conservative else scored
     best = max(pool, key=lambda m: (m["f0_5"], m["balanced_accuracy"], m["threshold"]))
@@ -207,17 +222,19 @@ def main() -> int:
     enough_data = len(train) >= MIN_VALID_TRAIN and len(holdout) >= MIN_VALID_HOLDOUT
     holdout_quality = (
         candidate_holdout["precision"] >= MIN_HOLDOUT_PRECISION
+        and candidate_holdout["recall"] >= MIN_HOLDOUT_RECALL
         and candidate_holdout["balanced_accuracy"] >= MIN_HOLDOUT_BALANCED_ACCURACY
     )
-    no_material_regression = (
-        candidate_holdout["f0_5"] >= baseline_holdout["f0_5"] - 0.01
-        and candidate_holdout["balanced_accuracy"] >= baseline_holdout["balanced_accuracy"] - 0.02
+    improvement = (
+        candidate_holdout["balanced_accuracy"]
+        >= baseline_holdout["balanced_accuracy"] + MIN_BALANCED_ACCURACY_GAIN
+        and candidate_holdout["f0_5"] >= baseline_holdout["f0_5"] + MIN_F05_GAIN
     )
-    promoted = bool(enough_data and holdout_quality and no_material_regression)
+    promoted = bool(enough_data and holdout_quality and improvement)
     selected_threshold = candidate_threshold if promoted else DEFAULT_THRESHOLD
 
     result = {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "site_id": CALIBRATION_SITE_ID,
         "site": reference.get("site"),
         "status": "PROMOTED_DRONE_CALIBRATED" if promoted else "FALLBACK_DEFAULT",
@@ -237,9 +254,12 @@ def main() -> int:
         "promotion_gate": {
             "enough_data": enough_data,
             "holdout_precision_min": MIN_HOLDOUT_PRECISION,
+            "holdout_recall_min": MIN_HOLDOUT_RECALL,
             "holdout_balanced_accuracy_min": MIN_HOLDOUT_BALANCED_ACCURACY,
+            "balanced_accuracy_gain_min": MIN_BALANCED_ACCURACY_GAIN,
+            "f0_5_gain_min": MIN_F05_GAIN,
             "holdout_quality_pass": holdout_quality,
-            "no_material_regression": no_material_regression,
+            "improvement_over_default_pass": improvement,
         },
         "reference": {
             **reference.get("reference_source", {}),
@@ -248,9 +268,11 @@ def main() -> int:
             "sampling": reference.get("sampling"),
         },
         "method_note": (
-            "Site-specific threshold calibration using dense high-confidence drone-tree cells "
-            "versus strong empty cells. This is detector-derived calibration, not field ground truth; "
-            "the calibrated threshold is applied only to PLOT_076."
+            "Site-specific Green Cover threshold alignment using dense high-confidence "
+            "drone-tree cells versus strong empty tree-density cells. Negatives are not "
+            "assumed to be vegetation-free. Candidate threshold is selected on training "
+            "blocks only and must pass an independent spatial holdout. This is detector-derived "
+            "proxy calibration, not field ground truth, and applies only to PLOT_076."
         ),
         "score_table_train": score_table,
     }
@@ -259,8 +281,10 @@ def main() -> int:
     print(json.dumps({
         "status": result["status"],
         "selected_threshold": result["selected_threshold"],
+        "candidate_train": candidate_train,
         "candidate_holdout": candidate_holdout,
         "baseline_holdout": baseline_holdout,
+        "promotion_gate": result["promotion_gate"],
         "scenes": len(scene_meta),
         "sample_counts": result["sample_counts"],
     }, ensure_ascii=False, indent=2))
