@@ -348,7 +348,7 @@ body {
 }
 
 .current-plot-highlight {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   color: var(--accent);
   white-space: nowrap;
   overflow: hidden;
@@ -484,6 +484,7 @@ body {
   border-radius: var(--radius-md);
   padding: 2px;
   border: 1px solid var(--border-color);
+  flex-wrap: wrap;
 }
 
 .band-btn {
@@ -515,9 +516,9 @@ body {
 .satellite-stage {
   position: relative;
   width: 100%;
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
-  aspect-ratio: 16 / 12;
+  aspect-ratio: 16 / 11;
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: #000;
@@ -525,41 +526,22 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.stage-img-box {
-  position: relative;
+.plot-satellite-map-container {
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.stage-img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.stage-vector-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 5;
+  background: #050811;
+  z-index: 1;
 }
 
 .stage-hud {
   position: absolute;
-  background: rgba(11, 15, 23, 0.85);
+  background: rgba(11, 15, 23, 0.88);
   backdrop-filter: blur(8px);
   padding: 0.45rem 0.75rem;
   border-radius: var(--radius-md);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   font-size: 0.725rem;
-  z-index: 10;
+  z-index: 1000;
   pointer-events: none;
 }
 
@@ -571,12 +553,12 @@ body {
 .hud-main { font-size: 1rem; font-weight: 800; color: #fff; }
 .hud-sub { color: var(--text-muted); font-size: 0.7rem; }
 .hud-tag { color: var(--primary); font-weight: 700; font-size: 0.7rem; }
-.hud-pill { background: rgba(30, 41, 59, 0.9); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); color: var(--text-muted); }
+.hud-pill { background: rgba(30, 41, 59, 0.95); padding: 0.25rem 0.5rem; border-radius: var(--radius-sm); color: var(--text-muted); border: 1px solid rgba(255, 255, 255, 0.08); }
 .hud-pill strong { color: var(--success); }
 
 /* Playback Bar */
 .playback-bar {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   width: 100%;
   display: flex;
@@ -686,7 +668,7 @@ body {
 
 .thailand-gis-map {
   width: 100%;
-  height: 600px;
+  height: 620px;
   border-radius: var(--radius-md);
   border: 1px solid var(--border-color);
   box-shadow: var(--shadow-md);
@@ -726,8 +708,8 @@ body {
 .compare-stage {
   position: relative;
   width: 100%;
-  max-width: 900px;
-  aspect-ratio: 16 / 12;
+  max-width: 960px;
+  aspect-ratio: 16 / 11;
   margin: 0 auto;
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -737,7 +719,7 @@ body {
   cursor: ew-resize;
 }
 
-.compare-img-box {
+.compare-map-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -745,35 +727,29 @@ body {
   height: 100%;
 }
 
-.compare-img-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.before-img-box {
+.compare-before-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 50%;
+  height: 100%;
   overflow: hidden;
   z-index: 2;
-}
-
-.before-img-box img {
-  width: 900px;
-  max-width: none;
-  height: 100%;
+  border-right: 2px solid white;
 }
 
 .compare-label {
   position: absolute;
   top: 1rem;
   background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(6px);
   color: white;
   padding: 0.35rem 0.75rem;
   border-radius: var(--radius-md);
   font-size: 0.8rem;
   font-weight: 700;
-  z-index: 5;
+  z-index: 500;
+  border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .left-label { left: 1rem; }
@@ -786,7 +762,7 @@ body {
   left: 50%;
   width: 4px;
   background: #fff;
-  z-index: 10;
+  z-index: 600;
   transform: translateX(-50%);
 }
 
@@ -913,6 +889,8 @@ body {
   cursor: pointer;
   margin-top: 6px;
 }
+
+.hidden { display: none !important; }
 
 /* Responsive */
 @media (max-width: 1024px) {

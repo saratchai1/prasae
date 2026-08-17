@@ -1,17 +1,21 @@
-// Nationwide Mangrove Monitoring Portal (160+ Plots In-Boundary NDVI Analysis)
+// Nationwide Mangrove Monitoring Portal (160+ Plots In-Boundary NDVI & High-Res Satellite GIS)
 
 let plotsCatalog = [];
 let allPlotsData = [];
 let activePlot = null;
 let currentMonthIndex = 0;
-let currentBandMode = 'rgb';
+let currentPlotLayerKey = 'esri';
 let isPlaying = false;
 let playInterval = null;
 let playbackSpeed = 500;
 let plotNdviChart = null;
-let leafletMap = null;
-let geojsonLayer = null;
-let activePolygonLayer = null;
+
+// Maps
+let leafletMap = null; // Thailand Overview Map
+let thailandGeojsonLayer = null;
+let plotSatelliteMap = null; // Dedicated Selected Plot Satellite Viewer
+let plotBoundaryLayer = null;
+let plotBaseLayers = {};
 
 // Thai Month Names
 const thaiMonths = {
@@ -29,39 +33,21 @@ const fullThaiMonths = {
 // Initialize App
 async function init() {
   try {
-    // 1. Load Catalog & Processed Timeseries Data
     const [catRes, timeRes] = await Promise.all([
       fetch('data/plots_catalog.json'),
-      fetch('data/timeseries_all_plots.json').catch(() => null)
+      fetch('data/timeseries_all_plots.json')
     ]);
     
     plotsCatalog = await catRes.json();
-    
-    if (timeRes && timeRes.ok) {
-      allPlotsData = await timeRes.json();
-    } else {
-      // Generate synthetic in-boundary timeseries structure if batch still finalizing
-      allPlotsData = plotsCatalog.map(p => {
-        const ts = generateFallbackTimeseries(p);
-        return {
-          ...p,
-          initial_ndvi: ts[0].mean_ndvi_inside,
-          current_ndvi: ts[ts.length - 1].mean_ndvi_inside,
-          gain_ndvi: +(ts[ts.length - 1].mean_ndvi_inside - ts[0].mean_ndvi_inside).toFixed(4),
-          growth_pct: +(((ts[ts.length - 1].mean_ndvi_inside - ts[0].mean_ndvi_inside) / ts[0].mean_ndvi_inside) * 100).toFixed(1),
-          current_canopy_pct: ts[ts.length - 1].canopy_coverage_pct,
-          timeseries: ts
-        };
-      });
-    }
+    allPlotsData = await timeRes.json();
 
     initProvinceFilter();
     renderSidebarList(allPlotsData);
-    initLeafletMap();
+    initPlotSatelliteMap();
+    initLeafletThailandMap();
     initTable(allPlotsData);
-    initCompareSwipe();
 
-    // Default select Plot in Rayong / Prasae (e.g. แปลง 22 or first plot)
+    // Default select Plot in Rayong / Prasae (e.g. แปลง 22) or first plot
     const defaultPlot = allPlotsData.find(p => p.province === 'ระยอง') || allPlotsData[0];
     selectPlot(defaultPlot.id);
 
@@ -70,110 +56,79 @@ async function init() {
   }
 }
 
-// Fallback in-boundary curve generator
-function generateFallbackTimeseries(plot) {
-  const ts = [];
-  let y = 2023, m = 9;
-  
-  // Hash plot ID for deterministic realistic variation
-  const seed = (plot.id * 17) % 100 / 100;
-  const baseNdvi = 0.08 + seed * 0.08;
-  const targetNdvi = 0.24 + seed * 0.20;
-  
-  for (let i = 0; i < 36; i++) {
-    const monthStr = `${y}-${m.toString().padStart(2, '0')}`;
-    const progress = i / 35.0; // 0 to 1
-    // Sigmoid growth curve reflecting planting late 2023 -> canopy spread 2025-2026
-    const sCurve = 1.0 / (1.0 + Math.exp(-6.0 * (progress - 0.45)));
-    const curNdvi = +(baseNdvi + (targetNdvi - baseNdvi) * sCurve).toFixed(4);
-    const canopyPct = +(Math.max(0, Math.min(100, (curNdvi - 0.10) / 0.35 * 100))).toFixed(1);
-    
-    ts.push({
-      month: monthStr,
-      year: y,
-      month_num: m,
-      month_name: Object.keys(fullThaiMonths)[m - 1],
-      mean_ndvi_inside: curNdvi,
-      median_ndvi_inside: curNdvi,
-      canopy_coverage_pct: +canopyPct,
-      scenes_used: 4
-    });
+// 1. Plot Satellite Viewer (Leaflet Map dedicated to current plot)
+function initPlotSatelliteMap() {
+  plotSatelliteMap = L.map('plot-satellite-map', {
+    zoomControl: true,
+    attributionControl: false
+  }).setView([12.75, 101.80], 15);
 
-    m++;
-    if (m > 12) { m = 1; y++; }
-  }
-  return ts;
-}
-
-// Province Filter Population
-function initProvinceFilter() {
-  const select = document.getElementById('province-filter');
-  const provinces = [...new Set(plotsCatalog.map(p => p.province))].sort();
-  
-  provinces.forEach(prov => {
-    const opt = document.createElement('option');
-    opt.value = prov;
-    const count = plotsCatalog.filter(p => p.province === prov).length;
-    opt.textContent = `${prov} (${count} แปลง)`;
-    select.appendChild(opt);
+  // Satellite Base Layers
+  plotBaseLayers['esri'] = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19
   });
-}
 
-function onProvinceFilterChange(prov) {
-  const searchVal = document.getElementById('plot-search-input').value.toLowerCase().trim();
-  filterPlots(prov, searchVal);
-}
-
-function onPlotSearchInput(searchVal) {
-  const prov = document.getElementById('province-filter').value;
-  filterPlots(prov, searchVal.toLowerCase().trim());
-}
-
-function filterPlots(prov, searchVal) {
-  let filtered = allPlotsData;
-  if (prov !== 'ALL') {
-    filtered = filtered.filter(p => p.province === prov);
-  }
-  if (searchVal) {
-    filtered = filtered.filter(p => 
-      p.name.toLowerCase().includes(searchVal) ||
-      p.code.toLowerCase().includes(searchVal) ||
-      p.province.toLowerCase().includes(searchVal)
-    );
-  }
-  renderSidebarList(filtered);
-}
-
-// Render Sidebar List
-function renderSidebarList(plots) {
-  const container = document.getElementById('plot-list-container');
-  const countDisplay = document.getElementById('sidebar-count-display');
-  container.innerHTML = '';
-  
-  countDisplay.textContent = `แสดง ${plots.length} จาก ${allPlotsData.length} แปลง`;
-
-  plots.forEach(plot => {
-    const card = document.createElement('div');
-    card.className = `plot-card-item ${activePlot && activePlot.id === plot.id ? 'active' : ''}`;
-    card.id = `sidebar-card-${plot.id}`;
-    card.onclick = () => selectPlot(plot.id);
-
-    const gainSign = plot.gain_ndvi >= 0 ? '+' : '';
-    card.innerHTML = `
-      <div class="p-card-header">
-        <span class="p-card-title" title="${plot.name}">${plot.name}</span>
-        <span class="p-prov-tag">${plot.province}</span>
-      </div>
-      <div class="p-card-body">
-        <span>เนื้อที่: <strong>${plot.area_rai.toFixed(1)} ไร่</strong></span>
-        <span>NDVI: <strong class="ndvi-gain">${gainSign}${plot.gain_ndvi.toFixed(2)}</strong> (+${plot.growth_pct.toFixed(0)}%)</span>
-      </div>
-    `;
-    container.appendChild(card);
+  plotBaseLayers['s2'] = L.tileLayer.wms('https://tiles.maps.eox.at/wms', {
+    layers: 's2cloudless-2023',
+    format: 'image/jpeg',
+    transparent: false,
+    maxZoom: 18
   });
+
+  // Color Infrared vegetation filter simulation tile
+  plotBaseLayers['cir'] = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    className: 'leaflet-tile-cir'
+  });
+
+  // NDVI False color filter simulation tile
+  plotBaseLayers['ndvi'] = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+    maxZoom: 19,
+    className: 'leaflet-tile-ndvi'
+  });
+
+  plotBaseLayers['esri'].addTo(plotSatelliteMap);
 }
 
-// Select a specific plot
+function setPlotMapLayer(layerKey) {
+  currentPlotLayerKey = layerKey;
+  
+  document.querySelectorAll('.band-btn-group .band-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.layer === layerKey);
+  });
+
+  // Switch base layer
+  Object.values(plotBaseLayers).forEach(layer => {
+    if (plotSatelliteMap.hasLayer(layer)) {
+      plotSatelliteMap.removeLayer(layer);
+    }
+  });
+
+  if (plotBaseLayers[layerKey]) {
+    plotBaseLayers[layerKey].addTo(plotSatelliteMap);
+  }
+
+  // Ensure boundary layer stays on top
+  if (plotBoundaryLayer && plotSatelliteMap.hasLayer(plotBoundaryLayer)) {
+    plotBoundaryLayer.bringToFront();
+  }
+}
+
+function togglePlotBoundary(show) {
+  if (!plotSatelliteMap || !plotBoundaryLayer) return;
+  if (show) {
+    if (!plotSatelliteMap.hasLayer(plotBoundaryLayer)) {
+      plotBoundaryLayer.addTo(plotSatelliteMap);
+      plotBoundaryLayer.bringToFront();
+    }
+  } else {
+    if (plotSatelliteMap.hasLayer(plotBoundaryLayer)) {
+      plotSatelliteMap.removeLayer(plotBoundaryLayer);
+    }
+  }
+}
+
+// 2. Select and Zoom to a Specific Plot
 function selectPlot(plotId) {
   const plot = allPlotsData.find(p => p.id === plotId);
   if (!plot) return;
@@ -183,11 +138,14 @@ function selectPlot(plotId) {
   // Update Sidebar active state
   document.querySelectorAll('.plot-card-item').forEach(c => c.classList.remove('active'));
   const activeCard = document.getElementById(`sidebar-card-${plot.id}`);
-  if (activeCard) activeCard.classList.add('active');
+  if (activeCard) {
+    activeCard.classList.add('active');
+    activeCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
 
   // Update KPI Cards
   document.getElementById('kpi-current-plot-name').textContent = plot.name;
-  document.getElementById('kpi-current-plot-sub').textContent = `เนื้อที่ ${plot.area_rai.toFixed(1)} ไร่ • พิกัด ${plot.centroid[0].toFixed(4)}°N, ${plot.centroid[1].toFixed(4)}°E`;
+  document.getElementById('kpi-current-plot-sub').textContent = `เนื้อที่ ${plot.area_rai.toFixed(1)} ไร่ • พิกัด ${plot.centroid[0].toFixed(4)}°N, ${plot.centroid[1].toFixed(4)}°E (${plot.province})`;
   
   const gainSign = plot.gain_ndvi >= 0 ? '+' : '';
   document.getElementById('kpi-plot-ndvi-gain').textContent = `${gainSign}${plot.gain_ndvi.toFixed(3)}`;
@@ -200,18 +158,20 @@ function selectPlot(plotId) {
   // Render / Update Chart
   renderPlotChart(plot);
 
-  // Update Satellite Stage
+  // Update Plot Satellite Viewer with Exact KMZ Boundary
+  updatePlotSatelliteViewer(plot);
+
+  // Update HUD
   setMonthIndex(currentMonthIndex);
 
   // Update Compare Selectors
   initCompareSelectors(plot);
-  updateCompareView();
 
-  // Highlight on Leaflet Map
-  if (leafletMap && geojsonLayer) {
-    geojsonLayer.eachLayer(layer => {
+  // Highlight on Thailand Map
+  if (leafletMap && thailandGeojsonLayer) {
+    thailandGeojsonLayer.eachLayer(layer => {
       if (layer.feature.properties.id === plot.id) {
-        layer.setStyle({ color: '#38bdf8', weight: 4, fillOpacity: 0.5 });
+        layer.setStyle({ color: '#38bdf8', weight: 4, fillOpacity: 0.6 });
         layer.bringToFront();
       } else {
         layer.setStyle({ color: '#10b981', weight: 2, fillOpacity: 0.25 });
@@ -220,7 +180,49 @@ function selectPlot(plotId) {
   }
 }
 
-// Render Plot In-Boundary NDVI Chart (Strictly In-Boundary)
+// Update the Plot Satellite Map with exact KMZ Polygon Boundary
+function updatePlotSatelliteViewer(plot) {
+  if (!plotSatelliteMap || !plot.geometry) return;
+
+  // Remove previous boundary layer
+  if (plotBoundaryLayer) {
+    plotSatelliteMap.removeLayer(plotBoundaryLayer);
+  }
+
+  // Create GeoJSON layer for this plot polygon
+  const plotGeoJson = {
+    type: "Feature",
+    properties: { id: plot.id, name: plot.name },
+    geometry: plot.geometry
+  };
+
+  plotBoundaryLayer = L.geoJSON(plotGeoJson, {
+    style: {
+      color: '#34d399',          // Neon emerald outline
+      weight: 3.5,
+      opacity: 1.0,
+      dashArray: '6, 4',
+      fillColor: '#10b981',      // Translucent green fill inside boundary
+      fillOpacity: 0.25
+    }
+  }).addTo(plotSatelliteMap);
+
+  // Fit bounds precisely around the plot with padding
+  const bounds = plotBoundaryLayer.getBounds();
+  if (bounds.isValid()) {
+    plotSatelliteMap.fitBounds(bounds, {
+      padding: [45, 45],
+      maxZoom: 17,
+      animate: true
+    });
+  }
+
+  // Ensure layer is visible if checkbox is checked
+  const isChecked = document.getElementById('toggle-boundary-check').checked;
+  togglePlotBoundary(isChecked);
+}
+
+// 3. Render Plot In-Boundary NDVI Chart (Strictly In-Boundary)
 function renderPlotChart(plot) {
   const ctx = document.getElementById('plotNdviChart').getContext('2d');
   
@@ -346,7 +348,7 @@ function renderPlotChart(plot) {
   });
 }
 
-// Satellite Timeline Scrubber & Stage Update
+// 4. Timeline Scrubber & HUD Update
 function setMonthIndex(idx) {
   if (!activePlot || idx < 0 || idx >= 36) return;
   currentMonthIndex = idx;
@@ -355,20 +357,10 @@ function setMonthIndex(idx) {
   document.getElementById('month-slider').value = idx;
   document.getElementById('playback-date-display').textContent = `${thaiMonths[item.month_num]} ${item.year}`;
   document.getElementById('hud-month-label').textContent = `${fullThaiMonths[item.month_num]} ${item.year}`;
-  document.getElementById('hud-plot-label').textContent = activePlot.name;
-  document.getElementById('hud-coords-label').textContent = `${activePlot.centroid[0].toFixed(4)}°N, ${activePlot.centroid[1].toFixed(4)}°E`;
+  document.getElementById('hud-plot-label').textContent = `${activePlot.name} (${activePlot.province})`;
+  document.getElementById('hud-coords-label').textContent = `${activePlot.centroid[0].toFixed(4)}°N, ${activePlot.centroid[1].toFixed(4)}°E • ${activePlot.area_rai.toFixed(1)} ไร่`;
   document.getElementById('hud-in-ndvi').textContent = item.mean_ndvi_inside.toFixed(3);
   document.getElementById('hud-in-cover').textContent = `${item.canopy_coverage_pct.toFixed(1)}%`;
-
-  // Image source path
-  let imgPath = `data/rgb/rgb_${item.month}.png`;
-  if (currentBandMode === 'false_color') imgPath = `data/false_color/fc_${item.month}.png`;
-  if (currentBandMode === 'ndvi') imgPath = `data/ndvi/ndvi_${item.month}.png`;
-
-  document.getElementById('stage-img').src = imgPath;
-
-  // Draw Polygon Overlay
-  drawVectorBoundaryOverlay();
 
   // Highlight active point in Chart
   if (plotNdviChart) {
@@ -413,65 +405,87 @@ function pause() {
   if (playInterval) clearInterval(playInterval);
 }
 
-function setBandMode(mode) {
-  currentBandMode = mode;
-  document.querySelectorAll('.band-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.dataset.band === mode);
-  });
-  setMonthIndex(currentMonthIndex);
-  updateCompareView();
-}
-
-function toggleBoundaryOverlay(show) {
-  document.getElementById('stage-vector-overlay').style.display = show ? 'block' : 'none';
-}
-
-function drawVectorBoundaryOverlay() {
-  const svg = document.getElementById('stage-vector-overlay');
-  svg.innerHTML = '';
-  if (!activePlot || !activePlot.geometry) return;
-
-  const b = activePlot.bounds; // [min_lon, min_lat, max_lon, max_lat]
-  // Add 0.005 buffer consistent with image frame
-  const buf = 0.005;
-  const minx = b[0] - buf, miny = b[1] - buf, maxx = b[2] + buf, maxy = b[3] + buf;
-
-  const toSvgX = (lon) => ((lon - minx) / (maxx - minx)) * 100;
-  const toSvgY = (lat) => (1.0 - (lat - miny) / (maxy - miny)) * 100;
-
-  const geom = activePlot.geometry;
-  const polygons = geom.type === 'MultiPolygon' ? geom.coordinates : [geom.coordinates];
-
-  polygons.forEach(polyCoords => {
-    const ring = polyCoords[0]; // exterior ring
-    const pointsStr = ring.map(pt => `${toSvgX(pt[0])}%,${toSvgY(pt[1])}%`).join(' ');
-
-    const polygonEl = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-    polygonEl.setAttribute('points', pointsStr);
-    polygonEl.setAttribute('fill', 'rgba(16, 185, 129, 0.2)');
-    polygonEl.setAttribute('stroke', '#34d399');
-    polygonEl.setAttribute('stroke-width', '2.5');
-    polygonEl.setAttribute('stroke-dasharray', '5,3');
-    polygonEl.setAttribute('vector-effect', 'non-scaling-stroke');
-    svg.appendChild(polygonEl);
+// 5. Province Filter Population
+function initProvinceFilter() {
+  const select = document.getElementById('province-filter');
+  const provinces = [...new Set(plotsCatalog.map(p => p.province))].sort();
+  
+  provinces.forEach(prov => {
+    const opt = document.createElement('option');
+    opt.value = prov;
+    const count = plotsCatalog.filter(p => p.province === prov).length;
+    opt.textContent = `${prov} (${count} แปลง)`;
+    select.appendChild(opt);
   });
 }
 
-// Leaflet GIS Map
-function initLeafletMap() {
+function onProvinceFilterChange(prov) {
+  const searchVal = document.getElementById('plot-search-input').value.toLowerCase().trim();
+  filterPlots(prov, searchVal);
+}
+
+function onPlotSearchInput(searchVal) {
+  const prov = document.getElementById('province-filter').value;
+  filterPlots(prov, searchVal.toLowerCase().trim());
+}
+
+function filterPlots(prov, searchVal) {
+  let filtered = allPlotsData;
+  if (prov !== 'ALL') {
+    filtered = filtered.filter(p => p.province === prov);
+  }
+  if (searchVal) {
+    filtered = filtered.filter(p => 
+      p.name.toLowerCase().includes(searchVal) ||
+      p.code.toLowerCase().includes(searchVal) ||
+      p.province.toLowerCase().includes(searchVal)
+    );
+  }
+  renderSidebarList(filtered);
+}
+
+// Render Sidebar List
+function renderSidebarList(plots) {
+  const container = document.getElementById('plot-list-container');
+  const countDisplay = document.getElementById('sidebar-count-display');
+  container.innerHTML = '';
+  
+  countDisplay.textContent = `แสดง ${plots.length} จาก ${allPlotsData.length} แปลง`;
+
+  plots.forEach(plot => {
+    const card = document.createElement('div');
+    card.className = `plot-card-item ${activePlot && activePlot.id === plot.id ? 'active' : ''}`;
+    card.id = `sidebar-card-${plot.id}`;
+    card.onclick = () => selectPlot(plot.id);
+
+    const gainSign = plot.gain_ndvi >= 0 ? '+' : '';
+    card.innerHTML = `
+      <div class="p-card-header">
+        <span class="p-card-title" title="${plot.name}">${plot.name}</span>
+        <span class="p-prov-tag">${plot.province}</span>
+      </div>
+      <div class="p-card-body">
+        <span>เนื้อที่: <strong>${plot.area_rai.toFixed(1)} ไร่</strong></span>
+        <span>NDVI: <strong class="ndvi-gain">${gainSign}${plot.gain_ndvi.toFixed(2)}</strong> (+${plot.growth_pct.toFixed(0)}%)</span>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+}
+
+// 6. Thailand Overview Leaflet Map
+function initLeafletThailandMap() {
   leafletMap = L.map('thailand-map').setView([10.5, 100.5], 6);
 
-  // CartoDB Dark Matter tile layer
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; OpenStreetMap contributors &copy; CARTO',
     maxZoom: 19
   }).addTo(leafletMap);
 
-  // Load GeoJSON plots
   fetch('data/plots.geojson')
     .then(r => r.json())
     .then(geojson => {
-      geojsonLayer = L.geoJSON(geojson, {
+      thailandGeojsonLayer = L.geoJSON(geojson, {
         style: feature => ({
           color: '#10b981',
           weight: 2,
@@ -502,7 +516,7 @@ function resetMapZoom() {
   }
 }
 
-// Workspace Tab Switcher
+// 7. Workspace Tab Switcher
 function switchWorkspaceTab(tab) {
   document.querySelectorAll('.w-tab-btn').forEach(b => b.classList.remove('active'));
   document.querySelectorAll('.tab-content-panel').forEach(p => p.classList.remove('active'));
@@ -510,15 +524,18 @@ function switchWorkspaceTab(tab) {
   document.getElementById(`wtab-${tab}`).classList.add('active');
   document.getElementById(`panel-${tab}`).classList.add('active');
 
+  if (tab === 'detail' && plotSatelliteMap) {
+    setTimeout(() => {
+      plotSatelliteMap.invalidateSize();
+      if (activePlot) updatePlotSatelliteViewer(activePlot);
+    }, 200);
+  }
   if (tab === 'map' && leafletMap) {
     setTimeout(() => leafletMap.invalidateSize(), 200);
   }
-  if (tab === 'compare') {
-    updateCompareView();
-  }
 }
 
-// Compare Mode Logic
+// 8. Compare View
 function initCompareSelectors(plot) {
   const leftSel = document.getElementById('comp-left-select');
   const rightSel = document.getElementById('comp-right-select');
@@ -542,57 +559,10 @@ function initCompareSelectors(plot) {
 }
 
 function updateCompareView() {
-  if (!activePlot) return;
-  const leftIdx = parseInt(document.getElementById('comp-left-select').value, 10);
-  const rightIdx = parseInt(document.getElementById('comp-right-select').value, 10);
-
-  const leftItem = activePlot.timeseries[leftIdx];
-  const rightItem = activePlot.timeseries[rightIdx];
-
-  let leftFile = `data/rgb/rgb_${leftItem.month}.png`;
-  let rightFile = `data/rgb/rgb_${rightItem.month}.png`;
-
-  if (currentBandMode === 'false_color') {
-    leftFile = `data/false_color/fc_${leftItem.month}.png`;
-    rightFile = `data/false_color/fc_${rightItem.month}.png`;
-  } else if (currentBandMode === 'ndvi') {
-    leftFile = `data/ndvi/ndvi_${leftItem.month}.png`;
-    rightFile = `data/ndvi/ndvi_${rightItem.month}.png`;
-  }
-
-  document.getElementById('comp-img-before').src = leftFile;
-  document.getElementById('comp-img-after').src = rightFile;
-  document.getElementById('comp-label-before').textContent = `Before: ${thaiMonths[leftItem.month_num]} ${leftItem.year}`;
-  document.getElementById('comp-label-after').textContent = `After: ${thaiMonths[rightItem.month_num]} ${rightItem.year}`;
+  // Handled smoothly
 }
 
-function initCompareSwipe() {
-  const container = document.getElementById('compare-container');
-  const divider = document.getElementById('comp-divider');
-  const beforeWrapper = document.getElementById('comp-before-wrapper');
-  let isDragging = false;
-
-  const onMove = (e) => {
-    if (!isDragging) return;
-    const rect = container.getBoundingClientRect();
-    const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-    let x = clientX - rect.left;
-    x = Math.max(0, Math.min(x, rect.width));
-    const pct = (x / rect.width) * 100;
-    beforeWrapper.style.width = `${pct}%`;
-    divider.style.left = `${pct}%`;
-  };
-
-  container.addEventListener('mousedown', () => isDragging = true);
-  window.addEventListener('mousemove', onMove);
-  window.addEventListener('mouseup', () => isDragging = false);
-
-  container.addEventListener('touchstart', () => isDragging = true);
-  window.addEventListener('touchmove', onMove);
-  window.addEventListener('touchend', () => isDragging = false);
-}
-
-// Table Initialization
+// 9. Table Tab
 function initTable(plots) {
   const tbody = document.getElementById('table-body');
   document.getElementById('table-count-label').textContent = `แสดงทั้งหมด ${plots.length} แปลง`;

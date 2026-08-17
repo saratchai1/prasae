@@ -78,17 +78,17 @@
         </div>
         <div class="kpi-card">
           <div class="kpi-label">แปลงที่เลือกในปัจจุบัน</div>
-          <div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">แปลงประแส (ระยอง)</div>
-          <div class="kpi-sub" id="kpi-current-plot-sub">เนื้อที่ 84.5 ไร่ • พิกัด 12.7088°N, 101.6929°E</div>
+          <div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">-</div>
+          <div class="kpi-sub" id="kpi-current-plot-sub">-</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">การเติบโต NDVI ในแปลง (In-Boundary Gain)</div>
-          <div class="kpi-value text-success" id="kpi-plot-ndvi-gain">+0.181</div>
-          <div class="kpi-sub" id="kpi-plot-gain-pct">เพิ่มขึ้น +105% (เฉพาะพิกเซลในกรอบแปลง)</div>
+          <div class="kpi-value text-success" id="kpi-plot-ndvi-gain">+0.000</div>
+          <div class="kpi-sub" id="kpi-plot-gain-pct">เพิ่มขึ้น (เฉพาะพิกเซลในกรอบแปลง)</div>
         </div>
         <div class="kpi-card">
           <div class="kpi-label">สัดส่วนทรงพุ่มในแปลง (% Canopy)</div>
-          <div class="kpi-value" id="kpi-plot-canopy-pct">48.1%</div>
+          <div class="kpi-value" id="kpi-plot-canopy-pct">0%</div>
           <div class="kpi-sub">คำนวณจาก In-Boundary Polygon Mask 100%</div>
         </div>
       </section>
@@ -130,46 +130,46 @@
             </div>
           </div>
 
-          <!-- Satellite Viewer & Scrubber -->
+          <!-- Dynamic Satellite GIS Stage with Exact KMZ Polygon Boundary -->
           <div class="viewer-wrapper">
             <div class="viewer-toolbar">
               <div class="band-btn-group">
-                <button class="band-btn active" data-band="rgb" onclick="setBandMode('rgb')">True Color (RGB)</button>
-                <button class="band-btn" data-band="false_color" onclick="setBandMode('false_color')">Color Infrared (CIR)</button>
-                <button class="band-btn" data-band="ndvi" onclick="setBandMode('ndvi')">NDVI Heatmap</button>
+                <button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">High-Res Satellite (True Color)</button>
+                <button class="band-btn" data-layer="s2" onclick="setPlotMapLayer('s2')">Sentinel-2 Cloudless</button>
+                <button class="band-btn" data-layer="cir" onclick="setPlotMapLayer('cir')">Color Infrared (CIR)</button>
+                <button class="band-btn" data-layer="ndvi" onclick="setPlotMapLayer('ndvi')">NDVI Heatmap</button>
               </div>
               <div class="boundary-toggle">
                 <label>
-                  <input type="checkbox" id="toggle-boundary-check" checked onchange="toggleBoundaryOverlay(this.checked)">
-                  แสดงเส้นกรอบแปลง (Polygon Outline)
+                  <input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)">
+                  แสดงเส้นขอบเขตแปลงจาก KMZ (Polygon Outline)
                 </label>
               </div>
             </div>
 
             <div class="satellite-stage">
-              <div class="stage-img-box" id="stage-box">
-                <img id="stage-img" src="" alt="Satellite Composite">
-                <svg id="stage-vector-overlay" class="stage-vector-overlay"></svg>
-                
-                <div class="stage-hud top-left">
-                  <div class="hud-main" id="hud-month-label">Sep 2023</div>
-                  <div class="hud-sub" id="hud-plot-label">แปลง 22-STC (ระยอง)</div>
-                </div>
+              <!-- Interactive Plot Satellite Map -->
+              <div id="plot-satellite-map" class="plot-satellite-map-container"></div>
+              
+              <!-- Map HUD Overlays -->
+              <div class="stage-hud top-left">
+                <div class="hud-main" id="hud-month-label">Sep 2023</div>
+                <div class="hud-sub" id="hud-plot-label">-</div>
+              </div>
 
-                <div class="stage-hud top-right">
-                  <div class="hud-tag">Cloud-Free 100%</div>
-                  <div class="hud-sub">SCL QA Masked</div>
-                </div>
+              <div class="stage-hud top-right">
+                <div class="hud-tag">Cloud-Free 100%</div>
+                <div class="hud-sub">SCL QA Masked</div>
+              </div>
 
-                <div class="stage-hud bottom-left">
-                  <div class="hud-sub" id="hud-coords-label">12.7088° N, 101.6929° E</div>
-                  <div class="hud-sub">Sentinel-2 10m Resolution</div>
-                </div>
+              <div class="stage-hud bottom-left">
+                <div class="hud-sub" id="hud-coords-label">0.0000° N, 0.0000° E</div>
+                <div class="hud-sub">High-Resolution Satellite Imagery</div>
+              </div>
 
-                <div class="stage-hud bottom-right">
-                  <div class="hud-pill">In-Boundary Mean NDVI: <strong id="hud-in-ndvi">0.000</strong></div>
-                  <div class="hud-pill">Canopy Cover: <strong id="hud-in-cover">0%</strong></div>
-                </div>
+              <div class="stage-hud bottom-right">
+                <div class="hud-pill">In-Boundary Mean NDVI: <strong id="hud-in-ndvi">0.000</strong></div>
+                <div class="hud-pill">Canopy Cover: <strong id="hud-in-cover">0%</strong></div>
               </div>
             </div>
 
@@ -187,10 +187,10 @@
               <div class="slider-box">
                 <input type="range" id="month-slider" min="0" max="35" value="0" step="1" oninput="onMonthSliderChange(this.value)">
                 <div class="slider-ticks">
-                  <span>ก.ย. 2023</span>
+                  <span>ก.ย. 2023 (เริ่มต้น)</span>
                   <span>2024</span>
                   <span>2025</span>
-                  <span>ส.ค. 2026</span>
+                  <span>ส.ค. 2026 (ปัจจุบัน)</span>
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@
         <!-- TAB 2: NATIONWIDE GIS THAILAND MAP -->
         <div class="tab-content-panel" id="panel-map">
           <div class="map-toolbar">
-            <p class="map-hint">คลิกที่แปลงใดๆ บนแผนที่ประเทศไทย เพื่อดูขอบเขตแปลง (Polygon) และเลือกวิเคราะห์ดัชนี NDVI ของแปลงนั้น</p>
+            <p class="map-hint">คลิกที่แปลงใดๆ บนแผนที่ประเทศไทย เพื่อดูขอบเขตแปลง (Polygon จาก KMZ) และกดเลือกวิเคราะห์แปลงนั้นได้ทันที</p>
             <button class="btn-reset-zoom" onclick="resetMapZoom()">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
               ซูมภาพรวมประเทศไทย
@@ -223,14 +223,12 @@
               </div>
             </div>
             <div class="compare-stage" id="compare-container">
-              <div class="compare-img-box after-img-box">
-                <img id="comp-img-after" src="" alt="After Image">
-                <div class="compare-label right-label" id="comp-label-after">ส.ค. 2026</div>
+              <div class="compare-map-box" id="compare-after-map"></div>
+              <div class="compare-before-wrapper" id="comp-before-wrapper">
+                <div class="compare-map-box" id="compare-before-map"></div>
               </div>
-              <div class="compare-img-box before-img-box" id="comp-before-wrapper">
-                <img id="comp-img-before" src="" alt="Before Image">
-                <div class="compare-label left-label" id="comp-label-before">ก.ย. 2023</div>
-              </div>
+              <div class="compare-label left-label" id="comp-label-before">ก.ย. 2023 (ก่อนปลูก)</div>
+              <div class="compare-label right-label" id="comp-label-after">ส.ค. 2026 (ปัจจุบัน)</div>
               <div class="compare-handle" id="comp-divider">
                 <div class="handle-circle">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"/></svg>
