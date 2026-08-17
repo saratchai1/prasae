@@ -397,6 +397,8 @@ function setMonthIndex(idx) {
   document.getElementById('hud-coords-label').textContent = `${activePlot.centroid[0].toFixed(4)}°N, ${activePlot.centroid[1].toFixed(4)}°E • ${activePlot.area_rai.toFixed(1)} ไร่`;
   document.getElementById('hud-in-ndvi').textContent = item.mean_ndvi_inside.toFixed(3);
   document.getElementById('hud-in-cover').textContent = `${item.canopy_coverage_pct.toFixed(1)}%`;
+  
+  updateGeeOverlay();
 
   // Highlight active point in Chart
   if (plotNdviChart) {
@@ -569,6 +571,9 @@ function switchWorkspaceTab(tab) {
   if (tab === 'map' && leafletMap) {
     setTimeout(() => leafletMap.invalidateSize(), 200);
   }
+  if (tab === 'compare') {
+    setTimeout(() => updateCompareView(), 200);
+  }
 }
 
 // 8. Compare View
@@ -630,16 +635,24 @@ function updateCompareView() {
   const imgL = `data/plots/${activePlot.id}/rgb_${msL}.png`;
   const imgR = `data/plots/${activePlot.id}/rgb_${msR}.png`;
   
+  const container = document.getElementById('compare-container');
   const beforeMap = document.getElementById('compare-before-map');
   const afterMap = document.getElementById('compare-after-map');
   
+  // CRITICAL: before-map must be sized to the CONTAINER, not the wrapper
+  // The wrapper clips it, but the image itself must fill the full container width
+  const containerW = container.offsetWidth;
+  const containerH = container.offsetHeight;
+  beforeMap.style.width = containerW + 'px';
+  beforeMap.style.height = containerH + 'px';
+  
   beforeMap.style.backgroundImage = `url(${imgL})`;
-  beforeMap.style.backgroundSize = '100% 100%';
+  beforeMap.style.backgroundSize = 'cover';
   beforeMap.style.backgroundPosition = 'center';
   beforeMap.style.backgroundRepeat = 'no-repeat';
 
   afterMap.style.backgroundImage = `url(${imgR})`;
-  afterMap.style.backgroundSize = '100% 100%';
+  afterMap.style.backgroundSize = 'cover';
   afterMap.style.backgroundPosition = 'center';
   afterMap.style.backgroundRepeat = 'no-repeat';
 }
@@ -654,8 +667,8 @@ function initCompareSlider() {
 
   const slide = (e) => {
     if (!isDragging) return;
+    e.preventDefault();
     const rect = container.getBoundingClientRect();
-    // Support touch and mouse
     let clientX = e.clientX;
     if (e.touches && e.touches.length > 0) clientX = e.touches[0].clientX;
     
@@ -666,17 +679,28 @@ function initCompareSlider() {
     divider.style.left = pct + '%';
   };
 
-  divider.addEventListener('mousedown', () => isDragging = true);
-  divider.addEventListener('touchstart', () => isDragging = true);
+  // Allow dragging from anywhere in the container, not just the handle
+  container.addEventListener('mousedown', (e) => { isDragging = true; slide(e); });
+  container.addEventListener('touchstart', (e) => { isDragging = true; slide(e); }, {passive: false});
   
   window.addEventListener('mouseup', () => isDragging = false);
   window.addEventListener('touchend', () => isDragging = false);
   
   window.addEventListener('mousemove', slide);
-  window.addEventListener('touchmove', slide);
+  window.addEventListener('touchmove', slide, {passive: false});
+  
+  // Re-size before-map on window resize
+  window.addEventListener('resize', () => {
+    const bm = document.getElementById('compare-before-map');
+    if (bm && container) {
+      bm.style.width = container.offsetWidth + 'px';
+      bm.style.height = container.offsetHeight + 'px';
+    }
+  });
 }
 
 document.addEventListener('DOMContentLoaded', initCompareSlider);
+
 
 
 // 9. Table Tab
