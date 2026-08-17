@@ -1,7 +1,7 @@
-// Site-calibrated Green Cover presentation v4.
-// Loaded after metrics-v2.js so it only adds threshold/calibration provenance.
+// Site-calibrated Green Cover presentation v4.1.
+// Loaded after metrics-v2.js; keeps map/selection/compare state untouched.
 
-const METRIC_V4_VERSION = '20260818-0015';
+const METRIC_V4_VERSION = '20260818-0020';
 const baseNormalizePlotV4 = normalizePlot;
 
 normalizePlot = function(plot, catalogPlot) {
@@ -31,10 +31,24 @@ normalizePlot = function(plot, catalogPlot) {
   return normalized;
 };
 
+function ensureCalibrationCardV4() {
+  const panel = document.getElementById('mangrove-metric-v2-panel');
+  if (!panel || document.getElementById('metric-v4-calibration')) return;
+
+  const card = document.createElement('div');
+  card.className = 'mangrove-metric-v2-card';
+  card.innerHTML = `
+    <div class="mangrove-metric-v2-label">GREEN COVER CALIBRATION</div>
+    <div class="mangrove-metric-v2-value" id="metric-v4-calibration">—</div>
+    <div class="mangrove-metric-v2-sub" id="metric-v4-calibration-sub">threshold provenance</div>`;
+  panel.appendChild(card);
+}
+
 const baseRenderMangroveMetricV4 = renderMangroveMetricV2;
 
 renderMangroveMetricV2 = function() {
   baseRenderMangroveMetricV4();
+  ensureCalibrationCardV4();
 
   const item = activePlot?.timeseries?.[currentMonthIndex];
   if (!item) return;
@@ -43,8 +57,22 @@ renderMangroveMetricV2 = function() {
     ? item.green_proxy_threshold
     : 0.25;
   const status = item.green_proxy_calibration_status || 'DEFAULT_UNCALIBRATED';
+  const source = item.green_proxy_calibration_source || 'portfolio conservative default';
   const calibrated = status === 'PROMOTED_DRONE_CALIBRATED';
   const thresholdText = threshold.toFixed(3);
+
+  const set = (id, text) => {
+    const element = document.getElementById(id);
+    if (element) element.textContent = text;
+  };
+
+  set('metric-v4-calibration', calibrated ? `NDVI > ${thresholdText}` : `DEFAULT ${thresholdText}`);
+  set(
+    'metric-v4-calibration-sub',
+    calibrated
+      ? `DRONE CALIBRATED • spatial holdout • ${source}`
+      : `UNCALIBRATED SITE • ${source}`
+  );
 
   const proxyCard = document.getElementById('kpi-plot-canopy-pct')?.parentElement;
   if (proxyCard) {
@@ -57,7 +85,7 @@ renderMangroveMetricV2 = function() {
     }
     if (sub) {
       sub.textContent = calibrated
-        ? `NDVI > ${thresholdText} • calibrated on 13-STC drone-density reference + spatial holdout`
+        ? `NDVI > ${thresholdText} • 13-STC drone-density reference + spatial holdout`
         : `NDVI > ${thresholdText} • conservative default; ยังไม่มี site-specific calibration`;
     }
   }
