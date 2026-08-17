@@ -48,7 +48,7 @@
         <div class="kpi-card"><div class="kpi-label">พื้นที่ที่ติดตามรวม</div><div class="kpi-value" id="kpi-total-area">—</div><div class="kpi-sub">คำนวณจากชุดขอบเขตแปลงปัจจุบัน</div></div>
         <div class="kpi-card"><div class="kpi-label">แปลงที่เลือก</div><div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">—</div><div class="kpi-sub" id="kpi-current-plot-sub">—</div></div>
         <div class="kpi-card"><div class="kpi-label">การเปลี่ยนแปลง NDVI (observed dates only)</div><div class="kpi-value text-success" id="kpi-plot-ndvi-gain">—</div><div class="kpi-sub" id="kpi-plot-gain-pct">ไม่ใช้ interpolation หรือ synthetic fallback</div></div>
-        <div class="kpi-card"><div class="kpi-label">Vegetation coverage proxy</div><div class="kpi-value" id="kpi-plot-canopy-pct">—</div><div class="kpi-sub">สัดส่วนพิกเซลในแปลงที่ NDVI &gt; 0.25; ไม่ใช่ canopy cover โดยตรง</div></div>
+        <div class="kpi-card"><div class="kpi-label">Tide-resilient Vegetation Proxy</div><div class="kpi-value" id="kpi-plot-canopy-pct">—</div><div class="kpi-sub">NDVI &gt; 0.25 หรือ MFI &gt; 0; แยก open water ออกต่างหาก</div></div>
       </section>
       <div class="workspace-card">
         <div class="workspace-tabs">
@@ -58,7 +58,7 @@
           <button class="w-tab-btn" id="wtab-table" onclick="switchWorkspaceTab('table')">ตารางสรุป</button>
         </div>
         <div class="tab-content-panel active" id="panel-detail">
-          <div class="chart-box"><div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI และ Vegetation Proxy — 12 observation/composite dates</h3><p class="chart-box-subtitle">ไม่มีการ interpolate ระหว่างเดือน และไม่มี synthetic fallback; ช่องที่ไม่มี observation จะแสดงเป็น No data</p></div><div class="chart-badge-tag">Verified statistics pending</div></div><div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div></div>
+          <div class="chart-box"><div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI และ Vegetation Proxy — 12 observation/composite dates</h3><p class="chart-box-subtitle">NDVI = ความเขียวของทั้งแปลง • Vegetation Proxy ใช้ NDVI + Mangrove Forest Index เพื่อลดผลจากน้ำขึ้น • ไม่มี interpolation</p></div><div class="chart-badge-tag">Verified statistics pending</div></div><div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div></div>
           <div class="viewer-wrapper">
             <div class="viewer-toolbar"><div class="band-btn-group"><button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">Esri World Imagery</button><button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB (ในขอบเขตแปลง)</button><button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI (ในขอบเขตแปลง)</button></div><div class="boundary-toggle"><label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> แสดงเส้นขอบเขตแปลง</label></div></div>
             <div class="satellite-stage"><div id="plot-satellite-map" class="plot-satellite-map-container"></div><div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กันยายน 2023</div><div class="hud-sub" id="hud-plot-label">—</div></div><div class="stage-hud top-right"><div class="hud-tag">Cloud-masked composite</div><div class="hud-sub">SCL QA • 12 dates • no interpolation</div></div><div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">Sentinel-2 clipped over Esri World Imagery</div></div><div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">Vegetation proxy: <strong id="hud-in-cover">—</strong></div></div></div>
@@ -72,6 +72,7 @@
     </main>
   </div>
   <script src="app.js?v=20260817-2310"></script>
+  <script src="metrics-v2.js?v=20260817-2340"></script>
   <script src="compare-swipe.js?v=20260817-2320"></script>
 </body>
 </html>
