@@ -217,6 +217,7 @@
                 <select id="comp-mode-select" onchange="updateCompareView()">
                   <option value="rgb">ภาพถ่ายดาวเทียมจริง (RGB True Color)</option>
                   <option value="ndvi">ดัชนีพืชพรรณจริง (NDVI Heatmap)</option>
+                  <option value="rgb_vs_ndvi">เปรียบเทียบ RGB (ซ้าย) vs NDVI (ขวา)</option>
                 </select>
               </div>
               <div class="select-group">
@@ -227,19 +228,48 @@
                 <label>ภาพฝั่งขวา (After):</label>
                 <select id="comp-right-select" onchange="updateCompareView()"></select>
               </div>
+              <div class="select-group boundary-check-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)">
+                  แสดงกรอบแปลง (Polygon)
+                </label>
+              </div>
             </div>
+            
             <div class="compare-stage" id="compare-container">
               <img id="compare-after-img" class="compare-img compare-after" src="" alt="After" />
               <img id="compare-before-img" class="compare-img compare-before" src="" alt="Before" />
-              <div class="compare-label left-label" id="comp-label-before">ก.ย. 2023 (ก่อนปลูก)</div>
-              <div class="compare-label right-label" id="comp-label-after">ส.ค. 2026 (ปัจจุบัน)</div>
+              
+              <!-- Exact In-Boundary Polygon Outline Overlay -->
+              <svg id="compare-boundary-svg" class="compare-boundary-overlay" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet">
+                <!-- Dynamically generated polygons -->
+              </svg>
+
+              <div class="compare-label left-label" id="comp-label-before">ก.ย. 2023</div>
+              <div class="compare-label right-label" id="comp-label-after">ส.ค. 2026</div>
               <div class="compare-handle" id="comp-divider">
                 <div class="handle-circle">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/><polyline points="9 18 15 12 9 6" transform="rotate(180 12 12)"/></svg>
                 </div>
               </div>
             </div>
-            <p class="compare-hint">ลากเส้นตรงกลางเพื่อเปรียบเทียบการเปลี่ยนแปลงก่อนและหลังการฟื้นฟูป่าชายเลน</p>
+
+            <!-- In-Boundary Statistical Summary & Legend -->
+            <div class="compare-meta-bar">
+              <div class="compare-stat-item">
+                <span class="meta-icon">📊</span>
+                <span>วิเคราะห์ In-Boundary: </span>
+                <span id="comp-in-stat-text">NDVI ก่อน: <strong>0.00</strong> ➔ หลัง: <strong>0.00</strong></span>
+                <span class="compare-stat-pill" id="comp-gain-pill">+0.00 (+0%)</span>
+              </div>
+              <div class="ndvi-legend-bar" id="comp-ndvi-legend">
+                <span>NDVI Index: -0.1 (น้ำ/ดิน)</span>
+                <div class="ndvi-gradient-strip"></div>
+                <span>0.8 (ป่าสมบูรณ์)</span>
+              </div>
+            </div>
+
+            <p class="compare-hint">💡 ลากเส้นสไลเดอร์ตรงกลางเพื่อเปรียบเทียบการเปลี่ยนแปลงของแปลงป่าชายเลนเฉพาะในกรอบแปลง (In-Boundary Polygon Outline)</p>
           </div>
         </div>
 

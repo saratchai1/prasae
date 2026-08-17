@@ -613,8 +613,9 @@ function updateCompareView() {
   
   if (!itemL || !itemR) return;
   
-  document.getElementById('comp-label-before').textContent = `${thaiMonths[itemL.month_num]} ${itemL.year}`;
-  document.getElementById('comp-label-after').textContent = `${thaiMonths[itemR.month_num]} ${itemR.year}`;
+  // Format labels
+  let labelL = `${thaiMonths[itemL.month_num]} ${itemL.year}`;
+  let labelR = `${thaiMonths[itemR.month_num]} ${itemR.year}`;
   
   const getClosest = (y, m) => {
     const targetVal = y * 12 + m;
@@ -634,15 +635,90 @@ function updateCompareView() {
   const msL = getClosest(itemL.year, itemL.month_num);
   const msR = getClosest(itemR.year, itemR.month_num);
   
-  const prefix = mode === 'ndvi' ? 'ndvi' : 'rgb';
-  const imgL = `data/plots/${activePlot.id}/${prefix}_${msL}.png`;
-  const imgR = `data/plots/${activePlot.id}/${prefix}_${msR}.png`;
+  let prefixL = 'rgb';
+  let prefixR = 'rgb';
+  
+  if (mode === 'ndvi') {
+    prefixL = 'ndvi';
+    prefixR = 'ndvi';
+    labelL += ` (NDVI: ${itemL.mean_ndvi_inside.toFixed(2)})`;
+    labelR += ` (NDVI: ${itemR.mean_ndvi_inside.toFixed(2)})`;
+  } else if (mode === 'rgb_vs_ndvi') {
+    prefixL = 'rgb';
+    prefixR = 'ndvi';
+    labelL += ` [RGB สีจริง]`;
+    labelR += ` [NDVI Heatmap]`;
+  }
+  
+  document.getElementById('comp-label-before').textContent = labelL;
+  document.getElementById('comp-label-after').textContent = labelR;
+  
+  const imgL = `data/plots/${activePlot.id}/${prefixL}_${msL}.png`;
+  const imgR = `data/plots/${activePlot.id}/${prefixR}_${msR}.png`;
   
   const beforeImg = document.getElementById('compare-before-img');
   const afterImg = document.getElementById('compare-after-img');
   
   if (beforeImg) beforeImg.src = imgL;
   if (afterImg) afterImg.src = imgR;
+
+  // Update In-Boundary Stats Bar
+  const ndviDiff = itemR.mean_ndvi_inside - itemL.mean_ndvi_inside;
+  const gainSign = ndviDiff >= 0 ? '+' : '';
+  const growthPct = itemL.mean_ndvi_inside > 0 ? (ndviDiff / itemL.mean_ndvi_inside) * 100 : 0;
+  
+  const statText = document.getElementById('comp-in-stat-text');
+  const gainPill = document.getElementById('comp-gain-pill');
+  if (statText) {
+    statText.innerHTML = `NDVI ในกรอบแปลง: <strong>${itemL.mean_ndvi_inside.toFixed(3)}</strong> ➔ <strong>${itemR.mean_ndvi_inside.toFixed(3)}</strong>`;
+  }
+  if (gainPill) {
+    gainPill.textContent = `${gainSign}${ndviDiff.toFixed(3)} (${gainSign}${growthPct.toFixed(0)}%)`;
+  }
+  
+  // Render exact Polygon Boundary Overlay on the compare stage
+  renderCompareBoundarySvg(activePlot);
+}
+
+function renderCompareBoundarySvg(plot) {
+  const svg = document.getElementById('compare-boundary-svg');
+  if (!svg || !plot || !plot.bounds || !plot.geometry) return;
+  
+  const BUFFER_DEG = 0.003;
+  const min_lon = plot.bounds[0] - BUFFER_DEG;
+  const min_lat = plot.bounds[1] - BUFFER_DEG;
+  const max_lon = plot.bounds[2] + BUFFER_DEG;
+  const max_lat = plot.bounds[3] + BUFFER_DEG;
+  
+  const w_deg = max_lon - min_lon;
+  const h_deg = max_lat - min_lat;
+  
+  let coords = plot.geometry.coordinates;
+  if (plot.geometry.type === 'Polygon') {
+    coords = [coords];
+  }
+  
+  let polygonsHtml = '';
+  coords.forEach(poly => {
+    poly.forEach(ring => {
+      const pts = ring.map(([lon, lat]) => {
+        const nx = ((lon - min_lon) / w_deg) * 1000;
+        const ny = ((max_lat - lat) / h_deg) * 1000;
+        return `${nx.toFixed(1)},${ny.toFixed(1)}`;
+      }).join(' ');
+      
+      polygonsHtml += `<polygon points="${pts}" class="compare-polygon-boundary" />`;
+    });
+  });
+  
+  svg.innerHTML = polygonsHtml;
+}
+
+function toggleCompareBoundary(show) {
+  const svg = document.getElementById('compare-boundary-svg');
+  if (svg) {
+    svg.style.display = show ? 'block' : 'none';
+  }
 }
 
 let compareDividerPct = 50;
