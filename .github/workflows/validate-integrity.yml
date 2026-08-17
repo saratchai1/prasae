@@ -1,0 +1,61 @@
+name: Validate geospatial integrity changes
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  syntax-and-contract:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Validate JavaScript syntax
+        run: node --check app.js
+
+      - name: Validate Python syntax
+        run: python -m py_compile process_verified_12_dates.py extract_kmz_plots.py
+
+      - name: Validate 12-date contract and safe placeholder
+        run: |
+          python - <<'PY'
+          import json
+          import re
+          from pathlib import Path
+
+          app = Path('app.js').read_text(encoding='utf-8')
+          html = Path('index.html').read_text(encoding='utf-8')
+          verified = json.loads(Path('data/timeseries_verified_12.json').read_text(encoding='utf-8'))
+
+          expected = [
+              '2023-09', '2023-12', '2024-03', '2024-06',
+              '2024-09', '2024-12', '2025-03', '2025-06',
+              '2025-09', '2025-12', '2026-03', '2026-08',
+          ]
+          match = re.search(r"const MILESTONE_MONTHS = \[(.*?)\];", app, re.S)
+          assert match, 'MILESTONE_MONTHS not found'
+          actual = re.findall(r"'([0-9]{4}-[0-9]{2})'", match.group(1))
+          assert actual == expected, (actual, expected)
+
+          assert 'timeseries_all_plots.json' not in app
+          assert '36 เดือน' not in html
+          assert 'Cloud-Free 100%' not in html
+          assert 'Canopy Cover' not in html
+          assert verified == [], 'placeholder must remain empty until verified rebuild is run'
+
+          required_ids = set(re.findall(r"getElementById\('([^']+)'\)", app))
+          html_ids = set(re.findall(r'id="([^"]+)"', html))
+          missing = sorted(required_ids - html_ids)
+          assert not missing, f'Missing HTML IDs referenced by app.js: {missing}'
+          print('12-date contract, safe placeholder, and DOM IDs validated')
+          PY
