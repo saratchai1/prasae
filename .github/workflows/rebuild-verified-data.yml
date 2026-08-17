@@ -8,6 +8,9 @@ on:
     paths:
       - process_verified_12_dates.py
       - process_verified_12_dates_v3.py
+      - process_verified_12_dates_v4.py
+      - calibrate_green_proxy.py
+      - data/calibration/13stc_green_proxy_reference.json
       - requirements-verified.txt
       - .github/workflows/rebuild-verified-data.yml
 
@@ -21,7 +24,7 @@ concurrency:
 jobs:
   smoke-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,28 +40,67 @@ jobs:
         run: pip install -r requirements-verified.txt
 
       - name: Validate Python syntax
-        run: python -m py_compile process_verified_12_dates.py process_verified_12_dates_v3.py extract_kmz_plots.py
+        run: |
+          python -m py_compile \
+            process_verified_12_dates.py \
+            process_verified_12_dates_v3.py \
+            process_verified_12_dates_v4.py \
+            calibrate_green_proxy.py \
+            extract_kmz_plots.py
+
+      - name: Calibrate 13-STC Green Cover threshold
+        env:
+          PRASAE_CALIBRATION_MAX_SCENES: '6'
+        run: python calibrate_green_proxy.py
+
+      - name: Validate calibration artifact
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('data/calibration/green_proxy_calibration.json').read_text())
+          assert p['site_id'] == 76
+          assert p['status'] in {'PROMOTED_DRONE_CALIBRATED', 'FALLBACK_DEFAULT'}
+          assert 0.10 <= p['selected_threshold'] <= 0.50
+          assert p['sample_counts']['train'] >= 80, p['sample_counts']
+          assert p['sample_counts']['holdout'] >= 50, p['sample_counts']
+          print(json.dumps({
+              'status': p['status'],
+              'selected_threshold': p['selected_threshold'],
+              'candidate_holdout': p['candidate_metrics']['holdout'],
+              'baseline_holdout': p['baseline_0_25_metrics']['holdout'],
+              'sample_counts': p['sample_counts'],
+          }, indent=2))
+          PY
 
       - name: Smoke-test mature and Prasae plots against live Sentinel-2 STAC
         env:
           PRASAE_WORKERS: '2'
           PRASAE_MAX_SCENES: '2'
           PRASAE_PLOT_IDS: '1,76'
-        run: python process_verified_12_dates_v3.py
+        run: python process_verified_12_dates_v4.py
 
-      - name: Validate conservative metric ranges and class partition
+      - name: Validate v4 metrics and calibration scope
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
+          calibration = json.loads(Path('data/calibration/green_proxy_calibration.json').read_text())
           data = json.loads(Path('data/timeseries_verified_12.json').read_text(encoding='utf-8'))
           assert {p['id'] for p in data} == {1, 76}, [p['id'] for p in data]
           observed = 0
           for plot in data:
-              assert plot.get('proxy_version') == 'v3_conservative_ndvi_mfi_diagnostic'
-              print(f"\n{plot['code']} {plot['name']}")
+              assert plot.get('proxy_version') == 'v4_site_calibrated_green_cover'
+              expected_threshold = (
+                  calibration['selected_threshold']
+                  if plot['id'] == 76 and calibration['status'] == 'PROMOTED_DRONE_CALIBRATED'
+                  else 0.25
+              )
+              assert abs(plot['green_proxy_threshold'] - expected_threshold) < 1e-9
+              print(f"\n{plot['code']} {plot['name']} threshold={expected_threshold}")
               for d in plot['timeseries']:
+                  assert abs(d['green_proxy_threshold'] - expected_threshold) < 1e-9
                   if d['status'] not in {'observed_single_scene', 'observed_monthly_composite'}:
                       print(d['month'], d['status'], 'clear', d.get('clear_pixel_pct'))
                       continue
@@ -68,11 +110,11 @@ jobs:
                   water = d['open_water_pct']
                   other = d['open_nonvegetated_pct']
                   mfi_water = d.get('submerged_mangrove_signal_pct')
-                  assert -1 <= ndvi <= 1, (plot['id'], d['month'], ndvi)
-                  assert all(0 <= v <= 100 for v in [cover, water, other]), (plot['id'], d['month'])
-                  assert abs((cover + water + other) - 100) <= 0.3, (plot['id'], d['month'], cover, water, other)
+                  assert -1 <= ndvi <= 1
+                  assert all(0 <= v <= 100 for v in [cover, water, other])
+                  assert abs((cover + water + other) - 100) <= 0.3
                   if mfi_water is not None:
-                      assert 0 <= mfi_water <= water + 0.2, (plot['id'], d['month'], mfi_water, water)
+                      assert 0 <= mfi_water <= water + 0.2
                   if d.get('ndre_median') is not None:
                       assert -1 <= d['ndre_median'] <= 1
                   print(
@@ -80,9 +122,8 @@ jobs:
                       f"NDVI={ndvi:.3f}",
                       f"green={cover:.1f}%",
                       f"water={water:.1f}%",
-                      f"open={other:.1f}%",
                       f"MFI-in-water={mfi_water}%",
-                      f"NDRE={d.get('ndre_median')}",
+                      f"threshold={d['green_proxy_threshold']}",
                       f"clear={d.get('clear_pixel_pct')}%",
                   )
           assert observed >= 8, f'too few observed smoke-test dates: {observed}'
@@ -111,23 +152,36 @@ jobs:
       - name: Re-extract exact plot geometry
         run: python extract_kmz_plots.py
 
-      - name: Build conservative multi-index 12-date Sentinel-2 dataset
+      - name: Recalibrate 13-STC Green Cover threshold
+        env:
+          PRASAE_CALIBRATION_MAX_SCENES: '8'
+        run: python calibrate_green_proxy.py
+
+      - name: Build calibrated multi-index 12-date Sentinel-2 dataset
         env:
           PRASAE_WORKERS: '6'
           PRASAE_MAX_SCENES: '5'
-        run: python process_verified_12_dates_v3.py
+        run: python process_verified_12_dates_v4.py
 
       - name: Validate full dataset
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
+          calibration = json.loads(Path('data/calibration/green_proxy_calibration.json').read_text())
           data = json.loads(Path('data/timeseries_verified_12.json').read_text(encoding='utf-8'))
           assert len(data) >= 200, len(data)
           for plot in data:
-              assert plot.get('proxy_version') == 'v3_conservative_ndvi_mfi_diagnostic', plot['id']
+              assert plot.get('proxy_version') == 'v4_site_calibrated_green_cover', plot['id']
               assert len(plot['timeseries']) == 12, (plot['id'], len(plot['timeseries']))
+              expected_threshold = (
+                  calibration['selected_threshold']
+                  if plot['id'] == 76 and calibration['status'] == 'PROMOTED_DRONE_CALIBRATED'
+                  else 0.25
+              )
+              assert abs(plot['green_proxy_threshold'] - expected_threshold) < 1e-9
               for d in plot['timeseries']:
+                  assert abs(d['green_proxy_threshold'] - expected_threshold) < 1e-9
                   if d['status'] not in {'observed_single_scene', 'observed_monthly_composite'}:
                       continue
                   vals = [d['vegetation_coverage_proxy_pct'], d['open_water_pct'], d['open_nonvegetated_pct']]
@@ -135,17 +189,22 @@ jobs:
                   assert abs(sum(vals) - 100) <= 0.3, (plot['id'], d['month'], vals)
                   signal = d.get('submerged_mangrove_signal_pct')
                   if signal is not None:
-                      assert 0 <= signal <= d['open_water_pct'] + 0.2, (plot['id'], d['month'], signal)
-          print(f'Validated {len(data)} plots')
+                      assert 0 <= signal <= d['open_water_pct'] + 0.2
+          print(f"Validated {len(data)} plots; calibration={calibration['status']} threshold={calibration['selected_threshold']}")
           PY
 
       - name: Commit, rebase onto latest main, and deploy
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/plots_catalog.json data/plots.geojson data/timeseries_verified_12.json data/plots
+          git add \
+            data/calibration/green_proxy_calibration.json \
+            data/plots_catalog.json \
+            data/plots.geojson \
+            data/timeseries_verified_12.json \
+            data/plots
           if ! git diff --cached --quiet; then
-            git commit -m "Rebuild conservative 12-date mangrove metrics"
+            git commit -m "Rebuild calibrated 12-date mangrove metrics"
           fi
           git fetch origin main gh-pages
           git rebase origin/main
