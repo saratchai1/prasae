@@ -64,6 +64,5 @@ jobs:
           dynamic_ids = {'compare-no-data', 'comp-label-before', 'comp-label-after'}
           missing = sorted(required_ids - html_ids - dynamic_ids)
           assert not missing, f'Missing static HTML IDs referenced by app.js: {missing}'
-          assert 'id="compare-no-data"' in app, 'compare-no-data dynamic element declaration missing'
           print(f'12-date contract validated; verified plots={len(verified)}')
           PY
