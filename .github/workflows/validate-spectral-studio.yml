@@ -1,0 +1,79 @@
+name: Validate Spectral Studio
+
+on:
+  push:
+    branches:
+      - feature/spectral-studio
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-verified.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-verified.txt
+
+      - name: Validate syntax
+        run: |
+          node --check app.js
+          node --check compare-swipe.js
+          node --check opacity-controls.js
+          node --check spectral-studio.js
+          python -m py_compile process_verified_12_dates.py build_spectral_assets.py
+
+      - name: Build one real 13-STC spectral observation
+        env:
+          PRASAE_PLOT_IDS: '76'
+          PRASAE_SPECTRAL_MONTHS: '2026-08'
+          PRASAE_SPECTRAL_MAX_SCENES: '2'
+          PRASAE_WORKERS: '1'
+        run: python build_spectral_assets.py
+
+      - name: Validate generated spectral assets
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from PIL import Image
+
+          plot_dir = Path('data/plots/76')
+          manifest = json.loads((plot_dir / 'spectral_manifest.json').read_text(encoding='utf-8'))
+          assert manifest['plot_id'] == 76
+          assert manifest['asset_role'] == 'browser_visualization_only'
+          assert manifest['rules']['exact_declared_month_only'] is True
+          assert manifest['rules']['nearest_month_fallback'] is False
+          assert manifest['rules']['interpolation'] is False
+          assert manifest['rules']['synthetic_imagery'] is False
+          assert len(manifest['dates']) == 1
+          item = manifest['dates'][0]
+          assert item['month'] == '2026-08'
+          assert item['status'] in {'observed_single_scene', 'observed_monthly_composite'}, item
+          assert item['clear_pixel_pct'] >= 5.0, item
+          expected = {'B02','B03','B04','B08','B11','B12'}
+          assert set(item['files']) == expected, item['files']
+          dimensions = set()
+          for band in sorted(expected):
+              path = plot_dir / item['files'][band]
+              assert path.exists(), path
+              with Image.open(path) as image:
+                  assert image.mode == 'LA', (band, image.mode)
+                  dimensions.add(image.size)
+          assert len(dimensions) == 1, dimensions
+          print('Spectral Studio smoke OK', item['status'], item['clear_pixel_pct'], dimensions)
+          PY
