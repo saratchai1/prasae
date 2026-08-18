@@ -1,0 +1,44 @@
+name: Validate report export
+
+on:
+  push:
+    branches:
+      - feature/report-export
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate JavaScript syntax
+        run: |
+          node --check report-export.js
+          node --check app.js
+          node --check metrics-v2.js
+          node --check metrics-v4.js
+
+      - name: Validate report module contract
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          html = Path('index.html').read_text(encoding='utf-8')
+          js = Path('report-export.js').read_text(encoding='utf-8')
+          assert 'report-export.js?v=20260818-2200' in html
+          assert 'XLSX.writeFile' in js
+          assert 'html2pdf' in js
+          assert 'observationsForExcel' in js
+          assert 'earliestAndLatestObserved' in js
+          assert 'no interpolation' in js.lower()
+          assert 'nearest-month' in js.lower()
+          assert 'synthetic' in js.lower()
+          assert 'Green Cover is a proxy' in js
+          print('Report export syntax and data-integrity contract validated')
+          PY
