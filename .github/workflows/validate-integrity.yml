@@ -26,7 +26,7 @@ jobs:
       - name: Validate Python syntax
         run: python -m py_compile process_verified_12_dates.py extract_kmz_plots.py
 
-      - name: Validate 12-date contract and safe placeholder
+      - name: Validate 12-date contract and verified dataset
         run: |
           python - <<'PY'
           import json
@@ -51,7 +51,13 @@ jobs:
           assert '36 เดือน' not in html
           assert 'Cloud-Free 100%' not in html
           assert 'Canopy Cover' not in html
-          assert verified == [], 'placeholder must remain empty until verified rebuild is run'
+
+          if verified:
+              assert len(verified) >= 200, len(verified)
+              for plot in verified:
+                  series = plot.get('timeseries') or []
+                  assert len(series) == 12, (plot.get('id'), len(series))
+                  assert [item.get('month') for item in series] == expected, plot.get('id')
 
           required_ids = set(re.findall(r"getElementById\('([^']+)'\)", app))
           html_ids = set(re.findall(r'id="([^"]+)"', html))
@@ -59,5 +65,5 @@ jobs:
           missing = sorted(required_ids - html_ids - dynamic_ids)
           assert not missing, f'Missing static HTML IDs referenced by app.js: {missing}'
           assert 'id="compare-no-data"' in app, 'compare-no-data dynamic element declaration missing'
-          print('12-date contract, safe placeholder, and DOM IDs validated')
+          print(f'12-date contract validated; verified plots={len(verified)}')
           PY
