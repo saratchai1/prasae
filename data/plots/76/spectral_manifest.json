@@ -1,0 +1,469 @@
+{
+  "schema_version": "1.0",
+  "asset_role": "browser_visualization_only",
+  "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+  "plot_id": 76,
+  "plot_code": "PLOT_076",
+  "plot_name": "แปลง 13-STC เนื้อที่ 552.96 ไร่ จังหวัด ระยอง",
+  "bbox": [
+    101.6848800925052,
+    12.70246012035511,
+    101.7004599932926,
+    12.71793844822151
+  ],
+  "width": 169,
+  "height": 172,
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B08",
+    "B11",
+    "B12"
+  ],
+  "encoding": {
+    "format": "PNG LA (8-bit luminance + alpha)",
+    "reflectance_min": 0.0,
+    "reflectance_max": 0.4,
+    "formula": "reflectance ~= luminance / 255 * 0.40",
+    "warning": "Visualization asset only; do not use these quantized PNGs for scientific statistics."
+  },
+  "rules": {
+    "exact_declared_month_only": true,
+    "nearest_month_fallback": false,
+    "interpolation": false,
+    "synthetic_imagery": false,
+    "cloud_mask": "Sentinel-2 SCL + contamination buffer",
+    "plot_mask": "exact Polygon/MultiPolygon including holes"
+  },
+  "dates": [
+    {
+      "month": "2023-09",
+      "status": "observed_monthly_composite",
+      "scenes_used": 3,
+      "clear_pixel_pct": 98.79,
+      "files": {
+        "B02": "band_B02_2023-09.png",
+        "B03": "band_B03_2023-09.png",
+        "B04": "band_B04_2023-09.png",
+        "B08": "band_B08_2023-09.png",
+        "B11": "band_B11_2023-09.png",
+        "B12": "band_B12_2023-09.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2A_MSIL2A_20230903T033541_R061_T47PQQ_20241106T073433",
+          "datetime": "2023-09-03T03:35:41.024000+00:00",
+          "catalog_cloud_cover_pct": 47.938716,
+          "clear_inside_pct": 34.88,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20230913T033541_R061_T47PQQ_20241105T180357",
+          "datetime": "2023-09-13T03:35:41.024000+00:00",
+          "catalog_cloud_cover_pct": 76.931757,
+          "clear_inside_pct": 48.93,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20230923T033541_R061_T47PQQ_20241105T101720",
+          "datetime": "2023-09-23T03:35:41.024000+00:00",
+          "catalog_cloud_cover_pct": 76.943499,
+          "clear_inside_pct": 92.43,
+          "processing_baseline": "05.10"
+        }
+      ]
+    },
+    {
+      "month": "2023-12",
+      "status": "observed_monthly_composite",
+      "scenes_used": 5,
+      "clear_pixel_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2023-12.png",
+        "B03": "band_B03_2023-12.png",
+        "B04": "band_B04_2023-12.png",
+        "B08": "band_B08_2023-12.png",
+        "B11": "band_B11_2023-12.png",
+        "B12": "band_B12_2023-12.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20231217T034149_R061_T47PQQ_20231220T055137",
+          "datetime": "2023-12-17T03:41:49.024000+00:00",
+          "catalog_cloud_cover_pct": 5.996314,
+          "clear_inside_pct": 95.17,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20231212T034141_R061_T47PQQ_20241016T114720",
+          "datetime": "2023-12-12T03:41:41.024000+00:00",
+          "catalog_cloud_cover_pct": 7.318068,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20231222T034151_R061_T47PQQ_20231222T082256",
+          "datetime": "2023-12-22T03:41:51.024000+00:00",
+          "catalog_cloud_cover_pct": 10.293333,
+          "clear_inside_pct": 94.15,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2B_MSIL2A_20231207T034129_R061_T47PQQ_20241013T063800",
+          "datetime": "2023-12-07T03:41:29.024000+00:00",
+          "catalog_cloud_cover_pct": 16.11656,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2B_MSIL2A_20231227T034149_R061_T47PQQ_20231227T081748",
+          "datetime": "2023-12-27T03:41:49.024000+00:00",
+          "catalog_cloud_cover_pct": 60.017824,
+          "clear_inside_pct": 95.73,
+          "processing_baseline": "05.10"
+        }
+      ]
+    },
+    {
+      "month": "2024-03",
+      "status": "observed_monthly_composite",
+      "scenes_used": 5,
+      "clear_pixel_pct": 98.79,
+      "files": {
+        "B02": "band_B02_2024-03.png",
+        "B03": "band_B03_2024-03.png",
+        "B04": "band_B04_2024-03.png",
+        "B08": "band_B08_2024-03.png",
+        "B11": "band_B11_2024-03.png",
+        "B12": "band_B12_2024-03.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2A_MSIL2A_20240331T033531_R061_T47PQQ_20240331T092418",
+          "datetime": "2024-03-31T03:35:31.024000+00:00",
+          "catalog_cloud_cover_pct": 13.470009,
+          "clear_inside_pct": 96.91,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20240301T033651_R061_T47PQQ_20240301T092126",
+          "datetime": "2024-03-01T03:36:51.024000+00:00",
+          "catalog_cloud_cover_pct": 42.2966,
+          "clear_inside_pct": 98.51,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2B_MSIL2A_20240306T033609_R061_T47PQQ_20240306T081109",
+          "datetime": "2024-03-06T03:36:09.024000+00:00",
+          "catalog_cloud_cover_pct": 45.716825,
+          "clear_inside_pct": 8.94,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2B_MSIL2A_20240326T033539_R061_T47PQQ_20240326T091901",
+          "datetime": "2024-03-26T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 48.99388,
+          "clear_inside_pct": 97.84,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20240321T033541_R061_T47PQQ_20240321T091053",
+          "datetime": "2024-03-21T03:35:41.024000+00:00",
+          "catalog_cloud_cover_pct": 52.680916,
+          "clear_inside_pct": 25.17,
+          "processing_baseline": "05.10"
+        }
+      ]
+    },
+    {
+      "month": "2024-06",
+      "status": "observed_monthly_composite",
+      "scenes_used": 2,
+      "clear_pixel_pct": 98.56,
+      "files": {
+        "B02": "band_B02_2024-06.png",
+        "B03": "band_B03_2024-06.png",
+        "B04": "band_B04_2024-06.png",
+        "B08": "band_B08_2024-06.png",
+        "B11": "band_B11_2024-06.png",
+        "B12": "band_B12_2024-06.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20240614T033539_R061_T47PQQ_20240614T091815",
+          "datetime": "2024-06-14T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 35.140157,
+          "clear_inside_pct": 98.54,
+          "processing_baseline": "05.10"
+        },
+        {
+          "id": "S2A_MSIL2A_20240619T033541_R061_T47PQQ_20240619T094347",
+          "datetime": "2024-06-19T03:35:41.024000+00:00",
+          "catalog_cloud_cover_pct": 47.331592,
+          "clear_inside_pct": 41.87,
+          "processing_baseline": "05.10"
+        }
+      ]
+    },
+    {
+      "month": "2024-09",
+      "status": "no_data",
+      "scenes_used": 0,
+      "clear_pixel_pct": 0.0,
+      "files": {},
+      "scene_metadata": []
+    },
+    {
+      "month": "2024-12",
+      "status": "observed_monthly_composite",
+      "scenes_used": 5,
+      "clear_pixel_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2024-12.png",
+        "B03": "band_B03_2024-12.png",
+        "B04": "band_B04_2024-12.png",
+        "B08": "band_B08_2024-12.png",
+        "B11": "band_B11_2024-12.png",
+        "B12": "band_B12_2024-12.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20241201T034029_R061_T47PQQ_20241201T063331",
+          "datetime": "2024-12-01T03:40:29.024000+00:00",
+          "catalog_cloud_cover_pct": 0.005494,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20241221T034059_R061_T47PQQ_20241221T072432",
+          "datetime": "2024-12-21T03:40:59.024000+00:00",
+          "catalog_cloud_cover_pct": 11.092389,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20241211T034049_R061_T47PQQ_20241211T082736",
+          "datetime": "2024-12-11T03:40:49.024000+00:00",
+          "catalog_cloud_cover_pct": 14.953427,
+          "clear_inside_pct": 27.19,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20241231T034049_R061_T47PQQ_20241231T063102",
+          "datetime": "2024-12-31T03:40:49.024000+00:00",
+          "catalog_cloud_cover_pct": 19.689122,
+          "clear_inside_pct": 39.29,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2A_MSIL2A_20241206T034131_R061_T47PQQ_20241206T070059",
+          "datetime": "2024-12-06T03:41:31.024000+00:00",
+          "catalog_cloud_cover_pct": 34.651592,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        }
+      ]
+    },
+    {
+      "month": "2025-03",
+      "status": "observed_monthly_composite",
+      "scenes_used": 5,
+      "clear_pixel_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-03.png",
+        "B03": "band_B03_2025-03.png",
+        "B04": "band_B04_2025-03.png",
+        "B08": "band_B08_2025-03.png",
+        "B11": "band_B11_2025-03.png",
+        "B12": "band_B12_2025-03.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2C_MSIL2A_20250306T033641_R061_T47PQQ_20250306T085914",
+          "datetime": "2025-03-06T03:36:41.025000+00:00",
+          "catalog_cloud_cover_pct": 1.757376,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2C_MSIL2A_20250326T033601_R061_T47PQQ_20250326T085914",
+          "datetime": "2025-03-26T03:36:01.025000+00:00",
+          "catalog_cloud_cover_pct": 38.571677,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2C_MSIL2A_20250316T033601_R061_T47PQQ_20250316T090315",
+          "datetime": "2025-03-16T03:36:01.024000+00:00",
+          "catalog_cloud_cover_pct": 39.592007,
+          "clear_inside_pct": 99.72,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20250301T033559_R061_T47PQQ_20250301T061709",
+          "datetime": "2025-03-01T03:35:59.024000+00:00",
+          "catalog_cloud_cover_pct": 46.738052,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20250321T033539_R061_T47PQQ_20250321T073809",
+          "datetime": "2025-03-21T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 51.635587,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        }
+      ]
+    },
+    {
+      "month": "2025-06",
+      "status": "insufficient_clear_pixels",
+      "scenes_used": 1,
+      "clear_pixel_pct": 2.39,
+      "files": {},
+      "scene_metadata": [
+        {
+          "id": "S2A_MSIL2A_20250626T034201_R061_T47PQQ_20250626T073921",
+          "datetime": "2025-06-26T03:42:01.024000+00:00",
+          "catalog_cloud_cover_pct": 56.090468,
+          "clear_inside_pct": 2.39,
+          "processing_baseline": "05.11"
+        }
+      ]
+    },
+    {
+      "month": "2025-09",
+      "status": "no_data",
+      "scenes_used": 0,
+      "clear_pixel_pct": 0.0,
+      "files": {},
+      "scene_metadata": []
+    },
+    {
+      "month": "2025-12",
+      "status": "observed_monthly_composite",
+      "scenes_used": 5,
+      "clear_pixel_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-12.png",
+        "B03": "band_B03_2025-12.png",
+        "B04": "band_B04_2025-12.png",
+        "B08": "band_B08_2025-12.png",
+        "B11": "band_B11_2025-12.png",
+        "B12": "band_B12_2025-12.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2C_MSIL2A_20251201T034131_R061_T47PQQ_20251201T063318",
+          "datetime": "2025-12-01T03:41:31.025000+00:00",
+          "catalog_cloud_cover_pct": 0.006715,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2A_MSIL2A_20251203T034201_R061_T47PQQ_20251203T073813",
+          "datetime": "2025-12-03T03:42:01.024000+00:00",
+          "catalog_cloud_cover_pct": 0.401107,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2C_MSIL2A_20251231T034151_R061_T47PQQ_20251231T062811",
+          "datetime": "2025-12-31T03:41:51.025000+00:00",
+          "catalog_cloud_cover_pct": 1.527643,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2C_MSIL2A_20251221T034201_R061_T47PQQ_20251221T063507",
+          "datetime": "2025-12-21T03:42:01.024000+00:00",
+          "catalog_cloud_cover_pct": 1.678266,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        },
+        {
+          "id": "S2B_MSIL2A_20251216T034049_R061_T47PQQ_20251216T055847",
+          "datetime": "2025-12-16T03:40:49.024000+00:00",
+          "catalog_cloud_cover_pct": 8.858501,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.11"
+        }
+      ]
+    },
+    {
+      "month": "2026-03",
+      "status": "observed_monthly_composite",
+      "scenes_used": 5,
+      "clear_pixel_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2026-03.png",
+        "B03": "band_B03_2026-03.png",
+        "B04": "band_B04_2026-03.png",
+        "B08": "band_B08_2026-03.png",
+        "B11": "band_B11_2026-03.png",
+        "B12": "band_B12_2026-03.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2C_MSIL2A_20260311T033551_R061_T47PQQ_20260311T091010",
+          "datetime": "2026-03-11T03:35:51.025000+00:00",
+          "catalog_cloud_cover_pct": 13.483466,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2A_MSIL2A_20260313T034201_R061_T47PQQ_20260313T083010",
+          "datetime": "2026-03-13T03:42:01.027000+00:00",
+          "catalog_cloud_cover_pct": 15.616116,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2C_MSIL2A_20260331T033541_R061_T47PQQ_20260331T085215",
+          "datetime": "2026-03-31T03:35:41.025000+00:00",
+          "catalog_cloud_cover_pct": 16.016765,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2B_MSIL2A_20260326T033529_R061_T47PQQ_20260326T072041",
+          "datetime": "2026-03-26T03:35:29.024000+00:00",
+          "catalog_cloud_cover_pct": 24.075033,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.12"
+        },
+        {
+          "id": "S2B_MSIL2A_20260306T033539_R061_T47PQQ_20260306T072603",
+          "datetime": "2026-03-06T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 27.55765,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": "05.12"
+        }
+      ]
+    },
+    {
+      "month": "2026-08",
+      "status": "observed_single_scene",
+      "scenes_used": 1,
+      "clear_pixel_pct": 89.99,
+      "files": {
+        "B02": "band_B02_2026-08.png",
+        "B03": "band_B03_2026-08.png",
+        "B04": "band_B04_2026-08.png",
+        "B08": "band_B08_2026-08.png",
+        "B11": "band_B11_2026-08.png",
+        "B12": "band_B12_2026-08.png"
+      },
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20260803T033539_R061_T47PQQ_20260803T072631",
+          "datetime": "2026-08-03T03:35:39.024000+00:00",
+          "catalog_cloud_cover_pct": 48.841608,
+          "clear_inside_pct": 89.99,
+          "processing_baseline": "05.12"
+        }
+      ]
+    }
+  ]
+}
