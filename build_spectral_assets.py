@@ -11,6 +11,7 @@ Design goals
   relative band magnitudes across dates. These 8-bit files are for visualization only;
   analytical metrics continue to use the original float reflectance pipeline.
 - Output only six bands needed for custom visualization: B02, B03, B04, B08, B11, B12.
+- Full-portfolio builds can be split deterministically across GitHub Actions shards.
 
 Environment variables
 ---------------------
@@ -18,13 +19,15 @@ PRASAE_PLOT_IDS: comma-separated plot ids, default "all" for the full portfolio.
 PRASAE_SPECTRAL_MONTHS: comma-separated YYYY-MM values, default all 12 dates.
 PRASAE_SPECTRAL_MAX_SCENES: max unique acquisitions per month, default 5.
 PRASAE_WORKERS: plot-level workers, default 2.
+PRASAE_SPECTRAL_OUTPUT_ROOT: output root, default data/plots.
+PRASAE_SHARD_COUNT: total shard count, default 1.
+PRASAE_SHARD_INDEX: zero-based shard index, default 0.
 """
 
 from __future__ import annotations
 
 import calendar
 import json
-import math
 import os
 import traceback
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -40,13 +43,15 @@ import process_verified_12_dates as base
 
 BASE_DIR = Path(__file__).resolve().parent
 CATALOG_PATH = BASE_DIR / "data" / "plots_catalog.json"
-PLOTS_DIR = BASE_DIR / "data" / "plots"
+PLOTS_DIR = Path(os.environ.get("PRASAE_SPECTRAL_OUTPUT_ROOT", str(BASE_DIR / "data" / "plots")))
 BANDS = ("B02", "B03", "B04", "B08", "B11", "B12")
 REFLECTANCE_MIN = 0.0
 REFLECTANCE_MAX = 0.40
 MIN_VALID_INSIDE_RATIO = 0.05
 MAX_SCENES = int(os.environ.get("PRASAE_SPECTRAL_MAX_SCENES", "5"))
 MAX_WORKERS = int(os.environ.get("PRASAE_WORKERS", "2"))
+SHARD_COUNT = max(1, int(os.environ.get("PRASAE_SHARD_COUNT", "1")))
+SHARD_INDEX = int(os.environ.get("PRASAE_SHARD_INDEX", "0"))
 
 
 def selected_months() -> list[tuple[int, int]]:
@@ -66,9 +71,16 @@ def selected_months() -> list[tuple[int, int]]:
 def selected_plots(catalog: list[dict[str, Any]]) -> list[dict[str, Any]]:
     raw = os.environ.get("PRASAE_PLOT_IDS", "all").strip().lower()
     if raw == "all":
-        return catalog
-    ids = {int(token.strip()) for token in raw.split(",") if token.strip()}
-    return [plot for plot in catalog if int(plot["id"]) in ids]
+        selected = list(catalog)
+    else:
+        ids = {int(token.strip()) for token in raw.split(",") if token.strip()}
+        selected = [plot for plot in catalog if int(plot["id"]) in ids]
+
+    if not 0 <= SHARD_INDEX < SHARD_COUNT:
+        raise ValueError(f"Invalid shard {SHARD_INDEX}/{SHARD_COUNT}")
+    if SHARD_COUNT > 1:
+        selected = [plot for position, plot in enumerate(selected) if position % SHARD_COUNT == SHARD_INDEX]
+    return selected
 
 
 def processing_baseline_number(item) -> float:
@@ -80,12 +92,7 @@ def processing_baseline_number(item) -> float:
 
 
 def unique_acquisitions(items) -> list:
-    """Deduplicate reprocessed copies of the same acquisition.
-
-    Planetary Computer may expose the same sensing acquisition with multiple processing
-    baselines. Keep one copy per sensing datetime + MGRS tile, preferring the newer
-    processing baseline, then rank unique acquisitions by catalog cloud cover.
-    """
+    """Deduplicate reprocessed copies of the same acquisition."""
     chosen = {}
     for item in items:
         dt = item.datetime.isoformat() if item.datetime else item.id
@@ -263,6 +270,7 @@ def build_plot(plot: dict[str, Any], months: list[tuple[int, int]]) -> dict[str,
         "dates": dates,
     }
     manifest_path = PLOTS_DIR / str(plot["id"]) / "spectral_manifest.json"
+    manifest_path.parent.mkdir(parents=True, exist_ok=True)
     manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     return manifest
 
@@ -272,8 +280,12 @@ def main() -> int:
     plots = selected_plots(catalog)
     months = selected_months()
     if not plots:
-        raise RuntimeError("No plots selected")
-    print(f"Building Spectral Studio assets for {len(plots)} plot(s), {len(months)} month(s)")
+        raise RuntimeError(f"No plots selected for shard {SHARD_INDEX}/{SHARD_COUNT}")
+    PLOTS_DIR.mkdir(parents=True, exist_ok=True)
+    print(
+        f"Building Spectral Studio assets for {len(plots)} plot(s), {len(months)} month(s), "
+        f"shard={SHARD_INDEX}/{SHARD_COUNT}, output={PLOTS_DIR}"
+    )
 
     manifests = []
     with ThreadPoolExecutor(max_workers=max(1, MAX_WORKERS)) as executor:
