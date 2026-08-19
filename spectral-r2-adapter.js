@@ -1,10 +1,11 @@
 // Prasae Spectral Studio R2 adapter.
-// Routes only spectral manifests/band PNGs to the configured R2-backed Worker.
+// Prefer same-origin deployed spectral assets first, then fall back to the configured
+// R2-backed Worker only when the local manifest is unavailable. This prevents a stale
+// or partial remote manifest from hiding assets that are already deployed on Pages.
 // Everything else uses the browser's native fetch/image behavior unchanged.
-// Remote failure falls back to the existing same-origin GitHub Pages assets.
 
 (() => {
-  const VERSION = '20260819-2117';
+  const VERSION = '20260820-0445';
   const CONFIG_URL = `data/spectral_asset_config.json?v=${VERSION}`;
   const nativeFetch = window.fetch.bind(window);
   const remotePlots = new Set();
@@ -68,26 +69,41 @@
     const parsed = parseLocalManifestUrl(input);
     if (!parsed) return nativeFetch(input, init);
 
+    // Local-first is intentional. Assets explicitly deployed with the site are the
+    // authoritative browser visualization package for that plot.
+    let localResponse = null;
+    try {
+      localResponse = await nativeFetch(input, { ...(init || {}), cache: 'no-store' });
+      if (localResponse.ok) {
+        remotePlots.delete(parsed.plotId);
+        return localResponse;
+      }
+    } catch (error) {
+      console.info(`Local spectral manifest ${parsed.plotId} unavailable; trying R2 fallback`, error);
+    }
+
     const config = await loadConfig();
     const primaryBase = cleanBase(config?.primary?.base_url);
-    if (!primaryBase) return nativeFetch(input, init);
-
-    const remoteUrl = `${primaryBase}/plots/${encodeURIComponent(parsed.plotId)}/spectral_manifest.json?v=${VERSION}`;
-    try {
-      const response = await nativeFetch(remoteUrl, {
-        ...(init || {}),
-        cache: 'no-store',
-        mode: 'cors'
-      });
-      if (response.ok) {
-        remotePlots.add(parsed.plotId);
-        return response;
+    if (primaryBase) {
+      const remoteUrl = `${primaryBase}/plots/${encodeURIComponent(parsed.plotId)}/spectral_manifest.json?v=${VERSION}`;
+      try {
+        const response = await nativeFetch(remoteUrl, {
+          ...(init || {}),
+          cache: 'no-store',
+          mode: 'cors'
+        });
+        if (response.ok) {
+          remotePlots.add(parsed.plotId);
+          return response;
+        }
+        console.info(`Spectral R2 manifest ${parsed.plotId}: HTTP ${response.status}; no remote spectral package`);
+      } catch (error) {
+        console.info(`Spectral R2 manifest ${parsed.plotId} unavailable`, error);
       }
-      console.info(`Spectral R2 manifest ${parsed.plotId}: HTTP ${response.status}; using local fallback`);
-    } catch (error) {
-      console.info(`Spectral R2 manifest ${parsed.plotId} unavailable; using local fallback`, error);
     }
+
     remotePlots.delete(parsed.plotId);
+    if (localResponse) return localResponse;
     return nativeFetch(input, init);
   };
 
@@ -118,8 +134,6 @@
           srcDescriptor.set.call(this, remoteUrl);
         };
 
-        // The manifest fetch occurs before band loads in Spectral Studio, so config is
-        // normally already resolved. Keep this async path to preserve local fallback.
         void route();
       }
     });
