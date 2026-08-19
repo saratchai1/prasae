@@ -29,13 +29,33 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements-verified.txt
 
-      - name: Validate syntax
+      - name: Validate syntax and R2 routing contract
         run: |
           node --check app.js
           node --check compare-swipe.js
           node --check opacity-controls.js
+          node --check spectral-r2-adapter.js
           node --check spectral-studio.js
-          python -m py_compile process_verified_12_dates.py build_spectral_assets.py
+          python -m py_compile process_verified_12_dates.py build_spectral_assets.py scripts/upload_spectral_assets_r2.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          c = json.loads(Path('data/spectral_asset_config.json').read_text())
+          assert c['primary']['environment'] == 'dev'
+          assert c['primary']['base_url'].startswith('https://mangrove-drone-dashboard-dev.')
+          assert c['rules'] == {
+              'exact_declared_month_only': True,
+              'nearest_month_fallback': False,
+              'interpolation': False,
+              'synthetic_imagery': False,
+          }
+          PY
+
+      - name: Dry-run existing full spectral package through R2 guard
+        env:
+          PRASAE_R2_DRY_RUN: '1'
+          PRASAE_MAX_SPECTRAL_BYTES: '8000000000'
+        run: python scripts/upload_spectral_assets_r2.py
 
       - name: Build one real 13-STC spectral observation
         env:
