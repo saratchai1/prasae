@@ -8,11 +8,6 @@ on:
         required: true
         default: 'all'
         type: string
-      months:
-        description: 'Comma-separated YYYY-MM values; blank = all 12 declared dates'
-        required: false
-        default: ''
-        type: string
       max_payload_bytes:
         description: 'Abort before first R2 write when payload exceeds this size'
         required: true
@@ -42,7 +37,6 @@ jobs:
       PRASAE_MAX_SPECTRAL_BYTES: ${{ inputs.max_payload_bytes }}
       PRASAE_R2_UPLOAD_WORKERS: '8'
       PRASAE_PLOT_IDS: ${{ inputs.plot_ids }}
-      PRASAE_SPECTRAL_MONTHS: ${{ inputs.months }}
       PRASAE_SPECTRAL_MAX_SCENES: '5'
       PRASAE_WORKERS: '4'
       PRASAE_R2_DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
@@ -68,6 +62,7 @@ jobs:
 
       - name: Validate source
         run: |
+          node --check spectral-r2-adapter.js
           node --check spectral-studio.js
           python -m py_compile \
             build_spectral_assets.py \
@@ -83,7 +78,7 @@ jobs:
             exit 1
           fi
 
-      - name: Build exact-date spectral assets
+      - name: Build exact 12-date spectral assets
         run: python build_spectral_assets.py
 
       - name: Validate size guard and upload to DEV R2
@@ -97,7 +92,7 @@ jobs:
             echo '## Prasae Spectral Studio R2 DEV'
             echo
             echo "- Plot selection: \`${PRASAE_PLOT_IDS}\`"
-            echo "- Months: \`${PRASAE_SPECTRAL_MONTHS:-all 12 declared dates}\`"
+            echo '- Months: `all 12 declared dates`'
             echo "- Hard payload cap: \`${PRASAE_MAX_SPECTRAL_BYTES}\` bytes"
             echo "- Dry run: \`${PRASAE_R2_DRY_RUN}\`"
             echo "- Bucket: \`${PRASAE_R2_BUCKET}\`"
@@ -105,9 +100,10 @@ jobs:
             if [ -f .spectral-r2-index.json ]; then
               python - <<'PY'
           import json
+          import os
           from pathlib import Path
           p = json.loads(Path('.spectral-r2-index.json').read_text())
-          with open(Path(__import__('os').environ['GITHUB_STEP_SUMMARY']), 'a', encoding='utf-8') as f:
+          with open(Path(os.environ['GITHUB_STEP_SUMMARY']), 'a', encoding='utf-8') as f:
               f.write(f"- Validated plots: `{p['plot_count']}`\n")
               f.write(f"- Payload: `{p['payload_bytes']:,}` bytes ({p['payload_bytes']/1_000_000_000:.3f} GB)\n")
               f.write(f"- Public index: `{p['storage']['public_base']}/index.json`\n")
