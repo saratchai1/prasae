@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "primary": {
+    "kind": "cloudflare-r2-worker",
+    "environment": "dev",
+    "label": "R2 DEV",
+    "base_url": "https://mangrove-drone-dashboard-dev.saratchai.workers.dev/assets/prasae/spectral/v1",
+    "cors_required_for_canvas": true
+  },
+  "fallback": {
+    "kind": "github-pages-local",
+    "label": "Local fallback",
+    "base_url": "data/plots"
+  },
+  "rules": {
+    "exact_declared_month_only": true,
+    "nearest_month_fallback": false,
+    "interpolation": false,
+    "synthetic_imagery": false
+  }
+}
