@@ -1,0 +1,4 @@
+run=all
+mode=sharded-v2
+requested_at=2026-08-20T05:06:00+07:00
+reason=build_upload_six_bands_for_every_plot
