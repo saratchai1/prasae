@@ -14,7 +14,7 @@ Design goals
 
 Environment variables
 ---------------------
-PRASAE_PLOT_IDS: comma-separated plot ids, default "76". Use "all" for full portfolio.
+PRASAE_PLOT_IDS: comma-separated plot ids, default "all" for the full portfolio.
 PRASAE_SPECTRAL_MONTHS: comma-separated YYYY-MM values, default all 12 dates.
 PRASAE_SPECTRAL_MAX_SCENES: max unique acquisitions per month, default 5.
 PRASAE_WORKERS: plot-level workers, default 2.
@@ -64,7 +64,7 @@ def selected_months() -> list[tuple[int, int]]:
 
 
 def selected_plots(catalog: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    raw = os.environ.get("PRASAE_PLOT_IDS", "76").strip().lower()
+    raw = os.environ.get("PRASAE_PLOT_IDS", "all").strip().lower()
     if raw == "all":
         return catalog
     ids = {int(token.strip()) for token in raw.split(",") if token.strip()}
