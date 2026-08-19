@@ -1,34 +1,13 @@
 #!/usr/bin/env python3
 """Validate and upload Spectral Studio visualization assets to Cloudflare R2 DEV.
 
-The uploader is deliberately storage-backend-only. It does not generate imagery and it
-never changes verified metrics. It validates the exact 12-date/no-fallback contract,
-checks the complete payload size before the first remote write, creates a small portfolio
-index, then uploads only spectral manifests and band PNGs.
-
-Environment variables
----------------------
-PRASAE_SPECTRAL_PLOTS_ROOT
-    Local plot root. Default: data/plots
-PRASAE_R2_BUCKET
-    Default: drone-pointcloud-v2-dev
-PRASAE_R2_PREFIX
-    Default: mangrove-drone-dashboard-v2-dev/assets/prasae/spectral/v1
-PRASAE_R2_PUBLIC_BASE
-    Default: https://mangrove-drone-dashboard-dev.saratchai.workers.dev/assets/prasae/spectral/v1
-PRASAE_MAX_SPECTRAL_BYTES
-    Hard pre-upload guard. Default: 8,000,000,000 bytes.
-PRASAE_R2_DRY_RUN
-    1/true/yes = validate and report only. Default: 1.
-PRASAE_R2_UPLOAD_WORKERS
-    Concurrent Wrangler uploads. Default: 8.
-WRANGLER
-    Wrangler command. Default: wrangler
+The uploader validates the exact 12-date/no-fallback contract, checks payload size before
+remote writes, uploads only spectral manifests/band PNGs, and can suppress the portfolio
+index during sharded runs so the final index is published once after all shards succeed.
 """
 
 from __future__ import annotations
 
-import hashlib
 import json
 import mimetypes
 import os
@@ -62,15 +41,8 @@ PUBLIC_BASE = os.environ.get(
 MAX_BYTES = int(os.environ.get("PRASAE_MAX_SPECTRAL_BYTES", "8000000000"))
 UPLOAD_WORKERS = max(1, int(os.environ.get("PRASAE_R2_UPLOAD_WORKERS", "8")))
 DRY_RUN = os.environ.get("PRASAE_R2_DRY_RUN", "1").strip().lower() in {"1", "true", "yes", "y"}
+UPLOAD_INDEX = os.environ.get("PRASAE_R2_UPLOAD_INDEX", "1").strip().lower() in {"1", "true", "yes", "y"}
 WRANGLER = shlex.split(os.environ.get("WRANGLER", "wrangler"))
-
-
-def sha256_file(path: Path) -> str:
-    digest = hashlib.sha256()
-    with path.open("rb") as handle:
-        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
-            digest.update(chunk)
-    return digest.hexdigest()
 
 
 def validate_manifest(path: Path) -> tuple[dict[str, Any], list[Path], int]:
@@ -147,7 +119,6 @@ def collect_payload() -> tuple[list[tuple[Path, str]], dict[str, Any], int]:
         plot_id = int(manifest["plot_id"])
         plot_dir = path.parent
 
-        # Rewrite a deployment copy of each manifest so the browser can inspect provenance.
         deployment_manifest = plot_dir / "spectral_manifest.r2.json"
         deployment_manifest.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
 
@@ -190,8 +161,9 @@ def collect_payload() -> tuple[list[tuple[Path, str]], dict[str, Any], int]:
     }
     index_path = ROOT / ".spectral-r2-index.json"
     index_path.write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding="utf-8")
-    uploads.append((index_path, f"{PREFIX}/index.json"))
-    total += index_path.stat().st_size
+    if UPLOAD_INDEX:
+        uploads.append((index_path, f"{PREFIX}/index.json"))
+        total += index_path.stat().st_size
     return uploads, index, total
 
 
@@ -229,9 +201,9 @@ def main() -> int:
     print(f"Objects to upload: {len(uploads)}")
     print(f"Payload size: {total:,} bytes ({total / 1_000_000_000:.3f} GB)")
     print(f"Hard cap: {MAX_BYTES:,} bytes ({MAX_BYTES / 1_000_000_000:.3f} GB)")
+    print(f"Upload portfolio index in this run: {UPLOAD_INDEX}")
     print(f"Target: r2://{BUCKET}/{PREFIX}")
 
-    # Critical safety gate: no remote write happens before this check.
     if total > MAX_BYTES:
         raise RuntimeError(
             f"ABORT: spectral payload {total:,} bytes exceeds guardrail {MAX_BYTES:,} bytes"
@@ -257,7 +229,7 @@ def main() -> int:
             if uploaded_count % 100 == 0 or uploaded_count == len(uploads):
                 print(f"Uploaded {uploaded_count}/{len(uploads)} objects ({uploaded_bytes:,} bytes)")
 
-    print(f"Upload complete: {PUBLIC_BASE}/index.json")
+    print(f"Upload complete for {index['plot_count']} plots")
     return 0
 
 
