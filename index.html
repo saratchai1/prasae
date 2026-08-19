@@ -6,8 +6,8 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Prasae Mangrove Monitoring — 12 Observation Dates</title>
-  <meta name="description" content="ระบบติดตามแปลงฟื้นฟูป่าชายเลนด้วย Sentinel-2 L2A จำนวน 12 observation/composite dates แสดงภาพเฉพาะในขอบเขตแปลงเหนือ Esri World Imagery">
+  <title>Prasae Mangrove Monitoring — Actual Observation Dates</title>
+  <meta name="description" content="ระบบติดตามแปลงฟื้นฟูป่าชายเลนด้วย Sentinel-2 L2A สูงสุด 12 observation/composite dates โดยซ่อนช่วงที่ไม่มีภาพ และแสดงภาพเฉพาะในขอบเขตแปลงเหนือ Esri World Imagery">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -23,13 +23,13 @@
         <div class="brand-icon">🌿</div>
         <div>
           <h1 class="brand-title">ระบบติดตามแปลงฟื้นฟูป่าชายเลน</h1>
-          <p class="brand-subtitle">Sentinel-2 L2A • 12 observation/composite dates • exact polygon clipping</p>
+          <p class="brand-subtitle">Sentinel-2 L2A • up to 12 actual observation/composite dates • exact polygon clipping</p>
         </div>
       </div>
       <div class="header-meta">
         <span class="meta-pill"><span class="pill-dot"></span> กำลังโหลดชุดแปลง</span>
         <span class="meta-pill mask-badge">Sentinel-2 inside polygon + Esri outside</span>
-        <span class="meta-pill date-range-pill">12 ช่วงเวลาภาพดาวเทียม</span>
+        <span class="meta-pill date-range-pill">กำลังตรวจสอบช่วงเวลาที่มีภาพจริง</span>
       </div>
     </div>
   </header>
@@ -52,17 +52,17 @@
       </section>
       <div class="workspace-card">
         <div class="workspace-tabs">
-          <button class="w-tab-btn active" id="wtab-detail" onclick="switchWorkspaceTab('detail')">วิเคราะห์ 12 ช่วงเวลา</button>
+          <button class="w-tab-btn active" id="wtab-detail" onclick="switchWorkspaceTab('detail')">วิเคราะห์ช่วงเวลาที่มีภาพจริง</button>
           <button class="w-tab-btn" id="wtab-map" onclick="switchWorkspaceTab('map')">แผนที่ GIS ทุกแปลง</button>
           <button class="w-tab-btn" id="wtab-compare" onclick="switchWorkspaceTab('compare')">เปรียบเทียบ Before / After</button>
           <button class="w-tab-btn" id="wtab-table" onclick="switchWorkspaceTab('table')">ตารางสรุป</button>
         </div>
         <div class="tab-content-panel active" id="panel-detail">
-          <div class="chart-box"><div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI และ Green Cover Proxy — 12 observation/composite dates</h3><p class="chart-box-subtitle">NDVI = ความเขียวทั้งแปลง • Green Cover ใช้ threshold ที่มี provenance • Open Water/MFI ใช้เป็น context • ไม่มี interpolation</p></div><div class="chart-badge-tag">Observed-only + QA</div></div><div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div></div>
+          <div class="chart-box"><div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI และ Green Cover Proxy — actual observation/composite dates</h3><p class="chart-box-subtitle">NDVI = ความเขียวทั้งแปลง • Green Cover ใช้ threshold ที่มี provenance • Open Water/MFI ใช้เป็น context • ไม่มี interpolation</p></div><div class="chart-badge-tag">Observed-only + QA</div></div><div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div></div>
           <div class="viewer-wrapper">
             <div class="viewer-toolbar"><div class="band-btn-group"><button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">Esri World Imagery</button><button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB (ในขอบเขตแปลง)</button><button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI (ในขอบเขตแปลง)</button></div><div class="boundary-toggle"><label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> แสดงเส้นขอบเขตแปลง</label></div></div>
-            <div class="satellite-stage"><div id="plot-satellite-map" class="plot-satellite-map-container"></div><div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กันยายน 2023</div><div class="hud-sub" id="hud-plot-label">—</div></div><div class="stage-hud top-right"><div class="hud-tag">Cloud-masked composite</div><div class="hud-sub">SCL QA • 12 dates • no interpolation</div></div><div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">Sentinel-2 clipped over Esri World Imagery</div></div><div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">Green cover: <strong id="hud-in-cover">—</strong></div></div></div>
-            <div class="playback-bar"><div class="playback-btns"><button class="p-btn" onclick="prevMonth()">‹</button><button class="p-btn p-play" id="btn-play" onclick="togglePlay()"><span id="play-icon">▶</span><span id="pause-icon" class="hidden">Ⅱ</span></button><button class="p-btn" onclick="nextMonth()">›</button><div class="current-date-badge" id="playback-date-display">ก.ย. 2023</div></div><div class="slider-box"><input type="range" id="month-slider" min="0" max="11" value="0" step="1" oninput="onMonthSliderChange(this.value)"><div class="slider-ticks"><span>ก.ย. 2023</span><span>ก.ย. 2024</span><span>ก.ย. 2025</span><span>ส.ค. 2026</span></div></div></div>
+            <div class="satellite-stage"><div id="plot-satellite-map" class="plot-satellite-map-container"></div><div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กำลังตรวจสอบภาพ</div><div class="hud-sub" id="hud-plot-label">—</div></div><div class="stage-hud top-right"><div class="hud-tag">Cloud-masked composite</div><div class="hud-sub">SCL QA • actual dates only • no interpolation</div></div><div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">Sentinel-2 clipped over Esri World Imagery</div></div><div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">Green cover: <strong id="hud-in-cover">—</strong></div></div></div>
+            <div class="playback-bar"><div class="playback-btns"><button class="p-btn" onclick="prevMonth()">‹</button><button class="p-btn p-play" id="btn-play" onclick="togglePlay()"><span id="play-icon">▶</span><span id="pause-icon" class="hidden">Ⅱ</span></button><button class="p-btn" onclick="nextMonth()">›</button><div class="current-date-badge" id="playback-date-display">กำลังตรวจสอบ</div></div><div class="slider-box"><input type="range" id="month-slider" min="0" max="0" value="0" step="1" disabled oninput="onMonthSliderChange(this.value)"><div class="slider-ticks"><span>กำลังตรวจสอบช่วงเวลาที่มีภาพจริง</span></div></div></div>
           </div>
         </div>
         <div class="tab-content-panel" id="panel-map"><div class="map-toolbar"><p class="map-hint">คลิก polygon เพื่อเลือกแปลง; basemap ใช้ Esri World Imagery</p><button class="btn-reset-zoom" onclick="resetMapZoom()">ซูมภาพรวมประเทศไทย</button></div><div id="thailand-map" class="thailand-gis-map"></div></div>
@@ -71,13 +71,14 @@
       </div>
     </main>
   </div>
-  <script src="app.js?v=20260817-2310"></script>
+  <script src="app.js?v=20260819-2240"></script>
   <script src="metrics-v2.js?v=20260817-2352"></script>
   <script src="metrics-v4.js?v=20260818-0020"></script>
-  <script src="compare-swipe.js?v=20260817-2320"></script>
+  <script src="compare-swipe.js?v=20260819-2240"></script>
   <script src="opacity-controls.js?v=20260818-1745"></script>
   <script src="spectral-r2-adapter.js?v=20260819-2117"></script>
   <script src="spectral-studio.js?v=20260818-2145"></script>
   <script src="report-export.js?v=20260818-2200"></script>
+  <script src="timeline-integrity.js?v=20260819-2240"></script>
 </body>
 </html>
