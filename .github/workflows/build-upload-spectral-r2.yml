@@ -3,18 +3,13 @@ name: Build and upload Spectral Studio to R2 DEV
 on:
   workflow_dispatch:
     inputs:
-      plot_ids:
-        description: 'Comma-separated plot IDs or all'
-        required: true
-        default: 'all'
-        type: string
       max_payload_bytes:
-        description: 'Abort before first R2 write when payload exceeds this size'
+        description: 'Per-shard hard payload cap before any R2 write'
         required: true
         default: '8000000000'
         type: string
       dry_run:
-        description: 'Validate/build/size-check only; do not write R2'
+        description: 'Build and validate all plots without writing R2'
         required: true
         default: true
         type: boolean
@@ -22,28 +17,39 @@ on:
     branches:
       - main
     paths:
-      - '.spectral-r2-run-all'
+      - '.spectral-r2-run-all-v2'
 
 permissions:
   contents: read
 
 concurrency:
-  group: prasae-spectral-r2-dev
+  group: prasae-spectral-r2-dev-sharded-v2
   cancel-in-progress: false
 
 jobs:
   build-and-upload:
+    name: Spectral shard ${{ matrix.shard }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
     env:
       PRASAE_R2_BUCKET: drone-pointcloud-v2-dev
       PRASAE_R2_PREFIX: mangrove-drone-dashboard-v2-dev/assets/prasae/spectral/v1
       PRASAE_R2_PUBLIC_BASE: https://mangrove-drone-dashboard-dev.saratchai.workers.dev/assets/prasae/spectral/v1
       PRASAE_MAX_SPECTRAL_BYTES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_payload_bytes || '8000000000' }}
       PRASAE_R2_UPLOAD_WORKERS: '8'
-      PRASAE_PLOT_IDS: ${{ github.event_name == 'workflow_dispatch' && inputs.plot_ids || 'all' }}
+      PRASAE_PLOT_IDS: all
+      PRASAE_SHARD_COUNT: '10'
+      PRASAE_SHARD_INDEX: ${{ matrix.shard }}
       PRASAE_SPECTRAL_MAX_SCENES: '5'
-      PRASAE_WORKERS: '4'
+      PRASAE_WORKERS: '2'
+      PRASAE_SPECTRAL_OUTPUT_ROOT: .spectral-output
+      PRASAE_SPECTRAL_PLOTS_ROOT: .spectral-output
+      PRASAE_R2_UPLOAD_INDEX: '0'
       PRASAE_R2_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
       CLOUDFLARE_ACCOUNT_ID: d8e0d7122a21ee0bd148ef7bfef6278b
       CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
@@ -63,6 +69,7 @@ jobs:
         run: pip install -r requirements-verified.txt
 
       - name: Install Wrangler 4
+        if: ${{ github.event_name == 'push' || !inputs.dry_run }}
         run: npm install --global wrangler@4
 
       - name: Validate source
@@ -83,35 +90,147 @@ jobs:
             exit 1
           fi
 
-      - name: Build exact 12-date spectral assets for selected plots
+      - name: Build exact 12-date spectral assets for shard
         run: python build_spectral_assets.py
 
-      - name: Validate size guard and upload to DEV R2
+      - name: Validate shard and upload plots to DEV R2
         run: python scripts/upload_spectral_assets_r2.py
 
-      - name: Publish compact run summary
+      - name: Save shard index
+        uses: actions/upload-artifact@v4
+        with:
+          name: spectral-index-${{ matrix.shard }}
+          path: .spectral-r2-index.json
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 1
+
+      - name: Shard summary
         if: always()
         shell: bash
         run: |
-          {
-            echo '## Prasae Spectral Studio R2 DEV'
-            echo
-            echo "- Plot selection: \`${PRASAE_PLOT_IDS}\`"
-            echo '- Months: `all 12 declared dates`'
-            echo "- Hard payload cap: \`${PRASAE_MAX_SPECTRAL_BYTES}\` bytes"
-            echo "- Dry run: \`${PRASAE_R2_DRY_RUN}\`"
-            echo "- Bucket: \`${PRASAE_R2_BUCKET}\`"
-            echo "- Prefix: \`${PRASAE_R2_PREFIX}\`"
-            if [ -f .spectral-r2-index.json ]; then
-              python - <<'PY'
+          echo "## Spectral shard ${PRASAE_SHARD_INDEX}/${PRASAE_SHARD_COUNT}" >> "$GITHUB_STEP_SUMMARY"
+          if [ -f .spectral-r2-index.json ]; then
+            python - <<'PY'
           import json
           import os
           from pathlib import Path
           p = json.loads(Path('.spectral-r2-index.json').read_text())
           with open(Path(os.environ['GITHUB_STEP_SUMMARY']), 'a', encoding='utf-8') as f:
+              f.write(f"- Plots: `{p['plot_count']}`\n")
+              f.write(f"- Payload: `{p['payload_bytes']:,}` bytes ({p['payload_bytes']/1_000_000_000:.3f} GB)\n")
+              f.write(f"- Dry run: `{os.environ['PRASAE_R2_DRY_RUN']}`\n")
+          PY
+          fi
+
+  publish-portfolio-index:
+    name: Validate every plot and publish portfolio index
+    needs: build-and-upload
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PRASAE_R2_BUCKET: drone-pointcloud-v2-dev
+      PRASAE_R2_PREFIX: mangrove-drone-dashboard-v2-dev/assets/prasae/spectral/v1
+      PRASAE_R2_PUBLIC_BASE: https://mangrove-drone-dashboard-dev.saratchai.workers.dev/assets/prasae/spectral/v1
+      PRASAE_R2_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
+      CLOUDFLARE_ACCOUNT_ID: d8e0d7122a21ee0bd148ef7bfef6278b
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download shard indexes
+        uses: actions/download-artifact@v4
+        with:
+          pattern: spectral-index-*
+          path: .spectral-index-parts
+          merge-multiple: false
+
+      - name: Merge and validate full-portfolio index
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
+          from pathlib import Path
+
+          root = Path('.')
+          catalog = json.loads((root / 'data/plots_catalog.json').read_text(encoding='utf-8'))
+          expected_ids = {int(plot['id']) for plot in catalog}
+          part_paths = sorted((root / '.spectral-index-parts').glob('**/.spectral-r2-index.json'))
+          if len(part_paths) != 10:
+              raise SystemExit(f'Expected 10 shard indexes, found {len(part_paths)}')
+
+          plots_by_id = {}
+          payload_bytes = 0
+          template = None
+          for path in part_paths:
+              part = json.loads(path.read_text(encoding='utf-8'))
+              template = template or part
+              payload_bytes += int(part.get('payload_bytes', 0))
+              for plot in part.get('plots', []):
+                  plot_id = int(plot['plot_id'])
+                  if plot_id in plots_by_id:
+                      raise SystemExit(f'Duplicate plot {plot_id} across shards')
+                  plots_by_id[plot_id] = plot
+
+          actual_ids = set(plots_by_id)
+          missing = sorted(expected_ids - actual_ids)
+          extra = sorted(actual_ids - expected_ids)
+          if missing or extra:
+              raise SystemExit(f'Portfolio mismatch: missing={missing}, extra={extra}')
+
+          output = {
+              'schema_version': '1.0',
+              'asset_role': 'browser_visualization_only',
+              'environment': 'dev',
+              'storage': template['storage'],
+              'rules': template['rules'],
+              'generated_at': datetime.now(timezone.utc).isoformat(),
+              'plot_count': len(plots_by_id),
+              'payload_bytes': payload_bytes,
+              'plots': [plots_by_id[plot_id] for plot_id in sorted(plots_by_id)],
+          }
+          out = root / '.spectral-r2-index-full.json'
+          out.write_text(json.dumps(output, ensure_ascii=False, indent=2), encoding='utf-8')
+          print(f"Validated all {output['plot_count']} catalog plots; payload={payload_bytes:,} bytes")
+          PY
+
+      - name: Install Wrangler 4
+        if: ${{ github.event_name == 'push' || !inputs.dry_run }}
+        run: npm install --global wrangler@4
+
+      - name: Refuse index upload without Cloudflare token
+        if: ${{ github.event_name == 'push' || !inputs.dry_run }}
+        shell: bash
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+            echo 'CLOUDFLARE_API_TOKEN GitHub Actions secret is required for a real R2 upload.' >&2
+            exit 1
+          fi
+
+      - name: Publish final portfolio index to DEV R2
+        if: ${{ github.event_name == 'push' || !inputs.dry_run }}
+        shell: bash
+        run: |
+          wrangler r2 object put "${PRASAE_R2_BUCKET}/${PRASAE_R2_PREFIX}/index.json" \
+            --file .spectral-r2-index-full.json \
+            --content-type 'application/json; charset=utf-8' \
+            --cache-control 'public, max-age=60, must-revalidate' \
+            --remote --force
+
+      - name: Portfolio summary
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          import os
+          from pathlib import Path
+          p = json.loads(Path('.spectral-r2-index-full.json').read_text())
+          with open(Path(os.environ['GITHUB_STEP_SUMMARY']), 'a', encoding='utf-8') as f:
+              f.write('## Full Spectral Studio portfolio\n')
               f.write(f"- Validated plots: `{p['plot_count']}`\n")
               f.write(f"- Payload: `{p['payload_bytes']:,}` bytes ({p['payload_bytes']/1_000_000_000:.3f} GB)\n")
-              f.write(f"- Public index: `{p['storage']['public_base']}/index.json`\n")
+              f.write(f"- Dry run: `{os.environ['PRASAE_R2_DRY_RUN']}`\n")
+              f.write(f"- Public index: `{os.environ['PRASAE_R2_PUBLIC_BASE']}/index.json`\n")
           PY
-            fi
-          } >> "$GITHUB_STEP_SUMMARY"
