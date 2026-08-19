@@ -1,0 +1,116 @@
+name: Build and upload Spectral Studio to R2 DEV
+
+on:
+  workflow_dispatch:
+    inputs:
+      plot_ids:
+        description: 'Comma-separated plot IDs or all'
+        required: true
+        default: 'all'
+        type: string
+      months:
+        description: 'Comma-separated YYYY-MM values; blank = all 12 declared dates'
+        required: false
+        default: ''
+        type: string
+      max_payload_bytes:
+        description: 'Abort before first R2 write when payload exceeds this size'
+        required: true
+        default: '8000000000'
+        type: string
+      dry_run:
+        description: 'Validate/build/size-check only; do not write R2'
+        required: true
+        default: true
+        type: boolean
+
+permissions:
+  contents: read
+
+concurrency:
+  group: prasae-spectral-r2-dev
+  cancel-in-progress: false
+
+jobs:
+  build-and-upload:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      PRASAE_R2_BUCKET: drone-pointcloud-v2-dev
+      PRASAE_R2_PREFIX: mangrove-drone-dashboard-v2-dev/assets/prasae/spectral/v1
+      PRASAE_R2_PUBLIC_BASE: https://mangrove-drone-dashboard-dev.saratchai.workers.dev/assets/prasae/spectral/v1
+      PRASAE_MAX_SPECTRAL_BYTES: ${{ inputs.max_payload_bytes }}
+      PRASAE_R2_UPLOAD_WORKERS: '8'
+      PRASAE_PLOT_IDS: ${{ inputs.plot_ids }}
+      PRASAE_SPECTRAL_MONTHS: ${{ inputs.months }}
+      PRASAE_SPECTRAL_MAX_SCENES: '5'
+      PRASAE_WORKERS: '4'
+      PRASAE_R2_DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+      CLOUDFLARE_ACCOUNT_ID: d8e0d7122a21ee0bd148ef7bfef6278b
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-verified.txt
+
+      - name: Install Python dependencies
+        run: pip install -r requirements-verified.txt
+
+      - name: Install Wrangler 4
+        run: npm install --global wrangler@4
+
+      - name: Validate source
+        run: |
+          node --check spectral-studio.js
+          python -m py_compile \
+            build_spectral_assets.py \
+            process_verified_12_dates.py \
+            scripts/upload_spectral_assets_r2.py
+
+      - name: Refuse remote upload without Cloudflare token
+        if: ${{ !inputs.dry_run }}
+        shell: bash
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+            echo 'CLOUDFLARE_API_TOKEN GitHub Actions secret is required for a real R2 upload.' >&2
+            exit 1
+          fi
+
+      - name: Build exact-date spectral assets
+        run: python build_spectral_assets.py
+
+      - name: Validate size guard and upload to DEV R2
+        run: python scripts/upload_spectral_assets_r2.py
+
+      - name: Publish compact run summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo '## Prasae Spectral Studio R2 DEV'
+            echo
+            echo "- Plot selection: \`${PRASAE_PLOT_IDS}\`"
+            echo "- Months: \`${PRASAE_SPECTRAL_MONTHS:-all 12 declared dates}\`"
+            echo "- Hard payload cap: \`${PRASAE_MAX_SPECTRAL_BYTES}\` bytes"
+            echo "- Dry run: \`${PRASAE_R2_DRY_RUN}\`"
+            echo "- Bucket: \`${PRASAE_R2_BUCKET}\`"
+            echo "- Prefix: \`${PRASAE_R2_PREFIX}\`"
+            if [ -f .spectral-r2-index.json ]; then
+              python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('.spectral-r2-index.json').read_text())
+          with open(Path(__import__('os').environ['GITHUB_STEP_SUMMARY']), 'a', encoding='utf-8') as f:
+              f.write(f"- Validated plots: `{p['plot_count']}`\n")
+              f.write(f"- Payload: `{p['payload_bytes']:,}` bytes ({p['payload_bytes']/1_000_000_000:.3f} GB)\n")
+              f.write(f"- Public index: `{p['storage']['public_base']}/index.json`\n")
+          PY
+            fi
+          } >> "$GITHUB_STEP_SUMMARY"
