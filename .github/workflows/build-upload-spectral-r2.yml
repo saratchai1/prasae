@@ -9,9 +9,9 @@ on:
         default: '8000000000'
         type: string
       dry_run:
-        description: 'Build and validate all plots without writing R2'
+        description: 'Dry run only: build and validate without writing R2'
         required: true
-        default: true
+        default: false
         type: boolean
   push:
     branches:
@@ -27,8 +27,49 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  r2-auth-preflight:
+    name: Validate R2 write permission before compute
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      PRASAE_R2_BUCKET: drone-pointcloud-v2-dev
+      PRASAE_R2_PREFIX: mangrove-drone-dashboard-v2-dev/assets/prasae/spectral/v1
+      CLOUDFLARE_ACCOUNT_ID: d8e0d7122a21ee0bd148ef7bfef6278b
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      PRASAE_R2_DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run && '1' || '0' }}
+    steps:
+      - name: Skip remote auth preflight in dry run
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        run: echo 'Dry run requested; no R2 write preflight required.'
+
+      - name: Refuse real upload without Cloudflare token
+        if: ${{ github.event_name == 'push' || !inputs.dry_run }}
+        shell: bash
+        run: |
+          if [ -z "${CLOUDFLARE_API_TOKEN}" ]; then
+            echo 'CLOUDFLARE_API_TOKEN GitHub Actions secret is required for a real R2 upload.' >&2
+            exit 1
+          fi
+
+      - name: Install Wrangler 4
+        if: ${{ github.event_name == 'push' || !inputs.dry_run }}
+        run: npm install --global wrangler@4
+
+      - name: Prove R2 object write and delete permission
+        if: ${{ github.event_name == 'push' || !inputs.dry_run }}
+        shell: bash
+        run: |
+          printf 'prasae-r2-auth-preflight\n' > /tmp/prasae-r2-auth-preflight.txt
+          key="${PRASAE_R2_PREFIX}/_preflight/auth-check.txt"
+          wrangler r2 object put "${PRASAE_R2_BUCKET}/${key}" \
+            --file /tmp/prasae-r2-auth-preflight.txt \
+            --content-type 'text/plain; charset=utf-8' \
+            --remote --force
+          wrangler r2 object delete "${PRASAE_R2_BUCKET}/${key}" --remote --force
+
   build-and-upload:
     name: Spectral shard ${{ matrix.shard }}
+    needs: r2-auth-preflight
     runs-on: ubuntu-latest
     timeout-minutes: 360
     strategy:
