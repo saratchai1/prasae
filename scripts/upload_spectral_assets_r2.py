@@ -4,6 +4,11 @@
 The uploader validates the exact 12-date/no-fallback contract, checks payload size before
 remote writes, uploads only spectral manifests/band PNGs, and can suppress the portfolio
 index during sharded runs so the final index is published once after all shards succeed.
+
+Uploads intentionally use low concurrency and exponential backoff. Cloudflare's REST
+endpoint can return HTTP 429 when several matrix shards each start multiple Wrangler
+processes at once. Retrying transient failures prevents a nearly-complete shard from
+failing because of a short rate-limit window.
 """
 
 from __future__ import annotations
@@ -11,9 +16,11 @@ from __future__ import annotations
 import json
 import mimetypes
 import os
+import random
 import shlex
 import subprocess
 import sys
+import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timezone
 from pathlib import Path
@@ -39,7 +46,9 @@ PUBLIC_BASE = os.environ.get(
     "https://mangrove-drone-dashboard-dev.saratchai.workers.dev/assets/prasae/spectral/v1",
 ).rstrip("/")
 MAX_BYTES = int(os.environ.get("PRASAE_MAX_SPECTRAL_BYTES", "8000000000"))
-UPLOAD_WORKERS = max(1, int(os.environ.get("PRASAE_R2_UPLOAD_WORKERS", "8")))
+UPLOAD_WORKERS = max(1, int(os.environ.get("PRASAE_R2_UPLOAD_WORKERS", "1")))
+MAX_UPLOAD_ATTEMPTS = max(1, int(os.environ.get("PRASAE_R2_MAX_UPLOAD_ATTEMPTS", "8")))
+RETRY_BASE_SECONDS = max(0.5, float(os.environ.get("PRASAE_R2_RETRY_BASE_SECONDS", "2")))
 DRY_RUN = os.environ.get("PRASAE_R2_DRY_RUN", "1").strip().lower() in {"1", "true", "yes", "y"}
 UPLOAD_INDEX = os.environ.get("PRASAE_R2_UPLOAD_INDEX", "1").strip().lower() in {"1", "true", "yes", "y"}
 WRANGLER = shlex.split(os.environ.get("WRANGLER", "wrangler"))
@@ -173,6 +182,24 @@ def content_type(path: Path) -> str:
     return mimetypes.guess_type(path.name)[0] or "application/octet-stream"
 
 
+def is_retryable_upload_error(output: str) -> bool:
+    lowered = output.lower()
+    retry_markers = (
+        "429:",
+        "too many requests",
+        "500:",
+        "502:",
+        "503:",
+        "504:",
+        "econnreset",
+        "etimedout",
+        "timed out",
+        "socket hang up",
+        "network error",
+    )
+    return any(marker in lowered for marker in retry_markers)
+
+
 def upload_one(item: tuple[Path, str]) -> tuple[str, int]:
     path, key = item
     cache_control = (
@@ -189,10 +216,29 @@ def upload_one(item: tuple[Path, str]) -> tuple[str, int]:
         "--remote",
         "--force",
     ]
-    result = subprocess.run(cmd, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
-    if result.returncode != 0:
-        raise RuntimeError(f"Upload failed for {key}:\n{result.stdout[-4000:]}")
-    return key, path.stat().st_size
+
+    last_output = ""
+    for attempt in range(1, MAX_UPLOAD_ATTEMPTS + 1):
+        result = subprocess.run(cmd, cwd=ROOT, text=True, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        last_output = result.stdout or ""
+        if result.returncode == 0:
+            return key, path.stat().st_size
+
+        # Auth/permission problems should fail immediately; retrying cannot fix them.
+        if "401:" in last_output or "403:" in last_output:
+            break
+        if not is_retryable_upload_error(last_output) or attempt >= MAX_UPLOAD_ATTEMPTS:
+            break
+
+        delay = min(60.0, RETRY_BASE_SECONDS * (2 ** (attempt - 1))) + random.uniform(0.0, 1.0)
+        print(
+            f"Transient R2 upload error for {key}; retry {attempt}/{MAX_UPLOAD_ATTEMPTS} "
+            f"after {delay:.1f}s",
+            flush=True,
+        )
+        time.sleep(delay)
+
+    raise RuntimeError(f"Upload failed for {key}:\n{last_output[-4000:]}")
 
 
 def main() -> int:
@@ -202,6 +248,7 @@ def main() -> int:
     print(f"Payload size: {total:,} bytes ({total / 1_000_000_000:.3f} GB)")
     print(f"Hard cap: {MAX_BYTES:,} bytes ({MAX_BYTES / 1_000_000_000:.3f} GB)")
     print(f"Upload portfolio index in this run: {UPLOAD_INDEX}")
+    print(f"R2 upload workers: {UPLOAD_WORKERS}; max attempts/object: {MAX_UPLOAD_ATTEMPTS}")
     print(f"Target: r2://{BUCKET}/{PREFIX}")
 
     if total > MAX_BYTES:
