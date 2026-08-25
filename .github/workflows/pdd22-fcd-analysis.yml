@@ -9,6 +9,7 @@ on:
       - pdd22_config.py
       - extract_pdd22_plots.py
       - process_pdd22_fcd.py
+      - run_pdd22_fcd_parallel.py
       - my-land/STC_VSD_EVR.kmz
       - requirements-verified.txt
       - .github/workflows/pdd22-fcd-analysis.yml
@@ -42,7 +43,7 @@ jobs:
 
       - name: Validate Python syntax and PDD configuration
         run: |
-          python -m py_compile pdd22_config.py extract_pdd22_plots.py process_pdd22_fcd.py
+          python -m py_compile pdd22_config.py extract_pdd22_plots.py process_pdd22_fcd.py run_pdd22_fcd_parallel.py
           python - <<'PY'
           from pdd22_config import PDD22_PLOTS, PDD_TOTAL_PROJECT_AREA_RAI
           assert len(PDD22_PLOTS) == 22
@@ -72,7 +73,8 @@ jobs:
           PRASAE_MAX_SCENES: '4'
           PDD22_REFERENCE_SAMPLE: '6000'
           PDD22_MIN_OBSERVED_RATIO: '0.05'
-        run: python process_pdd22_fcd.py
+          PDD22_WORKERS: '6'
+        run: python run_pdd22_fcd_parallel.py
 
       - name: Validate FCD outputs
         run: |
