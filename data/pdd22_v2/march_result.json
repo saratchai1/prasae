@@ -1,0 +1,2193 @@
+{
+  "series": "march",
+  "calibration": {
+    "reference": "2023-03",
+    "mean": [
+      0.675269334771174,
+      0.15336088905441816
+    ],
+    "pc1": [
+      -0.5554311591713934,
+      -0.8315625216551803
+    ],
+    "pc1_ndvi_corr": -0.994219772416131,
+    "vd_raw_low": -0.12782926167797368,
+    "vd_raw_high": 0.29233112555255775,
+    "csi_low": 0.8174425077438354,
+    "csi_high": 0.8838454627990723,
+    "vd_rule": "PDD p.109: maximum PCA -> VD 0%; minimum PCA -> VD 100%",
+    "scaling_percentiles": [
+      2.0,
+      98.0
+    ]
+  },
+  "province_anchors": {
+    "สมุทรสงคราม": {
+      "low_cut": 0.0,
+      "high_cut": 16.025806435958334,
+      "class_frac": 0.9928971157985362,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 78.88,
+        "medium": 11.52,
+        "low": 1.86,
+        "bare_error": 0.66
+      }
+    },
+    "ชุมพร": {
+      "low_cut": 34.08018612980982,
+      "high_cut": 56.56616854730391,
+      "class_frac": 1.0,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 1280.3,
+        "medium": 741.81,
+        "low": 204.04,
+        "bare_error": 0.0
+      }
+    },
+    "ปัตตานี": {
+      "low_cut": 0.0,
+      "high_cut": 50.22614180501061,
+      "class_frac": 0.9956830391404452,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 462.46,
+        "medium": 222.53,
+        "low": 41.54,
+        "bare_error": 3.15
+      }
+    },
+    "สตูล": {
+      "low_cut": 44.551430504912666,
+      "high_cut": 75.06469447960264,
+      "class_frac": 0.994613962355157,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 1422.03,
+        "medium": 283.72,
+        "low": 26.41,
+        "bare_error": 9.38
+      }
+    },
+    "พังงา": {
+      "low_cut": 0.0,
+      "high_cut": 74.68184249069814,
+      "class_frac": 0.9969310462786493,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 776.68,
+        "medium": 234.01,
+        "low": 9.32,
+        "bare_error": 3.14
+      }
+    },
+    "ภูเก็ต": {
+      "low_cut": 0.0,
+      "high_cut": 31.526365877137387,
+      "class_frac": 0.8664169787765295,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 16.5,
+        "medium": 8.49,
+        "low": 2.77,
+        "bare_error": 4.28
+      }
+    },
+    "กระบี่": {
+      "low_cut": 33.040921408855255,
+      "high_cut": 68.0516490865858,
+      "class_frac": 0.9916434540389973,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 513.21,
+        "medium": 276.64,
+        "low": 36.07,
+        "bare_error": 6.96
+      }
+    },
+    "ตรัง": {
+      "low_cut": 63.47941557348459,
+      "high_cut": 76.24326696811629,
+      "class_frac": 0.9986621385201193,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 5.42,
+        "medium": 44.57,
+        "low": 47.05,
+        "bare_error": 0.13
+      }
+    }
+  },
+  "portfolio": [
+    {
+      "month": "2023-03",
+      "thai_year": 2566,
+      "green_rai": 4633.17,
+      "yellow_rai": 1813.53,
+      "red_rai": 301.13,
+      "bare_error_alloc_rai": 27.7,
+      "water_observed_rai": 36.02,
+      "unknown_observed_rai": 271.01,
+      "equivalent_coverage_area_rai": 6775.53,
+      "equivalent_coverage_pct": 100.0,
+      "missing_equivalent_area_rai": 0.0,
+      "low_qa_plots": 1,
+      "water_qa_plots": 0,
+      "green_delta_vs_2023_rai": 0.0,
+      "red_delta_vs_2023_rai": 0.0
+    },
+    {
+      "month": "2024-03",
+      "thai_year": 2567,
+      "green_rai": 4034.65,
+      "yellow_rai": 2229.91,
+      "red_rai": 483.27,
+      "bare_error_alloc_rai": 27.7,
+      "water_observed_rai": 48.87,
+      "unknown_observed_rai": 216.5,
+      "equivalent_coverage_area_rai": 6775.53,
+      "equivalent_coverage_pct": 100.0,
+      "missing_equivalent_area_rai": 0.0,
+      "low_qa_plots": 1,
+      "water_qa_plots": 0,
+      "green_delta_vs_2023_rai": -598.52,
+      "red_delta_vs_2023_rai": 182.14
+    },
+    {
+      "month": "2025-03",
+      "thai_year": 2568,
+      "green_rai": 4576.07,
+      "yellow_rai": 1901.5,
+      "red_rai": 270.26,
+      "bare_error_alloc_rai": 27.7,
+      "water_observed_rai": 41.49,
+      "unknown_observed_rai": 277.97,
+      "equivalent_coverage_area_rai": 6775.53,
+      "equivalent_coverage_pct": 100.0,
+      "missing_equivalent_area_rai": 0.0,
+      "low_qa_plots": 0,
+      "water_qa_plots": 1,
+      "green_delta_vs_2023_rai": -57.1,
+      "red_delta_vs_2023_rai": -30.87
+    },
+    {
+      "month": "2026-03",
+      "thai_year": 2569,
+      "green_rai": 4067.76,
+      "yellow_rai": 2275.23,
+      "red_rai": 404.84,
+      "bare_error_alloc_rai": 27.7,
+      "water_observed_rai": 62.8,
+      "unknown_observed_rai": 207.22,
+      "equivalent_coverage_area_rai": 6775.53,
+      "equivalent_coverage_pct": 100.0,
+      "missing_equivalent_area_rai": 0.0,
+      "low_qa_plots": 1,
+      "water_qa_plots": 0,
+      "green_delta_vs_2023_rai": -565.41,
+      "red_delta_vs_2023_rai": 103.71
+    }
+  ],
+  "plots": [
+    {
+      "code": "18-VSD",
+      "province": "ชุมพร",
+      "area_rai": 1909.77,
+      "delta_green_rai": -341.6,
+      "delta_red_rai": 104.87,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 96.84,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230327T033531_R061_T47PNN_20230327T094344",
+            "S2A_MSIL2A_20230327T033531_R061_T47PNN_20240826T234121",
+            "S2A_MSIL2A_20230307T033611_R061_T47PNN_20230307T091627",
+            "S2A_MSIL2A_20230307T033611_R061_T47PNN_20240820T180803"
+          ],
+          "green_rai": 1256.144,
+          "yellow_rai": 596.3232,
+          "red_rai": 57.3028,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 0.9369,
+          "unknown_observed_rai": 60.2757,
+          "mean_fcd_score": 58.293,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20240331T033531_R061_T47PNN_20240331T093338",
+            "S2B_MSIL2A_20240326T033539_R061_T47PNN_20240326T091849",
+            "S2A_MSIL2A_20240301T033651_R061_T47PNN_20240301T092120",
+            "S2B_MSIL2A_20240316T033539_R061_T47PNN_20240316T081225"
+          ],
+          "green_rai": 1016.4824,
+          "yellow_rai": 817.8838,
+          "red_rai": 75.4037,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 0.3123,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 56.3077,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20250316T033601_R061_T47PNN_20250316T090315",
+            "S2C_MSIL2A_20250326T033601_R061_T47PNN_20250326T085914",
+            "S2C_MSIL2A_20250306T033641_R061_T47PNN_20250306T085914",
+            "S2B_MSIL2A_20250301T033559_R061_T47PNN_20250301T061709"
+          ],
+          "green_rai": 1479.0253,
+          "yellow_rai": 402.3199,
+          "red_rai": 28.4248,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 0.3123,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 64.161,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260301T033701_R061_T47PNN_20260301T091613",
+            "S2C_MSIL2A_20260331T033541_R061_T47PNN_20260331T085215",
+            "S2B_MSIL2A_20260306T033539_R061_T47PNN_20260306T072603",
+            "S2B_MSIL2A_20260326T033529_R061_T47PNN_20260326T072041"
+          ],
+          "green_rai": 914.5448,
+          "yellow_rai": 833.0519,
+          "red_rai": 162.1733,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 0.9994,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 53.1554,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "19-VSD",
+      "province": "ชุมพร",
+      "area_rai": 316.38,
+      "delta_green_rai": 76.59,
+      "delta_red_rai": -45.21,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20230322T033539_R061_T47PNM_20230322T094912",
+            "S2B_MSIL2A_20230312T033539_R061_T47PNM_20240818T073352",
+            "S2B_MSIL2A_20230312T033539_R061_T47PNM_20230312T101504",
+            "S2A_MSIL2A_20230307T033611_R061_T47PNM_20240820T180803"
+          ],
+          "green_rai": 29.2505,
+          "yellow_rai": 144.1898,
+          "red_rai": 142.9398,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 31.9351,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 97.67,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240316T033539_R061_T47PNM_20240316T081224",
+            "S2A_MSIL2A_20240311T033541_R061_T47PNM_20240311T115048",
+            "S2A_MSIL2A_20240331T033531_R061_T47PNM_20240331T093553"
+          ],
+          "green_rai": 23.8053,
+          "yellow_rai": 64.7606,
+          "red_rai": 227.8141,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 7.3751,
+          "mean_fcd_score": 20.9859,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2C_MSIL2A_20250316T033601_R061_T47PNM_20250316T090315",
+            "S2C_MSIL2A_20250326T033601_R061_T47PNM_20250326T085914",
+            "S2A_MSIL2A_20250318T034201_R061_T47PNM_20250318T114518"
+          ],
+          "green_rai": 131.3771,
+          "yellow_rai": 79.3138,
+          "red_rai": 105.6892,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 45.3317,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260301T033701_R061_T47PNM_20260301T091613",
+            "S2B_MSIL2A_20260326T033529_R061_T47PNM_20260326T072041",
+            "S2C_MSIL2A_20260321T033541_R061_T47PNM_20260321T090910",
+            "S2B_MSIL2A_20260316T033529_R061_T47PNM_20260316T072001"
+          ],
+          "green_rai": 105.8403,
+          "yellow_rai": 112.8118,
+          "red_rai": 97.728,
+          "bare_error_alloc_rai": 0.0,
+          "water_observed_rai": 4.3751,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 44.2795,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "40-VSD",
+      "province": "พังงา",
+      "area_rai": 277.33,
+      "delta_green_rai": 39.6,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.87,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20230307T093312",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20230312T101458",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20240818T073352"
+          ],
+          "green_rai": 180.0894,
+          "yellow_rai": 96.3895,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.8511,
+          "water_observed_rai": 8.3436,
+          "unknown_observed_rai": 0.3736,
+          "mean_fcd_score": 71.0146,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 98.72,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240319T034529_R104_T47PMK_20240319T082045",
+            "S2A_MSIL2A_20240324T034531_R104_T47PMK_20240324T103758",
+            "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052"
+          ],
+          "green_rai": 179.775,
+          "yellow_rai": 96.7039,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.8511,
+          "water_observed_rai": 3.5491,
+          "unknown_observed_rai": 3.5491,
+          "mean_fcd_score": 70.9102,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
+            "S2B_MSIL2A_20250324T034539_R104_T47PMK_20250324T072707",
+            "S2C_MSIL2A_20250316T033601_R061_T47PMK_20250316T090315",
+            "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518"
+          ],
+          "green_rai": 215.6662,
+          "yellow_rai": 60.8127,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.8511,
+          "water_observed_rai": 5.8529,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 78.0732,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47PMK_20260326T072041",
+            "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+            "S2B_MSIL2A_20260329T034529_R104_T47PMK_20260329T073814"
+          ],
+          "green_rai": 219.693,
+          "yellow_rai": 56.7859,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.8511,
+          "water_observed_rai": 2.3661,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 80.6471,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "41-VSD",
+      "province": "พังงา",
+      "area_rai": 178.92,
+      "delta_green_rai": 22.35,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20230307T093312",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20230312T101458",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20240818T073352"
+          ],
+          "green_rai": 136.5206,
+          "yellow_rai": 41.8503,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.5491,
+          "water_observed_rai": 2.8787,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 76.4772,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240319T034529_R104_T47PMK_20240319T082045",
+            "S2A_MSIL2A_20240324T034531_R104_T47PMK_20240324T103758",
+            "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052"
+          ],
+          "green_rai": 114.6715,
+          "yellow_rai": 63.6994,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.5491,
+          "water_observed_rai": 2.6284,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 72.7156,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 97.24,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
+            "S2B_MSIL2A_20250324T034539_R104_T47PMK_20250324T072707",
+            "S2C_MSIL2A_20250316T033601_R061_T47PMK_20250316T090315",
+            "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518"
+          ],
+          "green_rai": 156.7423,
+          "yellow_rai": 21.6286,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.5491,
+          "water_observed_rai": 2.6284,
+          "unknown_observed_rai": 4.9439,
+          "mean_fcd_score": 83.1864,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 98.81,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47PMK_20260326T072041",
+            "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+            "S2B_MSIL2A_20260329T034529_R104_T47PMK_20260329T073814"
+          ],
+          "green_rai": 158.8716,
+          "yellow_rai": 19.4993,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.5491,
+          "water_observed_rai": 2.1903,
+          "unknown_observed_rai": 2.1278,
+          "mean_fcd_score": 84.802,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "42-VSD",
+      "province": "พังงา",
+      "area_rai": 223.01,
+      "delta_green_rai": 17.44,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20230307T093312",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20230312T101458",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20240818T073352"
+          ],
+          "green_rai": 175.1448,
+          "yellow_rai": 47.1808,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6844,
+          "water_observed_rai": 2.2369,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 76.8792,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240319T034529_R104_T47PMK_20240319T082045",
+            "S2A_MSIL2A_20240324T034531_R104_T47PMK_20240324T103758",
+            "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
+            "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116"
+          ],
+          "green_rai": 124.3293,
+          "yellow_rai": 97.9963,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6844,
+          "water_observed_rai": 2.6719,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 71.3954,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.22,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
+            "S2B_MSIL2A_20250324T034539_R104_T47PMK_20250324T072707",
+            "S2C_MSIL2A_20250316T033601_R061_T47PMK_20250316T090315",
+            "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518"
+          ],
+          "green_rai": 184.988,
+          "yellow_rai": 37.3376,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6844,
+          "water_observed_rai": 1.8641,
+          "unknown_observed_rai": 1.7398,
+          "mean_fcd_score": 78.8666,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47PMK_20260326T072041",
+            "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+            "S2B_MSIL2A_20260329T034529_R104_T47PMK_20260329T073814"
+          ],
+          "green_rai": 192.5822,
+          "yellow_rai": 29.7434,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6844,
+          "water_observed_rai": 1.9262,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 82.0952,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "43-VSD",
+      "province": "พังงา",
+      "area_rai": 122.82,
+      "delta_green_rai": -2.0,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20230307T093312",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20230312T101458",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20240818T073352"
+          ],
+          "green_rai": 101.4546,
+          "yellow_rai": 20.9885,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3769,
+          "water_observed_rai": 0.0624,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 77.6004,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240319T034529_R104_T47PMK_20240319T082045",
+            "S2A_MSIL2A_20240324T034531_R104_T47PMK_20240324T103758",
+            "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
+            "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116"
+          ],
+          "green_rai": 90.3687,
+          "yellow_rai": 32.0744,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3769,
+          "water_observed_rai": 0.0624,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 74.3794,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
+            "S2B_MSIL2A_20250324T034539_R104_T47PMK_20250324T072707",
+            "S2C_MSIL2A_20250316T033601_R061_T47PMK_20250316T090315"
+          ],
+          "green_rai": 103.3054,
+          "yellow_rai": 19.1376,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3769,
+          "water_observed_rai": 1.3737,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 78.9612,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47PMK_20260326T072041",
+            "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+            "S2B_MSIL2A_20260329T034529_R104_T47PMK_20260329T073814"
+          ],
+          "green_rai": 99.4499,
+          "yellow_rai": 22.9931,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3769,
+          "water_observed_rai": 0.1249,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 76.902,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "44-VSD",
+      "province": "พังงา",
+      "area_rai": 221.07,
+      "delta_green_rai": 17.33,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47PMK_20230307T093312",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20230312T101458",
+            "S2B_MSIL2A_20230312T033539_R061_T47PMK_20240818T073352"
+          ],
+          "green_rai": 182.6905,
+          "yellow_rai": 37.701,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6785,
+          "water_observed_rai": 0.8745,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 79.5168,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240319T034529_R104_T47PMK_20240319T082045",
+            "S2A_MSIL2A_20240324T034531_R104_T47PMK_20240324T103758",
+            "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
+            "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116"
+          ],
+          "green_rai": 162.6536,
+          "yellow_rai": 57.738,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6785,
+          "water_observed_rai": 0.7496,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 77.242,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.46,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
+            "S2C_MSIL2A_20250316T033601_R061_T47PMK_20250316T090315",
+            "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518"
+          ],
+          "green_rai": 191.8118,
+          "yellow_rai": 28.5798,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6785,
+          "water_observed_rai": 1.1869,
+          "unknown_observed_rai": 1.1869,
+          "mean_fcd_score": 83.7025,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.75,
+          "scenes": 2,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47PMK_20260326T072041"
+          ],
+          "green_rai": 200.0197,
+          "yellow_rai": 20.3718,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6785,
+          "water_observed_rai": 0.8745,
+          "unknown_observed_rai": 0.5622,
+          "mean_fcd_score": 87.1391,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "66-VSD",
+      "province": "ตรัง",
+      "area_rai": 97.17,
+      "delta_green_rai": -3.94,
+      "delta_red_rai": 35.37,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230327T033531_R061_T47NNJ_20240826T234121",
+            "S2A_MSIL2A_20230327T033531_R061_T47NNJ_20230327T093848",
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20230307T092543"
+          ],
+          "green_rai": 5.4362,
+          "yellow_rai": 44.6147,
+          "red_rai": 46.9891,
+          "bare_error_alloc_rai": 0.13,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 63.0478,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240316T033539_R061_T47NNJ_20240316T081224",
+            "S2B_MSIL2A_20240326T033539_R061_T47NNJ_20240326T091654",
+            "S2A_MSIL2A_20240301T033651_R061_T47NNJ_20240301T092124"
+          ],
+          "green_rai": 0.2499,
+          "yellow_rai": 1.7496,
+          "red_rai": 95.0405,
+          "bare_error_alloc_rai": 0.13,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 27.1598,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+            "S2B_MSIL2A_20250331T033539_R061_T47NNJ_20250331T072416",
+            "S2C_MSIL2A_20250326T033601_R061_T47NNJ_20250326T085914",
+            "S2B_MSIL2A_20250311T033539_R061_T47NNJ_20250311T072242"
+          ],
+          "green_rai": 0.9373,
+          "yellow_rai": 21.8074,
+          "red_rai": 74.2953,
+          "bare_error_alloc_rai": 0.13,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 55.5074,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47NNJ_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47NNJ_20260326T072041",
+            "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010"
+          ],
+          "green_rai": 1.4997,
+          "yellow_rai": 13.1844,
+          "red_rai": 82.3559,
+          "bare_error_alloc_rai": 0.13,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 37.2737,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "85-VSD",
+      "province": "สตูล",
+      "area_rai": 599.58,
+      "delta_green_rai": -134.49,
+      "delta_red_rai": 7.37,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 98.27,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47NPH_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NPH_20230307T091541",
+            "S2B_MSIL2A_20230312T033539_R061_T47NPH_20230312T103625",
+            "S2B_MSIL2A_20230312T033539_R061_T47NPH_20240818T073352"
+          ],
+          "green_rai": 480.5384,
+          "yellow_rai": 106.2778,
+          "red_rai": 9.5345,
+          "bare_error_alloc_rai": 3.2294,
+          "water_observed_rai": 5.1049,
+          "unknown_observed_rai": 10.3966,
+          "mean_fcd_score": 81.7089,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.02,
+          "scenes": 3,
+          "scene_ids": [
+            "S2A_MSIL2A_20240321T033541_R061_T47NPH_20240321T091048",
+            "S2A_MSIL2A_20240311T033541_R061_T47NPH_20240311T110031",
+            "S2A_MSIL2A_20240331T033531_R061_T47NPH_20240331T092413"
+          ],
+          "green_rai": 454.5941,
+          "yellow_rai": 129.3062,
+          "red_rai": 12.4503,
+          "bare_error_alloc_rai": 3.2294,
+          "water_observed_rai": 6.2878,
+          "unknown_observed_rai": 5.852,
+          "mean_fcd_score": 79.2025,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.3,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20250326T033601_R061_T47NPH_20250326T085914",
+            "S2B_MSIL2A_20250331T033539_R061_T47NPH_20250331T072416",
+            "S2C_MSIL2A_20250316T033601_R061_T47NPH_20250316T090315",
+            "S2C_MSIL2A_20250306T033641_R061_T47NPH_20250306T085914"
+          ],
+          "green_rai": 360.9823,
+          "yellow_rai": 220.7091,
+          "red_rai": 14.6592,
+          "bare_error_alloc_rai": 3.2294,
+          "water_observed_rai": 7.8442,
+          "unknown_observed_rai": 4.1711,
+          "mean_fcd_score": 75.5931,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.58,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47NPH_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47NPH_20260326T072041",
+            "S2C_MSIL2A_20260301T033701_R061_T47NPH_20260301T091613",
+            "S2B_MSIL2A_20260316T033529_R061_T47NPH_20260316T072001"
+          ],
+          "green_rai": 346.0524,
+          "yellow_rai": 233.393,
+          "red_rai": 16.9052,
+          "bare_error_alloc_rai": 3.2294,
+          "water_observed_rai": 8.529,
+          "unknown_observed_rai": 2.4902,
+          "mean_fcd_score": 74.4143,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "86-VSD",
+      "province": "สตูล",
+      "area_rai": 1141.96,
+      "delta_green_rai": -115.5,
+      "delta_red_rai": 3.54,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47NPH_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NPH_20230307T091541",
+            "S2B_MSIL2A_20230312T033539_R061_T47NPH_20230312T103625",
+            "S2B_MSIL2A_20230312T033539_R061_T47NPH_20240818T073352"
+          ],
+          "green_rai": 941.36,
+          "yellow_rai": 177.5679,
+          "red_rai": 16.8815,
+          "bare_error_alloc_rai": 6.1506,
+          "water_observed_rai": 7.9281,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 79.6204,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2A_MSIL2A_20240321T033541_R061_T47NPH_20240321T091048",
+            "S2A_MSIL2A_20240311T033541_R061_T47NPH_20240311T110031",
+            "S2A_MSIL2A_20240331T033531_R061_T47NPH_20240331T092413"
+          ],
+          "green_rai": 783.6141,
+          "yellow_rai": 332.8892,
+          "red_rai": 19.3061,
+          "bare_error_alloc_rai": 6.1506,
+          "water_observed_rai": 7.1166,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 76.342,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2C_MSIL2A_20250326T033601_R061_T47NPH_20250326T085914",
+            "S2B_MSIL2A_20250331T033539_R061_T47NPH_20250331T072416",
+            "S2C_MSIL2A_20250316T033601_R061_T47NPH_20250316T090315"
+          ],
+          "green_rai": 665.6705,
+          "yellow_rai": 448.3228,
+          "red_rai": 21.816,
+          "bare_error_alloc_rai": 6.1506,
+          "water_observed_rai": 7.6784,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 74.3929,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.8,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47NPH_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47NPH_20260326T072041",
+            "S2C_MSIL2A_20260301T033701_R061_T47NPH_20260301T091613",
+            "S2B_MSIL2A_20260316T033529_R061_T47NPH_20260316T072001"
+          ],
+          "green_rai": 825.8552,
+          "yellow_rai": 289.5286,
+          "red_rai": 20.4255,
+          "bare_error_alloc_rai": 6.1506,
+          "water_observed_rai": 8.053,
+          "unknown_observed_rai": 2.2473,
+          "mean_fcd_score": 76.4369,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "87-VSD",
+      "province": "สมุทรสงคราม",
+      "area_rai": 92.92,
+      "delta_green_rai": 6.93,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230327T033531_R061_T47PNQ_20230327T093844",
+            "S2A_MSIL2A_20230327T033531_R061_T47PNQ_20240826T234121",
+            "S2A_MSIL2A_20230307T033611_R061_T47PNQ_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47PNQ_20230307T091746"
+          ],
+          "green_rai": 78.928,
+          "yellow_rai": 13.332,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.66,
+          "water_observed_rai": 1.2439,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 24.9035,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240306T033609_R061_T47PNQ_20240306T080812",
+            "S2B_MSIL2A_20240326T033539_R061_T47PNQ_20240326T091647",
+            "S2A_MSIL2A_20240331T033531_R061_T47PNQ_20240331T092948",
+            "S2A_MSIL2A_20240301T033651_R061_T47PNQ_20240301T092116"
+          ],
+          "green_rai": 84.2915,
+          "yellow_rai": 7.9685,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.66,
+          "water_observed_rai": 0.7463,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 47.2457,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20250326T033601_R061_T47PNQ_20250326T085914",
+            "S2B_MSIL2A_20250301T033559_R061_T47PNQ_20250301T061709",
+            "S2C_MSIL2A_20250306T033641_R061_T47PNQ_20250306T085914",
+            "S2C_MSIL2A_20250316T033601_R061_T47PNQ_20250316T090315"
+          ],
+          "green_rai": 82.6882,
+          "yellow_rai": 9.5718,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.66,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 36.685,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260301T033701_R061_T47PNQ_20260301T091613",
+            "S2B_MSIL2A_20260326T033529_R061_T47PNQ_20260326T072041",
+            "S2C_MSIL2A_20260331T033541_R061_T47PNQ_20260331T085215",
+            "S2A_MSIL2A_20260313T034201_R061_T47PNQ_20260313T083010"
+          ],
+          "green_rai": 85.8565,
+          "yellow_rai": 6.4035,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.66,
+          "water_observed_rai": 0.622,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 47.6406,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "88-VSD",
+      "province": "ปัตตานี",
+      "area_rai": 257.66,
+      "delta_green_rai": -24.68,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20240823T111526",
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20230329T083900",
+            "S2B_MSIL2A_20230319T032519_R018_T47NQH_20230319T082204",
+            "S2B_MSIL2A_20230309T032559_R018_T47NQH_20240823T055939"
+          ],
+          "green_rai": 115.3499,
+          "yellow_rai": 141.1978,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 1.1123,
+          "water_observed_rai": 0.125,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 42.9589,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 2,
+          "scene_ids": [
+            "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+            "S2B_MSIL2A_20240313T032519_R018_T47NQH_20240313T164407"
+          ],
+          "green_rai": 136.83,
+          "yellow_rai": 119.7177,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 1.1123,
+          "water_observed_rai": 22.3835,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 49.6981,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 33.44,
+          "scenes": 1,
+          "scene_ids": [
+            "S2B_MSIL2A_20250308T032519_R018_T47NQH_20250308T062224"
+          ],
+          "green_rai": 158.3837,
+          "yellow_rai": 98.1639,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 1.1123,
+          "water_observed_rai": 1.1879,
+          "unknown_observed_rai": 171.5024,
+          "mean_fcd_score": 54.0413,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 2,
+          "scene_ids": [
+            "S2B_MSIL2A_20260323T032529_R018_T47NQH_20260323T084414",
+            "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226"
+          ],
+          "green_rai": 90.6655,
+          "yellow_rai": 165.8822,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 1.1123,
+          "water_observed_rai": 28.1982,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 38.9784,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "89-VSD",
+      "province": "ปัตตานี",
+      "area_rai": 25.72,
+      "delta_green_rai": -9.83,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20240823T111526",
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20230329T083900",
+            "S2B_MSIL2A_20230309T032559_R018_T47NQH_20240823T055939"
+          ],
+          "green_rai": 17.5158,
+          "yellow_rai": 8.0931,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.111,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 51.9195,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+            "S2B_MSIL2A_20240313T032519_R018_T47NQH_20240313T164407",
+            "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+            "S2A_MSIL2A_20240328T032511_R018_T47NQH_20240330T035304"
+          ],
+          "green_rai": 19.3079,
+          "yellow_rai": 6.3011,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.111,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 54.1306,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20250308T032519_R018_T47NQH_20250308T062224",
+            "S2C_MSIL2A_20250303T032701_R018_T47NQH_20250303T084755",
+            "S2B_MSIL2A_20250318T032519_R018_T47NQH_20250318T071834"
+          ],
+          "green_rai": 4.7981,
+          "yellow_rai": 20.8109,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.111,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 33.5558,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 1,
+          "scene_ids": [
+            "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226"
+          ],
+          "green_rai": 7.6885,
+          "yellow_rai": 17.9205,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.111,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 43.674,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "90-VSD",
+      "province": "ปัตตานี",
+      "area_rai": 22.42,
+      "delta_green_rai": 4.96,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 88.64,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20240823T111526",
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20230329T083900",
+            "S2B_MSIL2A_20230319T032519_R018_T47NQH_20230319T082204",
+            "S2B_MSIL2A_20230309T032559_R018_T47NQH_20240823T055939"
+          ],
+          "green_rai": 8.872,
+          "yellow_rai": 13.4512,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.0968,
+          "water_observed_rai": 0.4968,
+          "unknown_observed_rai": 2.5463,
+          "mean_fcd_score": 40.1752,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+            "S2B_MSIL2A_20240313T032519_R018_T47NQH_20240313T164407",
+            "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629"
+          ],
+          "green_rai": 14.756,
+          "yellow_rai": 7.5672,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.0968,
+          "water_observed_rai": 0.4347,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 57.4501,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 97.78,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20250308T032519_R018_T47NQH_20250308T062224",
+            "S2C_MSIL2A_20250303T032701_R018_T47NQH_20250303T084755",
+            "S2B_MSIL2A_20250328T032519_R018_T47NQH_20250328T064046",
+            "S2B_MSIL2A_20250318T032519_R018_T47NQH_20250318T071834"
+          ],
+          "green_rai": 0.0,
+          "yellow_rai": 22.3232,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.0968,
+          "water_observed_rai": 4.3474,
+          "unknown_observed_rai": 0.4968,
+          "mean_fcd_score": 12.2688,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20260323T032529_R018_T47NQH_20260323T084414",
+            "S2C_MSIL2A_20260328T032541_R018_T47NQH_20260328T083810",
+            "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226"
+          ],
+          "green_rai": 13.828,
+          "yellow_rai": 8.4952,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.0968,
+          "water_observed_rai": 0.0621,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 53.3268,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "93-VSD",
+      "province": "ปัตตานี",
+      "area_rai": 82.63,
+      "delta_green_rai": -39.59,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20240823T111526",
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20230329T083900",
+            "S2B_MSIL2A_20230319T032519_R018_T47NQH_20230319T082204"
+          ],
+          "green_rai": 49.9472,
+          "yellow_rai": 32.3261,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3567,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 49.6343,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+            "S2B_MSIL2A_20240313T032519_R018_T47NQH_20240313T164407",
+            "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+            "S2A_MSIL2A_20240328T032511_R018_T47NQH_20240330T035304"
+          ],
+          "green_rai": 63.4112,
+          "yellow_rai": 18.8621,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3567,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 55.7674,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 35.97,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20250308T032519_R018_T47NQH_20250308T062224",
+            "S2C_MSIL2A_20250303T032701_R018_T47NQH_20250303T084755",
+            "S2B_MSIL2A_20250328T032519_R018_T47NQH_20250328T064046"
+          ],
+          "green_rai": 30.7016,
+          "yellow_rai": 51.5717,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3567,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 52.9056,
+          "mean_fcd_score": 37.746,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20260323T032529_R018_T47NQH_20260323T084414",
+            "S2C_MSIL2A_20260328T032541_R018_T47NQH_20260328T083810",
+            "S2C_MSIL2A_20260318T032521_R018_T47NQH_20260318T084912",
+            "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226"
+          ],
+          "green_rai": 10.3617,
+          "yellow_rai": 71.9116,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.3567,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 33.2912,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "94-VSD",
+      "province": "ปัตตานี",
+      "area_rai": 140.87,
+      "delta_green_rai": -20.39,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20240823T111526",
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20230329T083900",
+            "S2B_MSIL2A_20230309T032559_R018_T47NQH_20240823T055939"
+          ],
+          "green_rai": 81.0734,
+          "yellow_rai": 59.1885,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6081,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 49.5793,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+            "S2B_MSIL2A_20240313T032519_R018_T47NQH_20240313T164407",
+            "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+            "S2A_MSIL2A_20240328T032511_R018_T47NQH_20240330T035304"
+          ],
+          "green_rai": 97.7978,
+          "yellow_rai": 42.464,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6081,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 54.8801,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 72.7,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20250308T032519_R018_T47NQH_20250308T062224",
+            "S2C_MSIL2A_20250303T032701_R018_T47NQH_20250303T084755",
+            "S2B_MSIL2A_20250328T032519_R018_T47NQH_20250328T064046"
+          ],
+          "green_rai": 77.4861,
+          "yellow_rai": 62.7757,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6081,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 38.4645,
+          "mean_fcd_score": 48.6248,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20260323T032529_R018_T47NQH_20260323T084414",
+            "S2C_MSIL2A_20260318T032521_R018_T47NQH_20260318T084912",
+            "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226"
+          ],
+          "green_rai": 60.6807,
+          "yellow_rai": 79.5812,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.6081,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 46.4127,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "95-VSD",
+      "province": "ปัตตานี",
+      "area_rai": 200.38,
+      "delta_green_rai": -62.18,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20240823T111526",
+            "S2B_MSIL2A_20230329T032519_R018_T47NQH_20230329T083900",
+            "S2B_MSIL2A_20230319T032519_R018_T47NQH_20230319T082204",
+            "S2B_MSIL2A_20230309T032559_R018_T47NQH_20240823T055939"
+          ],
+          "green_rai": 189.0044,
+          "yellow_rai": 10.5106,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.865,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 64.7873,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.56,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+            "S2B_MSIL2A_20240313T032519_R018_T47NQH_20240313T164407",
+            "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+            "S2A_MSIL2A_20240328T032511_R018_T47NQH_20240330T035304"
+          ],
+          "green_rai": 161.2236,
+          "yellow_rai": 38.2914,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.865,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.8745,
+          "mean_fcd_score": 60.3368,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 98.72,
+          "scenes": 2,
+          "scene_ids": [
+            "S2C_MSIL2A_20250303T032701_R018_T47NQH_20250303T084755",
+            "S2B_MSIL2A_20250318T032519_R018_T47NQH_20250318T071834"
+          ],
+          "green_rai": 151.6364,
+          "yellow_rai": 47.8786,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.865,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 2.561,
+          "mean_fcd_score": 60.0513,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 98.82,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20260323T032529_R018_T47NQH_20260323T084414",
+            "S2C_MSIL2A_20260328T032541_R018_T47NQH_20260328T083810",
+            "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226"
+          ],
+          "green_rai": 126.821,
+          "yellow_rai": 72.6939,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 0.865,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 2.3736,
+          "mean_fcd_score": 54.8262,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "97-VSD",
+      "province": "กระบี่",
+      "area_rai": 184.64,
+      "delta_green_rai": 18.91,
+      "delta_red_rai": -2.6,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230327T033531_R061_T47NNJ_20240826T234121",
+            "S2A_MSIL2A_20230327T033531_R061_T47NNJ_20230327T093848",
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20230307T092543"
+          ],
+          "green_rai": 130.2699,
+          "yellow_rai": 39.6204,
+          "red_rai": 13.2068,
+          "bare_error_alloc_rai": 1.543,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 71.9886,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240316T033539_R061_T47NNJ_20240316T081224",
+            "S2B_MSIL2A_20240326T033539_R061_T47NNJ_20240326T091654",
+            "S2A_MSIL2A_20240321T033541_R061_T47NNJ_20240321T091057"
+          ],
+          "green_rai": 122.4574,
+          "yellow_rai": 50.037,
+          "red_rai": 10.6026,
+          "bare_error_alloc_rai": 1.543,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 67.7321,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+            "S2B_MSIL2A_20250331T033539_R061_T47NNJ_20250331T072416",
+            "S2C_MSIL2A_20250326T033601_R061_T47NNJ_20250326T085914",
+            "S2B_MSIL2A_20250311T033539_R061_T47NNJ_20250311T072242"
+          ],
+          "green_rai": 145.2128,
+          "yellow_rai": 28.1497,
+          "red_rai": 9.7346,
+          "bare_error_alloc_rai": 1.543,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 72.1267,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47NNJ_20260321T090910",
+            "S2C_MSIL2A_20260301T033701_R061_T47NNJ_20260301T091613",
+            "S2B_MSIL2A_20260326T033529_R061_T47NNJ_20260326T072041",
+            "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010"
+          ],
+          "green_rai": 149.181,
+          "yellow_rai": 23.3134,
+          "red_rai": 10.6026,
+          "bare_error_alloc_rai": 1.543,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 74.5469,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "98-VSD",
+      "province": "กระบี่",
+      "area_rai": 150.95,
+      "delta_green_rai": -9.79,
+      "delta_red_rai": 0.74,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 2,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20230307T092543"
+          ],
+          "green_rai": 138.9877,
+          "yellow_rai": 8.9689,
+          "red_rai": 1.7319,
+          "bare_error_alloc_rai": 1.2614,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 87.608,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 99.05,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240326T033539_R061_T47NNJ_20240326T091654",
+            "S2A_MSIL2A_20240301T033651_R061_T47NNJ_20240301T092124",
+            "S2A_MSIL2A_20240321T033541_R061_T47NNJ_20240321T091057"
+          ],
+          "green_rai": 125.2713,
+          "yellow_rai": 21.5447,
+          "red_rai": 2.8726,
+          "bare_error_alloc_rai": 1.2614,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 1.4346,
+          "mean_fcd_score": 74.65,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+            "S2B_MSIL2A_20250331T033539_R061_T47NNJ_20250331T072416",
+            "S2C_MSIL2A_20250326T033601_R061_T47NNJ_20250326T085914",
+            "S2B_MSIL2A_20250311T033539_R061_T47NNJ_20250311T072242"
+          ],
+          "green_rai": 110.8438,
+          "yellow_rai": 34.082,
+          "red_rai": 4.7628,
+          "bare_error_alloc_rai": 1.2614,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 72.1536,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47NNJ_20260321T090910",
+            "S2B_MSIL2A_20260326T033529_R061_T47NNJ_20260326T072041",
+            "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010"
+          ],
+          "green_rai": 129.1977,
+          "yellow_rai": 18.0146,
+          "red_rai": 2.4762,
+          "bare_error_alloc_rai": 1.2614,
+          "water_observed_rai": 0.1248,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 78.7864,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "99-VSD",
+      "province": "กระบี่",
+      "area_rai": 205.78,
+      "delta_green_rai": -7.61,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "insufficient_clear_pixels",
+          "qa": "LOW_QA",
+          "clear_pct": 4.07,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47NMJ_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NMJ_20230307T092436",
+            "S2B_MSIL2A_20230312T033539_R061_T47NMJ_20230312T101458",
+            "S2B_MSIL2A_20230312T033539_R061_T47NMJ_20240818T073352"
+          ],
+          "green_rai": 204.0604,
+          "yellow_rai": 0.0,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 1.7196,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 197.4139,
+          "mean_fcd_score": 86.9537,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "insufficient_clear_pixels",
+          "qa": "LOW_QA",
+          "clear_pct": 4.07,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20240326T033539_R061_T47NMJ_20240326T091647",
+            "S2A_MSIL2A_20240301T033651_R061_T47NMJ_20240301T092117",
+            "S2A_MSIL2A_20240321T033541_R061_T47NMJ_20240321T090846"
+          ],
+          "green_rai": 204.0604,
+          "yellow_rai": 0.0,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 1.7196,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 197.4139,
+          "mean_fcd_score": 89.2466,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 2,
+          "scene_ids": [
+            "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+            "S2C_MSIL2A_20250316T033601_R061_T47NMJ_20250316T090315"
+          ],
+          "green_rai": 174.5905,
+          "yellow_rai": 27.9221,
+          "red_rai": 1.5478,
+          "bare_error_alloc_rai": 1.7196,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 78.3259,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "insufficient_clear_pixels",
+          "qa": "LOW_QA",
+          "clear_pct": 4.07,
+          "scenes": 3,
+          "scene_ids": [
+            "S2B_MSIL2A_20260316T033529_R061_T47NMJ_20260316T072001",
+            "S2A_MSIL2A_20260313T034201_R061_T47NMJ_20260313T083010",
+            "S2B_MSIL2A_20260326T033529_R061_T47NMJ_20260326T072041"
+          ],
+          "green_rai": 196.4462,
+          "yellow_rai": 7.6142,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 1.7196,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 197.4139,
+          "mean_fcd_score": 84.709,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "100-VSD",
+      "province": "กระบี่",
+      "area_rai": 291.51,
+      "delta_green_rai": 5.06,
+      "delta_red_rai": -0.37,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230327T033531_R061_T47NNJ_20240826T234121",
+            "S2A_MSIL2A_20230327T033531_R061_T47NNJ_20230327T093848",
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NNJ_20230307T092543"
+          ],
+          "green_rai": 114.0236,
+          "yellow_rai": 162.5115,
+          "red_rai": 12.5389,
+          "bare_error_alloc_rai": 2.436,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 62.6012,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 2,
+          "scene_ids": [
+            "S2B_MSIL2A_20240326T033539_R061_T47NNJ_20240326T091654",
+            "S2A_MSIL2A_20240321T033541_R061_T47NNJ_20240321T091057"
+          ],
+          "green_rai": 43.114,
+          "yellow_rai": 206.1814,
+          "red_rai": 39.7786,
+          "bare_error_alloc_rai": 2.436,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 51.0418,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 3,
+          "scene_ids": [
+            "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+            "S2B_MSIL2A_20250331T033539_R061_T47NNJ_20250331T072416",
+            "S2C_MSIL2A_20250326T033601_R061_T47NNJ_20250326T085914"
+          ],
+          "green_rai": 134.963,
+          "yellow_rai": 144.7841,
+          "red_rai": 9.327,
+          "bare_error_alloc_rai": 2.436,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 64.6913,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260321T033541_R061_T47NNJ_20260321T090910",
+            "S2C_MSIL2A_20260301T033701_R061_T47NNJ_20260301T091613",
+            "S2B_MSIL2A_20260326T033529_R061_T47NNJ_20260326T072041",
+            "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010"
+          ],
+          "green_rai": 119.0886,
+          "yellow_rai": 157.8171,
+          "red_rai": 12.1683,
+          "bare_error_alloc_rai": 2.436,
+          "water_observed_rai": 0.0,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 63.1528,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    },
+    {
+      "code": "102-VSD",
+      "province": "ภูเก็ต",
+      "area_rai": 32.04,
+      "delta_green_rai": -2.97,
+      "delta_red_rai": 0.0,
+      "observations": [
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2A_MSIL2A_20230307T033611_R061_T47NMJ_20240820T180803",
+            "S2A_MSIL2A_20230307T033611_R061_T47NMJ_20230307T092436",
+            "S2B_MSIL2A_20230312T033539_R061_T47NMJ_20230312T101458",
+            "S2B_MSIL2A_20230312T033539_R061_T47NMJ_20240818T073352"
+          ],
+          "green_rai": 16.5113,
+          "yellow_rai": 11.2487,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 4.28,
+          "water_observed_rai": 5.7859,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 33.2579,
+          "month": "2023-03",
+          "thai_year": 2566
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20240319T034529_R104_T47NMJ_20240319T081029",
+            "S2B_MSIL2A_20240326T033539_R061_T47NMJ_20240326T091647",
+            "S2A_MSIL2A_20240301T033651_R061_T47NMJ_20240301T092117",
+            "S2A_MSIL2A_20240324T034531_R104_T47NMJ_20240324T101849"
+          ],
+          "green_rai": 11.5858,
+          "yellow_rai": 16.1742,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 4.28,
+          "water_observed_rai": 1.9286,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 26.0749,
+          "month": "2024-03",
+          "thai_year": 2567
+        },
+        {
+          "status": "observed",
+          "qa": "WATER_INFLUENCED",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2B_MSIL2A_20250324T034539_R104_T47NMJ_20250324T072707",
+            "S2B_MSIL2A_20250304T034549_R104_T47NMJ_20250304T063849",
+            "S2C_MSIL2A_20250316T033601_R061_T47NMJ_20250316T090315",
+            "S2B_MSIL2A_20250301T033559_R061_T47NMJ_20250301T071311"
+          ],
+          "green_rai": 14.2627,
+          "yellow_rai": 13.4973,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 4.28,
+          "water_observed_rai": 7.2168,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 32.2533,
+          "month": "2025-03",
+          "thai_year": 2568
+        },
+        {
+          "status": "observed",
+          "qa": "COMPARABLE",
+          "clear_pct": 100.0,
+          "scenes": 4,
+          "scene_ids": [
+            "S2C_MSIL2A_20260314T034541_R104_T47NMJ_20260314T091810",
+            "S2B_MSIL2A_20260319T034529_R104_T47NMJ_20260319T073036",
+            "S2B_MSIL2A_20260316T033529_R061_T47NMJ_20260316T072001",
+            "S2C_MSIL2A_20260301T033701_R061_T47NMJ_20260301T091613"
+          ],
+          "green_rai": 13.5369,
+          "yellow_rai": 14.2231,
+          "red_rai": 0.0,
+          "bare_error_alloc_rai": 4.28,
+          "water_observed_rai": 4.355,
+          "unknown_observed_rai": 0.0,
+          "mean_fcd_score": 30.7342,
+          "month": "2026-03",
+          "thai_year": 2569
+        }
+      ]
+    }
+  ]
+}

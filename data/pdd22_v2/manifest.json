@@ -1,0 +1,52 @@
+{
+  "model_version": "pdd22_v2_pdd_anchored",
+  "plot_count": 22,
+  "project_area_rai": 6775.53,
+  "series": {
+    "march": [
+      [
+        2023,
+        3
+      ],
+      [
+        2024,
+        3
+      ],
+      [
+        2025,
+        3
+      ],
+      [
+        2026,
+        3
+      ]
+    ],
+    "august": [
+      [
+        2023,
+        8
+      ],
+      [
+        2024,
+        8
+      ],
+      [
+        2025,
+        8
+      ],
+      [
+        2026,
+        8
+      ]
+    ]
+  },
+  "portfolio_delta_minimum_coverage_pct": 95.0,
+  "limits": [
+    "Sentinel-2 adaptation, not exact Landsat-8 PDD reproduction",
+    "2023 provincial anchoring is calibration, not independent validation",
+    "water/cloud reported as QA rather than interpreted as forest loss",
+    "missing satellite months do not receive fabricated FCD classes",
+    "August 2026 is a partial current-month observation",
+    "no satellite carbon credit asserted"
+  ]
+}

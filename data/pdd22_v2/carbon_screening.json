@@ -1,0 +1,21 @@
+{
+  "screening_only": true,
+  "pdd_baseline_tree_carbon_tco2e": 362962.81,
+  "pdd_increment_tco2e_per_rai_year": 9.4,
+  "project_area_rai": 6775.53,
+  "pdd_planning_benchmark": [
+    {
+      "thai_year": 2567,
+      "cumulative_increment_tco2e": 0.0
+    },
+    {
+      "thai_year": 2568,
+      "cumulative_increment_tco2e": 63689.98
+    },
+    {
+      "thai_year": 2569,
+      "cumulative_increment_tco2e": 127379.96
+    }
+  ],
+  "satellite_adjusted_credit_tco2e": null
+}

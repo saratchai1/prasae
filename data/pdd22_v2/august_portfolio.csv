@@ -1,0 +1,5 @@
+﻿month,thai_year,green_rai,yellow_rai,red_rai,bare_error_alloc_rai,water_observed_rai,unknown_observed_rai,equivalent_coverage_area_rai,equivalent_coverage_pct,missing_equivalent_area_rai,low_qa_plots,water_qa_plots,green_delta_vs_2023_rai,red_delta_vs_2023_rai
+2023-08,2566,4768.44,1852.59,126.8,27.7,32.16,3279.95,6775.53,100.0,0.0,2,0,0.0,0.0
+2024-08,2567,2058.72,912.22,134.96,27.7,14.2,4375.27,3124.22,46.11,3651.31,4,0,,
+2025-08,2568,5135.73,1120.48,98.26,27.7,19.63,651.45,6379.66,94.16,395.87,3,0,,
+2026-08,2569,4936.96,1420.71,390.16,27.7,25.54,1279.53,6775.53,100.0,0.0,2,1,168.52,263.36
