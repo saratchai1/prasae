@@ -1,0 +1,2916 @@
+{
+  "unit": "rai",
+  "class_labels": {
+    "0": "unknown",
+    "1": "low_red",
+    "2": "medium_yellow",
+    "3": "high_green",
+    "4": "water"
+  },
+  "plots": [
+    {
+      "code": "18-VSD",
+      "province": "ชุมพร",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 10.87,
+              "medium_yellow": 49.41,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 93.01,
+              "medium_yellow": 16.43,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 168.71,
+              "medium_yellow": 1530.88,
+              "high_green": 0.56,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 30.61,
+              "high_green": 8.37,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.62,
+              "water": 0.31
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 190.13,
+              "medium_yellow": 82.45,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 39.04,
+              "medium_yellow": 1559.86,
+              "high_green": 28.36,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 9.56,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.06,
+              "water": 0.25
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 106.81,
+              "medium_yellow": 121.3,
+              "high_green": 1.06,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 23.42,
+              "medium_yellow": 1608.64,
+              "high_green": 9.99,
+              "water": 0.25
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 31.42,
+              "high_green": 6.06,
+              "water": 0.5
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.06,
+              "high_green": 0.0,
+              "water": 0.25
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "19-VSD",
+      "province": "ชุมพร",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 1.25,
+              "low_red": 42.06,
+              "medium_yellow": 27.13,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 6.13,
+              "low_red": 135.56,
+              "medium_yellow": 100.25,
+              "high_green": 0.13,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 2.19,
+              "medium_yellow": 1.69,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 4.06,
+              "medium_yellow": 1.63,
+              "high_green": 1.69,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 76.0,
+              "medium_yellow": 96.88,
+              "high_green": 6.94,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 12.5,
+              "medium_yellow": 94.94,
+              "high_green": 21.63,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.13,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 18.31,
+              "medium_yellow": 69.63,
+              "high_green": 1.25,
+              "water": 3.38
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 5.88,
+              "medium_yellow": 168.44,
+              "high_green": 19.06,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.25,
+              "high_green": 29.19,
+              "water": 0.94
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "40-VSD",
+      "province": "พังงา",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.37,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 1.62,
+              "low_red": 2.93,
+              "medium_yellow": 111.33,
+              "high_green": 0.25,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 1.43,
+              "low_red": 0.31,
+              "medium_yellow": 128.02,
+              "high_green": 17.31,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.62,
+              "high_green": 4.73,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.12,
+              "low_red": 1.06,
+              "medium_yellow": 2.24,
+              "high_green": 1.43,
+              "water": 3.49
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.75,
+              "medium_yellow": 2.55,
+              "high_green": 0.12,
+              "water": 0.12
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 2.99,
+              "medium_yellow": 0.31,
+              "high_green": 0.0,
+              "water": 1.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 125.71,
+              "medium_yellow": 113.2,
+              "high_green": 2.62,
+              "water": 0.68
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 14.94,
+              "high_green": 8.16,
+              "water": 0.56
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.06,
+              "high_green": 0.0,
+              "water": 3.49
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 96.7,
+              "medium_yellow": 32.81,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 5.79,
+              "medium_yellow": 122.48,
+              "high_green": 2.8,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 4.23,
+              "high_green": 6.6,
+              "water": 0.06
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.56,
+              "medium_yellow": 2.18,
+              "high_green": 0.81,
+              "water": 2.3
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "41-VSD",
+      "province": "พังงา",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 8.01,
+              "medium_yellow": 78.48,
+              "high_green": 0.19,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 1.0,
+              "medium_yellow": 75.6,
+              "high_green": 8.14,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.38,
+              "medium_yellow": 0.81,
+              "high_green": 3.0,
+              "water": 0.44
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.06,
+              "high_green": 0.63,
+              "water": 2.19
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 7.45,
+              "medium_yellow": 1.38,
+              "high_green": 0.5,
+              "water": 0.06
+            },
+            "medium_yellow": {
+              "unknown": 1.69,
+              "low_red": 83.86,
+              "medium_yellow": 68.34,
+              "high_green": 1.0,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 2.88,
+              "low_red": 0.13,
+              "medium_yellow": 5.63,
+              "high_green": 2.88,
+              "water": 0.44
+            },
+            "water": {
+              "unknown": 0.38,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.19,
+              "water": 2.07
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 2.13,
+              "low_red": 0.38,
+              "medium_yellow": 1.13,
+              "high_green": 1.19,
+              "water": 0.13
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 61.64,
+              "medium_yellow": 29.73,
+              "high_green": 0.06,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 3.13,
+              "medium_yellow": 69.72,
+              "high_green": 2.44,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.63,
+              "high_green": 3.82,
+              "water": 0.06
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.25,
+              "high_green": 0.38,
+              "water": 1.94
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "42-VSD",
+      "province": "พังงา",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 0.99,
+              "medium_yellow": 56.98,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 1.24,
+              "medium_yellow": 153.85,
+              "high_green": 4.85,
+              "water": 0.37
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.56,
+              "high_green": 1.62,
+              "water": 0.31
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.25,
+              "water": 1.99
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 0.68,
+              "medium_yellow": 1.43,
+              "high_green": 0.12,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.62,
+              "low_red": 37.66,
+              "medium_yellow": 172.24,
+              "high_green": 0.87,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.81,
+              "low_red": 0.0,
+              "medium_yellow": 3.42,
+              "high_green": 2.36,
+              "water": 0.12
+            },
+            "water": {
+              "unknown": 0.31,
+              "low_red": 0.0,
+              "medium_yellow": 0.31,
+              "high_green": 0.31,
+              "water": 1.74
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 1.43,
+              "high_green": 0.12,
+              "water": 0.19
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 19.57,
+              "medium_yellow": 18.77,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 3.6,
+              "medium_yellow": 173.11,
+              "high_green": 0.62,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.87,
+              "high_green": 2.67,
+              "water": 0.12
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.12,
+              "high_green": 0.19,
+              "water": 1.55
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "43-VSD",
+      "province": "พังงา",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 10.43,
+              "medium_yellow": 32.47,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 1.25,
+              "medium_yellow": 68.62,
+              "high_green": 1.19,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 1.44,
+              "high_green": 7.37,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.06
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 5.12,
+              "medium_yellow": 6.56,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 10.18,
+              "medium_yellow": 90.73,
+              "high_green": 1.62,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.25,
+              "medium_yellow": 0.44,
+              "high_green": 6.56,
+              "water": 1.31
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.06
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 2.06,
+              "medium_yellow": 13.17,
+              "high_green": 0.31,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.19,
+              "medium_yellow": 96.66,
+              "high_green": 0.87,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.19,
+              "medium_yellow": 1.0,
+              "high_green": 6.99,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.06,
+              "high_green": 1.19,
+              "water": 0.12
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "44-VSD",
+      "province": "พังงา",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 124.5,
+              "medium_yellow": 31.05,
+              "high_green": 0.06,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 9.37,
+              "medium_yellow": 48.91,
+              "high_green": 0.31,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 2.81,
+              "high_green": 3.06,
+              "water": 0.12
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.25,
+              "water": 0.62
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.06,
+              "low_red": 125.18,
+              "medium_yellow": 8.62,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.75,
+              "low_red": 29.11,
+              "medium_yellow": 51.29,
+              "high_green": 1.62,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.37,
+              "low_red": 0.0,
+              "medium_yellow": 0.37,
+              "high_green": 2.5,
+              "water": 0.44
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.75
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.37,
+              "low_red": 0.12,
+              "medium_yellow": 0.56,
+              "high_green": 0.12,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 148.73,
+              "medium_yellow": 5.56,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.06,
+              "low_red": 13.18,
+              "medium_yellow": 45.41,
+              "high_green": 1.62,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.25,
+              "high_green": 3.87,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.12,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.19,
+              "water": 0.87
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "66-VSD",
+      "province": "ตรัง",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 0.69,
+              "medium_yellow": 0.19,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 37.17,
+              "medium_yellow": 59.13,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 3.38,
+              "medium_yellow": 34.48,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 3.82,
+              "medium_yellow": 55.5,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 0.56,
+              "medium_yellow": 5.01,
+              "high_green": 1.63,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.56,
+              "medium_yellow": 73.39,
+              "high_green": 16.02,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "85-VSD",
+      "province": "สตูล",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 5.85,
+              "low_red": 0.0,
+              "medium_yellow": 2.55,
+              "high_green": 0.75,
+              "water": 1.25
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 56.84,
+              "medium_yellow": 41.21,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 80.18,
+              "medium_yellow": 377.7,
+              "high_green": 4.11,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 18.61,
+              "high_green": 5.04,
+              "water": 0.31
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.31,
+              "high_green": 0.06,
+              "water": 4.67
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.19,
+              "medium_yellow": 3.86,
+              "high_green": 0.0,
+              "water": 1.81
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 68.42,
+              "medium_yellow": 68.36,
+              "high_green": 0.25,
+              "water": 0.06
+            },
+            "medium_yellow": {
+              "unknown": 2.74,
+              "low_red": 9.4,
+              "medium_yellow": 426.82,
+              "high_green": 1.06,
+              "water": 0.37
+            },
+            "high_green": {
+              "unknown": 0.5,
+              "low_red": 0.25,
+              "medium_yellow": 6.47,
+              "high_green": 2.24,
+              "water": 0.5
+            },
+            "water": {
+              "unknown": 0.93,
+              "low_red": 0.0,
+              "medium_yellow": 0.25,
+              "high_green": 0.0,
+              "water": 5.1
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 1.87,
+              "low_red": 0.37,
+              "medium_yellow": 1.56,
+              "high_green": 0.0,
+              "water": 0.37
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 21.98,
+              "medium_yellow": 56.09,
+              "high_green": 0.0,
+              "water": 0.19
+            },
+            "medium_yellow": {
+              "unknown": 0.5,
+              "low_red": 3.74,
+              "medium_yellow": 497.05,
+              "high_green": 3.67,
+              "water": 0.81
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.68,
+              "high_green": 2.86,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.12,
+              "low_red": 0.37,
+              "medium_yellow": 0.12,
+              "high_green": 0.06,
+              "water": 7.16
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "86-VSD",
+      "province": "สตูล",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 408.27,
+              "medium_yellow": 19.79,
+              "high_green": 0.0,
+              "water": 0.06
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 114.11,
+              "medium_yellow": 581.44,
+              "high_green": 2.81,
+              "water": 0.12
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 2.87,
+              "high_green": 4.43,
+              "water": 0.06
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.75,
+              "high_green": 0.25,
+              "water": 6.87
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 435.23,
+              "medium_yellow": 87.08,
+              "high_green": 0.12,
+              "water": 0.06
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 20.73,
+              "medium_yellow": 582.5,
+              "high_green": 1.12,
+              "water": 0.5
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 5.81,
+              "high_green": 1.44,
+              "water": 0.25
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.19,
+              "high_green": 0.0,
+              "water": 6.87
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.25,
+              "low_red": 404.02,
+              "medium_yellow": 51.5,
+              "high_green": 0.12,
+              "water": 0.12
+            },
+            "medium_yellow": {
+              "unknown": 1.94,
+              "low_red": 45.26,
+              "medium_yellow": 621.01,
+              "high_green": 6.43,
+              "water": 0.94
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.75,
+              "high_green": 1.94,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.06,
+              "low_red": 0.19,
+              "medium_yellow": 0.12,
+              "high_green": 0.31,
+              "water": 6.99
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "87-VSD",
+      "province": "สมุทรสงคราม",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 5.47,
+              "medium_yellow": 29.54,
+              "high_green": 0.06,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 55.85,
+              "high_green": 0.75,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.37,
+              "high_green": 0.12,
+              "water": 0.75
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 4.23,
+              "medium_yellow": 1.24,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.93,
+              "medium_yellow": 84.83,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.12,
+              "medium_yellow": 0.81,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.75,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 3.61,
+              "medium_yellow": 1.74,
+              "high_green": 0.06,
+              "water": 0.62
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 3.05,
+              "medium_yellow": 83.53,
+              "high_green": 0.31,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "88-VSD",
+      "province": "ปัตตานี",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 11.5,
+              "medium_yellow": 27.95,
+              "high_green": 0.0,
+              "water": 5.25
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.44,
+              "medium_yellow": 185.51,
+              "high_green": 9.88,
+              "water": 17.01
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.13
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 3.75,
+              "low_red": 5.13,
+              "medium_yellow": 3.06,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 140.62,
+              "low_red": 8.63,
+              "medium_yellow": 62.9,
+              "high_green": 1.31,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 5.75,
+              "low_red": 0.0,
+              "medium_yellow": 0.56,
+              "high_green": 3.31,
+              "water": 0.25
+            },
+            "water": {
+              "unknown": 21.38,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.06,
+              "water": 0.94
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 3.69,
+              "medium_yellow": 133.8,
+              "high_green": 7.19,
+              "water": 26.82
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 1.81,
+              "medium_yellow": 11.94,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 5.0,
+              "medium_yellow": 60.52,
+              "high_green": 1.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 1.69,
+              "high_green": 2.81,
+              "water": 0.19
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 1.19
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "89-VSD",
+      "province": "ปัตตานี",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 12.19,
+              "medium_yellow": 11.5,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.29,
+              "medium_yellow": 1.74,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 12.31,
+              "medium_yellow": 0.17,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 11.9,
+              "medium_yellow": 1.34,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 8.24,
+              "medium_yellow": 15.97,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.46,
+              "medium_yellow": 1.05,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "90-VSD",
+      "province": "ปัตตานี",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.75,
+              "medium_yellow": 1.68,
+              "high_green": 0.12,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 2.92,
+              "medium_yellow": 1.43,
+              "high_green": 0.25,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 2.05,
+              "medium_yellow": 8.26,
+              "high_green": 3.04,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.25,
+              "high_green": 1.12,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.12,
+              "water": 0.37
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.12,
+              "low_red": 2.24,
+              "medium_yellow": 2.86,
+              "high_green": 0.5,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.25,
+              "low_red": 4.53,
+              "medium_yellow": 2.86,
+              "high_green": 2.48,
+              "water": 1.49
+            },
+            "high_green": {
+              "unknown": 0.12,
+              "low_red": 0.75,
+              "medium_yellow": 0.5,
+              "high_green": 0.68,
+              "water": 2.61
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.06,
+              "high_green": 0.12,
+              "water": 0.25
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.25,
+              "high_green": 0.19,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 2.3,
+              "medium_yellow": 4.6,
+              "high_green": 0.62,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.62,
+              "medium_yellow": 5.4,
+              "high_green": 0.25,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.68,
+              "medium_yellow": 2.61,
+              "high_green": 0.5,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 2.55,
+              "high_green": 1.74,
+              "water": 0.06
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "93-VSD",
+      "province": "ปัตตานี",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 1.62,
+              "medium_yellow": 0.93,
+              "high_green": 0.44,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 2.99,
+              "medium_yellow": 72.29,
+              "high_green": 4.05,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.31,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 1.99,
+              "low_red": 0.93,
+              "medium_yellow": 1.68,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 46.67,
+              "low_red": 12.65,
+              "medium_yellow": 13.9,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 4.24,
+              "low_red": 0.44,
+              "medium_yellow": 0.12,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 8.79,
+              "medium_yellow": 43.43,
+              "high_green": 0.69,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 0.62,
+              "medium_yellow": 12.53,
+              "high_green": 0.87,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 1.93,
+              "medium_yellow": 13.71,
+              "high_green": 0.06,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "94-VSD",
+      "province": "ปัตตานี",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 17.67,
+              "medium_yellow": 6.62,
+              "high_green": 0.19,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 5.62,
+              "medium_yellow": 103.34,
+              "high_green": 6.68,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.75,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.31,
+              "low_red": 18.36,
+              "medium_yellow": 4.62,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 30.85,
+              "low_red": 23.1,
+              "medium_yellow": 55.95,
+              "high_green": 0.06,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 7.31,
+              "low_red": 0.19,
+              "medium_yellow": 0.12,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 5.43,
+              "medium_yellow": 25.48,
+              "high_green": 7.56,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 7.68,
+              "medium_yellow": 33.53,
+              "high_green": 0.44,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.37,
+              "medium_yellow": 60.01,
+              "high_green": 0.31,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.06,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "95-VSD",
+      "province": "ปัตตานี",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.19,
+              "low_red": 92.94,
+              "medium_yellow": 30.04,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.69,
+              "low_red": 39.79,
+              "medium_yellow": 35.04,
+              "high_green": 0.62,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.31,
+              "high_green": 0.69,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.06,
+              "medium_yellow": 0.81,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.5,
+              "low_red": 118.68,
+              "medium_yellow": 13.49,
+              "high_green": 0.12,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 2.0,
+              "low_red": 31.42,
+              "medium_yellow": 31.98,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.06,
+              "low_red": 0.19,
+              "medium_yellow": 0.69,
+              "high_green": 0.37,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 1.69,
+              "low_red": 0.37,
+              "medium_yellow": 0.5,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.69,
+              "low_red": 32.04,
+              "medium_yellow": 117.62,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 1.06,
+              "medium_yellow": 44.41,
+              "high_green": 1.5,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.06,
+              "high_green": 0.44,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "97-VSD",
+      "province": "กระบี่",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 18.26,
+              "medium_yellow": 39.2,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 5.63,
+              "medium_yellow": 120.43,
+              "high_green": 0.13,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.5,
+              "high_green": 0.5,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 6.19,
+              "medium_yellow": 17.69,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.94,
+              "medium_yellow": 157.94,
+              "high_green": 1.25,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.63,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 6.13,
+              "medium_yellow": 1.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 31.58,
+              "medium_yellow": 144.06,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 1.13,
+              "high_green": 0.75,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "98-VSD",
+      "province": "กระบี่",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.19,
+              "low_red": 31.13,
+              "medium_yellow": 75.66,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.87,
+              "low_red": 2.68,
+              "medium_yellow": 36.8,
+              "high_green": 0.12,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.37,
+              "low_red": 0.0,
+              "medium_yellow": 0.12,
+              "high_green": 2.99,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.69,
+              "high_green": 0.75,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 1.81,
+              "medium_yellow": 32.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 2.25,
+              "medium_yellow": 109.1,
+              "high_green": 1.25,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 3.12,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 2.06,
+              "medium_yellow": 1.93,
+              "high_green": 0.06,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 20.27,
+              "medium_yellow": 121.45,
+              "high_green": 0.06,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 1.06,
+              "high_green": 3.93,
+              "water": 0.12
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "99-VSD",
+      "province": "กระบี่",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 197.41,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 7.99,
+              "medium_yellow": 0.37,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 5.24,
+              "medium_yellow": 191.3,
+              "high_green": 0.87,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 7.99,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.12,
+              "medium_yellow": 0.25,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 5.24,
+              "low_red": 0.12,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 191.3,
+              "low_red": 5.81,
+              "medium_yellow": 2.43,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.87,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "100-VSD",
+      "province": "กระบี่",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 33.88,
+              "medium_yellow": 18.81,
+              "high_green": 2.49,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 23.61,
+              "medium_yellow": 209.16,
+              "high_green": 3.11,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.44,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 32.27,
+              "medium_yellow": 25.23,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 27.16,
+              "medium_yellow": 200.57,
+              "high_green": 0.69,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 2.74,
+              "medium_yellow": 2.87,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 59.17,
+              "medium_yellow": 2.99,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 24.79,
+              "medium_yellow": 203.87,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.69,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "code": "102-VSD",
+      "province": "ภูเก็ต",
+      "transitions": [
+        {
+          "from": "2023-03",
+          "to": "2024-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 1.18,
+              "medium_yellow": 0.81,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 1.37,
+              "medium_yellow": 22.83,
+              "high_green": 0.0,
+              "water": 0.06
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 3.3,
+              "medium_yellow": 0.62,
+              "high_green": 0.0,
+              "water": 1.87
+            }
+          }
+        },
+        {
+          "from": "2024-03",
+          "to": "2025-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 1.74,
+              "medium_yellow": 0.56,
+              "high_green": 0.0,
+              "water": 3.55
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 1.31,
+              "medium_yellow": 21.21,
+              "high_green": 0.0,
+              "water": 1.74
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 1.93
+            }
+          }
+        },
+        {
+          "from": "2025-03",
+          "to": "2026-03",
+          "unit": "rai",
+          "matrix": {
+            "unknown": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "low_red": {
+              "unknown": 0.0,
+              "low_red": 1.87,
+              "medium_yellow": 1.12,
+              "high_green": 0.0,
+              "water": 0.06
+            },
+            "medium_yellow": {
+              "unknown": 0.0,
+              "low_red": 0.75,
+              "medium_yellow": 21.03,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "high_green": {
+              "unknown": 0.0,
+              "low_red": 0.0,
+              "medium_yellow": 0.0,
+              "high_green": 0.0,
+              "water": 0.0
+            },
+            "water": {
+              "unknown": 0.0,
+              "low_red": 1.18,
+              "medium_yellow": 1.74,
+              "high_green": 0.0,
+              "water": 4.29
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

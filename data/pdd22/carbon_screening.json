@@ -1,0 +1,118 @@
+{
+  "purpose": "preliminary screening only",
+  "pdd_baseline_tree_carbon_tco2e": 362962.81,
+  "pdd_project_area_rai": 6775.53,
+  "pdd_increment_tco2e_per_rai_year": 9.4,
+  "pdd_nominal_annual_increment_tco2e": 63689.98,
+  "pdd_nominal_by_year": [
+    {
+      "year": 2024,
+      "thai_year": 2567,
+      "years_elapsed_from_2567": 0,
+      "nominal_cumulative_increment_tco2e": 0.0,
+      "nominal_total_tree_carbon_tco2e": 362962.81
+    },
+    {
+      "year": 2025,
+      "thai_year": 2568,
+      "years_elapsed_from_2567": 1,
+      "nominal_cumulative_increment_tco2e": 63689.98,
+      "nominal_total_tree_carbon_tco2e": 426652.79
+    },
+    {
+      "year": 2026,
+      "thai_year": 2569,
+      "years_elapsed_from_2567": 2,
+      "nominal_cumulative_increment_tco2e": 127379.96,
+      "nominal_total_tree_carbon_tco2e": 490342.77
+    }
+  ],
+  "satellite_adjusted_credit_tco2e": null,
+  "satellite_adjusted_credit_status": "not calculated: PDD does not provide carbon density by FCD High/Medium/Low stratum; FCD area change is reported separately to avoid inventing a carbon conversion",
+  "satellite_portfolio_fcd": [
+    {
+      "month": "2023-03",
+      "year": 2023,
+      "thai_year": 2566,
+      "high_green_rai": 109.95,
+      "medium_yellow_rai": 4703.68,
+      "low_red_rai": 1654.89,
+      "water_rai": 36.02,
+      "unknown_rai": 271.01,
+      "high_green_pct": 1.62,
+      "medium_yellow_pct": 69.42,
+      "low_red_pct": 24.42,
+      "water_pct": 0.53,
+      "unknown_pct": 4.0,
+      "delta_high_vs_2023_rai": 0.0,
+      "delta_low_vs_2023_rai": 0.0,
+      "qa_counts": {
+        "COMPARABLE": 21,
+        "LOW_QA": 1
+      }
+    },
+    {
+      "month": "2024-03",
+      "year": 2024,
+      "thai_year": 2567,
+      "high_green_rai": 120.32,
+      "medium_yellow_rai": 4753.21,
+      "low_red_rai": 1636.66,
+      "water_rai": 48.87,
+      "unknown_rai": 216.49,
+      "high_green_pct": 1.78,
+      "medium_yellow_pct": 70.15,
+      "low_red_pct": 24.16,
+      "water_pct": 0.72,
+      "unknown_pct": 3.2,
+      "delta_high_vs_2023_rai": 10.37,
+      "delta_low_vs_2023_rai": -18.23,
+      "qa_counts": {
+        "COMPARABLE": 21,
+        "LOW_QA": 1
+      }
+    },
+    {
+      "month": "2025-03",
+      "year": 2025,
+      "thai_year": 2568,
+      "high_green_rai": 123.62,
+      "medium_yellow_rai": 4700.82,
+      "low_red_rai": 1631.61,
+      "water_rai": 41.49,
+      "unknown_rai": 277.97,
+      "high_green_pct": 1.82,
+      "medium_yellow_pct": 69.38,
+      "low_red_pct": 24.08,
+      "water_pct": 0.61,
+      "unknown_pct": 4.1,
+      "delta_high_vs_2023_rai": 13.67,
+      "delta_low_vs_2023_rai": -23.28,
+      "qa_counts": {
+        "COMPARABLE": 21,
+        "WATER_INFLUENCED": 1
+      }
+    },
+    {
+      "month": "2026-03",
+      "year": 2026,
+      "thai_year": 2569,
+      "high_green_rai": 167.85,
+      "medium_yellow_rai": 5108.61,
+      "low_red_rai": 1229.01,
+      "water_rai": 62.79,
+      "unknown_rai": 207.21,
+      "high_green_pct": 2.48,
+      "medium_yellow_pct": 75.4,
+      "low_red_pct": 18.14,
+      "water_pct": 0.93,
+      "unknown_pct": 3.06,
+      "delta_high_vs_2023_rai": 57.9,
+      "delta_low_vs_2023_rai": -425.88,
+      "qa_counts": {
+        "COMPARABLE": 21,
+        "LOW_QA": 1
+      }
+    }
+  ]
+}

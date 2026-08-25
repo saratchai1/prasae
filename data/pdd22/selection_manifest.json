@@ -1,0 +1,468 @@
+{
+  "source": "my-land/STC_VSD_EVR.kmz",
+  "method": "select PDD participating layer by Table 1-1/Table 1-8 project area",
+  "pdd_total_project_area_rai": 6775.53,
+  "plots": [
+    {
+      "order": 1,
+      "code": "18-VSD",
+      "province": "ชุมพร",
+      "pdd_project_area_rai": 1909.77,
+      "pdd_allocated_area_rai": 2007.76,
+      "geometry_area_rai": 1911.2,
+      "geometry_area_difference_pct": 0.07,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        272
+      ],
+      "selected_declared_areas_rai": [
+        1909.77
+      ],
+      "selected_raw_names": [
+        "แปลง 18-VSD เนื้อที่ 1909.77 ไร่ จังหวัด ชุมพร"
+      ]
+    },
+    {
+      "order": 2,
+      "code": "19-VSD",
+      "province": "ชุมพร",
+      "pdd_project_area_rai": 316.38,
+      "pdd_allocated_area_rai": 324.13,
+      "geometry_area_rai": 316.63,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        219
+      ],
+      "selected_declared_areas_rai": [
+        316.38
+      ],
+      "selected_raw_names": [
+        "แปลง 19-VSD เนื้อที่ 316.38 ไร่ จังหวัด ชุมพร"
+      ]
+    },
+    {
+      "order": 3,
+      "code": "40-VSD",
+      "province": "พังงา",
+      "pdd_project_area_rai": 277.33,
+      "pdd_allocated_area_rai": 289.11,
+      "geometry_area_rai": 277.54,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        267
+      ],
+      "selected_declared_areas_rai": [
+        277.33
+      ],
+      "selected_raw_names": [
+        "แปลง 40-VSD เนื้อที่ 277.33 ไร่ จังหวัด พังงา"
+      ]
+    },
+    {
+      "order": 4,
+      "code": "41-VSD",
+      "province": "พังงา",
+      "pdd_project_area_rai": 178.92,
+      "pdd_allocated_area_rai": 181.5,
+      "geometry_area_rai": 179.05,
+      "geometry_area_difference_pct": 0.07,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        220
+      ],
+      "selected_declared_areas_rai": [
+        178.92
+      ],
+      "selected_raw_names": [
+        "แปลง 41-VSD เนื้อที่ 178.92 ไร่ จังหวัด พังงา"
+      ]
+    },
+    {
+      "order": 5,
+      "code": "42-VSD",
+      "province": "พังงา",
+      "pdd_project_area_rai": 223.01,
+      "pdd_allocated_area_rai": 228.88,
+      "geometry_area_rai": 223.17,
+      "geometry_area_difference_pct": 0.07,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        221
+      ],
+      "selected_declared_areas_rai": [
+        223.01
+      ],
+      "selected_raw_names": [
+        "แปลง 42-VSD เนื้อที่ 223.01 ไร่ จังหวัด พังงา"
+      ]
+    },
+    {
+      "order": 6,
+      "code": "43-VSD",
+      "province": "พังงา",
+      "pdd_project_area_rai": 122.82,
+      "pdd_allocated_area_rai": 123.91,
+      "geometry_area_rai": 122.92,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        222
+      ],
+      "selected_declared_areas_rai": [
+        122.82
+      ],
+      "selected_raw_names": [
+        "แปลง 43-VSD เนื้อที่ 122.82 ไร่ จังหวัด พังงา"
+      ]
+    },
+    {
+      "order": 7,
+      "code": "44-VSD",
+      "province": "พังงา",
+      "pdd_project_area_rai": 221.07,
+      "pdd_allocated_area_rai": 223.49,
+      "geometry_area_rai": 221.24,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        268
+      ],
+      "selected_declared_areas_rai": [
+        221.07
+      ],
+      "selected_raw_names": [
+        "แปลง 44-VSD เนื้อที่ 221.07 ไร่ จังหวัด พังงา"
+      ]
+    },
+    {
+      "order": 8,
+      "code": "66-VSD",
+      "province": "ตรัง",
+      "pdd_project_area_rai": 97.17,
+      "pdd_allocated_area_rai": 97.17,
+      "geometry_area_rai": 97.23,
+      "geometry_area_difference_pct": 0.07,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        229,
+        367
+      ],
+      "selected_declared_areas_rai": [
+        97.17,
+        97.17
+      ],
+      "selected_raw_names": [
+        "แปลง 66-VSD เนื้อที่ 97.17 ไร่ จังหวัด ตรัง",
+        "แปลง 66-VSD เนื้อที่ 97.17 ไร่ จังหวัด ตรัง"
+      ]
+    },
+    {
+      "order": 9,
+      "code": "85-VSD",
+      "province": "สตูล",
+      "pdd_project_area_rai": 599.58,
+      "pdd_allocated_area_rai": 607.58,
+      "geometry_area_rai": 599.84,
+      "geometry_area_difference_pct": 0.04,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        223
+      ],
+      "selected_declared_areas_rai": [
+        599.58
+      ],
+      "selected_raw_names": [
+        "แปลง 85-VSD เนื้อที่ 599.58 ไร่ จังหวัด สตูล"
+      ]
+    },
+    {
+      "order": 10,
+      "code": "86-VSD",
+      "province": "สตูล",
+      "pdd_project_area_rai": 1141.96,
+      "pdd_allocated_area_rai": 1162.47,
+      "geometry_area_rai": 1142.46,
+      "geometry_area_difference_pct": 0.04,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        275
+      ],
+      "selected_declared_areas_rai": [
+        1141.96
+      ],
+      "selected_raw_names": [
+        "แปลง 86-VSD เนื้อที่ 1141.96 ไร่ จังหวัด สตูล"
+      ]
+    },
+    {
+      "order": 11,
+      "code": "87-VSD",
+      "province": "สมุทรสงคราม",
+      "pdd_project_area_rai": 92.92,
+      "pdd_allocated_area_rai": 101.62,
+      "geometry_area_rai": 92.98,
+      "geometry_area_difference_pct": 0.06,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        273
+      ],
+      "selected_declared_areas_rai": [
+        92.92
+      ],
+      "selected_raw_names": [
+        "แปลง 87-VSD เนื้อที่ 92.92 ไร่ จังหวัด สมุทรสงคราม"
+      ]
+    },
+    {
+      "order": 12,
+      "code": "88-VSD",
+      "province": "ปัตตานี",
+      "pdd_project_area_rai": 257.66,
+      "pdd_allocated_area_rai": 307.41,
+      "geometry_area_rai": 257.51,
+      "geometry_area_difference_pct": -0.06,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        227
+      ],
+      "selected_declared_areas_rai": [
+        257.66
+      ],
+      "selected_raw_names": [
+        "แปลง 88-VSD เนื้อที่ 257.66 ไร่ จังหวัด ปัตตานี"
+      ]
+    },
+    {
+      "order": 13,
+      "code": "89-VSD",
+      "province": "ปัตตานี",
+      "pdd_project_area_rai": 25.72,
+      "pdd_allocated_area_rai": 25.72,
+      "geometry_area_rai": 25.69,
+      "geometry_area_difference_pct": -0.1,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        230,
+        353
+      ],
+      "selected_declared_areas_rai": [
+        25.72,
+        25.72
+      ],
+      "selected_raw_names": [
+        "แปลง 89-VSD เนื้อที่ 25.72 ไร่ จังหวัด ปัตตานี",
+        "แปลง 89-VSD เนื้อที่ 25.72 ไร่ จังหวัด ปัตตานี"
+      ]
+    },
+    {
+      "order": 14,
+      "code": "90-VSD",
+      "province": "ปัตตานี",
+      "pdd_project_area_rai": 22.42,
+      "pdd_allocated_area_rai": 60.65,
+      "geometry_area_rai": 22.4,
+      "geometry_area_difference_pct": -0.07,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        274
+      ],
+      "selected_declared_areas_rai": [
+        22.41
+      ],
+      "selected_raw_names": [
+        "แปลง 90-VSD เนื้อที่ 22.41 ไร่ จังหวัด ปัตตานี"
+      ]
+    },
+    {
+      "order": 15,
+      "code": "93-VSD",
+      "province": "ปัตตานี",
+      "pdd_project_area_rai": 82.63,
+      "pdd_allocated_area_rai": 82.63,
+      "geometry_area_rai": 82.59,
+      "geometry_area_difference_pct": -0.05,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        231,
+        315
+      ],
+      "selected_declared_areas_rai": [
+        82.63,
+        82.63
+      ],
+      "selected_raw_names": [
+        "แปลง 93-VSD เนื้อที่ 82.63 ไร่ จังหวัด ปัตตานี",
+        "แปลง 93-VSD เนื้อที่ 82.63 ไร่ จังหวัด ปัตตานี"
+      ]
+    },
+    {
+      "order": 16,
+      "code": "94-VSD",
+      "province": "ปัตตานี",
+      "pdd_project_area_rai": 140.87,
+      "pdd_allocated_area_rai": 140.87,
+      "geometry_area_rai": 140.8,
+      "geometry_area_difference_pct": -0.05,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        232,
+        314
+      ],
+      "selected_declared_areas_rai": [
+        140.87,
+        140.87
+      ],
+      "selected_raw_names": [
+        "แปลง 94-VSD เนื้อที่ 140.87 ไร่ จังหวัด ปัตตานี",
+        "แปลง 94-VSD เนื้อที่ 140.87 ไร่ จังหวัด ปัตตานี"
+      ]
+    },
+    {
+      "order": 17,
+      "code": "95-VSD",
+      "province": "ปัตตานี",
+      "pdd_project_area_rai": 200.38,
+      "pdd_allocated_area_rai": 200.38,
+      "geometry_area_rai": 200.2,
+      "geometry_area_difference_pct": -0.09,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        233,
+        313
+      ],
+      "selected_declared_areas_rai": [
+        200.38,
+        200.38
+      ],
+      "selected_raw_names": [
+        "แปลง 95-VSD เนื้อที่ 200.38 ไร่ จังหวัด ปัตตานี",
+        "แปลง 95-VSD เนื้อที่ 200.38 ไร่ จังหวัด ปัตตานี"
+      ]
+    },
+    {
+      "order": 18,
+      "code": "97-VSD",
+      "province": "กระบี่",
+      "pdd_project_area_rai": 184.64,
+      "pdd_allocated_area_rai": 185.58,
+      "geometry_area_rai": 184.79,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        224
+      ],
+      "selected_declared_areas_rai": [
+        184.64
+      ],
+      "selected_raw_names": [
+        "แปลง 97-VSD เนื้อที่ 184.64 ไร่ จังหวัด กระบี่"
+      ]
+    },
+    {
+      "order": 19,
+      "code": "98-VSD",
+      "province": "กระบี่",
+      "pdd_project_area_rai": 150.95,
+      "pdd_allocated_area_rai": 153.33,
+      "geometry_area_rai": 151.07,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        225
+      ],
+      "selected_declared_areas_rai": [
+        150.95
+      ],
+      "selected_raw_names": [
+        "แปลง 98-VSD เนื้อที่ 150.95 ไร่ จังหวัด กระบี่"
+      ]
+    },
+    {
+      "order": 20,
+      "code": "99-VSD",
+      "province": "กระบี่",
+      "pdd_project_area_rai": 205.78,
+      "pdd_allocated_area_rai": 205.78,
+      "geometry_area_rai": 205.94,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        234,
+        335
+      ],
+      "selected_declared_areas_rai": [
+        205.78,
+        205.78
+      ],
+      "selected_raw_names": [
+        "แปลง 99-VSD เนื้อที่ 205.78 ไร่ จังหวัด กระบี่",
+        "แปลง 99-VSD เนื้อที่ 205.78 ไร่ จังหวัด กระบี่"
+      ]
+    },
+    {
+      "order": 21,
+      "code": "100-VSD",
+      "province": "กระบี่",
+      "pdd_project_area_rai": 291.51,
+      "pdd_allocated_area_rai": 291.51,
+      "geometry_area_rai": 291.74,
+      "geometry_area_difference_pct": 0.08,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        228,
+        329
+      ],
+      "selected_declared_areas_rai": [
+        291.51,
+        291.51
+      ],
+      "selected_raw_names": [
+        "แปลง 100-VSD เนื้อที่ 291.51 ไร่ จังหวัด กระบี่",
+        "แปลง 100-VSD เนื้อที่ 291.51 ไร่ จังหวัด กระบี่"
+      ]
+    },
+    {
+      "order": 22,
+      "code": "102-VSD",
+      "province": "ภูเก็ต",
+      "pdd_project_area_rai": 32.04,
+      "pdd_allocated_area_rai": 36.25,
+      "geometry_area_rai": 32.06,
+      "geometry_area_difference_pct": 0.06,
+      "geometry_area_warning": false,
+      "selection_rule": "single/exact-declared-area",
+      "selected_placemark_indices": [
+        226
+      ],
+      "selected_declared_areas_rai": [
+        32.04
+      ],
+      "selected_raw_names": [
+        "แปลง 102-VSD เนื้อที่ 32.04 ไร่ จังหวัด ภูเก็ต"
+      ]
+    }
+  ]
+}

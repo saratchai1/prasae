@@ -1,0 +1,40 @@
+{
+  "reference_month": "2023-03",
+  "sensor": "Sentinel-2 L2A",
+  "pdd_adaptation": "AVI + BSI -> PCA -> fixed VD; CSI -> fixed SSI; FCD=sqrt(VD*SSI+1)-1",
+  "reflectance_dnmax": 1.0,
+  "pca_mean": [
+    0.675269334771174,
+    0.15336088905441816
+  ],
+  "pca_pc1_vector": [
+    -0.5554311591713932,
+    -0.8315625216551803
+  ],
+  "pca_eigenvalues": [
+    0.010667164950464774,
+    0.00027006259763656454
+  ],
+  "vd_scale_percentiles": [
+    2.0,
+    98.0
+  ],
+  "vd_raw_low": -0.12782926167797368,
+  "vd_raw_high": 0.29233112555255775,
+  "ssi_scale_percentiles": [
+    2.0,
+    98.0
+  ],
+  "csi_raw_low": 0.8174425077438354,
+  "csi_raw_high": 0.8838454627990723,
+  "reference_pca_sample_count": 64533,
+  "reference_csi_sample_count": 64533,
+  "fcd_classes": {
+    "high_green": "> 65.0%",
+    "medium_yellow": "30.0-65.0%",
+    "low_red": "< 30.0%"
+  },
+  "water_rule": "MNDWI > 0.0 AND NDVI <= 0.25",
+  "temporal_rule": "PCA/scaling fitted once on March-2023 and frozen for later March observations",
+  "warning": "Screening adaptation; not a verified remote-sensing carbon model and not identical to the PDD Landsat-8 implementation."
+}
