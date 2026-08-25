@@ -82,7 +82,9 @@ jobs:
       PRASAE_R2_PREFIX: mangrove-drone-dashboard-v2-dev/assets/prasae/spectral/v1
       PRASAE_R2_PUBLIC_BASE: https://mangrove-drone-dashboard-dev.saratchai.workers.dev/assets/prasae/spectral/v1
       PRASAE_MAX_SPECTRAL_BYTES: ${{ github.event_name == 'workflow_dispatch' && inputs.max_payload_bytes || '8000000000' }}
-      PRASAE_R2_UPLOAD_WORKERS: '8'
+      PRASAE_R2_UPLOAD_WORKERS: '1'
+      PRASAE_R2_MAX_UPLOAD_ATTEMPTS: '8'
+      PRASAE_R2_RETRY_BASE_SECONDS: '2'
       PRASAE_PLOT_IDS: all
       PRASAE_SHARD_COUNT: '10'
       PRASAE_SHARD_INDEX: ${{ matrix.shard }}
@@ -161,6 +163,7 @@ jobs:
               f.write(f"- Plots: `{p['plot_count']}`\n")
               f.write(f"- Payload: `{p['payload_bytes']:,}` bytes ({p['payload_bytes']/1_000_000_000:.3f} GB)\n")
               f.write(f"- Dry run: `{os.environ['PRASAE_R2_DRY_RUN']}`\n")
+              f.write(f"- Upload workers: `{os.environ['PRASAE_R2_UPLOAD_WORKERS']}`\n")
           PY
           fi
 
