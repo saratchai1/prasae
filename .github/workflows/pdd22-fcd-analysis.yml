@@ -1,4 +1,4 @@
-name: PDD22 FCD satellite screening
+name: PDD22 corrected FCD screening
 
 on:
   workflow_dispatch:
@@ -6,10 +6,10 @@ on:
     branches:
       - pdd22-fcd-monitoring
     paths:
-      - pdd22_config.py
-      - extract_pdd22_plots.py
+      - process_pdd22_fcd_v2.py
       - process_pdd22_fcd.py
-      - run_pdd22_fcd_parallel.py
+      - extract_pdd22_plots.py
+      - pdd22_config.py
       - my-land/STC_VSD_EVR.kmz
       - requirements-verified.txt
       - .github/workflows/pdd22-fcd-analysis.yml
@@ -18,15 +18,15 @@ permissions:
   contents: write
 
 concurrency:
-  group: pdd22-fcd-screening
+  group: pdd22-corrected-v2
   cancel-in-progress: true
 
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     steps:
-      - name: Checkout analysis branch
+      - name: Checkout
         uses: actions/checkout@v4
         with:
           fetch-depth: 1
@@ -41,81 +41,66 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements-verified.txt
 
-      - name: Validate Python syntax and PDD configuration
+      - name: Validate code and exact PDD participating boundaries
         run: |
-          python -m py_compile pdd22_config.py extract_pdd22_plots.py process_pdd22_fcd.py run_pdd22_fcd_parallel.py
-          python - <<'PY'
-          from pdd22_config import PDD22_PLOTS, PDD_TOTAL_PROJECT_AREA_RAI
-          assert len(PDD22_PLOTS) == 22
-          assert round(sum(p['project_area_rai'] for p in PDD22_PLOTS), 2) == PDD_TOTAL_PROJECT_AREA_RAI
-          print('PDD22 config validated:', PDD_TOTAL_PROJECT_AREA_RAI, 'rai')
-          PY
-
-      - name: Extract exact PDD participating boundaries from KMZ
-        run: python extract_pdd22_plots.py
-
-      - name: Validate selected PDD geometry catalogue
-        run: |
+          python -m py_compile process_pdd22_fcd_v2.py process_pdd22_fcd.py extract_pdd22_plots.py pdd22_config.py
+          python extract_pdd22_plots.py
           python - <<'PY'
           import json
           from pathlib import Path
-          data = json.loads(Path('data/pdd22/plots_catalog.json').read_text(encoding='utf-8'))
-          manifest = json.loads(Path('data/pdd22/selection_manifest.json').read_text(encoding='utf-8'))
-          assert len(data) == 22, len(data)
-          assert round(sum(float(p['area_rai']) for p in data), 2) == 6775.53
-          assert len({p['code'] for p in data}) == 22
-          for item in manifest['plots']:
-              print(item['code'], 'PDD=', item['pdd_project_area_rai'], 'geometry=', item['geometry_area_rai'], 'diff%=', item['geometry_area_difference_pct'], 'rule=', item['selection_rule'])
+          p = json.loads(Path('data/pdd22/plots_catalog.json').read_text(encoding='utf-8'))
+          assert len(p) == 22
+          assert round(sum(float(x['area_rai']) for x in p), 2) == 6775.53
+          print('Validated 22 participating PDD plots, 6,775.53 rai')
           PY
 
-      - name: Build March 2023-2026 PDD-style FCD screening
+      - name: Build corrected March and August FCD series
         env:
           PRASAE_MAX_SCENES: '4'
           PDD22_REFERENCE_SAMPLE: '6000'
-          PDD22_MIN_OBSERVED_RATIO: '0.05'
-          PDD22_WORKERS: '6'
-        run: python run_pdd22_fcd_parallel.py
+          PDD22_V2_WORKERS: '6'
+        run: python process_pdd22_fcd_v2.py
 
-      - name: Validate FCD outputs
+      - name: Validate outputs and scientific guardrails
         run: |
           python - <<'PY'
-          import json
+          import csv, json
           from pathlib import Path
-          metrics = json.loads(Path('data/pdd22/fcd_metrics.json').read_text(encoding='utf-8'))
-          assert metrics['screening_only'] is True
-          assert len(metrics['plots']) == 22
-          assert len(metrics['portfolio']) == 4
-          assert metrics['project_area_rai'] == 6775.53
-          for plot in metrics['plots']:
-              assert len(plot['observations']) == 4, plot['code']
-              for obs in plot['observations']:
-                  total = sum(obs[k] for k in ['high_green_rai', 'medium_yellow_rai', 'low_red_rai', 'water_rai', 'unknown_rai'])
-                  assert abs(total - plot['area_rai']) <= max(0.15, plot['area_rai'] * 0.005), (plot['code'], obs['month'], total)
-                  assert obs['qa_label'] in {'COMPARABLE', 'WATER_INFLUENCED', 'TIDE_DOMINATED', 'LOW_QA'}
-          for row in metrics['portfolio']:
-              total = sum(row[k] for k in ['high_green_rai', 'medium_yellow_rai', 'low_red_rai', 'water_rai', 'unknown_rai'])
-              assert abs(total - 6775.53) <= 1.0, (row['month'], total)
-              print(row)
-          carbon = json.loads(Path('data/pdd22/carbon_screening.json').read_text(encoding='utf-8'))
+          root = Path('data/pdd22_v2')
+          manifest = json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+          assert manifest['model_version'] == 'pdd22_v2_pdd_anchored'
+          assert manifest['plot_count'] == 22
+          carbon = json.loads((root/'carbon_screening.json').read_text(encoding='utf-8'))
           assert carbon['satellite_adjusted_credit_tco2e'] is None
-          print('Carbon separation validated; no invented FCD-to-carbon conversion.')
+          ranks = list(csv.DictReader((root/'plot_change_ranking.csv').open(encoding='utf-8-sig')))
+          assert len(ranks) == 22
+          for series in ['march','august']:
+              r = json.loads((root/f'{series}_result.json').read_text(encoding='utf-8'))
+              assert len(r['plots']) == 22 and len(r['portfolio']) == 4
+              assert r['calibration']['pc1_ndvi_corr'] <= 0.0
+              ref = r['portfolio'][0]
+              total = ref['green_rai'] + ref['yellow_rai'] + ref['red_rai'] + ref['bare_error_alloc_rai']
+              assert abs(total - 6775.53) < 5.0, (series, total)
+              print(series, 'reference', ref)
+              print(series, '2026', r['portfolio'][-1])
+          print((root/'EXECUTIVE_SUMMARY.md').read_text(encoding='utf-8'))
           PY
 
-      - name: Upload PDD22 screening artifact
+      - name: Upload corrected screening artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pdd22-fcd-screening
-          path: data/pdd22
+          name: pdd22-corrected-fcd-v2
+          path: data/pdd22_v2
           retention-days: 30
 
-      - name: Commit generated PDD22 outputs to analysis branch
+      - name: Commit corrected outputs
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pdd22
+          git add data/pdd22 data/pdd22_v2
           if git diff --cached --quiet; then
-            echo "No generated changes to commit"
+            echo "No result changes"
             exit 0
           fi
-          git commit -m "Build PDD22 March 2023-2026 FCD screening"
+          git commit -m "Build corrected PDD22 FCD v2 results"
           git push origin HEAD:${GITHUB_REF_NAME}
