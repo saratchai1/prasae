@@ -51,7 +51,8 @@ def get_item_retry(client, scene_id):
     last = None
     for attempt in range(RETRIES):
         try:
-            item = client.get_item(scene_id)
+            # pystac-client 0.9 requires collection as the second positional argument.
+            item = client.get_item(scene_id, sat.COLLECTION)
             if item is None:
                 found = list(client.search(collections=[sat.COLLECTION], ids=[scene_id], max_items=1).items())
                 item = found[0] if found else None
