@@ -18,12 +18,13 @@ concurrency:
 
 jobs:
   shard:
+    name: shard (${{ matrix.shard }})
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
     strategy:
-      fail-fast: false
+      fail-fast: true
       matrix:
         shard: [0, 1, 2, 3]
-    runs-on: ubuntu-latest
-    timeout-minutes: 180
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -46,9 +47,11 @@ jobs:
           python - <<'PY'
           import json
           from pathlib import Path
-          p=json.loads(Path('data/pdd22/plots_catalog.json').read_text(encoding='utf-8'))
-          assert len(p)==22
-          assert round(sum(float(x['area_rai']) for x in p),2)==6775.53
+          p = json.loads(Path('data/pdd22/plots_catalog.json').read_text(encoding='utf-8'))
+          assert len(p) == 22
+          assert round(sum(float(x['area_rai']) for x in p), 2) == 6775.53
+          assert len({x['code'] for x in p}) == 22
+          print('PDD22 participating inputs valid')
           PY
 
       - name: Build spectral shard
@@ -58,12 +61,41 @@ jobs:
           PDD22_SPECTRAL_WORKERS: '2'
         run: python build_pdd22_spectral_assets.py
 
+      - name: Validate shard
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          expected = ['B02','B03','B04','B05','B06','B07','B08','B8A','B11','B12']
+          root = Path('data/pdd22_spectral')
+          shard = int(os.environ['SHARD'])
+          summary = json.loads((root / f'shard_{shard}.json').read_text(encoding='utf-8'))
+          assert summary['shard_index'] == shard
+          assert summary['bands'] == expected
+          for code in summary['plot_codes']:
+              manifest = json.loads((root/'plots'/code/'spectral_manifest.json').read_text(encoding='utf-8'))
+              assert manifest['bands'] == expected
+              assert len(manifest['dates']) == 12
+              assert manifest['rules']['pdd_participating_boundary_only'] is True
+              assert manifest['rules']['frozen_clean_scene_selection'] is True
+              assert manifest['rules']['adjacent_month_fallback'] is False
+              assert manifest['rules']['interpolation'] is False
+              assert manifest['rules']['synthetic_imagery'] is False
+              for date in manifest['dates']:
+                  if date['status'] == 'available':
+                      assert set(date['files']) == set(expected)
+          print('Validated shard', shard, summary['plot_codes'])
+          PY
+
       - name: Upload shard
         uses: actions/upload-artifact@v4
         with:
           name: pdd22-spectral-${{ matrix.shard }}
           path: data/pdd22_spectral
-          retention-days: 7
+          if-no-files-found: error
+          retention-days: 2
 
   publish:
     needs: shard
@@ -73,43 +105,79 @@ jobs:
       - name: Checkout latest gh-pages
         uses: actions/checkout@v4
         with:
-          ref: gh-pages
           fetch-depth: 0
 
-      - name: Download all shards
+      - name: Download all spectral shards
         uses: actions/download-artifact@v4
         with:
           pattern: pdd22-spectral-*
-          path: data/pdd22_spectral
+          path: merged-spectral
           merge-multiple: true
 
-      - name: Validate merged package
+      - name: Assemble and validate 22-plot package
         run: |
+          rm -rf data/pdd22_spectral
+          mkdir -p data/pdd22_spectral
+          cp -a merged-spectral/. data/pdd22_spectral/
           python - <<'PY'
           import json
           from pathlib import Path
-          root=Path('data/pdd22_spectral/plots')
-          dirs=sorted([p for p in root.iterdir() if p.is_dir()])
-          assert len(dirs)==22, len(dirs)
-          total=0
+
+          expected = ['B02','B03','B04','B05','B06','B07','B08','B8A','B11','B12']
+          native = {'B02':10,'B03':10,'B04':10,'B05':20,'B06':20,'B07':20,'B08':10,'B8A':20,'B11':20,'B12':20}
+          root = Path('data/pdd22_spectral')
+          plots = root / 'plots'
+          dirs = sorted([p for p in plots.iterdir() if p.is_dir()])
+          assert len(dirs) == 22, len(dirs)
+
+          codes = []
+          available = 0
+          qa_counts = {}
           for d in dirs:
-              m=json.loads((d/'spectral_manifest.json').read_text(encoding='utf-8'))
+              m = json.loads((d/'spectral_manifest.json').read_text(encoding='utf-8'))
+              assert m['schema_version'] == '3.0-pdd22-10band'
+              assert m['bands'] == expected
+              assert m['native_resolution_m'] == native
+              assert len(m['dates']) == 12
               assert m['rules']['pdd_participating_boundary_only'] is True
               assert m['rules']['frozen_clean_scene_selection'] is True
-              assert m['bands']==['B02','B03','B04','B08','B11','B12']
-              assert len(m['dates'])==12
-              total += sum(x['status']=='available' for x in m['dates'])
-          index={
-              'schema_version':'2.0-pdd22',
-              'plot_count':22,
-              'observation_slots':264,
-              'available_plot_months':total,
-              'bands':['B02','B03','B04','B08','B11','B12'],
-              'source':'PDD22 cleaned Sentinel-2 frozen scene selections',
-              'visualization_only':True
+              assert m['rules']['adjacent_month_fallback'] is False
+              assert m['rules']['interpolation'] is False
+              assert m['rules']['synthetic_imagery'] is False
+              codes.append(m['plot_code'])
+              for date in m['dates']:
+                  qa = date.get('qa') or 'NO_DATA'
+                  qa_counts[qa] = qa_counts.get(qa, 0) + 1
+                  if date['status'] == 'available':
+                      available += 1
+                      assert set(date['files']) == set(expected)
+                      for filename in date['files'].values():
+                          assert (d / filename).is_file(), (d, filename)
+
+          assert len(set(codes)) == 22
+          assert '93-VSD' in codes
+          index = {
+              'schema_version': '3.0-pdd22-10band',
+              'plot_count': 22,
+              'observation_slots': 264,
+              'available_plot_months': available,
+              'bands': expected,
+              'native_resolution_m': native,
+              'qa_counts': qa_counts,
+              'source': 'PDD22 cleaned Sentinel-2 frozen scene selections',
+              'visualization_only': True,
+              'rules': {
+                  'pdd_participating_boundary_only': True,
+                  'frozen_clean_scene_selection': True,
+                  'adjacent_month_fallback': False,
+                  'interpolation': False,
+                  'synthetic_imagery': False,
+              },
+              'browser_indices': ['NDVI','NDRE','NDWI','MNDWI','NDMI','EVI','SAVI','NBR','BSI'],
           }
-          Path('data/pdd22_spectral/manifest.json').write_text(json.dumps(index,indent=2),encoding='utf-8')
-          print('Available spectral plot-months:', total)
+          (root/'manifest.json').write_text(json.dumps(index, ensure_ascii=False, indent=2), encoding='utf-8')
+          print('PDD22 10-band package:', len(dirs), 'plots,', available, 'available plot-months')
+          print('QA:', qa_counts)
           PY
 
       - name: Commit spectral assets
@@ -118,10 +186,10 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/pdd22_spectral
           if git diff --cached --quiet; then
-            echo "No spectral changes"
+            echo "No spectral asset changes"
             exit 0
           fi
-          git commit -m "Build PDD22 cleaned six-band spectral assets"
+          git commit -m "Build PDD22 cleaned ten-band spectral assets"
           git fetch origin gh-pages
           git rebase origin/gh-pages
           git push origin HEAD:gh-pages
