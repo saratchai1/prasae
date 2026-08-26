@@ -1,0 +1,103 @@
+name: PDD22 FCD screening V3 cleaned scenes
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - pdd22-satellite-refetch
+    paths:
+      - process_pdd22_fcd_v3.py
+      - .github/workflows/pdd22-fcd-v3.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pdd22-fcd-v3
+  cancel-in-progress: true
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-verified.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-verified.txt
+
+      - name: Validate inputs
+        run: |
+          python -m py_compile process_pdd22_fcd_v3.py process_pdd22_fcd_v2.py process_pdd22_fcd.py process_pdd22_satellite_pipeline.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p = json.loads(Path('data/pdd22/plots_catalog.json').read_text(encoding='utf-8'))
+          assert len(p) == 22
+          assert round(sum(float(x['area_rai']) for x in p), 2) == 6775.53
+          sat = json.loads(Path('data/pdd22_satellite/manifest.json').read_text(encoding='utf-8'))
+          assert sat['plot_count'] == 22
+          assert sat['total_pdd_area_rai'] == 6775.53
+          print('Validated PDD22 boundary and cleaned Sentinel dataset')
+          PY
+
+      - name: Build FCD V3
+        env:
+          PDD22_REFERENCE_SAMPLE: '6000'
+          PDD22_V2_WORKERS: '6'
+          PRASAE_MAX_SCENES: '6'
+        run: python process_pdd22_fcd_v3.py
+
+      - name: Validate outputs
+        run: |
+          python - <<'PY'
+          import csv, json
+          from pathlib import Path
+          root = Path('data/pdd22_v3')
+          manifest = json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+          assert manifest['model_version'] == 'pdd22_v3_cleaned_scene_fcd'
+          assert manifest['plot_count'] == 22
+          assert manifest['project_area_rai'] == 6775.53
+          plots = json.loads((root/'plots_result.json').read_text(encoding='utf-8'))
+          assert len(plots) == 22
+          rows = list(csv.DictReader((root/'plot_month_results.csv').open(encoding='utf-8-sig')))
+          assert len(rows) == 88
+          assert set(r['month'] for r in rows) == {'2024-03','2025-03','2026-03','2026-08'}
+          for row in rows:
+              if row['green_rai']:
+                  assert row['qa'] == 'GOOD'
+          p93 = [r for r in rows if r['plot_code'] == '93-VSD']
+          assert len(p93) == 4
+          print((root/'EXECUTIVE_SUMMARY.md').read_text(encoding='utf-8'))
+          print('93-VSD')
+          for r in p93: print(r)
+          PY
+
+      - name: Upload result artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pdd22-fcd-v3
+          path: data/pdd22_v3
+          retention-days: 30
+
+      - name: Commit outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pdd22_v3
+          if git diff --cached --quiet; then
+            echo "No result changes"
+            exit 0
+          fi
+          git commit -m "Build PDD22 FCD v3 from cleaned Sentinel scenes"
+          git push origin HEAD:${GITHUB_REF_NAME}
