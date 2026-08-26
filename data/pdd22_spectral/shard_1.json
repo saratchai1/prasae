@@ -1,0 +1,26 @@
+{
+  "shard_index": 1,
+  "shard_count": 4,
+  "plot_count": 6,
+  "plot_codes": [
+    "102-VSD",
+    "19-VSD",
+    "43-VSD",
+    "86-VSD",
+    "90-VSD",
+    "97-VSD"
+  ],
+  "available_plot_months": 71,
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B8A",
+    "B11",
+    "B12"
+  ]
+}

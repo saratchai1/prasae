@@ -1,0 +1,331 @@
+{
+  "schema_version": "3.0-pdd22-10band",
+  "asset_role": "browser_visualization_only",
+  "plot_code": "19-VSD",
+  "pdd_area_rai": 316.38,
+  "bounds": [
+    99.12617705,
+    10.05355869,
+    99.13665379,
+    10.0578073
+  ],
+  "width": 180,
+  "height": 114,
+  "display_grid_resolution_m": 9.99,
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B8A",
+    "B11",
+    "B12"
+  ],
+  "native_resolution_m": {
+    "B02": 10,
+    "B03": 10,
+    "B04": 10,
+    "B08": 10,
+    "B05": 20,
+    "B06": 20,
+    "B07": 20,
+    "B8A": 20,
+    "B11": 20,
+    "B12": 20
+  },
+  "encoding": {
+    "format": "PNG LA (8-bit luminance + alpha)",
+    "reflectance_min": 0.0,
+    "reflectance_max": 0.4,
+    "formula": "reflectance ~= luminance / 255 * 0.40",
+    "warning": "Visualization only; analytical metrics use original float reflectance. B05/B06/B07/B8A/B11/B12 are native 20 m even when aligned to the common browser grid."
+  },
+  "rules": {
+    "pdd_participating_boundary_only": true,
+    "frozen_clean_scene_selection": true,
+    "adjacent_month_fallback": false,
+    "interpolation": false,
+    "synthetic_imagery": false
+  },
+  "dates": [
+    {
+      "month": "2023-09",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 97.97,
+      "files": {
+        "B02": "band_B02_2023-09.png",
+        "B03": "band_B03_2023-09.png",
+        "B04": "band_B04_2023-09.png",
+        "B05": "band_B05_2023-09.png",
+        "B06": "band_B06_2023-09.png",
+        "B07": "band_B07_2023-09.png",
+        "B08": "band_B08_2023-09.png",
+        "B8A": "band_B8A_2023-09.png",
+        "B11": "band_B11_2023-09.png",
+        "B12": "band_B12_2023-09.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20230918T033539_R061_T47PNM_20241013T024531"
+      ]
+    },
+    {
+      "month": "2023-12",
+      "status": "available",
+      "qa": "PARTIAL",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "coverage_pct": 71.18,
+      "files": {
+        "B02": "band_B02_2023-12.png",
+        "B03": "band_B03_2023-12.png",
+        "B04": "band_B04_2023-12.png",
+        "B05": "band_B05_2023-12.png",
+        "B06": "band_B06_2023-12.png",
+        "B07": "band_B07_2023-12.png",
+        "B08": "band_B08_2023-12.png",
+        "B8A": "band_B8A_2023-12.png",
+        "B11": "band_B11_2023-12.png",
+        "B12": "band_B12_2023-12.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20231217T034149_R061_T47PNM_20231220T054414",
+        "S2A_MSIL2A_20231202T034111_R061_T47PNM_20231202T072300",
+        "S2B_MSIL2A_20231227T034149_R061_T47PNM_20231227T081800"
+      ]
+    },
+    {
+      "month": "2024-03",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "coverage_pct": 99.64,
+      "files": {
+        "B02": "band_B02_2024-03.png",
+        "B03": "band_B03_2024-03.png",
+        "B04": "band_B04_2024-03.png",
+        "B05": "band_B05_2024-03.png",
+        "B06": "band_B06_2024-03.png",
+        "B07": "band_B07_2024-03.png",
+        "B08": "band_B08_2024-03.png",
+        "B8A": "band_B8A_2024-03.png",
+        "B11": "band_B11_2024-03.png",
+        "B12": "band_B12_2024-03.png"
+      },
+      "scene_ids": [
+        "S2A_MSIL2A_20240331T033531_R061_T47PNM_20240331T093553",
+        "S2A_MSIL2A_20240321T033541_R061_T47PNM_20240321T091103",
+        "S2A_MSIL2A_20240311T033541_R061_T47PNM_20240311T115048",
+        "S2B_MSIL2A_20240316T033539_R061_T47PNM_20240316T081224",
+        "S2B_MSIL2A_20240326T033539_R061_T47PNM_20240326T091653"
+      ]
+    },
+    {
+      "month": "2024-06",
+      "status": "available",
+      "qa": "PARTIAL",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "coverage_pct": 79.83,
+      "files": {
+        "B02": "band_B02_2024-06.png",
+        "B03": "band_B03_2024-06.png",
+        "B04": "band_B04_2024-06.png",
+        "B05": "band_B05_2024-06.png",
+        "B06": "band_B06_2024-06.png",
+        "B07": "band_B07_2024-06.png",
+        "B08": "band_B08_2024-06.png",
+        "B8A": "band_B8A_2024-06.png",
+        "B11": "band_B11_2024-06.png",
+        "B12": "band_B12_2024-06.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20240614T033539_R061_T47PNM_20240614T080606",
+        "S2B_MSIL2A_20240604T033539_R061_T47PNM_20240604T082006"
+      ]
+    },
+    {
+      "month": "2024-09",
+      "status": "available",
+      "qa": "LOW_QA",
+      "analysis_mode": "single_scene_partial",
+      "coverage_pct": 46.38,
+      "files": {
+        "B02": "band_B02_2024-09.png",
+        "B03": "band_B03_2024-09.png",
+        "B04": "band_B04_2024-09.png",
+        "B05": "band_B05_2024-09.png",
+        "B06": "band_B06_2024-09.png",
+        "B07": "band_B07_2024-09.png",
+        "B08": "band_B08_2024-09.png",
+        "B8A": "band_B8A_2024-09.png",
+        "B11": "band_B11_2024-09.png",
+        "B12": "band_B12_2024-09.png"
+      },
+      "scene_ids": [
+        "S2A_MSIL2A_20240927T033541_R061_T47PNM_20240927T085345"
+      ]
+    },
+    {
+      "month": "2024-12",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2024-12.png",
+        "B03": "band_B03_2024-12.png",
+        "B04": "band_B04_2024-12.png",
+        "B05": "band_B05_2024-12.png",
+        "B06": "band_B06_2024-12.png",
+        "B07": "band_B07_2024-12.png",
+        "B08": "band_B08_2024-12.png",
+        "B8A": "band_B8A_2024-12.png",
+        "B11": "band_B11_2024-12.png",
+        "B12": "band_B12_2024-12.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20241231T034049_R061_T47PNM_20241231T063102"
+      ]
+    },
+    {
+      "month": "2025-03",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-03.png",
+        "B03": "band_B03_2025-03.png",
+        "B04": "band_B04_2025-03.png",
+        "B05": "band_B05_2025-03.png",
+        "B06": "band_B06_2025-03.png",
+        "B07": "band_B07_2025-03.png",
+        "B08": "band_B08_2025-03.png",
+        "B8A": "band_B8A_2025-03.png",
+        "B11": "band_B11_2025-03.png",
+        "B12": "band_B12_2025-03.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20250316T033601_R061_T47PNM_20250316T090315"
+      ]
+    },
+    {
+      "month": "2025-06",
+      "status": "available",
+      "qa": "PARTIAL",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "coverage_pct": 65.07,
+      "files": {
+        "B02": "band_B02_2025-06.png",
+        "B03": "band_B03_2025-06.png",
+        "B04": "band_B04_2025-06.png",
+        "B05": "band_B05_2025-06.png",
+        "B06": "band_B06_2025-06.png",
+        "B07": "band_B07_2025-06.png",
+        "B08": "band_B08_2025-06.png",
+        "B8A": "band_B8A_2025-06.png",
+        "B11": "band_B11_2025-06.png",
+        "B12": "band_B12_2025-06.png"
+      },
+      "scene_ids": [
+        "S2A_MSIL2A_20250606T034201_R061_T47PNM_20250606T073218",
+        "S2C_MSIL2A_20250604T033601_R061_T47PNM_20250604T084721",
+        "S2A_MSIL2A_20250626T034201_R061_T47PNM_20250626T073921"
+      ]
+    },
+    {
+      "month": "2025-09",
+      "status": "available",
+      "qa": "PARTIAL",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "coverage_pct": 67.92,
+      "files": {
+        "B02": "band_B02_2025-09.png",
+        "B03": "band_B03_2025-09.png",
+        "B04": "band_B04_2025-09.png",
+        "B05": "band_B05_2025-09.png",
+        "B06": "band_B06_2025-09.png",
+        "B07": "band_B07_2025-09.png",
+        "B08": "band_B08_2025-09.png",
+        "B8A": "band_B8A_2025-09.png",
+        "B11": "band_B11_2025-09.png",
+        "B12": "band_B12_2025-09.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20250922T033551_R061_T47PNM_20250922T091415",
+        "S2C_MSIL2A_20250912T033551_R061_T47PNM_20250912T090014",
+        "S2C_MSIL2A_20250902T033551_R061_T47PNM_20250902T085021"
+      ]
+    },
+    {
+      "month": "2025-12",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-12.png",
+        "B03": "band_B03_2025-12.png",
+        "B04": "band_B04_2025-12.png",
+        "B05": "band_B05_2025-12.png",
+        "B06": "band_B06_2025-12.png",
+        "B07": "band_B07_2025-12.png",
+        "B08": "band_B08_2025-12.png",
+        "B8A": "band_B8A_2025-12.png",
+        "B11": "band_B11_2025-12.png",
+        "B12": "band_B12_2025-12.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20251201T034131_R061_T47PNM_20251201T063318"
+      ]
+    },
+    {
+      "month": "2026-03",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2026-03.png",
+        "B03": "band_B03_2026-03.png",
+        "B04": "band_B04_2026-03.png",
+        "B05": "band_B05_2026-03.png",
+        "B06": "band_B06_2026-03.png",
+        "B07": "band_B07_2026-03.png",
+        "B08": "band_B08_2026-03.png",
+        "B8A": "band_B8A_2026-03.png",
+        "B11": "band_B11_2026-03.png",
+        "B12": "band_B12_2026-03.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20260326T033529_R061_T47PNM_20260326T072041"
+      ]
+    },
+    {
+      "month": "2026-08",
+      "status": "available",
+      "qa": "LOW_QA",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "coverage_pct": 24.69,
+      "files": {
+        "B02": "band_B02_2026-08.png",
+        "B03": "band_B03_2026-08.png",
+        "B04": "band_B04_2026-08.png",
+        "B05": "band_B05_2026-08.png",
+        "B06": "band_B06_2026-08.png",
+        "B07": "band_B07_2026-08.png",
+        "B08": "band_B08_2026-08.png",
+        "B8A": "band_B8A_2026-08.png",
+        "B11": "band_B11_2026-08.png",
+        "B12": "band_B12_2026-08.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20260803T033539_R061_T47PNM_20260803T072631",
+        "S2B_MSIL2A_20260813T033529_R061_T47PNM_20260813T072506"
+      ]
+    }
+  ]
+}

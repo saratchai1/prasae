@@ -1,0 +1,320 @@
+{
+  "schema_version": "3.0-pdd22-10band",
+  "asset_role": "browser_visualization_only",
+  "plot_code": "87-VSD",
+  "pdd_area_rai": 92.92,
+  "bounds": [
+    99.860417,
+    13.26170658,
+    99.8680064,
+    13.26474419
+  ],
+  "width": 147,
+  "height": 100,
+  "display_grid_resolution_m": 10.01,
+  "bands": [
+    "B02",
+    "B03",
+    "B04",
+    "B05",
+    "B06",
+    "B07",
+    "B08",
+    "B8A",
+    "B11",
+    "B12"
+  ],
+  "native_resolution_m": {
+    "B02": 10,
+    "B03": 10,
+    "B04": 10,
+    "B08": 10,
+    "B05": 20,
+    "B06": 20,
+    "B07": 20,
+    "B8A": 20,
+    "B11": 20,
+    "B12": 20
+  },
+  "encoding": {
+    "format": "PNG LA (8-bit luminance + alpha)",
+    "reflectance_min": 0.0,
+    "reflectance_max": 0.4,
+    "formula": "reflectance ~= luminance / 255 * 0.40",
+    "warning": "Visualization only; analytical metrics use original float reflectance. B05/B06/B07/B8A/B11/B12 are native 20 m even when aligned to the common browser grid."
+  },
+  "rules": {
+    "pdd_participating_boundary_only": true,
+    "frozen_clean_scene_selection": true,
+    "adjacent_month_fallback": false,
+    "interpolation": false,
+    "synthetic_imagery": false
+  },
+  "dates": [
+    {
+      "month": "2023-09",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2023-09.png",
+        "B03": "band_B03_2023-09.png",
+        "B04": "band_B04_2023-09.png",
+        "B05": "band_B05_2023-09.png",
+        "B06": "band_B06_2023-09.png",
+        "B07": "band_B07_2023-09.png",
+        "B08": "band_B08_2023-09.png",
+        "B8A": "band_B8A_2023-09.png",
+        "B11": "band_B11_2023-09.png",
+        "B12": "band_B12_2023-09.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20230918T033539_R061_T47PNQ_20241013T024531"
+      ]
+    },
+    {
+      "month": "2023-12",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2023-12.png",
+        "B03": "band_B03_2023-12.png",
+        "B04": "band_B04_2023-12.png",
+        "B05": "band_B05_2023-12.png",
+        "B06": "band_B06_2023-12.png",
+        "B07": "band_B07_2023-12.png",
+        "B08": "band_B08_2023-12.png",
+        "B8A": "band_B8A_2023-12.png",
+        "B11": "band_B11_2023-12.png",
+        "B12": "band_B12_2023-12.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20231227T034149_R061_T47PNQ_20231227T081827"
+      ]
+    },
+    {
+      "month": "2024-03",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2024-03.png",
+        "B03": "band_B03_2024-03.png",
+        "B04": "band_B04_2024-03.png",
+        "B05": "band_B05_2024-03.png",
+        "B06": "band_B06_2024-03.png",
+        "B07": "band_B07_2024-03.png",
+        "B08": "band_B08_2024-03.png",
+        "B8A": "band_B8A_2024-03.png",
+        "B11": "band_B11_2024-03.png",
+        "B12": "band_B12_2024-03.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20240326T033539_R061_T47PNQ_20240326T091647"
+      ]
+    },
+    {
+      "month": "2024-06",
+      "status": "available",
+      "qa": "PARTIAL",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "coverage_pct": 50.0,
+      "files": {
+        "B02": "band_B02_2024-06.png",
+        "B03": "band_B03_2024-06.png",
+        "B04": "band_B04_2024-06.png",
+        "B05": "band_B05_2024-06.png",
+        "B06": "band_B06_2024-06.png",
+        "B07": "band_B07_2024-06.png",
+        "B08": "band_B08_2024-06.png",
+        "B8A": "band_B8A_2024-06.png",
+        "B11": "band_B11_2024-06.png",
+        "B12": "band_B12_2024-06.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20240614T033539_R061_T47PNQ_20240614T080556",
+        "S2A_MSIL2A_20240619T033541_R061_T47PNQ_20240619T095922"
+      ]
+    },
+    {
+      "month": "2024-09",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2024-09.png",
+        "B03": "band_B03_2024-09.png",
+        "B04": "band_B04_2024-09.png",
+        "B05": "band_B05_2024-09.png",
+        "B06": "band_B06_2024-09.png",
+        "B07": "band_B07_2024-09.png",
+        "B08": "band_B08_2024-09.png",
+        "B8A": "band_B8A_2024-09.png",
+        "B11": "band_B11_2024-09.png",
+        "B12": "band_B12_2024-09.png"
+      },
+      "scene_ids": [
+        "S2A_MSIL2A_20240927T033541_R061_T47PNQ_20240927T085345"
+      ]
+    },
+    {
+      "month": "2024-12",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2024-12.png",
+        "B03": "band_B03_2024-12.png",
+        "B04": "band_B04_2024-12.png",
+        "B05": "band_B05_2024-12.png",
+        "B06": "band_B06_2024-12.png",
+        "B07": "band_B07_2024-12.png",
+        "B08": "band_B08_2024-12.png",
+        "B8A": "band_B8A_2024-12.png",
+        "B11": "band_B11_2024-12.png",
+        "B12": "band_B12_2024-12.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20241201T034029_R061_T47PNQ_20241201T063331"
+      ]
+    },
+    {
+      "month": "2025-03",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-03.png",
+        "B03": "band_B03_2025-03.png",
+        "B04": "band_B04_2025-03.png",
+        "B05": "band_B05_2025-03.png",
+        "B06": "band_B06_2025-03.png",
+        "B07": "band_B07_2025-03.png",
+        "B08": "band_B08_2025-03.png",
+        "B8A": "band_B8A_2025-03.png",
+        "B11": "band_B11_2025-03.png",
+        "B12": "band_B12_2025-03.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20250326T033601_R061_T47PNQ_20250326T085914"
+      ]
+    },
+    {
+      "month": "2025-06",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-06.png",
+        "B03": "band_B03_2025-06.png",
+        "B04": "band_B04_2025-06.png",
+        "B05": "band_B05_2025-06.png",
+        "B06": "band_B06_2025-06.png",
+        "B07": "band_B07_2025-06.png",
+        "B08": "band_B08_2025-06.png",
+        "B8A": "band_B8A_2025-06.png",
+        "B11": "band_B11_2025-06.png",
+        "B12": "band_B12_2025-06.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20250604T033601_R061_T47PNQ_20250604T084721"
+      ]
+    },
+    {
+      "month": "2025-09",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-09.png",
+        "B03": "band_B03_2025-09.png",
+        "B04": "band_B04_2025-09.png",
+        "B05": "band_B05_2025-09.png",
+        "B06": "band_B06_2025-09.png",
+        "B07": "band_B07_2025-09.png",
+        "B08": "band_B08_2025-09.png",
+        "B8A": "band_B8A_2025-09.png",
+        "B11": "band_B11_2025-09.png",
+        "B12": "band_B12_2025-09.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20250912T033551_R061_T47PNQ_20250912T090014"
+      ]
+    },
+    {
+      "month": "2025-12",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2025-12.png",
+        "B03": "band_B03_2025-12.png",
+        "B04": "band_B04_2025-12.png",
+        "B05": "band_B05_2025-12.png",
+        "B06": "band_B06_2025-12.png",
+        "B07": "band_B07_2025-12.png",
+        "B08": "band_B08_2025-12.png",
+        "B8A": "band_B8A_2025-12.png",
+        "B11": "band_B11_2025-12.png",
+        "B12": "band_B12_2025-12.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20251201T034131_R061_T47PNQ_20251201T063318"
+      ]
+    },
+    {
+      "month": "2026-03",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2026-03.png",
+        "B03": "band_B03_2026-03.png",
+        "B04": "band_B04_2026-03.png",
+        "B05": "band_B05_2026-03.png",
+        "B06": "band_B06_2026-03.png",
+        "B07": "band_B07_2026-03.png",
+        "B08": "band_B08_2026-03.png",
+        "B8A": "band_B8A_2026-03.png",
+        "B11": "band_B11_2026-03.png",
+        "B12": "band_B12_2026-03.png"
+      },
+      "scene_ids": [
+        "S2C_MSIL2A_20260301T033701_R061_T47PNQ_20260301T091613"
+      ]
+    },
+    {
+      "month": "2026-08",
+      "status": "available",
+      "qa": "GOOD",
+      "analysis_mode": "single_scene_good",
+      "coverage_pct": 100.0,
+      "files": {
+        "B02": "band_B02_2026-08.png",
+        "B03": "band_B03_2026-08.png",
+        "B04": "band_B04_2026-08.png",
+        "B05": "band_B05_2026-08.png",
+        "B06": "band_B06_2026-08.png",
+        "B07": "band_B07_2026-08.png",
+        "B08": "band_B08_2026-08.png",
+        "B8A": "band_B8A_2026-08.png",
+        "B11": "band_B11_2026-08.png",
+        "B12": "band_B12_2026-08.png"
+      },
+      "scene_ids": [
+        "S2B_MSIL2A_20260803T033539_R061_T47PNQ_20260803T072631"
+      ]
+    }
+  ]
+}
