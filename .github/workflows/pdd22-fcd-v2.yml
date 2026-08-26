@@ -1,4 +1,4 @@
-name: PDD22 FCD screening V2
+name: PDD22 FCD V3 trigger from cleaned Sentinel branch
 
 on:
   workflow_dispatch:
@@ -6,19 +6,13 @@ on:
     branches:
       - pdd22-fcd-monitoring
     paths:
-      - process_pdd22_fcd_v2.py
-      - process_pdd22_fcd.py
-      - extract_pdd22_plots.py
-      - pdd22_config.py
-      - my-land/STC_VSD_EVR.kmz
-      - requirements-verified.txt
       - .github/workflows/pdd22-fcd-v2.yml
 
 permissions:
   contents: write
 
 concurrency:
-  group: pdd22-fcd-v2
+  group: pdd22-fcd-v3-cross-branch
   cancel-in-progress: true
 
 jobs:
@@ -26,10 +20,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 300
     steps:
-      - name: Checkout
+      - name: Checkout cleaned Sentinel branch
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          ref: pdd22-satellite-refetch
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -41,66 +37,62 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements-verified.txt
 
-      - name: Validate code and PDD inputs
+      - name: Validate cleaned PDD22 inputs
         run: |
-          python -m py_compile process_pdd22_fcd_v2.py process_pdd22_fcd.py extract_pdd22_plots.py pdd22_config.py
-          python extract_pdd22_plots.py
+          python -m py_compile process_pdd22_fcd_v3.py process_pdd22_fcd_v2.py process_pdd22_fcd.py process_pdd22_satellite_pipeline.py
           python - <<'PY'
           import json
           from pathlib import Path
           p = json.loads(Path('data/pdd22/plots_catalog.json').read_text(encoding='utf-8'))
           assert len(p) == 22
           assert round(sum(float(x['area_rai']) for x in p), 2) == 6775.53
-          print('Validated 22 participating PDD plots, 6,775.53 rai')
+          sat = json.loads(Path('data/pdd22_satellite/manifest.json').read_text(encoding='utf-8'))
+          assert sat['plot_count'] == 22
+          assert sat['total_pdd_area_rai'] == 6775.53
+          print('Validated cleaned PDD22 input dataset')
           PY
 
-      - name: Build corrected March and August series
+      - name: Build Green Yellow Red FCD V3
         env:
-          PRASAE_MAX_SCENES: '4'
           PDD22_REFERENCE_SAMPLE: '6000'
           PDD22_V2_WORKERS: '6'
-        run: python process_pdd22_fcd_v2.py
+          PRASAE_MAX_SCENES: '6'
+        run: python process_pdd22_fcd_v3.py
 
-      - name: Validate scientific guardrails and outputs
+      - name: Validate FCD V3 output
         run: |
           python - <<'PY'
           import csv, json
           from pathlib import Path
-          root = Path('data/pdd22_v2')
+          root = Path('data/pdd22_v3')
           manifest = json.loads((root/'manifest.json').read_text(encoding='utf-8'))
-          assert manifest['model_version'] == 'pdd22_v2_pdd_anchored'
+          assert manifest['model_version'] == 'pdd22_v3_cleaned_scene_fcd'
           assert manifest['plot_count'] == 22
-          carbon = json.loads((root/'carbon_screening.json').read_text(encoding='utf-8'))
-          assert carbon['satellite_adjusted_credit_tco2e'] is None
-          ranks = list(csv.DictReader((root/'plot_change_ranking.csv').open(encoding='utf-8-sig')))
-          assert len(ranks) == 22
-          for series in ['march','august']:
-              result = json.loads((root/f'{series}_result.json').read_text(encoding='utf-8'))
-              assert len(result['plots']) == 22 and len(result['portfolio']) == 4
-              assert result['calibration']['pc1_ndvi_corr'] <= 0.0
-              ref = result['portfolio'][0]
-              total = ref['green_rai'] + ref['yellow_rai'] + ref['red_rai'] + ref['bare_error_alloc_rai']
-              assert abs(total - 6775.53) < 5.0, (series, total)
-              print(series, '2023=', ref)
-              print(series, '2026=', result['portfolio'][-1])
+          rows = list(csv.DictReader((root/'plot_month_results.csv').open(encoding='utf-8-sig')))
+          assert len(rows) == 88
+          assert set(r['month'] for r in rows) == {'2024-03','2025-03','2026-03','2026-08'}
+          assert len([r for r in rows if r['plot_code'] == '93-VSD']) == 4
+          for r in rows:
+              if r['green_rai']:
+                  assert r['qa'] == 'GOOD'
           print((root/'EXECUTIVE_SUMMARY.md').read_text(encoding='utf-8'))
           PY
 
-      - name: Upload V2 result artifact
+      - name: Upload V3 result artifact
         uses: actions/upload-artifact@v4
         with:
-          name: pdd22-fcd-v2
-          path: data/pdd22_v2
+          name: pdd22-fcd-v3
+          path: data/pdd22_v3
           retention-days: 30
 
-      - name: Commit V2 outputs to analysis branch
+      - name: Commit V3 outputs to cleaned branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pdd22 data/pdd22_v2
+          git add data/pdd22_v3
           if git diff --cached --quiet; then
             echo "No result changes"
             exit 0
           fi
-          git commit -m "Build corrected PDD22 FCD v2 results"
-          git push origin HEAD:${GITHUB_REF_NAME}
+          git commit -m "Build PDD22 FCD v3 from cleaned Sentinel scenes"
+          git push origin HEAD:pdd22-satellite-refetch
