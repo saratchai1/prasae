@@ -34,13 +34,15 @@
   "observations": [
     {
       "month": "2023-09",
-      "analysis_mode": "same_month_multi_scene_composite",
+      "analysis_mode": "single_scene_partial",
+      "composite_method": "none",
       "qa": "PARTIAL",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3012,
       "coverage_pct": 85.11,
       "scenes_evaluated_count": 12,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
         "S2B_MSIL2A_20230918T033539_R061_T47PMK_20241013T024531"
       ],
@@ -54,7 +56,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 16.48,
           "clear_inside_pixel_count": 3012,
-          "clear_inside_pct": 85.11
+          "clear_inside_pct": 85.11,
+          "clear_buffer_pct": 78.89
         }
       ],
       "scenes": [
@@ -67,7 +70,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 99.57,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20230903T033541_R061_T47PMK_20241106T073433",
@@ -78,7 +82,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 99.83,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20230906T034541_R104_T47PMK_20241026T184331",
@@ -89,7 +94,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20230908T033539_R061_T47PMK_20241104T232445",
@@ -100,7 +106,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 99.89,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20230911T034539_R104_T47PMK_20241105T005921",
@@ -111,7 +118,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 86.01,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.05
         },
         {
           "id": "S2A_MSIL2A_20230913T033541_R061_T47PMK_20241105T180357",
@@ -122,7 +130,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 93.03,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 11.17
         },
         {
           "id": "S2A_MSIL2A_20230916T034541_R104_T47PMK_20241027T152740",
@@ -133,7 +142,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 97.7,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20230918T033539_R061_T47PMK_20241013T024531",
@@ -144,7 +154,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 16.48,
           "clear_inside_pixel_count": 3012,
-          "clear_inside_pct": 85.11
+          "clear_inside_pct": 85.11,
+          "clear_buffer_pct": 78.89
         },
         {
           "id": "S2B_MSIL2A_20230921T034539_R104_T47PMK_20241106T140124",
@@ -155,7 +166,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 82.19,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 9.44
         },
         {
           "id": "S2A_MSIL2A_20230923T033541_R061_T47PMK_20241105T101720",
@@ -166,7 +178,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 73.19,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20230926T034541_R104_T47PMK_20241018T182413",
@@ -177,7 +190,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 99.02,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20230928T033539_R061_T47PMK_20230928T092334",
@@ -188,7 +202,8 @@
           "processing_baseline": "05.09",
           "catalog_cloud_cover_pct": 82.81,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         }
       ],
       "stats": {
@@ -206,13 +221,15 @@
     },
     {
       "month": "2023-12",
-      "analysis_mode": "single_scene",
+      "analysis_mode": "single_scene_good",
+      "composite_method": "none",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3539,
       "coverage_pct": 100.0,
       "scenes_evaluated_count": 12,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
         "S2B_MSIL2A_20231207T034129_R061_T47PMK_20231207T081425"
       ],
@@ -226,7 +243,8 @@
           "processing_baseline": "05.09",
           "catalog_cloud_cover_pct": 57.83,
           "clear_inside_pixel_count": 3539,
-          "clear_inside_pct": 100.0
+          "clear_inside_pct": 100.0,
+          "clear_buffer_pct": 84.21
         }
       ],
       "scenes": [
@@ -239,7 +257,8 @@
           "processing_baseline": "05.09",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20231205T035121_R104_T47PMK_20241011T153244",
@@ -250,7 +269,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 11.67,
           "clear_inside_pixel_count": 3204,
-          "clear_inside_pct": 90.53
+          "clear_inside_pct": 90.53,
+          "clear_buffer_pct": 73.61
         },
         {
           "id": "S2B_MSIL2A_20231207T034129_R061_T47PMK_20231207T081425",
@@ -261,7 +281,8 @@
           "processing_baseline": "05.09",
           "catalog_cloud_cover_pct": 57.83,
           "clear_inside_pixel_count": 3539,
-          "clear_inside_pct": 100.0
+          "clear_inside_pct": 100.0,
+          "clear_buffer_pct": 84.21
         },
         {
           "id": "S2B_MSIL2A_20231210T035139_R104_T47PMK_20241028T055118",
@@ -272,7 +293,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 33.64,
           "clear_inside_pixel_count": 1838,
-          "clear_inside_pct": 51.94
+          "clear_inside_pct": 51.94,
+          "clear_buffer_pct": 54.46
         },
         {
           "id": "S2A_MSIL2A_20231212T034141_R061_T47PMK_20241016T114720",
@@ -283,7 +305,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 99.03,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20231215T035141_R104_T47PMK_20231219T231516",
@@ -294,7 +317,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 90.7,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20231217T034149_R061_T47PMK_20231220T053300",
@@ -305,7 +329,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 38.42,
           "clear_inside_pixel_count": 513,
-          "clear_inside_pct": 14.5
+          "clear_inside_pct": 14.5,
+          "clear_buffer_pct": 29.71
         },
         {
           "id": "S2B_MSIL2A_20231220T035149_R104_T47PMK_20231222T010314",
@@ -316,7 +341,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 15.48,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20231222T034151_R061_T47PMK_20231222T082250",
@@ -327,7 +353,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 77.02,
           "clear_inside_pixel_count": 2123,
-          "clear_inside_pct": 59.99
+          "clear_inside_pct": 59.99,
+          "clear_buffer_pct": 38.87
         },
         {
           "id": "S2A_MSIL2A_20231225T035151_R104_T47PMK_20231225T081649",
@@ -338,7 +365,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 90.86,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20231227T034149_R061_T47PMK_20231227T081112",
@@ -349,7 +377,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 49.91,
           "clear_inside_pixel_count": 10,
-          "clear_inside_pct": 0.28
+          "clear_inside_pct": 0.28,
+          "clear_buffer_pct": 4.23
         },
         {
           "id": "S2B_MSIL2A_20231230T035149_R104_T47PMK_20231230T072358",
@@ -360,7 +389,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 58.26,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         }
       ],
       "stats": {
@@ -378,27 +408,30 @@
     },
     {
       "month": "2024-03",
-      "analysis_mode": "single_scene",
+      "analysis_mode": "single_scene_good",
+      "composite_method": "none",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3539,
       "coverage_pct": 100.0,
       "scenes_evaluated_count": 13,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
-        "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116"
+        "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052"
       ],
       "selected_scenes": [
         {
-          "id": "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116",
+          "id": "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
           "satellite": "Sentinel-2A",
-          "datetime_utc": "2024-03-01 03:36:51.024000+00:00",
-          "datetime_thailand": "2024-03-01 10:36:51 UTC+7",
+          "datetime_utc": "2024-03-21 03:35:41.024000+00:00",
+          "datetime_thailand": "2024-03-21 10:35:41 UTC+7",
           "mgrs_tile": "47PMK",
           "processing_baseline": "05.10",
-          "catalog_cloud_cover_pct": 14.71,
+          "catalog_cloud_cover_pct": 10.47,
           "clear_inside_pixel_count": 3539,
-          "clear_inside_pct": 100.0
+          "clear_inside_pct": 100.0,
+          "clear_buffer_pct": 98.44
         }
       ],
       "scenes": [
@@ -411,7 +444,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 14.71,
           "clear_inside_pixel_count": 3539,
-          "clear_inside_pct": 100.0
+          "clear_inside_pct": 100.0,
+          "clear_buffer_pct": 97.86
         },
         {
           "id": "S2A_MSIL2A_20240304T034641_R104_T47PMK_20240304T095827",
@@ -422,7 +456,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 86.57,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20240306T033609_R061_T47PMK_20240306T080805",
@@ -433,7 +468,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 82.25,
           "clear_inside_pixel_count": 3449,
-          "clear_inside_pct": 97.46
+          "clear_inside_pct": 97.46,
+          "clear_buffer_pct": 77.11
         },
         {
           "id": "S2B_MSIL2A_20240309T034559_R104_T47PMK_20240309T081545",
@@ -444,7 +480,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 78.13,
           "clear_inside_pixel_count": 144,
-          "clear_inside_pct": 4.07
+          "clear_inside_pct": 4.07,
+          "clear_buffer_pct": 15.5
         },
         {
           "id": "S2A_MSIL2A_20240311T033541_R061_T47PMK_20240311T144739",
@@ -455,7 +492,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 44.61,
           "clear_inside_pixel_count": 325,
-          "clear_inside_pct": 9.18
+          "clear_inside_pct": 9.18,
+          "clear_buffer_pct": 12.27
         },
         {
           "id": "S2A_MSIL2A_20240314T034531_R104_T47PMK_20240314T092007",
@@ -466,7 +504,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 17.85,
           "clear_inside_pixel_count": 462,
-          "clear_inside_pct": 13.05
+          "clear_inside_pct": 13.05,
+          "clear_buffer_pct": 25.57
         },
         {
           "id": "S2B_MSIL2A_20240316T033539_R061_T47PMK_20240316T081213",
@@ -477,7 +516,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 51.24,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20240319T034529_R104_T47PMK_20240319T082045",
@@ -488,7 +528,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 0.7,
           "clear_inside_pixel_count": 2914,
-          "clear_inside_pct": 82.34
+          "clear_inside_pct": 82.34,
+          "clear_buffer_pct": 72.1
         },
         {
           "id": "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
@@ -499,7 +540,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 10.47,
           "clear_inside_pixel_count": 3539,
-          "clear_inside_pct": 100.0
+          "clear_inside_pct": 100.0,
+          "clear_buffer_pct": 98.44
         },
         {
           "id": "S2A_MSIL2A_20240324T034531_R104_T47PMK_20240324T103758",
@@ -510,7 +552,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 6.13,
           "clear_inside_pixel_count": 105,
-          "clear_inside_pct": 2.97
+          "clear_inside_pct": 2.97,
+          "clear_buffer_pct": 19.66
         },
         {
           "id": "S2B_MSIL2A_20240326T033539_R061_T47PMK_20240326T091645",
@@ -521,7 +564,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 16.69,
           "clear_inside_pixel_count": 3412,
-          "clear_inside_pct": 96.41
+          "clear_inside_pct": 96.41,
+          "clear_buffer_pct": 95.13
         },
         {
           "id": "S2B_MSIL2A_20240329T034539_R104_T47PMK_20240330T072451",
@@ -532,7 +576,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 59.92,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20240331T033531_R061_T47PMK_20240331T092408",
@@ -543,31 +588,34 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 44.57,
           "clear_inside_pixel_count": 700,
-          "clear_inside_pct": 19.78
+          "clear_inside_pct": 19.78,
+          "clear_buffer_pct": 19.84
         }
       ],
       "stats": {
-        "mean_ndvi": 0.517,
-        "median_ndvi": 0.5293,
-        "p10_ndvi": 0.4745,
-        "p90_ndvi": 0.5526,
-        "median_ndre": 0.4102,
-        "median_mndwi": -0.1363,
-        "median_evi": 0.5917,
-        "median_mfi": 0.2267,
-        "water_fraction": 0.0065,
-        "green_proxy_fraction": 0.9943
+        "mean_ndvi": 0.5532,
+        "median_ndvi": 0.5662,
+        "p10_ndvi": 0.5054,
+        "p90_ndvi": 0.592,
+        "median_ndre": 0.4273,
+        "median_mndwi": -0.1715,
+        "median_evi": 0.6242,
+        "median_mfi": 0.2443,
+        "water_fraction": 0.002,
+        "green_proxy_fraction": 0.9966
       }
     },
     {
       "month": "2024-06",
-      "analysis_mode": "single_scene",
+      "analysis_mode": "single_scene_good",
+      "composite_method": "none",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3473,
       "coverage_pct": 98.14,
       "scenes_evaluated_count": 11,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
         "S2A_MSIL2A_20240629T033541_R061_T47PMK_20240629T102845"
       ],
@@ -581,7 +629,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 43.6,
           "clear_inside_pixel_count": 3473,
-          "clear_inside_pct": 98.14
+          "clear_inside_pct": 98.14,
+          "clear_buffer_pct": 80.16
         }
       ],
       "scenes": [
@@ -594,7 +643,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20240604T033539_R061_T47PMK_20240604T081237",
@@ -605,7 +655,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 63.21,
           "clear_inside_pixel_count": 978,
-          "clear_inside_pct": 27.63
+          "clear_inside_pct": 27.63,
+          "clear_buffer_pct": 26.25
         },
         {
           "id": "S2B_MSIL2A_20240607T034539_R104_T47PMK_20240607T080644",
@@ -616,7 +667,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 97.26,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.01
         },
         {
           "id": "S2A_MSIL2A_20240609T033541_R061_T47PMK_20240609T101957",
@@ -627,7 +679,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 81.96,
           "clear_inside_pixel_count": 1037,
-          "clear_inside_pct": 29.3
+          "clear_inside_pct": 29.3,
+          "clear_buffer_pct": 44.13
         },
         {
           "id": "S2B_MSIL2A_20240614T033539_R061_T47PMK_20240614T080605",
@@ -638,7 +691,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 42.88,
           "clear_inside_pixel_count": 2602,
-          "clear_inside_pct": 73.52
+          "clear_inside_pct": 73.52,
+          "clear_buffer_pct": 62.81
         },
         {
           "id": "S2B_MSIL2A_20240617T034539_R104_T47PMK_20240617T082351",
@@ -649,7 +703,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20240619T033541_R061_T47PMK_20240619T093857",
@@ -660,7 +715,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 53.26,
           "clear_inside_pixel_count": 243,
-          "clear_inside_pct": 6.87
+          "clear_inside_pct": 6.87,
+          "clear_buffer_pct": 24.27
         },
         {
           "id": "S2A_MSIL2A_20240622T034541_R104_T47PMK_20240622T100649",
@@ -671,7 +727,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 99.92,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20240624T033539_R061_T47PMK_20240624T085200",
@@ -682,7 +739,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 98.85,
           "clear_inside_pixel_count": 24,
-          "clear_inside_pct": 0.68
+          "clear_inside_pct": 0.68,
+          "clear_buffer_pct": 3.52
         },
         {
           "id": "S2B_MSIL2A_20240627T034539_R104_T47PMK_20240627T080955",
@@ -693,7 +751,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 20.76,
           "clear_inside_pixel_count": 396,
-          "clear_inside_pct": 11.19
+          "clear_inside_pct": 11.19,
+          "clear_buffer_pct": 24.77
         },
         {
           "id": "S2A_MSIL2A_20240629T033541_R061_T47PMK_20240629T102845",
@@ -704,7 +763,8 @@
           "processing_baseline": "05.10",
           "catalog_cloud_cover_pct": 43.6,
           "clear_inside_pixel_count": 3473,
-          "clear_inside_pct": 98.14
+          "clear_inside_pct": 98.14,
+          "clear_buffer_pct": 80.16
         }
       ],
       "stats": {
@@ -722,13 +782,15 @@
     },
     {
       "month": "2024-09",
-      "analysis_mode": "single_scene",
+      "analysis_mode": "single_scene_good",
+      "composite_method": "none",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3481,
       "coverage_pct": 98.36,
       "scenes_evaluated_count": 9,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
         "S2A_MSIL2A_20240927T033541_R061_T47PMK_20240927T085345"
       ],
@@ -742,7 +804,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 39.61,
           "clear_inside_pixel_count": 3481,
-          "clear_inside_pct": 98.36
+          "clear_inside_pct": 98.36,
+          "clear_buffer_pct": 96.81
         }
       ],
       "scenes": [
@@ -755,7 +818,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.89,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20240905T034539_R104_T47PMK_20240905T080012",
@@ -766,7 +830,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.47,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20240907T033531_R061_T47PMK_20240907T090557",
@@ -777,7 +842,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 95.68,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20240910T034531_R104_T47PMK_20240910T091456",
@@ -788,7 +854,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 98.94,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.04
         },
         {
           "id": "S2B_MSIL2A_20240912T033539_R061_T47PMK_20240912T082434",
@@ -799,7 +866,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 81.6,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.89
         },
         {
           "id": "S2B_MSIL2A_20240922T033529_R061_T47PMK_20240922T081602",
@@ -810,7 +878,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 64.16,
           "clear_inside_pixel_count": 317,
-          "clear_inside_pct": 8.96
+          "clear_inside_pct": 8.96,
+          "clear_buffer_pct": 10.56
         },
         {
           "id": "S2B_MSIL2A_20240925T034529_R104_T47PMK_20240925T084408",
@@ -821,7 +890,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 75.05,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20240927T033541_R061_T47PMK_20240927T085345",
@@ -832,7 +902,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 39.61,
           "clear_inside_pixel_count": 3481,
-          "clear_inside_pct": 98.36
+          "clear_inside_pct": 98.36,
+          "clear_buffer_pct": 96.81
         },
         {
           "id": "S2A_MSIL2A_20240930T034541_R104_T47PMK_20240930T074749",
@@ -843,7 +914,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 66.33,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         }
       ],
       "stats": {
@@ -862,12 +934,14 @@
     {
       "month": "2024-12",
       "analysis_mode": "same_month_multi_scene_composite",
+      "composite_method": "median_clear_reflectance",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3394,
       "coverage_pct": 95.9,
       "scenes_evaluated_count": 13,
       "scenes_used_count": 3,
+      "number_of_contributing_scenes": 3,
       "selected_scene_ids": [
         "S2B_MSIL2A_20241201T034029_R061_T47PMK_20241201T063331",
         "S2B_MSIL2A_20241221T034059_R061_T47PMK_20241221T072432",
@@ -883,7 +957,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 92.07,
           "clear_inside_pixel_count": 2793,
-          "clear_inside_pct": 78.92
+          "clear_inside_pct": 78.92,
+          "clear_buffer_pct": 73.49
         },
         {
           "id": "S2B_MSIL2A_20241221T034059_R061_T47PMK_20241221T072432",
@@ -894,7 +969,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 57.54,
           "clear_inside_pixel_count": 2312,
-          "clear_inside_pct": 65.33
+          "clear_inside_pct": 65.33,
+          "clear_buffer_pct": 52.15
         },
         {
           "id": "S2A_MSIL2A_20241226T034151_R061_T47PMK_20241226T064949",
@@ -905,7 +981,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 68.37,
           "clear_inside_pixel_count": 1,
-          "clear_inside_pct": 0.03
+          "clear_inside_pct": 0.03,
+          "clear_buffer_pct": 1.14
         }
       ],
       "scenes": [
@@ -918,7 +995,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 92.07,
           "clear_inside_pixel_count": 2793,
-          "clear_inside_pct": 78.92
+          "clear_inside_pct": 78.92,
+          "clear_buffer_pct": 73.49
         },
         {
           "id": "S2B_MSIL2A_20241204T035039_R104_T47PMK_20241204T060607",
@@ -929,7 +1007,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20241206T034131_R061_T47PMK_20241206T070059",
@@ -940,7 +1019,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 75.48,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20241209T035141_R104_T47PMK_20241209T072050",
@@ -951,7 +1031,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20241211T034049_R061_T47PMK_20241211T082736",
@@ -962,7 +1043,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 68.93,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20241214T035059_R104_T47PMK_20241214T062723",
@@ -973,7 +1055,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20241216T034151_R061_T47PMK_20241216T070953",
@@ -984,7 +1067,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20241219T035151_R104_T47PMK_20241219T070750",
@@ -995,7 +1079,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 72.27,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20241221T034059_R061_T47PMK_20241221T072432",
@@ -1006,7 +1091,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 57.54,
           "clear_inside_pixel_count": 2312,
-          "clear_inside_pct": 65.33
+          "clear_inside_pct": 65.33,
+          "clear_buffer_pct": 52.15
         },
         {
           "id": "S2B_MSIL2A_20241224T035059_R104_T47PMK_20241224T061923",
@@ -1017,7 +1103,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 88.04,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20241226T034151_R061_T47PMK_20241226T064949",
@@ -1028,7 +1115,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 68.37,
           "clear_inside_pixel_count": 1,
-          "clear_inside_pct": 0.03
+          "clear_inside_pct": 0.03,
+          "clear_buffer_pct": 1.14
         },
         {
           "id": "S2A_MSIL2A_20241229T035151_R104_T47PMK_20241229T065253",
@@ -1039,7 +1127,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 88.41,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20241231T034049_R061_T47PMK_20241231T063102",
@@ -1050,7 +1139,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 37.1,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         }
       ],
       "stats": {
@@ -1068,13 +1158,15 @@
     },
     {
       "month": "2025-03",
-      "analysis_mode": "single_scene",
+      "analysis_mode": "single_scene_good",
+      "composite_method": "none",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3516,
       "coverage_pct": 99.35,
       "scenes_evaluated_count": 14,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
         "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416"
       ],
@@ -1088,7 +1180,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 2.2,
           "clear_inside_pixel_count": 3516,
-          "clear_inside_pct": 99.35
+          "clear_inside_pct": 99.35,
+          "clear_buffer_pct": 96.84
         }
       ],
       "scenes": [
@@ -1101,7 +1194,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 32.79,
           "clear_inside_pixel_count": 1040,
-          "clear_inside_pct": 29.39
+          "clear_inside_pct": 29.39,
+          "clear_buffer_pct": 38.14
         },
         {
           "id": "S2B_MSIL2A_20250304T034549_R104_T47PMK_20250304T063849",
@@ -1112,7 +1206,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 23.98,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 8.49
         },
         {
           "id": "S2C_MSIL2A_20250306T033641_R061_T47PMK_20250306T085914",
@@ -1123,7 +1218,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.56,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20250309T034631_R104_T47PMK_20250309T092116",
@@ -1134,7 +1230,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 89.47,
           "clear_inside_pixel_count": 103,
-          "clear_inside_pct": 2.91
+          "clear_inside_pct": 2.91,
+          "clear_buffer_pct": 9.59
         },
         {
           "id": "S2B_MSIL2A_20250311T033539_R061_T47PMK_20250311T072242",
@@ -1145,7 +1242,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 66.8,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250314T034539_R104_T47PMK_20250314T090258",
@@ -1156,7 +1254,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 42.09,
           "clear_inside_pixel_count": 76,
-          "clear_inside_pct": 2.15
+          "clear_inside_pct": 2.15,
+          "clear_buffer_pct": 9.2
         },
         {
           "id": "S2C_MSIL2A_20250316T033601_R061_T47PMK_20250316T090315",
@@ -1167,7 +1266,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 7.88,
           "clear_inside_pixel_count": 3481,
-          "clear_inside_pct": 98.36
+          "clear_inside_pct": 98.36,
+          "clear_buffer_pct": 96.71
         },
         {
           "id": "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518",
@@ -1178,7 +1278,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 18.59,
           "clear_inside_pixel_count": 3456,
-          "clear_inside_pct": 97.65
+          "clear_inside_pct": 97.65,
+          "clear_buffer_pct": 89.18
         },
         {
           "id": "S2C_MSIL2A_20250319T034601_R104_T47PMK_20250319T090407",
@@ -1189,7 +1290,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 81.76,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250321T033539_R061_T47PMK_20250321T073809",
@@ -1200,7 +1302,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 66.57,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250324T034539_R104_T47PMK_20250324T072707",
@@ -1211,7 +1314,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 3.59,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 6.03
         },
         {
           "id": "S2C_MSIL2A_20250326T033601_R061_T47PMK_20250326T085914",
@@ -1222,7 +1326,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 45.04,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 3.29
         },
         {
           "id": "S2C_MSIL2A_20250329T034601_R104_T47PMK_20250329T101612",
@@ -1233,7 +1338,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 22.09,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.01
         },
         {
           "id": "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
@@ -1244,7 +1350,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 2.2,
           "clear_inside_pixel_count": 3516,
-          "clear_inside_pct": 99.35
+          "clear_inside_pct": 99.35,
+          "clear_buffer_pct": 96.84
         }
       ],
       "stats": {
@@ -1263,30 +1370,21 @@
     {
       "month": "2025-06",
       "analysis_mode": "same_month_multi_scene_composite",
+      "composite_method": "median_clear_reflectance",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3539,
       "coverage_pct": 100.0,
       "scenes_evaluated_count": 14,
       "scenes_used_count": 4,
+      "number_of_contributing_scenes": 4,
       "selected_scene_ids": [
-        "S2B_MSIL2A_20250602T034539_R104_T47PMK_20250602T072429",
         "S2C_MSIL2A_20250614T033551_R061_T47PMK_20250614T090546",
         "S2C_MSIL2A_20250617T034551_R104_T47PMK_20250617T084215",
-        "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417"
+        "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
+        "S2B_MSIL2A_20250602T034539_R104_T47PMK_20250602T072429"
       ],
       "selected_scenes": [
-        {
-          "id": "S2B_MSIL2A_20250602T034539_R104_T47PMK_20250602T072429",
-          "satellite": "Sentinel-2B",
-          "datetime_utc": "2025-06-02 03:45:39.024000+00:00",
-          "datetime_thailand": "2025-06-02 10:45:39 UTC+7",
-          "mgrs_tile": "47PMK",
-          "processing_baseline": "05.11",
-          "catalog_cloud_cover_pct": 50.82,
-          "clear_inside_pixel_count": 1482,
-          "clear_inside_pct": 41.88
-        },
         {
           "id": "S2C_MSIL2A_20250614T033551_R061_T47PMK_20250614T090546",
           "satellite": "Sentinel-2C",
@@ -1296,7 +1394,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 61.79,
           "clear_inside_pixel_count": 3351,
-          "clear_inside_pct": 94.69
+          "clear_inside_pct": 94.69,
+          "clear_buffer_pct": 90.45
         },
         {
           "id": "S2C_MSIL2A_20250617T034551_R104_T47PMK_20250617T084215",
@@ -1307,7 +1406,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 62.35,
           "clear_inside_pixel_count": 2723,
-          "clear_inside_pct": 76.94
+          "clear_inside_pct": 76.94,
+          "clear_buffer_pct": 62.36
         },
         {
           "id": "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
@@ -1318,7 +1418,20 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 49.8,
           "clear_inside_pixel_count": 1677,
-          "clear_inside_pct": 47.39
+          "clear_inside_pct": 47.39,
+          "clear_buffer_pct": 56.68
+        },
+        {
+          "id": "S2B_MSIL2A_20250602T034539_R104_T47PMK_20250602T072429",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-06-02 03:45:39.024000+00:00",
+          "datetime_thailand": "2025-06-02 10:45:39 UTC+7",
+          "mgrs_tile": "47PMK",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 50.82,
+          "clear_inside_pixel_count": 1482,
+          "clear_inside_pct": 41.88,
+          "clear_buffer_pct": 48.52
         }
       ],
       "scenes": [
@@ -1331,7 +1444,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 50.82,
           "clear_inside_pixel_count": 1482,
-          "clear_inside_pct": 41.88
+          "clear_inside_pct": 41.88,
+          "clear_buffer_pct": 48.52
         },
         {
           "id": "S2C_MSIL2A_20250604T033601_R061_T47PMK_20250604T084721",
@@ -1342,7 +1456,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20250606T034201_R061_T47PMK_20250606T073218",
@@ -1353,7 +1468,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 73.1,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20250607T034551_R104_T47PMK_20250607T084512",
@@ -1364,7 +1480,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.7,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20250609T035201_R104_T47PMK_20250609T074706",
@@ -1375,7 +1492,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 85.29,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250612T034529_R104_T47PMK_20250612T072149",
@@ -1386,7 +1504,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20250614T033551_R061_T47PMK_20250614T090546",
@@ -1397,7 +1516,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 61.79,
           "clear_inside_pixel_count": 3351,
-          "clear_inside_pct": 94.69
+          "clear_inside_pct": 94.69,
+          "clear_buffer_pct": 90.45
         },
         {
           "id": "S2C_MSIL2A_20250617T034551_R104_T47PMK_20250617T084215",
@@ -1408,7 +1528,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 62.35,
           "clear_inside_pixel_count": 2723,
-          "clear_inside_pct": 76.94
+          "clear_inside_pct": 76.94,
+          "clear_buffer_pct": 62.36
         },
         {
           "id": "S2B_MSIL2A_20250619T033539_R061_T47PMK_20250619T071719",
@@ -1419,7 +1540,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250622T034539_R104_T47PMK_20250622T062634",
@@ -1430,7 +1552,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.01
         },
         {
           "id": "S2C_MSIL2A_20250624T033551_R061_T47PMK_20250624T083123",
@@ -1441,7 +1564,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.93,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20250626T034201_R061_T47PMK_20250626T073921",
@@ -1452,7 +1576,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 97.09,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20250627T034551_R104_T47PMK_20250627T090222",
@@ -1463,7 +1588,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 86.56,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
@@ -1474,7 +1600,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 49.8,
           "clear_inside_pixel_count": 1677,
-          "clear_inside_pct": 47.39
+          "clear_inside_pct": 47.39,
+          "clear_buffer_pct": 56.68
         }
       ],
       "stats": {
@@ -1493,18 +1620,32 @@
     {
       "month": "2025-09",
       "analysis_mode": "same_month_multi_scene_composite",
+      "composite_method": "median_clear_reflectance",
       "qa": "PARTIAL",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 2624,
       "coverage_pct": 74.15,
       "scenes_evaluated_count": 13,
       "scenes_used_count": 3,
+      "number_of_contributing_scenes": 3,
       "selected_scene_ids": [
+        "S2B_MSIL2A_20250920T034529_R104_T47PMK_20250920T062925",
         "S2A_MSIL2A_20250914T034201_R061_T47PMK_20250914T073413",
-        "S2A_MSIL2A_20250917T035201_R104_T47PMK_20250917T084415",
-        "S2B_MSIL2A_20250920T034529_R104_T47PMK_20250920T062925"
+        "S2A_MSIL2A_20250917T035201_R104_T47PMK_20250917T084415"
       ],
       "selected_scenes": [
+        {
+          "id": "S2B_MSIL2A_20250920T034529_R104_T47PMK_20250920T062925",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-09-20 03:45:29.024000+00:00",
+          "datetime_thailand": "2025-09-20 10:45:29 UTC+7",
+          "mgrs_tile": "47PMK",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 30.74,
+          "clear_inside_pixel_count": 2547,
+          "clear_inside_pct": 71.97,
+          "clear_buffer_pct": 43.75
+        },
         {
           "id": "S2A_MSIL2A_20250914T034201_R061_T47PMK_20250914T073413",
           "satellite": "Sentinel-2A",
@@ -1514,7 +1655,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 92.36,
           "clear_inside_pixel_count": 853,
-          "clear_inside_pct": 24.1
+          "clear_inside_pct": 24.1,
+          "clear_buffer_pct": 24.24
         },
         {
           "id": "S2A_MSIL2A_20250917T035201_R104_T47PMK_20250917T084415",
@@ -1525,18 +1667,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.53,
           "clear_inside_pixel_count": 28,
-          "clear_inside_pct": 0.79
-        },
-        {
-          "id": "S2B_MSIL2A_20250920T034529_R104_T47PMK_20250920T062925",
-          "satellite": "Sentinel-2B",
-          "datetime_utc": "2025-09-20 03:45:29.024000+00:00",
-          "datetime_thailand": "2025-09-20 10:45:29 UTC+7",
-          "mgrs_tile": "47PMK",
-          "processing_baseline": "05.11",
-          "catalog_cloud_cover_pct": 30.74,
-          "clear_inside_pixel_count": 2547,
-          "clear_inside_pct": 71.97
+          "clear_inside_pct": 0.79,
+          "clear_buffer_pct": 0.1
         }
       ],
       "scenes": [
@@ -1549,7 +1681,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 92.15,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20250905T034551_R104_T47PMK_20250905T091613",
@@ -1560,7 +1693,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.16,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250907T033539_R061_T47PMK_20250907T072207",
@@ -1571,7 +1705,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250910T034529_R104_T47PMK_20250910T072303",
@@ -1582,7 +1717,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20250912T033551_R061_T47PMK_20250912T090014",
@@ -1593,7 +1729,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.81,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20250914T034201_R061_T47PMK_20250914T073413",
@@ -1604,7 +1741,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 92.36,
           "clear_inside_pixel_count": 853,
-          "clear_inside_pct": 24.1
+          "clear_inside_pct": 24.1,
+          "clear_buffer_pct": 24.24
         },
         {
           "id": "S2C_MSIL2A_20250915T034551_R104_T47PMK_20250915T102519",
@@ -1615,7 +1753,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 89.39,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20250917T035201_R104_T47PMK_20250917T084415",
@@ -1626,7 +1765,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.53,
           "clear_inside_pixel_count": 28,
-          "clear_inside_pct": 0.79
+          "clear_inside_pct": 0.79,
+          "clear_buffer_pct": 0.1
         },
         {
           "id": "S2B_MSIL2A_20250920T034529_R104_T47PMK_20250920T062925",
@@ -1637,7 +1777,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 30.74,
           "clear_inside_pixel_count": 2547,
-          "clear_inside_pct": 71.97
+          "clear_inside_pct": 71.97,
+          "clear_buffer_pct": 43.75
         },
         {
           "id": "S2C_MSIL2A_20250922T033551_R061_T47PMK_20250922T091415",
@@ -1648,7 +1789,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 88.06,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20250925T034551_R104_T47PMK_20250925T091100",
@@ -1659,7 +1801,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 91.2,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250927T033539_R061_T47PMK_20250927T072544",
@@ -1670,7 +1813,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 99.3,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20250930T034539_R104_T47PMK_20250930T073330",
@@ -1681,7 +1825,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 82.46,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         }
       ],
       "stats": {
@@ -1699,13 +1844,15 @@
     },
     {
       "month": "2025-12",
-      "analysis_mode": "single_scene",
+      "analysis_mode": "single_scene_good",
+      "composite_method": "none",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3456,
       "coverage_pct": 97.65,
       "scenes_evaluated_count": 13,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
         "S2A_MSIL2A_20251203T034201_R061_T47PMK_20251203T073813"
       ],
@@ -1719,7 +1866,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 8.3,
           "clear_inside_pixel_count": 3456,
-          "clear_inside_pct": 97.65
+          "clear_inside_pct": 97.65,
+          "clear_buffer_pct": 98.1
         }
       ],
       "scenes": [
@@ -1732,7 +1880,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 24.87,
           "clear_inside_pixel_count": 434,
-          "clear_inside_pct": 12.26
+          "clear_inside_pct": 12.26,
+          "clear_buffer_pct": 24.76
         },
         {
           "id": "S2A_MSIL2A_20251203T034201_R061_T47PMK_20251203T073813",
@@ -1743,7 +1892,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 8.3,
           "clear_inside_pixel_count": 3456,
-          "clear_inside_pct": 97.65
+          "clear_inside_pct": 97.65,
+          "clear_buffer_pct": 98.1
         },
         {
           "id": "S2C_MSIL2A_20251204T035141_R104_T47PMK_20251204T063317",
@@ -1754,7 +1904,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 12.35,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20251206T035201_R104_T47PMK_20251206T075410",
@@ -1765,7 +1916,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 26.44,
           "clear_inside_pixel_count": 2861,
-          "clear_inside_pct": 80.84
+          "clear_inside_pct": 80.84,
+          "clear_buffer_pct": 76.47
         },
         {
           "id": "S2B_MSIL2A_20251209T035049_R104_T47PMK_20251209T054856",
@@ -1776,7 +1928,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 6.36,
           "clear_inside_pixel_count": 2682,
-          "clear_inside_pct": 75.78
+          "clear_inside_pct": 75.78,
+          "clear_buffer_pct": 69.58
         },
         {
           "id": "S2C_MSIL2A_20251211T034151_R061_T47PMK_20251211T063110",
@@ -1787,7 +1940,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 64.23,
           "clear_inside_pixel_count": 2408,
-          "clear_inside_pct": 68.04
+          "clear_inside_pct": 68.04,
+          "clear_buffer_pct": 73.19
         },
         {
           "id": "S2B_MSIL2A_20251216T034049_R061_T47PMK_20251216T055847",
@@ -1798,7 +1952,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 91.89,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20251219T035059_R104_T47PMK_20251219T054917",
@@ -1809,7 +1964,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 28.15,
           "clear_inside_pixel_count": 3355,
-          "clear_inside_pct": 94.8
+          "clear_inside_pct": 94.8,
+          "clear_buffer_pct": 68.33
         },
         {
           "id": "S2C_MSIL2A_20251221T034201_R061_T47PMK_20251221T063507",
@@ -1820,7 +1976,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 15.59,
           "clear_inside_pixel_count": 1434,
-          "clear_inside_pct": 40.52
+          "clear_inside_pct": 40.52,
+          "clear_buffer_pct": 32.37
         },
         {
           "id": "S2A_MSIL2A_20251223T034211_R061_T47PMK_20251223T073224",
@@ -1831,7 +1988,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 24.88,
           "clear_inside_pixel_count": 2850,
-          "clear_inside_pct": 80.53
+          "clear_inside_pct": 80.53,
+          "clear_buffer_pct": 85.07
         },
         {
           "id": "S2A_MSIL2A_20251226T035211_R104_T47PMK_20251226T071420",
@@ -1842,7 +2000,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 69.68,
           "clear_inside_pixel_count": 2658,
-          "clear_inside_pct": 75.11
+          "clear_inside_pct": 75.11,
+          "clear_buffer_pct": 69.1
         },
         {
           "id": "S2B_MSIL2A_20251229T035059_R104_T47PMK_20251229T072449",
@@ -1853,7 +2012,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 40.8,
           "clear_inside_pixel_count": 728,
-          "clear_inside_pct": 20.57
+          "clear_inside_pct": 20.57,
+          "clear_buffer_pct": 23.95
         },
         {
           "id": "S2C_MSIL2A_20251231T034151_R061_T47PMK_20251231T062811",
@@ -1864,7 +2024,8 @@
           "processing_baseline": "05.11",
           "catalog_cloud_cover_pct": 22.33,
           "clear_inside_pixel_count": 1616,
-          "clear_inside_pct": 45.66
+          "clear_inside_pct": 45.66,
+          "clear_buffer_pct": 39.87
         }
       ],
       "stats": {
@@ -1882,13 +2043,15 @@
     },
     {
       "month": "2026-03",
-      "analysis_mode": "single_scene",
+      "analysis_mode": "single_scene_good",
+      "composite_method": "none",
       "qa": "GOOD",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3530,
       "coverage_pct": 99.75,
       "scenes_evaluated_count": 13,
       "scenes_used_count": 1,
+      "number_of_contributing_scenes": 1,
       "selected_scene_ids": [
         "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910"
       ],
@@ -1902,7 +2065,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 0.15,
           "clear_inside_pixel_count": 3530,
-          "clear_inside_pct": 99.75
+          "clear_inside_pct": 99.75,
+          "clear_buffer_pct": 97.07
         }
       ],
       "scenes": [
@@ -1915,7 +2079,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 7.07,
           "clear_inside_pixel_count": 2410,
-          "clear_inside_pct": 68.1
+          "clear_inside_pct": 68.1,
+          "clear_buffer_pct": 80.12
         },
         {
           "id": "S2C_MSIL2A_20260304T034641_R104_T47PMK_20260304T090109",
@@ -1926,7 +2091,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 36.62,
           "clear_inside_pixel_count": 853,
-          "clear_inside_pct": 24.1
+          "clear_inside_pct": 24.1,
+          "clear_buffer_pct": 33.3
         },
         {
           "id": "S2B_MSIL2A_20260306T033539_R061_T47PMK_20260306T072603",
@@ -1937,7 +2103,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 54.09,
           "clear_inside_pixel_count": 2291,
-          "clear_inside_pct": 64.74
+          "clear_inside_pct": 64.74,
+          "clear_buffer_pct": 51.16
         },
         {
           "id": "S2B_MSIL2A_20260309T034529_R104_T47PMK_20260309T073336",
@@ -1948,7 +2115,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 17.91,
           "clear_inside_pixel_count": 14,
-          "clear_inside_pct": 0.4
+          "clear_inside_pct": 0.4,
+          "clear_buffer_pct": 16.05
         },
         {
           "id": "S2C_MSIL2A_20260311T033551_R061_T47PMK_20260311T091010",
@@ -1959,7 +2127,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 54.4,
           "clear_inside_pixel_count": 910,
-          "clear_inside_pct": 25.71
+          "clear_inside_pct": 25.71,
+          "clear_buffer_pct": 27.97
         },
         {
           "id": "S2A_MSIL2A_20260313T034201_R061_T47PMK_20260313T083010",
@@ -1970,7 +2139,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 39.0,
           "clear_inside_pixel_count": 2668,
-          "clear_inside_pct": 75.39
+          "clear_inside_pct": 75.39,
+          "clear_buffer_pct": 79.08
         },
         {
           "id": "S2C_MSIL2A_20260314T034541_R104_T47PMK_20260314T091810",
@@ -1981,7 +2151,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 6.35,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20260316T033529_R061_T47PMK_20260316T072001",
@@ -1992,7 +2163,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 31.74,
           "clear_inside_pixel_count": 2589,
-          "clear_inside_pct": 73.16
+          "clear_inside_pct": 73.16,
+          "clear_buffer_pct": 50.46
         },
         {
           "id": "S2B_MSIL2A_20260319T034529_R104_T47PMK_20260319T073036",
@@ -2003,7 +2175,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 6.19,
           "clear_inside_pixel_count": 3183,
-          "clear_inside_pct": 89.94
+          "clear_inside_pct": 89.94,
+          "clear_buffer_pct": 77.91
         },
         {
           "id": "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
@@ -2014,7 +2187,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 0.15,
           "clear_inside_pixel_count": 3530,
-          "clear_inside_pct": 99.75
+          "clear_inside_pct": 99.75,
+          "clear_buffer_pct": 97.07
         },
         {
           "id": "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
@@ -2025,7 +2199,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 4.6,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 2.64
         },
         {
           "id": "S2B_MSIL2A_20260329T034529_R104_T47PMK_20260329T073814",
@@ -2036,7 +2211,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 5.66,
           "clear_inside_pixel_count": 24,
-          "clear_inside_pct": 0.68
+          "clear_inside_pct": 0.68,
+          "clear_buffer_pct": 16.46
         },
         {
           "id": "S2C_MSIL2A_20260331T033541_R061_T47PMK_20260331T085215",
@@ -2047,7 +2223,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 71.93,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         }
       ],
       "stats": {
@@ -2066,29 +2243,20 @@
     {
       "month": "2026-08",
       "analysis_mode": "same_month_multi_scene_composite",
+      "composite_method": "median_clear_reflectance",
       "qa": "PARTIAL",
       "inside_pixel_count": 3539,
       "valid_pixel_count": 3099,
       "coverage_pct": 87.57,
       "scenes_evaluated_count": 11,
       "scenes_used_count": 3,
+      "number_of_contributing_scenes": 3,
       "selected_scene_ids": [
-        "S2C_MSIL2A_20260801T034531_R104_T47PMK_20260801T082610",
         "S2B_MSIL2A_20260803T033539_R061_T47PMK_20260803T072631",
+        "S2C_MSIL2A_20260801T034531_R104_T47PMK_20260801T082610",
         "S2A_MSIL2A_20260813T035201_R104_T47PMK_20260813T100908"
       ],
       "selected_scenes": [
-        {
-          "id": "S2C_MSIL2A_20260801T034531_R104_T47PMK_20260801T082610",
-          "satellite": "Sentinel-2C",
-          "datetime_utc": "2026-08-01 03:45:31.025000+00:00",
-          "datetime_thailand": "2026-08-01 10:45:31 UTC+7",
-          "mgrs_tile": "47PMK",
-          "processing_baseline": "05.12",
-          "catalog_cloud_cover_pct": 49.32,
-          "clear_inside_pixel_count": 974,
-          "clear_inside_pct": 27.52
-        },
         {
           "id": "S2B_MSIL2A_20260803T033539_R061_T47PMK_20260803T072631",
           "satellite": "Sentinel-2B",
@@ -2098,7 +2266,20 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 41.75,
           "clear_inside_pixel_count": 3099,
-          "clear_inside_pct": 87.57
+          "clear_inside_pct": 87.57,
+          "clear_buffer_pct": 78.38
+        },
+        {
+          "id": "S2C_MSIL2A_20260801T034531_R104_T47PMK_20260801T082610",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2026-08-01 03:45:31.025000+00:00",
+          "datetime_thailand": "2026-08-01 10:45:31 UTC+7",
+          "mgrs_tile": "47PMK",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 49.32,
+          "clear_inside_pixel_count": 974,
+          "clear_inside_pct": 27.52,
+          "clear_buffer_pct": 38.04
         },
         {
           "id": "S2A_MSIL2A_20260813T035201_R104_T47PMK_20260813T100908",
@@ -2109,7 +2290,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 57.2,
           "clear_inside_pixel_count": 20,
-          "clear_inside_pct": 0.57
+          "clear_inside_pct": 0.57,
+          "clear_buffer_pct": 0.46
         }
       ],
       "scenes": [
@@ -2122,7 +2304,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 49.32,
           "clear_inside_pixel_count": 974,
-          "clear_inside_pct": 27.52
+          "clear_inside_pct": 27.52,
+          "clear_buffer_pct": 38.04
         },
         {
           "id": "S2B_MSIL2A_20260803T033539_R061_T47PMK_20260803T072631",
@@ -2133,7 +2316,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 41.75,
           "clear_inside_pixel_count": 3099,
-          "clear_inside_pct": 87.57
+          "clear_inside_pct": 87.57,
+          "clear_buffer_pct": 78.38
         },
         {
           "id": "S2B_MSIL2A_20260806T034529_R104_T47PMK_20260806T073405",
@@ -2144,7 +2328,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 88.73,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.47
         },
         {
           "id": "S2C_MSIL2A_20260808T033531_R061_T47PMK_20260808T083957",
@@ -2155,7 +2340,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20260811T034531_R104_T47PMK_20260811T084712",
@@ -2166,7 +2352,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 77.12,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20260813T035201_R104_T47PMK_20260813T100908",
@@ -2177,7 +2364,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 57.2,
           "clear_inside_pixel_count": 20,
-          "clear_inside_pct": 0.57
+          "clear_inside_pct": 0.57,
+          "clear_buffer_pct": 0.46
         },
         {
           "id": "S2B_MSIL2A_20260816T034529_R104_T47PMK_20260816T073343",
@@ -2188,7 +2376,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 96.25,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20260818T033531_R061_T47PMK_20260818T084111",
@@ -2199,7 +2388,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2A_MSIL2A_20260820T034201_R061_T47PMK_20260820T103417",
@@ -2210,7 +2400,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 99.83,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2C_MSIL2A_20260821T034531_R104_T47PMK_20260821T084709",
@@ -2221,7 +2412,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 100.0,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         },
         {
           "id": "S2B_MSIL2A_20260823T033529_R061_T47PMK_20260823T072632",
@@ -2232,7 +2424,8 @@
           "processing_baseline": "05.12",
           "catalog_cloud_cover_pct": 85.38,
           "clear_inside_pixel_count": 0,
-          "clear_inside_pct": 0.0
+          "clear_inside_pct": 0.0,
+          "clear_buffer_pct": 0.0
         }
       ],
       "stats": {

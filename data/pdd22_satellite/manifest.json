@@ -1,6 +1,31 @@
 {
   "dataset_name": "PDD22 Sentinel-2 Level-2A Scientific Satellite Dataset",
-  "generated_at_utc": "2026-08-26T03:47:38.080856Z",
+  "generated_at_utc": "2026-08-26T05:46:36.381853Z",
+  "pipeline_git_commit": "3820baed4a9d25bd8013298ed23b7c3e26b585c5",
+  "pipeline_file_sha256": "46cf642301055196c7a87b4694a0eaf812b544b5f6f39d607780b14f81ffc397",
+  "python_version": "3.13.13",
+  "dependency_versions": {
+    "numpy": "2.5.1",
+    "rasterio": "1.5.0",
+    "shapely": "2.1.2",
+    "pyproj": "3.7.2",
+    "pystac-client": "0.9.0",
+    "planetary-computer": "1.0.0"
+  },
+  "processing_rules": {
+    "adjacent_month_fallback": false,
+    "interpolation": false,
+    "synthetic_pixels": false,
+    "strict_calendar_month": true,
+    "ranking_policy": [
+      "highest clear_inside_pct",
+      "highest clear_buffer_pct",
+      "lowest catalog_cloud_cover_pct",
+      "closest to middle of target calendar month",
+      "newest processing_baseline",
+      "stable deterministic ID"
+    ]
+  },
   "plot_count": 22,
   "total_pdd_area_rai": 6775.53,
   "observation_months": [

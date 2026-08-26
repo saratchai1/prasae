@@ -148,6 +148,19 @@ def get_pdd_polygon_mask(geom, grid: Grid) -> np.ndarray:
         all_touched=False,
     )
 
+def get_pdd_buffer_mask(geom, grid: Grid, buffer_meters: float = 200.0) -> np.ndarray:
+    buffer_deg = buffer_meters / 111111.0
+    buffer_geom = geom.buffer(buffer_deg)
+    buffer_mask = geometry_mask(
+        [mapping(buffer_geom)],
+        out_shape=(grid.height, grid.width),
+        transform=grid.transform,
+        invert=True,
+        all_touched=False,
+    )
+    pdd_mask = get_pdd_polygon_mask(geom, grid)
+    return buffer_mask & ~pdd_mask
+
 
 def _asset_scale_offset(item, asset_name: str) -> tuple[float, float]:
     asset = item.assets[asset_name]
@@ -334,6 +347,7 @@ def process_plot_month(
     plot: dict[str, Any],
     grid: Grid,
     pdd_mask: np.ndarray,
+    buffer_mask: np.ndarray,
     year: int,
     month: int,
 ) -> dict[str, Any]:
@@ -346,7 +360,7 @@ def process_plot_month(
     evaluated_scenes = []
     usable_items = []
 
-    buffer_pixel_count = grid.width * grid.height - inside_pixel_count
+    buffer_pixel_count = int(np.sum(buffer_mask))
     mid_month = dt_mod.datetime(year, month, calendar.monthrange(
         year, month)[1] // 2 + 1, tzinfo=dt_mod.timezone.utc)
 
@@ -375,7 +389,7 @@ def process_plot_month(
             clear_inside_pct = round(
                 clear_inside / inside_pixel_count * 100.0, 2)
 
-            clear_buffer = int(np.sum(clear_mask & ~pdd_mask))
+            clear_buffer = int(np.sum(clear_mask & buffer_mask))
             clear_buffer_pct = round(
                 clear_buffer / buffer_pixel_count * 100.0, 2) if buffer_pixel_count > 0 else 0.0
 
@@ -486,9 +500,18 @@ def process_plot_month(
     valid_pixel_count = int(np.sum(valid_inside_mask))
     coverage_pct = round(valid_pixel_count / inside_pixel_count * 100.0, 2)
 
-    if coverage_pct < 5.0:
+    # Update analysis mode based on final valid pixel count
+    num_scenes = len(selected_scenes)
+    if valid_pixel_count == 0:
         analysis_mode = "no_data"
-
+        selected_scenes = []
+    elif num_scenes == 1:
+        if coverage_pct >= 95.0:
+            analysis_mode = "single_scene_good"
+        else:
+            analysis_mode = "single_scene_partial"
+    elif num_scenes >= 2:
+        analysis_mode = "same_month_multi_scene_composite"
     if coverage_pct >= 95.0:
         qa_status = "GOOD"
     elif coverage_pct >= 50.0:
@@ -637,6 +660,7 @@ def process_single_plot(catalog, plot: dict[str, Any]) -> dict[str, Any]:
     geom = shape(plot["geometry"])
     grid = compute_fixed_grid(geom)
     pdd_mask = get_pdd_polygon_mask(geom, grid)
+    buffer_mask = get_pdd_buffer_mask(geom, grid, 200.0)
     inside_pixel_count = int(np.sum(pdd_mask))
 
     print(f"\n=================================================================")
@@ -649,7 +673,7 @@ def process_single_plot(catalog, plot: dict[str, Any]) -> dict[str, Any]:
     for year, month in MILESTONE_MONTHS:
         month_str = f"{year:04d}-{month:02d}"
         t0 = time.time()
-        rec = process_plot_month(catalog, plot, grid, pdd_mask, year, month)
+        rec = process_plot_month(catalog, plot, grid, pdd_mask, buffer_mask, year, month)
         months_data.append(rec)
         t_el = round(time.time() - t0, 2)
         print(f"  [{plot_code} {month_str}] {rec['analysis_mode']:32s} | QA: {rec['qa']:7s} | Coverage: {rec['valid_pixel_count']:5d}/{inside_pixel_count:5d} ({rec['coverage_pct']:5.1f}%) | Scenes used: {rec['scenes_used_count']:2d} ({t_el}s)")

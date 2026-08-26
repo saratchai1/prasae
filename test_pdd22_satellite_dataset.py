@@ -131,13 +131,25 @@ def test_satellite_dataset_integrity(available_codes: list[str] | None = None):
                 assert obs["number_of_contributing_scenes"] >= 2
                 assert obs["composite_method"] == "median_clear_reflectance"
             elif mode == "no_data":
-                assert cov_pct < 5.0
-                assert len(obs["selected_scenes"]) >= 0
-                assert obs["number_of_contributing_scenes"] >= 0
+                assert valid_px == 0
+                assert len(obs["selected_scenes"]) == 0
+                assert obs["number_of_contributing_scenes"] == 0
                 assert obs["composite_method"] == "none"
             else:
                 assert False, f"Unknown analysis mode: {mode}"
-                
+            
+            # Verify QA Status Semantics independently
+            qa = obs["qa"]
+            if qa == "GOOD":
+                assert cov_pct >= 95.0
+            elif qa == "PARTIAL":
+                assert 50.0 <= cov_pct < 95.0
+            elif qa == "LOW_QA":
+                assert 5.0 <= cov_pct < 50.0
+            elif qa == "NO_DATA":
+                assert cov_pct < 5.0
+            else:
+                assert False, f"Unknown qa status: {qa}"
             # Verify exact test requirements
             for sc in obs.get("selected_scenes", []):
                 assert "processing_baseline" in sc
