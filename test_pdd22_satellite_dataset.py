@@ -113,6 +113,36 @@ def test_satellite_dataset_integrity(available_codes: list[str] | None = None):
             assert valid_px <= inside_px, f"{code}/{m}: valid ({valid_px}) > inside ({inside_px})"
             calc_cov = round(valid_px / inside_px * 100.0, 2)
             assert abs(cov_pct - calc_cov) < 0.05, f"{code}/{m}: coverage_pct {cov_pct} != {calc_cov}"
+
+            # Verify analysis mode semantics
+            mode = obs["analysis_mode"]
+            if mode == "single_scene_good":
+                assert cov_pct >= 95.0
+                assert len(obs["selected_scenes"]) == 1
+                assert obs["number_of_contributing_scenes"] == 1
+                assert obs["composite_method"] == "none"
+            elif mode == "single_scene_partial":
+                assert cov_pct < 95.0
+                assert len(obs["selected_scenes"]) == 1
+                assert obs["number_of_contributing_scenes"] == 1
+                assert obs["composite_method"] == "none"
+            elif mode == "same_month_multi_scene_composite":
+                assert len(obs["selected_scenes"]) >= 2
+                assert obs["number_of_contributing_scenes"] >= 2
+                assert obs["composite_method"] == "median_clear_reflectance"
+            elif mode == "no_data":
+                assert cov_pct < 5.0
+                assert len(obs["selected_scenes"]) >= 0
+                assert obs["number_of_contributing_scenes"] >= 0
+                assert obs["composite_method"] == "none"
+            else:
+                assert False, f"Unknown analysis mode: {mode}"
+                
+            # Verify exact test requirements
+            for sc in obs.get("selected_scenes", []):
+                assert "processing_baseline" in sc
+                assert "dt_obj" not in sc
+
             
             # Verify scene datetimes are strictly within the declared month
             for sc in obs.get("scenes", []):
@@ -123,8 +153,41 @@ def test_satellite_dataset_integrity(available_codes: list[str] | None = None):
     print(f"✓ All dataset integrity assertions passed for {len(codes_to_test)} plots!")
 
 
+
+def test_global_artifacts():
+    print("\nTesting Global Artifacts...")
+    manifest_path = SATELLITE_DIR / "manifest.json"
+    assert manifest_path.exists(), "manifest.json missing"
+    
+    with open(manifest_path, "r", encoding="utf-8") as f:
+        manifest = json.load(f)
+        
+    assert manifest["plot_count"] == 22
+    assert manifest["total_pdd_area_rai"] == 6775.53
+    assert "pipeline_git_commit" in manifest
+    assert "pipeline_file_sha256" in manifest
+    assert "python_version" in manifest
+    assert "dependency_versions" in manifest
+    assert "processing_rules" in manifest
+    
+    report_path = SATELLITE_DIR / "coverage_report.csv"
+    assert report_path.exists(), "coverage_report.csv missing"
+    
+    with open(report_path, "r", encoding="utf-8") as f:
+        lines = f.readlines()
+        
+    assert len(lines) == 265, f"Expected 264 data rows + 1 header, got {len(lines)}"
+    
+    header = lines[0].strip().split(",")
+    assert "plot_code" in header
+    
+    print("✓ Global artifacts passed.")
+
 if __name__ == "__main__":
+    test_global_artifacts()
     test_catalog_integrity()
     # Check which plots exist
     existing = [d.name for d in PLOTS_DIR.iterdir() if d.is_dir() and d.name in EXPECTED_CODES]
+    assert len(existing) == 22, f"Expected exactly 22 plot directories, found {len(existing)}"
+    assert set(existing) == set(EXPECTED_CODES)
     test_satellite_dataset_integrity(existing)

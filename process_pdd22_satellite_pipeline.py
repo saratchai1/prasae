@@ -11,6 +11,17 @@ Rules:
 """
 
 from __future__ import annotations
+import time
+from shapely.geometry import mapping, shape
+from rasterio.warp import Resampling, reproject
+from rasterio.transform import from_bounds
+from rasterio.features import geometry_mask
+import rasterio
+import pystac_client
+import planetary_computer as pc
+from PIL import Image
+import numpy as np
+from typing import Any
 
 import calendar
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -22,8 +33,32 @@ import math
 import os
 from pathlib import Path
 import sys
-import time
-from typing import Any
+
+import subprocess
+import hashlib
+
+
+def get_git_commit():
+    try:
+        return subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("utf-8").strip()
+    except Exception:
+        return "unknown"
+
+
+def get_file_sha256(filepath):
+    h = hashlib.sha256()
+    with open(filepath, "rb") as f:
+        h.update(f.read())
+    return h.hexdigest()
+
+
+def get_pip_version(package):
+    try:
+        import importlib.metadata
+        return importlib.metadata.version(package)
+    except Exception:
+        return "unknown"
+
 
 # Configure GDAL HTTP timeouts and Python unbuffered stdout
 os.environ["GDAL_HTTP_TIMEOUT"] = "15"
@@ -35,15 +70,6 @@ try:
 except Exception:
     pass
 
-import numpy as np
-from PIL import Image
-import planetary_computer as pc
-import pystac_client
-import rasterio
-from rasterio.features import geometry_mask
-from rasterio.transform import from_bounds
-from rasterio.warp import Resampling, reproject
-from shapely.geometry import mapping, shape
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
@@ -76,7 +102,8 @@ MFI_RED_EDGE_BANDS = {
     "B07": 783.0,
     "B8A": 865.0,
 }
-REQUIRED_BANDS = ["B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B11", "B12"]
+REQUIRED_BANDS = ["B02", "B03", "B04", "B05",
+                  "B06", "B07", "B08", "B8A", "B11", "B12"]
 
 
 @dataclass(frozen=True)
@@ -100,7 +127,8 @@ def compute_fixed_grid(geom) -> Grid:
     width_m = (bbox[2] - bbox[0]) * 111_000.0 * math.cos(math.radians(mid_lat))
     height_m = (bbox[3] - bbox[1]) * 111_000.0
     width = max(MIN_DIMENSION, min(MAX_DIMENSION, int(round(width_m / 10.0))))
-    height = max(MIN_DIMENSION, min(MAX_DIMENSION, int(round(height_m / 10.0))))
+    height = max(MIN_DIMENSION, min(
+        MAX_DIMENSION, int(round(height_m / 10.0))))
     approx_res = (width_m / width + height_m / height) / 2.0
     return Grid(
         bbox=bbox,
@@ -138,7 +166,8 @@ def read_asset_to_grid(item, asset_name: str, grid: Grid, resampling: Resampling
     for attempt in range(max_retries):
         try:
             with rasterio.open(href) as src:
-                destination = np.full((grid.height, grid.width), np.nan, dtype=np.float32)
+                destination = np.full(
+                    (grid.height, grid.width), np.nan, dtype=np.float32)
                 reproject(
                     source=rasterio.band(src, 1),
                     destination=destination,
@@ -166,7 +195,7 @@ def read_asset_to_grid(item, asset_name: str, grid: Grid, resampling: Resampling
 def read_all_bands_concurrent(item, grid: Grid) -> dict[str, np.ndarray]:
     def _read_b(b_name: str):
         return b_name, read_asset_to_grid(item, b_name, grid, Resampling.bilinear)
-    
+
     bands: dict[str, np.ndarray] = {}
     with ThreadPoolExecutor(max_workers=4) as executor:
         futures = [executor.submit(_read_b, b) for b in REQUIRED_BANDS]
@@ -280,7 +309,7 @@ def search_exact_month_scenes(catalog, grid: Grid, year: int, month: int) -> lis
         datetime=f"{start}/{end}",
     )
     raw_items = list(search.items())
-    
+
     dedup: dict[tuple[str, str], Any] = {}
     for item in raw_items:
         props = item.properties
@@ -291,10 +320,11 @@ def search_exact_month_scenes(catalog, grid: Grid, year: int, month: int) -> lis
         if key not in dedup:
             dedup[key] = item
         else:
-            existing_baseline = str(dedup[key].properties.get("s2:processing_baseline", "00.00"))
+            existing_baseline = str(dedup[key].properties.get(
+                "s2:processing_baseline", "00.00"))
             if baseline > existing_baseline:
                 dedup[key] = item
-                
+
     sorted_items = sorted(dedup.values(), key=lambda it: it.datetime)
     return sorted_items
 
@@ -310,35 +340,49 @@ def process_plot_month(
     plot_code = plot["code"]
     month_str = f"{year:04d}-{month:02d}"
     inside_pixel_count = int(np.sum(pdd_mask))
-    
+
     candidate_items = search_exact_month_scenes(catalog, grid, year, month)
-    
+
     evaluated_scenes = []
     usable_items = []
-    
+
+    buffer_pixel_count = grid.width * grid.height - inside_pixel_count
+    mid_month = dt_mod.datetime(year, month, calendar.monthrange(
+        year, month)[1] // 2 + 1, tzinfo=dt_mod.timezone.utc)
+
     for item in candidate_items:
         props = item.properties
         dt_utc = str(item.datetime)
-        
+        dt_obj = item.datetime
+
         if item.datetime:
-            dt_th_str = (item.datetime + dt_mod.timedelta(hours=7)).strftime("%Y-%m-%d %H:%M:%S UTC+7")
+            dt_th_str = (item.datetime + dt_mod.timedelta(hours=7)
+                         ).strftime("%Y-%m-%d %H:%M:%S UTC+7")
         else:
             dt_th_str = "N/A"
-            
+            dt_obj = dt_mod.datetime(
+                year, month, 1, tzinfo=dt_mod.timezone.utc)
+
         platform = props.get("platform", "Sentinel-2")
         mgrs = props.get("s2:mgrs_tile", "")
         baseline = str(props.get("s2:processing_baseline", ""))
         cat_cloud = float(props.get("eo:cloud_cover", 0.0))
-        
+
         try:
             scl = read_asset_to_grid(item, "SCL", grid, Resampling.nearest)
             clear_mask = cloud_clear_mask(scl)
             clear_inside = int(np.sum(clear_mask & pdd_mask))
-            clear_inside_pct = round(clear_inside / inside_pixel_count * 100.0, 2)
+            clear_inside_pct = round(
+                clear_inside / inside_pixel_count * 100.0, 2)
+
+            clear_buffer = int(np.sum(clear_mask & ~pdd_mask))
+            clear_buffer_pct = round(
+                clear_buffer / buffer_pixel_count * 100.0, 2) if buffer_pixel_count > 0 else 0.0
+
         except Exception as e:
             print(f"    Warning: Failed to read SCL for {item.id}: {e}")
             continue
-            
+
         scene_info = {
             "id": item.id,
             "satellite": platform,
@@ -349,68 +393,102 @@ def process_plot_month(
             "catalog_cloud_cover_pct": round(cat_cloud, 2),
             "clear_inside_pixel_count": clear_inside,
             "clear_inside_pct": clear_inside_pct,
+            "clear_buffer_pct": clear_buffer_pct,
+            "dt_obj": dt_obj,
         }
         evaluated_scenes.append(scene_info)
         if clear_inside > 0:
             usable_items.append((item, scene_info, scl, clear_mask))
 
+    def ranking_key(s):
+        c_in = s["clear_inside_pct"]
+        c_buf = s["clear_buffer_pct"]
+        c_cat = -s.get("catalog_cloud_cover_pct", 100.0)
+        diff_days = -abs((s["dt_obj"] - mid_month).total_seconds())
+        baseline = s["processing_baseline"]
+        s_id = s["id"]
+        return (c_in, c_buf, c_cat, diff_days, baseline, s_id)
+
     best_single = None
-    if evaluated_scenes:
-        best_single = max(evaluated_scenes, key=lambda s: s["clear_inside_pct"])
-        
+    if usable_items:
+        usable_items.sort(key=lambda x: ranking_key(x[1]), reverse=True)
+        best_single = usable_items[0][1]
+
     analysis_mode = "no_data"
     selected_scenes = []
-    
+
     bands_dict: dict[str, np.ndarray] = {}
     valid_data_mask = np.zeros((grid.height, grid.width), dtype=bool)
     obs_count = np.zeros((grid.height, grid.width), dtype=np.uint8)
-    
+
     if best_single and best_single["clear_inside_pct"] >= 95.0:
-        # SINGLE SCENE MODE
-        analysis_mode = "single_scene"
-        target_item = next(it for it, sc, _, _ in usable_items if sc["id"] == best_single["id"])
+        analysis_mode = "single_scene_good"
+        target_item = usable_items[0][0]
         selected_scenes = [best_single]
-        
-        scl = read_asset_to_grid(target_item, "SCL", grid, Resampling.nearest)
+
+        scl = usable_items[0][2]
         bands_dict = read_all_bands_concurrent(target_item, grid)
-        valid_data_mask = cloud_clear_mask(scl, *[bands_dict[b] for b in REQUIRED_BANDS])
+        valid_data_mask = cloud_clear_mask(
+            scl, *[bands_dict[b] for b in REQUIRED_BANDS])
         obs_count = np.where(valid_data_mask, 1, 0).astype(np.uint8)
-        
-    elif len(usable_items) > 0:
-        # SAME MONTH MULTI-SCENE COMPOSITE MODE
+
+    elif len(usable_items) == 1:
+        analysis_mode = "single_scene_partial"
+        target_item = usable_items[0][0]
+        selected_scenes = [best_single]
+
+        scl = usable_items[0][2]
+        bands_dict = read_all_bands_concurrent(target_item, grid)
+        valid_data_mask = cloud_clear_mask(
+            scl, *[bands_dict[b] for b in REQUIRED_BANDS])
+        obs_count = np.where(valid_data_mask, 1, 0).astype(np.uint8)
+
+    elif len(usable_items) > 1:
         analysis_mode = "same_month_multi_scene_composite"
         selected_scenes = [sc for _, sc, _, _ in usable_items]
-        
-        band_stacks: dict[str, list[np.ndarray]] = {b: [] for b in REQUIRED_BANDS}
+
+        band_stacks: dict[str, list[np.ndarray]] = {
+            b: [] for b in REQUIRED_BANDS}
         mask_stacks: list[np.ndarray] = []
-        
+
         for it, sc, scl, _ in usable_items:
             cur_bands = read_all_bands_concurrent(it, grid)
-            cur_clear = cloud_clear_mask(scl, *[cur_bands[b] for b in REQUIRED_BANDS])
+            cur_clear = cloud_clear_mask(
+                scl, *[cur_bands[b] for b in REQUIRED_BANDS])
             mask_stacks.append(cur_clear)
             for b in REQUIRED_BANDS:
                 arr = cur_bands[b].copy()
                 arr[~cur_clear] = np.nan
                 band_stacks[b].append(arr)
-                
-        obs_count = np.sum(np.stack(mask_stacks, axis=0), axis=0).astype(np.uint8)
+
+        obs_count = np.sum(np.stack(mask_stacks, axis=0),
+                           axis=0).astype(np.uint8)
         valid_data_mask = obs_count > 0
-        
+
         with np.errstate(all="ignore"):
             for b in REQUIRED_BANDS:
                 stacked = np.stack(band_stacks[b], axis=0)
-                bands_dict[b] = np.nanmedian(stacked, axis=0).astype(np.float32)
+                bands_dict[b] = np.nanmedian(
+                    stacked, axis=0).astype(np.float32)
     else:
-        # NO DATA IN EXACT MONTH
         analysis_mode = "no_data"
         selected_scenes = []
         for b in REQUIRED_BANDS:
-            bands_dict[b] = np.full((grid.height, grid.width), np.nan, dtype=np.float32)
-            
+            bands_dict[b] = np.full(
+                (grid.height, grid.width), np.nan, dtype=np.float32)
+
+    for s in evaluated_scenes:
+        s.pop('dt_obj', None)
+    for s in selected_scenes:
+        s.pop('dt_obj', None)
+
     valid_inside_mask = valid_data_mask & pdd_mask
     valid_pixel_count = int(np.sum(valid_inside_mask))
     coverage_pct = round(valid_pixel_count / inside_pixel_count * 100.0, 2)
-    
+
+    if coverage_pct < 5.0:
+        analysis_mode = "no_data"
+
     if coverage_pct >= 95.0:
         qa_status = "GOOD"
     elif coverage_pct >= 50.0:
@@ -419,10 +497,11 @@ def process_plot_month(
         qa_status = "LOW_QA"
     else:
         qa_status = "NO_DATA"
-        
+
     assert valid_pixel_count <= inside_pixel_count, f"valid ({valid_pixel_count}) > inside ({inside_pixel_count})"
-    assert inside_pixel_count <= grid.width * grid.height, f"inside ({inside_pixel_count}) > total grid ({grid.width*grid.height})"
-    
+    assert inside_pixel_count <= grid.width * \
+        grid.height, f"inside ({inside_pixel_count}) > total grid ({grid.width*grid.height})"
+
     stats: dict[str, Any] = {}
     if valid_pixel_count > 0:
         b02 = bands_dict["B02"]
@@ -435,19 +514,19 @@ def process_plot_month(
         b8a = bands_dict["B8A"]
         b11 = bands_dict["B11"]
         b12 = bands_dict["B12"]
-        
+
         ndvi = safe_normalized_difference(b08, b04)
         ndre = safe_normalized_difference(b8a, b05)
         mndwi = safe_normalized_difference(b03, b11)
         evi = compute_evi(b02, b04, b08)
         mfi = compute_mfi(b04, b05, b06, b07, b8a, b12)
-        
+
         ndvi_vals = ndvi[valid_inside_mask]
         ndre_vals = ndre[valid_inside_mask]
         mndwi_vals = mndwi[valid_inside_mask]
         mfi_vals = mfi[valid_inside_mask]
         evi_vals = evi[valid_inside_mask]
-        
+
         stats = {
             "mean_ndvi": round(float(np.nanmean(ndvi_vals)), 4),
             "median_ndvi": round(float(np.nanmedian(ndvi_vals)), 4),
@@ -473,42 +552,49 @@ def process_plot_month(
             "water_fraction": None,
             "green_proxy_fraction": None,
         }
-        
+
     month_out_dir = PLOTS_OUT_DIR / plot_code / month_str
     month_out_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Visual RGB
     rgb_arr = np.zeros((grid.height, grid.width, 3), dtype=np.uint8)
     if valid_pixel_count > 0:
-        r = np.nan_to_num(np.clip(bands_dict["B04"] / RGB_REFLECTANCE_MAX * 255.0, 0, 255), nan=0.0).astype(np.uint8)
-        g = np.nan_to_num(np.clip(bands_dict["B03"] / RGB_REFLECTANCE_MAX * 255.0, 0, 255), nan=0.0).astype(np.uint8)
-        b = np.nan_to_num(np.clip(bands_dict["B02"] / RGB_REFLECTANCE_MAX * 255.0, 0, 255), nan=0.0).astype(np.uint8)
+        r = np.nan_to_num(np.clip(
+            bands_dict["B04"] / RGB_REFLECTANCE_MAX * 255.0, 0, 255), nan=0.0).astype(np.uint8)
+        g = np.nan_to_num(np.clip(
+            bands_dict["B03"] / RGB_REFLECTANCE_MAX * 255.0, 0, 255), nan=0.0).astype(np.uint8)
+        b = np.nan_to_num(np.clip(
+            bands_dict["B02"] / RGB_REFLECTANCE_MAX * 255.0, 0, 255), nan=0.0).astype(np.uint8)
         rgb_arr = np.stack([r, g, b], axis=-1)
     save_rgba_image(month_out_dir / "rgb.png", rgb_arr, valid_inside_mask)
-    
+
     # Visual NDVI
     ndvi_arr = np.zeros((grid.height, grid.width, 3), dtype=np.uint8)
     if valid_pixel_count > 0:
         ndvi_arr = palette_ndvi(ndvi)
     save_rgba_image(month_out_dir / "ndvi.png", ndvi_arr, valid_inside_mask)
-    
+
     # Valid Data Mask
     valid_mask_img = np.where(valid_inside_mask, 255, 0).astype(np.uint8)
-    save_grayscale_image(month_out_dir / "valid_mask.png", valid_mask_img, pdd_mask)
-    
+    save_grayscale_image(month_out_dir / "valid_mask.png",
+                         valid_mask_img, pdd_mask)
+
     # Observation Count
     obs_scaled = np.clip(obs_count * 50, 0, 255).astype(np.uint8)
-    save_grayscale_image(month_out_dir / "observation_count.png", obs_scaled, pdd_mask)
-    
+    save_grayscale_image(
+        month_out_dir / "observation_count.png", obs_scaled, pdd_mask)
+
     record = {
         "month": month_str,
         "analysis_mode": analysis_mode,
+        "composite_method": "median_clear_reflectance" if analysis_mode == "same_month_multi_scene_composite" else "none",
         "qa": qa_status,
         "inside_pixel_count": inside_pixel_count,
         "valid_pixel_count": valid_pixel_count,
         "coverage_pct": coverage_pct,
         "scenes_evaluated_count": len(evaluated_scenes),
         "scenes_used_count": len(selected_scenes),
+        "number_of_contributing_scenes": len(selected_scenes),
         "selected_scene_ids": [s["id"] for s in selected_scenes],
         "selected_scenes": selected_scenes,
         "scenes": evaluated_scenes,
@@ -541,22 +627,24 @@ def process_single_plot(catalog, plot: dict[str, Any]) -> dict[str, Any]:
     plot_code = plot["code"]
     pdd_area_rai = plot["area_rai"]
     province = plot["province"]
-    
+
     if is_plot_already_complete(plot_code):
-        print(f"✓ Plot {plot_code:10s} already completed 12/12 dates. Loading existing metadata.")
+        print(
+            f"✓ Plot {plot_code:10s} already completed 12/12 dates. Loading existing metadata.")
         with open(PLOTS_OUT_DIR / plot_code / "metadata.json", "r", encoding="utf-8") as f:
             return json.load(f)
-            
+
     geom = shape(plot["geometry"])
     grid = compute_fixed_grid(geom)
     pdd_mask = get_pdd_polygon_mask(geom, grid)
     inside_pixel_count = int(np.sum(pdd_mask))
-    
+
     print(f"\n=================================================================")
-    print(f"PROCESSING PLOT {plot_code:10s} | {province:12s} | PDD Area: {pdd_area_rai:7.2f} rai")
+    print(
+        f"PROCESSING PLOT {plot_code:10s} | {province:12s} | PDD Area: {pdd_area_rai:7.2f} rai")
     print(f"Grid: {grid.width}x{grid.height} (Res ~{grid.resolution_m}m) | PDD Polygon Pixels: {inside_pixel_count:,}")
     print(f"=================================================================")
-    
+
     months_data = []
     for year, month in MILESTONE_MONTHS:
         month_str = f"{year:04d}-{month:02d}"
@@ -591,23 +679,24 @@ def process_single_plot(catalog, plot: dict[str, Any]) -> dict[str, Any]:
         "inside_pixel_count": inside_pixel_count,
         "observations": months_data,
     }
-    
+
     out_plot_dir = PLOTS_OUT_DIR / plot_code
     out_plot_dir.mkdir(parents=True, exist_ok=True)
     with open(out_plot_dir / "metadata.json", "w", encoding="utf-8") as f:
         json.dump(plot_meta, f, indent=2, ensure_ascii=False)
-        
+
     return plot_meta
 
 
 def generate_executive_qa_summary(all_results: list[dict[str, Any]]) -> None:
     total_obs = sum(len(m["observations"]) for m in all_results)
     qa_counts = {"GOOD": 0, "PARTIAL": 0, "LOW_QA": 0, "NO_DATA": 0}
-    modes_counts = {"single_scene": 0, "same_month_multi_scene_composite": 0, "no_data": 0}
-    
+    modes_counts = {"single_scene": 0,
+                    "same_month_multi_scene_composite": 0, "no_data": 0}
+
     gaps = []
     composites_used = []
-    
+
     for meta in all_results:
         code = meta["plot_code"]
         prov = meta["province"]
@@ -616,7 +705,7 @@ def generate_executive_qa_summary(all_results: list[dict[str, Any]]) -> None:
             qa_counts[qa] = qa_counts.get(qa, 0) + 1
             mode = obs["analysis_mode"]
             modes_counts[mode] = modes_counts.get(mode, 0) + 1
-            
+
             if qa in ["NO_DATA", "LOW_QA"]:
                 gaps.append({
                     "plot_code": code,
@@ -629,7 +718,8 @@ def generate_executive_qa_summary(all_results: list[dict[str, Any]]) -> None:
             elif mode == "same_month_multi_scene_composite":
                 sc_ids = obs.get("selected_scene_ids", [])
                 if not sc_ids and "scenes" in obs:
-                    sc_ids = [s["id"] for s in obs["scenes"] if s.get("clear_inside_pct", 0) > 0]
+                    sc_ids = [s["id"] for s in obs["scenes"]
+                              if s.get("clear_inside_pct", 0) > 0]
                 composites_used.append({
                     "plot_code": code,
                     "province": prov,
@@ -641,41 +731,57 @@ def generate_executive_qa_summary(all_results: list[dict[str, Any]]) -> None:
                 })
 
     lines = []
-    lines.append("# PDD22 Sentinel-2 Satellite Dataset: Executive QA Summary\n")
-    lines.append(f"**Total Plots**: {len(all_results)} PDD Participating Plots  ")
-    lines.append(f"**Total Observations**: {total_obs} (22 Plots × 12 Milestone Months)  ")
+    lines.append(
+        "# PDD22 Sentinel-2 Satellite Dataset: Executive QA Summary\n")
+    lines.append(
+        f"**Total Plots**: {len(all_results)} PDD Participating Plots  ")
+    lines.append(
+        f"**Total Observations**: {total_obs} (22 Plots × 12 Milestone Months)  ")
     lines.append(f"**Authoritative Total Project Area**: 6,775.53 rai  ")
-    lines.append(f"**Source**: Microsoft Planetary Computer STAC (`sentinel-2-l2a` BOA Surface Reflectance)\n")
-    
+    lines.append(
+        f"**Source**: Microsoft Planetary Computer STAC (`sentinel-2-l2a` BOA Surface Reflectance)\n")
+
     lines.append("## 1. Overall QA Distribution\n")
     lines.append("| QA Classification | Description | Count | Percentage |")
     lines.append("| :--- | :--- | :---: | :---: |")
-    lines.append(f"| **GOOD** | $\\ge 95\\%$ valid real clear coverage | **{qa_counts['GOOD']}** | {qa_counts['GOOD']/total_obs*100:.1f}% |")
-    lines.append(f"| **PARTIAL** | $50\\% \\le \\text{{cov}} < 95\\%$ | **{qa_counts['PARTIAL']}** | {qa_counts['PARTIAL']/total_obs*100:.1f}% |")
-    lines.append(f"| **LOW_QA** | $5\\% \\le \\text{{cov}} < 50\\%$ | **{qa_counts['LOW_QA']}** | {qa_counts['LOW_QA']/total_obs*100:.1f}% |")
-    lines.append(f"| **NO_DATA** | $< 5\\%$ valid observation in exact month | **{qa_counts['NO_DATA']}** | {qa_counts['NO_DATA']/total_obs*100:.1f}% |")
+    lines.append(
+        f"| **GOOD** | $\\ge 95\\%$ valid real clear coverage | **{qa_counts['GOOD']}** | {qa_counts['GOOD']/total_obs*100:.1f}% |")
+    lines.append(
+        f"| **PARTIAL** | $50\\% \\le \\text{{cov}} < 95\\%$ | **{qa_counts['PARTIAL']}** | {qa_counts['PARTIAL']/total_obs*100:.1f}% |")
+    lines.append(
+        f"| **LOW_QA** | $5\\% \\le \\text{{cov}} < 50\\%$ | **{qa_counts['LOW_QA']}** | {qa_counts['LOW_QA']/total_obs*100:.1f}% |")
+    lines.append(
+        f"| **NO_DATA** | $< 5\\%$ valid observation in exact month | **{qa_counts['NO_DATA']}** | {qa_counts['NO_DATA']/total_obs*100:.1f}% |")
     lines.append(f"| **Total** | | **{total_obs}** | 100.0% |\n")
-    
+
     lines.append("## 2. Analysis Mode Breakdown\n")
-    lines.append(f"- **Single Best Acquisition (`single_scene`)**: {modes_counts['single_scene']} ({modes_counts['single_scene']/total_obs*100:.1f}%) — Preserves pristine radiometric consistency and identical tidal state.")
-    lines.append(f"- **Same-Month Multi-Scene Composite**: {modes_counts['same_month_multi_scene_composite']} ({modes_counts['same_month_multi_scene_composite']/total_obs*100:.1f}%) — Median reflectance composite across same-month clear observations.")
-    lines.append(f"- **No Data Available in Exact Month**: {modes_counts['no_data']} ({modes_counts['no_data']/total_obs*100:.1f}%) — Zero clear Sentinel-2 passes during heavy monsoon cloud cover.\n")
-    
-    lines.append("## 3. Persistent Data Gaps (Requiring Review or Special Consideration)\n")
+    lines.append(
+        f"- **Single Best Acquisition (`single_scene`)**: {modes_counts['single_scene']} ({modes_counts['single_scene']/total_obs*100:.1f}%) — Preserves pristine radiometric consistency and identical tidal state.")
+    lines.append(
+        f"- **Same-Month Multi-Scene Composite**: {modes_counts['same_month_multi_scene_composite']} ({modes_counts['same_month_multi_scene_composite']/total_obs*100:.1f}%) — Median reflectance composite across same-month clear observations.")
+    lines.append(
+        f"- **No Data Available in Exact Month**: {modes_counts['no_data']} ({modes_counts['no_data']/total_obs*100:.1f}%) — Zero clear Sentinel-2 passes during heavy monsoon cloud cover.\n")
+
+    lines.append(
+        "## 3. Persistent Data Gaps (Requiring Review or Special Consideration)\n")
     lines.append("Under strict scientific rules (Zero adjacent-month substitution), the following plot-months had insufficient cloud-free observations within the exact calendar month:\n")
-    lines.append("| Plot Code | Province | Month | QA Status | Real Coverage % | Evaluated Candidate Scenes | Note |")
+    lines.append(
+        "| Plot Code | Province | Month | QA Status | Real Coverage % | Evaluated Candidate Scenes | Note |")
     lines.append("| :--- | :--- | :---: | :---: | :---: | :---: | :--- |")
     for g in gaps:
         lines.append(f"| **{g['plot_code']}** | {g['province']} | `{g['month']}` | **{g['qa']}** | {g['coverage_pct']:.1f}% | {g['scenes_evaluated']} | Persistent monsoon cloud cover across entire month |")
-        
+
     lines.append("\n## 4. Multi-Scene Composite Provenance\n")
-    lines.append("The following observations required multi-scene same-month reconstruction:\n")
-    lines.append("| Plot Code | Month | QA | Coverage % | Scenes Used | Selected Scene IDs |")
+    lines.append(
+        "The following observations required multi-scene same-month reconstruction:\n")
+    lines.append(
+        "| Plot Code | Month | QA | Coverage % | Scenes Used | Selected Scene IDs |")
     lines.append("| :--- | :---: | :---: | :---: | :---: | :--- |")
     for c in composites_used:
         sc_list = "<br>".join([f"`{s}`" for s in c["selected_scene_ids"]])
-        lines.append(f"| **{c['plot_code']}** | `{c['month']}` | **{c['qa']}** | {c['coverage_pct']:.1f}% | {c['scenes_used']} | {sc_list} |")
-        
+        lines.append(
+            f"| **{c['plot_code']}** | `{c['month']}` | **{c['qa']}** | {c['coverage_pct']:.1f}% | {c['scenes_used']} | {sc_list} |")
+
     summary_path = OUT_DIR / "EXECUTIVE_QA_SUMMARY.md"
     with open(summary_path, "w", encoding="utf-8") as f:
         f.write("\n".join(lines))
@@ -684,27 +790,29 @@ def generate_executive_qa_summary(all_results: list[dict[str, Any]]) -> None:
 
 def run_pipeline(target_codes: list[str] | None = None, max_plot_workers: int = 3) -> list[dict[str, Any]]:
     catalog = pystac_client.Client.open(STAC_URL, modifier=pc.sign_inplace)
-    
+
     with open(PDD_CATALOG_PATH, "r", encoding="utf-8") as f:
         plots = json.load(f)
-        
+
     if target_codes:
         plots = [p for p in plots if p["code"] in target_codes]
-        
+
     results_map: dict[str, dict[str, Any]] = {}
-    
+
     uncompleted = [p for p in plots if not is_plot_already_complete(p["code"])]
     completed = [p for p in plots if is_plot_already_complete(p["code"])]
-    
+
     for p in completed:
         with open(PLOTS_OUT_DIR / p["code"] / "metadata.json", "r", encoding="utf-8") as f:
             results_map[p["code"]] = json.load(f)
-            
-    print(f"Total plots: {len(plots)} | Already complete: {len(completed)} | To process: {len(uncompleted)}")
-    
+
+    print(
+        f"Total plots: {len(plots)} | Already complete: {len(completed)} | To process: {len(uncompleted)}")
+
     if uncompleted:
         with ThreadPoolExecutor(max_workers=max_plot_workers) as executor:
-            future_to_plot = {executor.submit(process_single_plot, catalog, p): p for p in uncompleted}
+            future_to_plot = {executor.submit(
+                process_single_plot, catalog, p): p for p in uncompleted}
             for future in as_completed(future_to_plot):
                 p = future_to_plot[future]
                 try:
@@ -712,9 +820,10 @@ def run_pipeline(target_codes: list[str] | None = None, max_plot_workers: int = 
                     results_map[res["plot_code"]] = res
                 except Exception as e:
                     print(f"[Error] Failed processing plot {p['code']}: {e}")
-                    
-    results = [results_map[p["code"]] for p in plots if p["code"] in results_map]
-    
+
+    results = [results_map[p["code"]]
+               for p in plots if p["code"] in results_map]
+
     rows = []
     for meta in results:
         code = meta["plot_code"]
@@ -739,22 +848,47 @@ def run_pipeline(target_codes: list[str] | None = None, max_plot_workers: int = 
                 "median_mndwi": st["median_mndwi"],
                 "median_mfi": st["median_mfi"],
             })
-            
+
     csv_path = OUT_DIR / "coverage_report.csv"
     if target_codes and len(target_codes) < 22:
         csv_path = OUT_DIR / "pilot_5_plots_coverage.csv"
-        
+
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     with open(csv_path, "w", newline="", encoding="utf-8") as f:
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)
-        
+
     print(f"\n✓ Coverage report saved to: {csv_path}")
-    
+
     manifest = {
         "dataset_name": "PDD22 Sentinel-2 Level-2A Scientific Satellite Dataset",
         "generated_at_utc": dt_mod.datetime.utcnow().isoformat() + "Z",
+        "pipeline_git_commit": get_git_commit(),
+        "pipeline_file_sha256": get_file_sha256(__file__),
+        "python_version": sys.version.split()[0],
+        "dependency_versions": {
+            "numpy": get_pip_version("numpy"),
+            "rasterio": get_pip_version("rasterio"),
+            "shapely": get_pip_version("shapely"),
+            "pyproj": get_pip_version("pyproj"),
+            "pystac-client": get_pip_version("pystac-client"),
+            "planetary-computer": get_pip_version("planetary-computer"),
+        },
+        "processing_rules": {
+            "adjacent_month_fallback": False,
+            "interpolation": False,
+            "synthetic_pixels": False,
+            "strict_calendar_month": True,
+            "ranking_policy": [
+                "highest clear_inside_pct",
+                "highest clear_buffer_pct",
+                "lowest catalog_cloud_cover_pct",
+                "closest to middle of target calendar month",
+                "newest processing_baseline",
+                "stable deterministic ID"
+            ]
+        },
         "plot_count": len(results),
         "total_pdd_area_rai": sum(m["pdd_area_rai"] for m in results),
         "observation_months": [f"{y:04d}-{m:02d}" for y, m in MILESTONE_MONTHS],
@@ -772,9 +906,9 @@ def run_pipeline(target_codes: list[str] | None = None, max_plot_workers: int = 
     }
     with open(OUT_DIR / "manifest.json", "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2, ensure_ascii=False)
-        
+
     generate_executive_qa_summary(results)
-    
+
     return results
 
 
