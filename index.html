@@ -6,15 +6,15 @@
   <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
   <meta http-equiv="Pragma" content="no-cache">
   <meta http-equiv="Expires" content="0">
-  <title>Prasae Mangrove Monitoring — Actual Observation Dates</title>
-  <meta name="description" content="ระบบติดตามแปลงฟื้นฟูป่าชายเลนด้วย Sentinel-2 L2A สูงสุด 12 observation/composite dates โดยซ่อนช่วงที่ไม่มีภาพ และแสดงภาพเฉพาะในขอบเขตแปลงเหนือ Esri World Imagery">
+  <title>PDD22 Mangrove Monitoring — Sentinel-2 + FCD</title>
+  <meta name="description" content="ระบบติดตาม 22 แปลง PDD participating ด้วย cleaned Sentinel-2 L2A และ FCD Green Yellow Red">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="styles.css?v=20260817-2310">
+  <link rel="stylesheet" href="styles.css?v=20260826-1405">
 </head>
 <body>
   <header class="site-header">
@@ -22,63 +22,105 @@
       <div class="brand-group">
         <div class="brand-icon">🌿</div>
         <div>
-          <h1 class="brand-title">ระบบติดตามแปลงฟื้นฟูป่าชายเลน</h1>
-          <p class="brand-subtitle">Sentinel-2 L2A • up to 12 actual observation/composite dates • exact polygon clipping</p>
+          <h1 class="brand-title">ระบบติดตาม PDD22 ป่าชายเลน — 22 แปลง</h1>
+          <p class="brand-subtitle">PDD participating area 6,775.53 ไร่ • Cleaned Sentinel-2 L2A • FCD V3 Green / Yellow / Red</p>
         </div>
       </div>
       <div class="header-meta">
-        <span class="meta-pill"><span class="pill-dot"></span> กำลังโหลดชุดแปลง</span>
-        <span class="meta-pill mask-badge">Sentinel-2 inside polygon + Esri outside</span>
-        <span class="meta-pill date-range-pill">กำลังตรวจสอบช่วงเวลาที่มีภาพจริง</span>
+        <span class="meta-pill"><span class="pill-dot"></span> 22 PDD plots</span>
+        <span class="meta-pill mask-badge">Participating boundary only</span>
+        <span class="meta-pill date-range-pill">Sentinel QA + FCD V3</span>
       </div>
     </div>
   </header>
+
   <div class="portal-layout">
     <aside class="plot-sidebar">
       <div class="sidebar-header">
         <h2 class="sidebar-title">ค้นหาและเลือกแปลงที่ดิน</h2>
-        <div class="filter-group"><label for="province-filter">เลือกจังหวัด:</label><select id="province-filter" onchange="onProvinceFilterChange(this.value)"><option value="ALL">ทุกจังหวัด</option></select></div>
-        <div class="search-box"><span>⌕</span><input type="text" id="plot-search-input" placeholder="ชื่อแปลง รหัส หรือจังหวัด" oninput="onPlotSearchInput(this.value)"></div>
+        <div class="filter-group">
+          <label for="province-filter">เลือกจังหวัด:</label>
+          <select id="province-filter" onchange="onProvinceFilterChange(this.value)"><option value="ALL">ทุกจังหวัด</option></select>
+        </div>
+        <div class="search-box"><span>⌕</span><input type="text" id="plot-search-input" placeholder="รหัสแปลงหรือจังหวัด" oninput="onPlotSearchInput(this.value)"></div>
         <div class="sidebar-stats" id="sidebar-count-display">กำลังโหลด...</div>
       </div>
       <div class="plot-list" id="plot-list-container"></div>
     </aside>
+
     <main class="workspace-area">
       <section class="national-kpi-grid">
-        <div class="kpi-card"><div class="kpi-label">พื้นที่ที่ติดตามรวม</div><div class="kpi-value" id="kpi-total-area">—</div><div class="kpi-sub">คำนวณจากชุดขอบเขตแปลงปัจจุบัน</div></div>
+        <div class="kpi-card"><div class="kpi-label">พื้นที่ที่ติดตามรวม</div><div class="kpi-value" id="kpi-total-area">—</div><div class="kpi-sub">PDD participating area</div></div>
         <div class="kpi-card"><div class="kpi-label">แปลงที่เลือก</div><div class="kpi-value current-plot-highlight" id="kpi-current-plot-name">—</div><div class="kpi-sub" id="kpi-current-plot-sub">—</div></div>
-        <div class="kpi-card"><div class="kpi-label">การเปลี่ยนแปลง NDVI (observed dates only)</div><div class="kpi-value text-success" id="kpi-plot-ndvi-gain">—</div><div class="kpi-sub" id="kpi-plot-gain-pct">ไม่ใช้ interpolation หรือ synthetic fallback</div></div>
-        <div class="kpi-card"><div class="kpi-label">Green Cover Proxy</div><div class="kpi-value" id="kpi-plot-canopy-pct">—</div><div class="kpi-sub">Site-calibrated เมื่อมี reference; แปลงอื่นใช้ conservative default</div></div>
+        <div class="kpi-card"><div class="kpi-label">การเปลี่ยนแปลง NDVI</div><div class="kpi-value text-success" id="kpi-plot-ndvi-gain">—</div><div class="kpi-sub" id="kpi-plot-gain-pct">cleaned exact-month observations</div></div>
+        <div class="kpi-card"><div class="kpi-label">FCD Green ล่าสุด (QA GOOD)</div><div class="kpi-value" id="kpi-plot-canopy-pct">—</div><div class="kpi-sub">PDD-anchored screening • ไม่ใช่ tCO₂e</div></div>
       </section>
+
       <div class="workspace-card">
         <div class="workspace-tabs">
-          <button class="w-tab-btn active" id="wtab-detail" onclick="switchWorkspaceTab('detail')">วิเคราะห์ช่วงเวลาที่มีภาพจริง</button>
-          <button class="w-tab-btn" id="wtab-map" onclick="switchWorkspaceTab('map')">แผนที่ GIS ทุกแปลง</button>
+          <button class="w-tab-btn active" id="wtab-detail" onclick="switchWorkspaceTab('detail')">วิเคราะห์รายแปลง</button>
+          <button class="w-tab-btn" id="wtab-map" onclick="switchWorkspaceTab('map')">แผนที่ GIS 22 แปลง</button>
           <button class="w-tab-btn" id="wtab-compare" onclick="switchWorkspaceTab('compare')">เปรียบเทียบ Before / After</button>
-          <button class="w-tab-btn" id="wtab-table" onclick="switchWorkspaceTab('table')">ตารางสรุป</button>
+          <button class="w-tab-btn" id="wtab-table" onclick="switchWorkspaceTab('table')">ตาราง FCD</button>
         </div>
+
         <div class="tab-content-panel active" id="panel-detail">
-          <div class="chart-box"><div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI และ Green Cover Proxy — actual observation/composite dates</h3><p class="chart-box-subtitle">NDVI = ความเขียวทั้งแปลง • Green Cover ใช้ threshold ที่มี provenance • Open Water/MFI ใช้เป็น context • ไม่มี interpolation</p></div><div class="chart-badge-tag">Observed-only + QA</div></div><div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div></div>
+          <div class="chart-box">
+            <div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI — cleaned Sentinel-2 exact-month observations</h3><p class="chart-box-subtitle">ใช้ขอบเขต PDD participating เท่านั้น • QA ตาม clear coverage • ไม่มี interpolation หรือ synthetic pixel</p></div><div class="chart-badge-tag">PDD22 cleaned dataset</div></div>
+            <div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div>
+          </div>
+
           <div class="viewer-wrapper">
-            <div class="viewer-toolbar"><div class="band-btn-group"><button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">Esri World Imagery</button><button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB (ในขอบเขตแปลง)</button><button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI (ในขอบเขตแปลง)</button></div><div class="boundary-toggle"><label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> แสดงเส้นขอบเขตแปลง</label></div></div>
-            <div class="satellite-stage"><div id="plot-satellite-map" class="plot-satellite-map-container"></div><div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กำลังตรวจสอบภาพ</div><div class="hud-sub" id="hud-plot-label">—</div></div><div class="stage-hud top-right"><div class="hud-tag">Cloud-masked composite</div><div class="hud-sub">SCL QA • actual dates only • no interpolation</div></div><div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">Sentinel-2 clipped over Esri World Imagery</div></div><div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">Green cover: <strong id="hud-in-cover">—</strong></div></div></div>
-            <div class="playback-bar"><div class="playback-btns"><button class="p-btn" onclick="prevMonth()">‹</button><button class="p-btn p-play" id="btn-play" onclick="togglePlay()"><span id="play-icon">▶</span><span id="pause-icon" class="hidden">Ⅱ</span></button><button class="p-btn" onclick="nextMonth()">›</button><div class="current-date-badge" id="playback-date-display">กำลังตรวจสอบ</div></div><div class="slider-box"><input type="range" id="month-slider" min="0" max="0" value="0" step="1" disabled oninput="onMonthSliderChange(this.value)"><div class="slider-ticks"><span>กำลังตรวจสอบช่วงเวลาที่มีภาพจริง</span></div></div></div>
+            <div class="viewer-toolbar">
+              <div class="band-btn-group">
+                <button class="band-btn active" data-layer="esri" onclick="setPlotMapLayer('esri')">Esri World Imagery</button>
+                <button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB</button>
+                <button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI</button>
+              </div>
+              <div class="boundary-toggle"><label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> แสดงเส้นขอบเขตแปลง</label></div>
+            </div>
+            <div class="satellite-stage">
+              <div id="plot-satellite-map" class="plot-satellite-map-container"></div>
+              <div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กำลังโหลด</div><div class="hud-sub" id="hud-plot-label">—</div></div>
+              <div class="stage-hud top-right"><div class="hud-tag">Cleaned Sentinel-2</div><div class="hud-sub">SCL QA • exact-month • no interpolation</div></div>
+              <div class="stage-hud bottom-left"><div class="hud-sub" id="hud-coords-label">—</div><div class="hud-sub">PDD participating boundary</div></div>
+              <div class="stage-hud bottom-right"><div class="hud-pill">Mean NDVI: <strong id="hud-in-ndvi">—</strong></div><div class="hud-pill">FCD Green: <strong id="hud-in-cover">—</strong></div></div>
+            </div>
+            <div class="playback-bar">
+              <div class="playback-btns"><button class="p-btn" onclick="prevMonth()">‹</button><button class="p-btn p-play" id="btn-play" onclick="togglePlay()"><span id="play-icon">▶</span><span id="pause-icon" class="hidden">Ⅱ</span></button><button class="p-btn" onclick="nextMonth()">›</button><div class="current-date-badge" id="playback-date-display">กำลังโหลด</div></div>
+              <div class="slider-box"><input type="range" id="month-slider" min="0" max="11" value="0" step="1" oninput="onMonthSliderChange(this.value)"><div class="slider-ticks"><span>12 exact observation months</span></div></div>
+            </div>
           </div>
         </div>
-        <div class="tab-content-panel" id="panel-map"><div class="map-toolbar"><p class="map-hint">คลิก polygon เพื่อเลือกแปลง; basemap ใช้ Esri World Imagery</p><button class="btn-reset-zoom" onclick="resetMapZoom()">ซูมภาพรวมประเทศไทย</button></div><div id="thailand-map" class="thailand-gis-map"></div></div>
-        <div class="tab-content-panel" id="panel-compare"><div class="compare-box"><div class="compare-selectors"><div class="select-group"><label>โหมด:</label><select id="comp-mode-select" onchange="updateCompareView()"><option value="rgb">RGB vs RGB</option><option value="ndvi">NDVI vs NDVI</option><option value="rgb_vs_ndvi">RGB vs NDVI</option></select></div><div class="select-group"><label>Before:</label><select id="comp-left-select" onchange="updateCompareView()"></select></div><div class="select-group"><label>After:</label><select id="comp-right-select" onchange="updateCompareView()"></select></div><div class="select-group boundary-check-group"><label class="checkbox-label"><input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)"> แสดงกรอบแปลง</label></div></div><div class="compare-stage" id="compare-container"></div><div class="compare-meta-bar"><div class="compare-stat-item"><span>Observed-only statistics:</span><span id="comp-in-stat-text">กำลังโหลด verified metrics</span><span class="compare-stat-pill" id="comp-gain-pill">Observed only</span></div><div class="ndvi-legend-bar" id="comp-ndvi-legend"><span>NDVI -0.1</span><div class="ndvi-gradient-strip"></div><span>0.8</span></div></div><p class="compare-hint">ลากเส้นแบ่งกลางไปทางซ้ายหรือขวาเพื่อเปรียบเทียบ Before / After บนแผนที่เดียวกัน; Esri World Imagery เป็นพื้นหลัง</p></div></div>
-        <div class="tab-content-panel" id="panel-table"><div class="table-toolbar"><div class="table-count" id="table-count-label">กำลังโหลด...</div><button class="btn-download-csv" onclick="exportPlotsCSV()">ดาวน์โหลด CSV</button></div><div class="table-container"><table class="plots-table" id="plots-data-table"><thead><tr><th>รหัสแปลง</th><th>ชื่อแปลง</th><th>จังหวัด</th><th>เนื้อที่ (ไร่)</th><th>NDVI ก.ย. 2023</th><th>NDVI ส.ค. 2026</th><th>NDVI Gain</th><th>Green Cover Proxy (%)</th><th>การกระทำ</th></tr></thead><tbody id="table-body"></tbody></table></div></div>
+
+        <div class="tab-content-panel" id="panel-map">
+          <div class="map-toolbar"><p class="map-hint">PDD participating polygons เท่านั้น • คลิกแปลงเพื่อดู FCD มี.ค. 2569</p><button class="btn-reset-zoom" onclick="resetMapZoom()">ซูมภาพรวม</button></div>
+          <div id="thailand-map" class="thailand-gis-map"></div>
+        </div>
+
+        <div class="tab-content-panel" id="panel-compare">
+          <div class="compare-box">
+            <div class="compare-selectors">
+              <div class="select-group"><label>โหมด:</label><select id="comp-mode-select" onchange="updateCompareView()"><option value="rgb">RGB vs RGB</option><option value="ndvi">NDVI vs NDVI</option><option value="rgb_vs_ndvi">RGB vs NDVI</option></select></div>
+              <div class="select-group"><label>Before:</label><select id="comp-left-select" onchange="updateCompareView()"></select></div>
+              <div class="select-group"><label>After:</label><select id="comp-right-select" onchange="updateCompareView()"></select></div>
+              <div class="select-group boundary-check-group"><label class="checkbox-label"><input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)"> แสดงกรอบแปลง</label></div>
+            </div>
+            <div class="compare-stage" id="compare-container"></div>
+            <div class="compare-meta-bar"><div class="compare-stat-item"><span>Observed statistics:</span><span id="comp-in-stat-text">กำลังโหลด</span><span class="compare-stat-pill" id="comp-gain-pill">QA guardrail</span></div><div class="ndvi-legend-bar" id="comp-ndvi-legend"><span>NDVI -0.1</span><div class="ndvi-gradient-strip"></div><span>0.8</span></div></div>
+            <p class="compare-hint">FCD comparison ใช้พื้นที่เต็มแปลงเฉพาะเมื่อ QA = GOOD (coverage ≥95%)</p>
+          </div>
+        </div>
+
+        <div class="tab-content-panel" id="panel-table">
+          <div class="table-toolbar"><div class="table-count" id="table-count-label">กำลังโหลด...</div><button class="btn-download-csv" onclick="exportPlotsCSV()">ดาวน์โหลด CSV</button></div>
+          <div class="table-container"><table class="plots-table" id="plots-data-table"><thead><tr><th>รหัสแปลง</th><th>จังหวัด</th><th>พื้นที่</th><th>เขียว</th><th>เหลือง</th><th>แดง</th><th>Δเขียว</th><th>QA</th><th>การกระทำ</th></tr></thead><tbody id="table-body"></tbody></table></div>
+        </div>
       </div>
     </main>
   </div>
-  <script src="app.js?v=20260819-2240"></script>
-  <script src="metrics-v2.js?v=20260817-2352"></script>
-  <script src="metrics-v4.js?v=20260818-0020"></script>
-  <script src="compare-swipe.js?v=20260819-2240"></script>
-  <script src="opacity-controls.js?v=20260818-1745"></script>
-  <script src="spectral-r2-adapter.js?v=20260820-0445"></script>
-  <script src="spectral-studio.js?v=20260818-2145"></script>
-  <script src="report-export.js?v=20260818-2200"></script>
-  <script src="timeline-integrity.js?v=20260819-2240"></script>
+
+  <script src="app.js?v=20260826-1405"></script>
+  <script src="pdd22-production.js?v=20260826-1405"></script>
 </body>
 </html>
