@@ -1,0 +1,85 @@
+name: PDD22 Spectral Studio assets
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - gh-pages
+    paths:
+      - build_pdd22_spectral_assets.py
+      - .github/workflows/pdd22-spectral-assets.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: pdd22-spectral-assets
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: requirements-verified.txt
+
+      - name: Install dependencies
+        run: pip install -r requirements-verified.txt
+
+      - name: Validate PDD22 inputs
+        run: |
+          python -m py_compile build_pdd22_spectral_assets.py process_pdd22_satellite_pipeline.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('data/pdd22/plots_catalog.json').read_text(encoding='utf-8'))
+          assert len(p)==22
+          assert round(sum(float(x['area_rai']) for x in p),2)==6775.53
+          print('PDD22 participating inputs valid')
+          PY
+
+      - name: Build six-band browser assets
+        run: python build_pdd22_spectral_assets.py
+
+      - name: Validate spectral manifests
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          root=Path('data/pdd22_spectral/plots')
+          dirs=sorted([p for p in root.iterdir() if p.is_dir()])
+          assert len(dirs)==22, len(dirs)
+          total=0
+          for d in dirs:
+              m=json.loads((d/'spectral_manifest.json').read_text(encoding='utf-8'))
+              assert m['rules']['pdd_participating_boundary_only'] is True
+              assert m['rules']['frozen_clean_scene_selection'] is True
+              assert m['bands']==['B02','B03','B04','B08','B11','B12']
+              assert len(m['dates'])==12
+              total += sum(x['status']=='available' for x in m['dates'])
+          idx=json.loads(Path('data/pdd22_spectral/manifest.json').read_text(encoding='utf-8'))
+          assert idx['plot_count']==22 and idx['observation_slots']==264
+          print('Available spectral plot-months:', total)
+          PY
+
+      - name: Commit spectral assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pdd22_spectral
+          if git diff --cached --quiet; then
+            echo "No spectral changes"
+            exit 0
+          fi
+          git commit -m "Build PDD22 cleaned six-band spectral assets"
+          git push origin HEAD:gh-pages
