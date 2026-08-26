@@ -1,0 +1,419 @@
+{
+  "dataset_name": "PDD22 Sentinel-2 Level-2A Scientific Satellite Dataset",
+  "generated_at_utc": "2026-08-26T03:47:38.080856Z",
+  "plot_count": 22,
+  "total_pdd_area_rai": 6775.53,
+  "observation_months": [
+    "2023-09",
+    "2023-12",
+    "2024-03",
+    "2024-06",
+    "2024-09",
+    "2024-12",
+    "2025-03",
+    "2025-06",
+    "2025-09",
+    "2025-12",
+    "2026-03",
+    "2026-08"
+  ],
+  "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+  "plots": [
+    {
+      "plot_code": "18-VSD",
+      "province": "ชุมพร",
+      "pdd_area_rai": 1909.77,
+      "inside_pixel_count": 30575,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.42924374695144,
+          10.86981750452428,
+          99.4587743616975,
+          10.89722226674424
+        ],
+        "width": 322,
+        "height": 304,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "19-VSD",
+      "province": "ชุมพร",
+      "pdd_area_rai": 316.38,
+      "inside_pixel_count": 5062,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.12317705053054,
+          10.050558687283619,
+          99.13965378634322,
+          10.06080730316456
+        ],
+        "width": 180,
+        "height": 114,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "40-VSD",
+      "province": "พังงา",
+      "pdd_area_rai": 277.33,
+      "inside_pixel_count": 4454,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          98.54072798260796,
+          8.342102565951777,
+          98.55546333760367,
+          8.362158780971667
+        ],
+        "width": 162,
+        "height": 223,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "41-VSD",
+      "province": "พังงา",
+      "pdd_area_rai": 178.92,
+      "inside_pixel_count": 2859,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          98.53143166438984,
+          8.349803978720717,
+          98.5428322947247,
+          8.365483092320929
+        ],
+        "width": 125,
+        "height": 174,
+        "resolution_m": 10.01
+      }
+    },
+    {
+      "plot_code": "42-VSD",
+      "province": "พังงา",
+      "pdd_area_rai": 223.01,
+      "inside_pixel_count": 3589,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          98.5265861055144,
+          8.350471478394518,
+          98.5405245983816,
+          8.364845514244406
+        ],
+        "width": 153,
+        "height": 160,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "43-VSD",
+      "province": "พังงา",
+      "pdd_area_rai": 122.82,
+      "inside_pixel_count": 1967,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          98.58868789008415,
+          8.423012644168223,
+          98.60009113294947,
+          8.433978111450708
+        ],
+        "width": 125,
+        "height": 122,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "44-VSD",
+      "province": "พังงา",
+      "pdd_area_rai": 221.07,
+      "inside_pixel_count": 3539,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          98.63180667788593,
+          8.378935308567684,
+          98.645537702553,
+          8.398644724024871
+        ],
+        "width": 151,
+        "height": 219,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "66-VSD",
+      "province": "ตรัง",
+      "pdd_area_rai": 97.17,
+      "inside_pixel_count": 1553,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.6149003558168,
+          7.344166268408614,
+          99.62843927180502,
+          7.354533630772506
+        ],
+        "width": 149,
+        "height": 115,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "85-VSD",
+      "province": "สตูล",
+      "pdd_area_rai": 599.58,
+      "inside_pixel_count": 9631,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          100.1119467878986,
+          6.4494263679825234,
+          100.126794420676,
+          6.468700225585016
+        ],
+        "width": 164,
+        "height": 214,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "86-VSD",
+      "province": "สตูล",
+      "pdd_area_rai": 1141.96,
+      "inside_pixel_count": 18293,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          100.0796692185097,
+          6.5611044017967295,
+          100.1036554955618,
+          6.582690012584072
+        ],
+        "width": 264,
+        "height": 240,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "87-VSD",
+      "province": "สมุทรสงคราม",
+      "pdd_area_rai": 92.92,
+      "inside_pixel_count": 1494,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.85741700034436,
+          13.2587065826927,
+          99.87100640067493,
+          13.26774419129149
+        ],
+        "width": 147,
+        "height": 100,
+        "resolution_m": 10.01
+      }
+    },
+    {
+      "plot_code": "88-VSD",
+      "province": "ปัตตานี",
+      "pdd_area_rai": 257.66,
+      "inside_pixel_count": 4121,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          101.0938948940841,
+          6.843995016906547,
+          101.109129475495,
+          6.859695075717198
+        ],
+        "width": 168,
+        "height": 174,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "89-VSD",
+      "province": "ปัตตานี",
+      "pdd_area_rai": 25.72,
+      "inside_pixel_count": 443,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          101.368494960524,
+          6.864853729665967,
+          101.3765672584223,
+          6.8735111426751265
+        ],
+        "width": 96,
+        "height": 96,
+        "resolution_m": 9.64
+      }
+    },
+    {
+      "plot_code": "90-VSD",
+      "province": "ปัตตานี",
+      "pdd_area_rai": 22.42,
+      "inside_pixel_count": 361,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          101.3352790655265,
+          6.86875257312281,
+          101.3463201302058,
+          6.8776959390664265
+        ],
+        "width": 122,
+        "height": 99,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "93-VSD",
+      "province": "ปัตตานี",
+      "pdd_area_rai": 82.63,
+      "inside_pixel_count": 1326,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          101.0590927442848,
+          6.832004371354728,
+          101.0702103732602,
+          6.841682305344149
+        ],
+        "width": 123,
+        "height": 107,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "94-VSD",
+      "province": "ปัตตานี",
+      "pdd_area_rai": 140.87,
+      "inside_pixel_count": 2256,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          101.0506247108118,
+          6.831801699239051,
+          101.0662735082659,
+          6.841074090247119
+        ],
+        "width": 172,
+        "height": 103,
+        "resolution_m": 10.01
+      }
+    },
+    {
+      "plot_code": "95-VSD",
+      "province": "ปัตตานี",
+      "pdd_area_rai": 200.38,
+      "inside_pixel_count": 3208,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          101.3782104912712,
+          6.864981174391731,
+          101.3947367014876,
+          6.879003855493594
+        ],
+        "width": 182,
+        "height": 156,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "97-VSD",
+      "province": "กระบี่",
+      "pdd_area_rai": 184.64,
+      "inside_pixel_count": 2953,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.08978287213193,
+          7.898249439410148,
+          99.10388612709315,
+          7.913601813123215
+        ],
+        "width": 155,
+        "height": 170,
+        "resolution_m": 10.01
+      }
+    },
+    {
+      "plot_code": "98-VSD",
+      "province": "กระบี่",
+      "pdd_area_rai": 150.95,
+      "inside_pixel_count": 2420,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.0986673007054,
+          7.944786059279285,
+          99.11338714884793,
+          7.956755449654339
+        ],
+        "width": 162,
+        "height": 133,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "99-VSD",
+      "province": "กระบี่",
+      "pdd_area_rai": 205.78,
+      "inside_pixel_count": 3296,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.08461859262398,
+          7.932116900424645,
+          99.10035547687382,
+          7.948074515176778
+        ],
+        "width": 173,
+        "height": 177,
+        "resolution_m": 10.0
+      }
+    },
+    {
+      "plot_code": "100-VSD",
+      "province": "กระบี่",
+      "pdd_area_rai": 291.51,
+      "inside_pixel_count": 4680,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          99.10977054562424,
+          7.966900169856999,
+          99.12331206874701,
+          7.985264184244753
+        ],
+        "width": 149,
+        "height": 204,
+        "resolution_m": 9.99
+      }
+    },
+    {
+      "plot_code": "102-VSD",
+      "province": "ภูเก็ต",
+      "pdd_area_rai": 32.04,
+      "inside_pixel_count": 515,
+      "grid": {
+        "crs": "EPSG:4326",
+        "bbox": [
+          98.39826309120218,
+          7.933247617107751,
+          98.40796660308095,
+          7.943773527103863
+        ],
+        "width": 107,
+        "height": 117,
+        "resolution_m": 9.98
+      }
+    }
+  ]
+}
