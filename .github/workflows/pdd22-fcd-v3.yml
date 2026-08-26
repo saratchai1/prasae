@@ -7,6 +7,7 @@ on:
       - pdd22-satellite-refetch
     paths:
       - process_pdd22_fcd_v3.py
+      - timeline-integrity.js
       - .github/workflows/pdd22-fcd-v3.yml
 
 permissions:
@@ -94,6 +95,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin ${GITHUB_REF_NAME}
           git add data/pdd22_v3
           if git diff --cached --quiet; then
             echo "No result changes"
