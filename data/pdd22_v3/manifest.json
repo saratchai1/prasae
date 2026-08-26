@@ -1,0 +1,21 @@
+{
+  "model_version": "pdd22_v3_cleaned_scene_fcd",
+  "plot_count": 22,
+  "project_area_rai": 6775.53,
+  "reference_month": "2023-03",
+  "reference_source": "data/pdd22_v2/march_result.json frozen corrected calibration",
+  "target_months": [
+    "2024-03",
+    "2025-03",
+    "2026-03",
+    "2026-08"
+  ],
+  "scene_source": "data/pdd22_satellite selected_scene_ids",
+  "pdd_fcd_classes": {
+    "green": ">65 equivalent",
+    "yellow": "30-65 equivalent",
+    "red": "<30 equivalent"
+  },
+  "good_only_equivalent_area": true,
+  "warning": "PDD-equivalent Sentinel-2 screening only; not exact Landsat PDD reproduction and not verified carbon accounting."
+}

@@ -1,0 +1,121 @@
+{
+  "calibration": {
+    "reference": "2023-03",
+    "mean": [
+      0.675269334771174,
+      0.15336088905441816
+    ],
+    "pc1": [
+      -0.5554311591713934,
+      -0.8315625216551803
+    ],
+    "pc1_ndvi_corr": -0.994219772416131,
+    "vd_raw_low": -0.12782926167797368,
+    "vd_raw_high": 0.29233112555255775,
+    "csi_low": 0.8174425077438354,
+    "csi_high": 0.8838454627990723,
+    "vd_rule": "PDD p.109: maximum PCA -> VD 0%; minimum PCA -> VD 100%",
+    "scaling_percentiles": [
+      2.0,
+      98.0
+    ]
+  },
+  "province_anchors": {
+    "สมุทรสงคราม": {
+      "low_cut": 0.0,
+      "high_cut": 16.025806435958334,
+      "class_frac": 0.9928971157985362,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 78.88,
+        "medium": 11.52,
+        "low": 1.86,
+        "bare_error": 0.66
+      }
+    },
+    "ชุมพร": {
+      "low_cut": 34.08018612980982,
+      "high_cut": 56.56616854730391,
+      "class_frac": 1.0,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 1280.3,
+        "medium": 741.81,
+        "low": 204.04,
+        "bare_error": 0.0
+      }
+    },
+    "ปัตตานี": {
+      "low_cut": 0.0,
+      "high_cut": 50.22614180501061,
+      "class_frac": 0.9956830391404452,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 462.46,
+        "medium": 222.53,
+        "low": 41.54,
+        "bare_error": 3.15
+      }
+    },
+    "สตูล": {
+      "low_cut": 44.551430504912666,
+      "high_cut": 75.06469447960264,
+      "class_frac": 0.994613962355157,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 1422.03,
+        "medium": 283.72,
+        "low": 26.41,
+        "bare_error": 9.38
+      }
+    },
+    "พังงา": {
+      "low_cut": 0.0,
+      "high_cut": 74.68184249069814,
+      "class_frac": 0.9969310462786493,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 776.68,
+        "medium": 234.01,
+        "low": 9.32,
+        "bare_error": 3.14
+      }
+    },
+    "ภูเก็ต": {
+      "low_cut": 0.0,
+      "high_cut": 31.526365877137387,
+      "class_frac": 0.8664169787765295,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 16.5,
+        "medium": 8.49,
+        "low": 2.77,
+        "bare_error": 4.28
+      }
+    },
+    "กระบี่": {
+      "low_cut": 33.040921408855255,
+      "high_cut": 68.0516490865858,
+      "class_frac": 0.9916434540389973,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 513.21,
+        "medium": 276.64,
+        "low": 36.07,
+        "bare_error": 6.96
+      }
+    },
+    "ตรัง": {
+      "low_cut": 63.47941557348459,
+      "high_cut": 76.24326696811629,
+      "class_frac": 0.9986621385201193,
+      "scope": "province_2023",
+      "pdd": {
+        "high": 5.42,
+        "medium": 44.57,
+        "low": 47.05,
+        "bare_error": 0.13
+      }
+    }
+  }
+}
