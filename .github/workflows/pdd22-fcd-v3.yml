@@ -7,6 +7,7 @@ on:
       - pdd22-satellite-refetch
     paths:
       - process_pdd22_fcd_v3.py
+      - run_pdd22_fcd_v3.py
       - timeline-integrity.js
       - .github/workflows/pdd22-fcd-v3.yml
 
@@ -39,7 +40,7 @@ jobs:
 
       - name: Validate inputs
         run: |
-          python -m py_compile process_pdd22_fcd_v3.py process_pdd22_fcd_v2.py process_pdd22_fcd.py process_pdd22_satellite_pipeline.py
+          python -m py_compile run_pdd22_fcd_v3.py process_pdd22_fcd_v3.py process_pdd22_fcd_v2.py process_pdd22_fcd.py process_pdd22_satellite_pipeline.py
           python - <<'PY'
           import json
           from pathlib import Path
@@ -57,7 +58,7 @@ jobs:
           PDD22_REFERENCE_SAMPLE: '6000'
           PDD22_V2_WORKERS: '6'
           PRASAE_MAX_SCENES: '6'
-        run: python process_pdd22_fcd_v3.py
+        run: python run_pdd22_fcd_v3.py
 
       - name: Validate outputs
         run: |
