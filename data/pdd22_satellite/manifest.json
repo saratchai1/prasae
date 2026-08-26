@@ -1,7 +1,8 @@
 {
   "dataset_name": "PDD22 Sentinel-2 Level-2A Scientific Satellite Dataset",
   "generated_at_utc": "2026-08-26T05:46:36.381853Z",
-  "pipeline_git_commit": "3820baed4a9d25bd8013298ed23b7c3e26b585c5",
+  "pipeline_source_commit": "4e1dacaa18659bf00687866b7117391803fe0f14",
+  "dataset_commit": "<new cleanup commit SHA cannot be known until commit>",
   "pipeline_file_sha256": "46cf642301055196c7a87b4694a0eaf812b544b5f6f39d607780b14f81ffc397",
   "python_version": "3.13.13",
   "dependency_versions": {

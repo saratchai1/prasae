@@ -102,8 +102,9 @@ def test_satellite_dataset_integrity(available_codes: list[str] | None = None):
             assert rgb_p.exists() and ndvi_p.exists() and mask_p.exists() and obs_p.exists(), f"Missing PNGs in {m_dir}"
             
             # Verify raster dimensions
-            with Image.open(rgb_p) as im:
-                assert im.size == (w, h), f"{rgb_p} size mismatch {im.size} != {(w, h)}"
+            for img_p in [rgb_p, ndvi_p, mask_p, obs_p]:
+                with Image.open(img_p) as im:
+                    assert im.size == (w, h), f"{img_p} size mismatch {im.size} != {(w, h)}"
                 
             # Verify math agreement
             valid_px = obs["valid_pixel_count"]
@@ -176,7 +177,8 @@ def test_global_artifacts():
         
     assert manifest["plot_count"] == 22
     assert manifest["total_pdd_area_rai"] == 6775.53
-    assert "pipeline_git_commit" in manifest
+    assert "pipeline_source_commit" in manifest
+    assert "dataset_commit" in manifest
     assert "pipeline_file_sha256" in manifest
     assert "python_version" in manifest
     assert "dependency_versions" in manifest
@@ -192,6 +194,30 @@ def test_global_artifacts():
     
     header = lines[0].strip().split(",")
     assert "plot_code" in header
+    assert "month" in header
+    
+    from collections import Counter
+    plot_idx = header.index("plot_code")
+    month_idx = header.index("month")
+    
+    plot_counts = Counter()
+    months_seen = set()
+    
+    for row in lines[1:]:
+        cols = row.strip().split(",")
+        plot_code = cols[plot_idx]
+        month = cols[month_idx]
+        
+        assert plot_code in EXPECTED_CODES, f"Unexpected plot: {plot_code}"
+        assert month in EXPECTED_MONTHS, f"Unexpected month: {month}"
+        
+        plot_counts[plot_code] += 1
+        months_seen.add(month)
+        
+    assert len(plot_counts) == 22, f"Expected 22 unique plots, got {len(plot_counts)}"
+    assert len(months_seen) == 12, f"Expected 12 unique months, got {len(months_seen)}"
+    for p, c in plot_counts.items():
+        assert c == 12, f"Expected exactly 12 rows for {p}, got {c}"
     
     print("✓ Global artifacts passed.")
 

@@ -715,7 +715,7 @@ def process_single_plot(catalog, plot: dict[str, Any]) -> dict[str, Any]:
 def generate_executive_qa_summary(all_results: list[dict[str, Any]]) -> None:
     total_obs = sum(len(m["observations"]) for m in all_results)
     qa_counts = {"GOOD": 0, "PARTIAL": 0, "LOW_QA": 0, "NO_DATA": 0}
-    modes_counts = {"single_scene": 0,
+    modes_counts = {"single_scene_good": 0, "single_scene_partial": 0,
                     "same_month_multi_scene_composite": 0, "no_data": 0}
 
     gaps = []
@@ -780,7 +780,9 @@ def generate_executive_qa_summary(all_results: list[dict[str, Any]]) -> None:
 
     lines.append("## 2. Analysis Mode Breakdown\n")
     lines.append(
-        f"- **Single Best Acquisition (`single_scene`)**: {modes_counts['single_scene']} ({modes_counts['single_scene']/total_obs*100:.1f}%) — Preserves pristine radiometric consistency and identical tidal state.")
+        f"- **Single Acquisition ($\\ge$ 95% Coverage) (`single_scene_good`)**: {modes_counts['single_scene_good']} ({modes_counts['single_scene_good']/total_obs*100:.1f}%) — Pristine radiometric consistency.")
+    lines.append(
+        f"- **Single Acquisition (< 95% Coverage) (`single_scene_partial`)**: {modes_counts['single_scene_partial']} ({modes_counts['single_scene_partial']/total_obs*100:.1f}%) — Only one valid scene available, resulting in partial coverage.")
     lines.append(
         f"- **Same-Month Multi-Scene Composite**: {modes_counts['same_month_multi_scene_composite']} ({modes_counts['same_month_multi_scene_composite']/total_obs*100:.1f}%) — Median reflectance composite across same-month clear observations.")
     lines.append(
@@ -888,7 +890,8 @@ def run_pipeline(target_codes: list[str] | None = None, max_plot_workers: int = 
     manifest = {
         "dataset_name": "PDD22 Sentinel-2 Level-2A Scientific Satellite Dataset",
         "generated_at_utc": dt_mod.datetime.utcnow().isoformat() + "Z",
-        "pipeline_git_commit": get_git_commit(),
+        "pipeline_source_commit": get_git_commit(),
+        "dataset_commit": "<new cleanup commit SHA cannot be known until commit>",
         "pipeline_file_sha256": get_file_sha256(__file__),
         "python_version": sys.version.split()[0],
         "dependency_versions": {

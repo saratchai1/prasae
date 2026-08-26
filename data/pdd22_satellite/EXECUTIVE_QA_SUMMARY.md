@@ -17,7 +17,8 @@
 
 ## 2. Analysis Mode Breakdown
 
-- **Single Best Acquisition (`single_scene`)**: 0 (0.0%) — Preserves pristine radiometric consistency and identical tidal state.
+- **Single Acquisition ($\ge$ 95% Coverage) (`single_scene_good`)**: 170 (64.4%) — Pristine radiometric consistency.
+- **Single Acquisition (< 95% Coverage) (`single_scene_partial`)**: 21 (8.0%) — Only one valid scene available, resulting in partial coverage.
 - **Same-Month Multi-Scene Composite**: 66 (25.0%) — Median reflectance composite across same-month clear observations.
 - **No Data Available in Exact Month**: 7 (2.7%) — Zero clear Sentinel-2 passes during heavy monsoon cloud cover.
 
