@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <link rel="stylesheet" href="styles.css?v=20260826-1405">
+  <link rel="stylesheet" href="styles.css?v=20260826-1410">
 </head>
 <body>
   <header class="site-header">
@@ -66,7 +66,7 @@
 
         <div class="tab-content-panel active" id="panel-detail">
           <div class="chart-box">
-            <div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI — cleaned Sentinel-2 exact-month observations</h3><p class="chart-box-subtitle">ใช้ขอบเขต PDD participating เท่านั้น • QA ตาม clear coverage • ไม่มี interpolation หรือ synthetic pixel</p></div><div class="chart-badge-tag">PDD22 cleaned dataset</div></div>
+            <div class="chart-header-row"><div><h3 class="chart-box-title" id="chart-plot-title">NDVI + FCD Green — cleaned Sentinel-2</h3><p class="chart-box-subtitle">ใช้ขอบเขต PDD participating เท่านั้น • QA ตาม clear coverage • ไม่มี interpolation หรือ synthetic pixel</p></div><div class="chart-badge-tag">PDD22 cleaned dataset</div></div>
             <div class="chart-canvas-container"><canvas id="plotNdviChart"></canvas></div>
           </div>
 
@@ -120,7 +120,8 @@
     </main>
   </div>
 
-  <script src="app.js?v=20260826-1405"></script>
-  <script src="pdd22-production.js?v=20260826-1405"></script>
+  <script src="app.js?v=20260826-1410"></script>
+  <script src="pdd22-production.js?v=20260826-1410"></script>
+  <script src="pdd22-chart-hotfix.js?v=20260826-1410"></script>
 </body>
 </html>
