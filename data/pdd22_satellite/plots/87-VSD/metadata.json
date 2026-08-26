@@ -1,0 +1,1237 @@
+{
+  "plot_code": "87-VSD",
+  "province": "สมุทรสงคราม",
+  "coast": "อ่าวไทย",
+  "pdd_area_rai": 92.92,
+  "allocated_area_rai": 101.62,
+  "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+  "rules": {
+    "adjacent_month_fallback": false,
+    "interpolation": false,
+    "synthetic_pixels": false,
+    "strict_pdd_boundary_only": true,
+    "cloud_scl_clear_classes": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "cloud_buffer_pixels": 1
+  },
+  "grid": {
+    "crs": "EPSG:4326",
+    "bbox": [
+      99.85741700034436,
+      13.2587065826927,
+      99.87100640067493,
+      13.26774419129149
+    ],
+    "width": 147,
+    "height": 100,
+    "resolution_m": 10.01
+  },
+  "inside_pixel_count": 1494,
+  "observations": [
+    {
+      "month": "2023-09",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 6,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2A_MSIL2A_20230903T033541_R061_T47PNQ_20241106T073433",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2023-09-03 03:35:41.024000+00:00",
+          "datetime_thailand": "2023-09-03 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 61.47,
+          "clear_inside_pixel_count": 206,
+          "clear_inside_pct": 13.79
+        },
+        {
+          "id": "S2B_MSIL2A_20230908T033539_R061_T47PNQ_20241104T232445",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2023-09-08 03:35:39.024000+00:00",
+          "datetime_thailand": "2023-09-08 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 99.95,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20230913T033541_R061_T47PNQ_20241105T180357",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2023-09-13 03:35:41.024000+00:00",
+          "datetime_thailand": "2023-09-13 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 95.27,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20230918T033539_R061_T47PNQ_20241013T024531",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2023-09-18 03:35:39.024000+00:00",
+          "datetime_thailand": "2023-09-18 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 39.28,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20230923T033541_R061_T47PNQ_20241105T101720",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2023-09-23 03:35:41.024000+00:00",
+          "datetime_thailand": "2023-09-23 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 99.7,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20230928T033539_R061_T47PNQ_20230928T091831",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2023-09-28 03:35:39.024000+00:00",
+          "datetime_thailand": "2023-09-28 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.09",
+          "catalog_cloud_cover_pct": 99.94,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.5133,
+        "median_ndvi": 0.5338,
+        "p10_ndvi": 0.4465,
+        "p90_ndvi": 0.5668,
+        "median_ndre": 0.3934,
+        "median_mndwi": -0.1629,
+        "median_evi": 0.61,
+        "median_mfi": 0.2346,
+        "water_fraction": 0.0094,
+        "green_proxy_fraction": 0.9826
+      }
+    },
+    {
+      "month": "2023-12",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 6,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2A_MSIL2A_20231202T034111_R061_T47PNQ_20231202T072051",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2023-12-02 03:41:11.024000+00:00",
+          "datetime_thailand": "2023-12-02 10:41:11 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.09",
+          "catalog_cloud_cover_pct": 98.89,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20231207T034129_R061_T47PNQ_20231207T081622",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2023-12-07 03:41:29.024000+00:00",
+          "datetime_thailand": "2023-12-07 10:41:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.09",
+          "catalog_cloud_cover_pct": 93.63,
+          "clear_inside_pixel_count": 25,
+          "clear_inside_pct": 1.67
+        },
+        {
+          "id": "S2A_MSIL2A_20231212T034141_R061_T47PNQ_20241016T114720",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2023-12-12 03:41:41.024000+00:00",
+          "datetime_thailand": "2023-12-12 10:41:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 22.32,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20231217T034149_R061_T47PNQ_20231220T053059",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2023-12-17 03:41:49.024000+00:00",
+          "datetime_thailand": "2023-12-17 10:41:49 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 59.32,
+          "clear_inside_pixel_count": 310,
+          "clear_inside_pct": 20.75
+        },
+        {
+          "id": "S2A_MSIL2A_20231222T034151_R061_T47PNQ_20231222T084114",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2023-12-22 03:41:51.024000+00:00",
+          "datetime_thailand": "2023-12-22 10:41:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 35.1,
+          "clear_inside_pixel_count": 774,
+          "clear_inside_pct": 51.81
+        },
+        {
+          "id": "S2B_MSIL2A_20231227T034149_R061_T47PNQ_20231227T081827",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2023-12-27 03:41:49.024000+00:00",
+          "datetime_thailand": "2023-12-27 10:41:49 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 1.78,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.4768,
+        "median_ndvi": 0.4965,
+        "p10_ndvi": 0.4031,
+        "p90_ndvi": 0.5295,
+        "median_ndre": 0.3691,
+        "median_mndwi": -0.169,
+        "median_evi": 0.5018,
+        "median_mfi": 0.1908,
+        "water_fraction": 0.0094,
+        "green_proxy_fraction": 0.9786
+      }
+    },
+    {
+      "month": "2024-03",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 7,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2A_MSIL2A_20240301T033651_R061_T47PNQ_20240301T092116",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-03-01 03:36:51.024000+00:00",
+          "datetime_thailand": "2024-03-01 10:36:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 17.41,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20240306T033609_R061_T47PNQ_20240306T080812",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-03-06 03:36:09.024000+00:00",
+          "datetime_thailand": "2024-03-06 10:36:09 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 3.23,
+          "clear_inside_pixel_count": 1101,
+          "clear_inside_pct": 73.69
+        },
+        {
+          "id": "S2A_MSIL2A_20240311T033541_R061_T47PNQ_20240311T105918",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-03-11 03:35:41.024000+00:00",
+          "datetime_thailand": "2024-03-11 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 40.85,
+          "clear_inside_pixel_count": 38,
+          "clear_inside_pct": 2.54
+        },
+        {
+          "id": "S2B_MSIL2A_20240316T033539_R061_T47PNQ_20240316T081211",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-03-16 03:35:39.024000+00:00",
+          "datetime_thailand": "2024-03-16 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 97.78,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20240321T033541_R061_T47PNQ_20240321T091025",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-03-21 03:35:41.024000+00:00",
+          "datetime_thailand": "2024-03-21 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 88.6,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20240326T033539_R061_T47PNQ_20240326T091647",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-03-26 03:35:39.024000+00:00",
+          "datetime_thailand": "2024-03-26 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 4.92,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20240331T033531_R061_T47PNQ_20240331T092948",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-03-31 03:35:31.024000+00:00",
+          "datetime_thailand": "2024-03-31 10:35:31 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 10.15,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.4301,
+        "median_ndvi": 0.4576,
+        "p10_ndvi": 0.3211,
+        "p90_ndvi": 0.4922,
+        "median_ndre": 0.3272,
+        "median_mndwi": -0.1547,
+        "median_evi": 0.4807,
+        "median_mfi": 0.1804,
+        "water_fraction": 0.0074,
+        "green_proxy_fraction": 0.9384
+      }
+    },
+    {
+      "month": "2024-06",
+      "analysis_mode": "same_month_multi_scene_composite",
+      "qa": "PARTIAL",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 747,
+      "coverage_pct": 50.0,
+      "scenes_evaluated_count": 6,
+      "scenes_used_count": 2,
+      "scenes": [
+        {
+          "id": "S2B_MSIL2A_20240604T033539_R061_T47PNQ_20240604T081239",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-06-04 03:35:39.024000+00:00",
+          "datetime_thailand": "2024-06-04 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 72.71,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20240609T033541_R061_T47PNQ_20240609T101746",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-06-09 03:35:41.024000+00:00",
+          "datetime_thailand": "2024-06-09 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 100.0,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20240614T033539_R061_T47PNQ_20240614T080556",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-06-14 03:35:39.024000+00:00",
+          "datetime_thailand": "2024-06-14 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 56.84,
+          "clear_inside_pixel_count": 742,
+          "clear_inside_pct": 49.67
+        },
+        {
+          "id": "S2A_MSIL2A_20240619T033541_R061_T47PNQ_20240619T095922",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-06-19 03:35:41.024000+00:00",
+          "datetime_thailand": "2024-06-19 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 58.86,
+          "clear_inside_pixel_count": 40,
+          "clear_inside_pct": 2.68
+        },
+        {
+          "id": "S2B_MSIL2A_20240624T033539_R061_T47PNQ_20240624T085209",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-06-24 03:35:39.024000+00:00",
+          "datetime_thailand": "2024-06-24 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 100.0,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20240629T033541_R061_T47PNQ_20240629T103034",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-06-29 03:35:41.024000+00:00",
+          "datetime_thailand": "2024-06-29 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.10",
+          "catalog_cloud_cover_pct": 99.99,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.425,
+        "median_ndvi": 0.4629,
+        "p10_ndvi": 0.2643,
+        "p90_ndvi": 0.5403,
+        "median_ndre": 0.3446,
+        "median_mndwi": -0.1568,
+        "median_evi": 0.6332,
+        "median_mfi": 0.2304,
+        "water_fraction": 0.0027,
+        "green_proxy_fraction": 0.913
+      }
+    },
+    {
+      "month": "2024-09",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 5,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2B_MSIL2A_20240902T033539_R061_T47PNQ_20240902T074759",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-09-02 03:35:39.024000+00:00",
+          "datetime_thailand": "2024-09-02 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 100.0,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20240907T033531_R061_T47PNQ_20240907T090557",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-09-07 03:35:31.024000+00:00",
+          "datetime_thailand": "2024-09-07 10:35:31 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 92.09,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20240912T033539_R061_T47PNQ_20240912T082434",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-09-12 03:35:39.024000+00:00",
+          "datetime_thailand": "2024-09-12 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 99.98,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20240922T033529_R061_T47PNQ_20240922T081602",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-09-22 03:35:29.024000+00:00",
+          "datetime_thailand": "2024-09-22 10:35:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 99.37,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20240927T033541_R061_T47PNQ_20240927T085345",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-09-27 03:35:41.024000+00:00",
+          "datetime_thailand": "2024-09-27 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 53.41,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.541,
+        "median_ndvi": 0.5592,
+        "p10_ndvi": 0.4848,
+        "p90_ndvi": 0.5998,
+        "median_ndre": 0.3938,
+        "median_mndwi": -0.1889,
+        "median_evi": 0.6124,
+        "median_mfi": 0.2401,
+        "water_fraction": 0.01,
+        "green_proxy_fraction": 0.9833
+      }
+    },
+    {
+      "month": "2024-12",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 7,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2B_MSIL2A_20241201T034029_R061_T47PNQ_20241201T063331",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-12-01 03:40:29.024000+00:00",
+          "datetime_thailand": "2024-12-01 10:40:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 2.89,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20241206T034131_R061_T47PNQ_20241206T070059",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-12-06 03:41:31.024000+00:00",
+          "datetime_thailand": "2024-12-06 10:41:31 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 100.0,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20241211T034049_R061_T47PNQ_20241211T082736",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-12-11 03:40:49.024000+00:00",
+          "datetime_thailand": "2024-12-11 10:40:49 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 61.78,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20241216T034151_R061_T47PNQ_20241216T070953",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-12-16 03:41:51.024000+00:00",
+          "datetime_thailand": "2024-12-16 10:41:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 87.78,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20241221T034059_R061_T47PNQ_20241221T072432",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-12-21 03:40:59.024000+00:00",
+          "datetime_thailand": "2024-12-21 10:40:59 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 5.35,
+          "clear_inside_pixel_count": 1210,
+          "clear_inside_pct": 80.99
+        },
+        {
+          "id": "S2A_MSIL2A_20241226T034151_R061_T47PNQ_20241226T064949",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2024-12-26 03:41:51.024000+00:00",
+          "datetime_thailand": "2024-12-26 10:41:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 43.12,
+          "clear_inside_pixel_count": 20,
+          "clear_inside_pct": 1.34
+        },
+        {
+          "id": "S2B_MSIL2A_20241231T034049_R061_T47PNQ_20241231T063102",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2024-12-31 03:40:49.024000+00:00",
+          "datetime_thailand": "2024-12-31 10:40:49 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 6.47,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.504,
+        "median_ndvi": 0.5257,
+        "p10_ndvi": 0.4409,
+        "p90_ndvi": 0.5608,
+        "median_ndre": 0.3978,
+        "median_mndwi": -0.1417,
+        "median_evi": 0.5794,
+        "median_mfi": 0.2052,
+        "water_fraction": 0.01,
+        "green_proxy_fraction": 0.9705
+      }
+    },
+    {
+      "month": "2025-03",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 8,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2B_MSIL2A_20250301T033559_R061_T47PNQ_20250301T061709",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-03-01 03:35:59.024000+00:00",
+          "datetime_thailand": "2025-03-01 10:35:59 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 2.62,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2C_MSIL2A_20250306T033641_R061_T47PNQ_20250306T085914",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-03-06 03:36:41.025000+00:00",
+          "datetime_thailand": "2025-03-06 10:36:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 5.59,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250311T033539_R061_T47PNQ_20250311T072242",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-03-11 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-03-11 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 57.48,
+          "clear_inside_pixel_count": 725,
+          "clear_inside_pct": 48.53
+        },
+        {
+          "id": "S2C_MSIL2A_20250316T033601_R061_T47PNQ_20250316T090315",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-03-16 03:36:01.024000+00:00",
+          "datetime_thailand": "2025-03-16 10:36:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 29.09,
+          "clear_inside_pixel_count": 1480,
+          "clear_inside_pct": 99.06
+        },
+        {
+          "id": "S2A_MSIL2A_20250318T034201_R061_T47PNQ_20250318T114518",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2025-03-18 03:42:01.024000+00:00",
+          "datetime_thailand": "2025-03-18 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 46.84,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250321T033539_R061_T47PNQ_20250321T073809",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-03-21 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-03-21 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 97.09,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2C_MSIL2A_20250326T033601_R061_T47PNQ_20250326T085914",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-03-26 03:36:01.025000+00:00",
+          "datetime_thailand": "2025-03-26 10:36:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 0.38,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250331T033539_R061_T47PNQ_20250331T072416",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-03-31 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-03-31 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 100.0,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.4499,
+        "median_ndvi": 0.4774,
+        "p10_ndvi": 0.3541,
+        "p90_ndvi": 0.5061,
+        "median_ndre": 0.3466,
+        "median_mndwi": -0.1437,
+        "median_evi": 0.5405,
+        "median_mfi": 0.1928,
+        "water_fraction": 0.0,
+        "green_proxy_fraction": 0.9444
+      }
+    },
+    {
+      "month": "2025-06",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 8,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2C_MSIL2A_20250604T033601_R061_T47PNQ_20250604T084721",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-06-04 03:36:01.025000+00:00",
+          "datetime_thailand": "2025-06-04 10:36:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 30.2,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20250606T034201_R061_T47PNQ_20250606T073218",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2025-06-06 03:42:01.024000+00:00",
+          "datetime_thailand": "2025-06-06 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 86.06,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250609T033539_R061_T47PNQ_20250609T071418",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-06-09 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-06-09 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 43.26,
+          "clear_inside_pixel_count": 1455,
+          "clear_inside_pct": 97.39
+        },
+        {
+          "id": "S2C_MSIL2A_20250614T033551_R061_T47PNQ_20250614T090546",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-06-14 03:35:51.025000+00:00",
+          "datetime_thailand": "2025-06-14 10:35:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 99.87,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250619T033539_R061_T47PNQ_20250619T071719",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-06-19 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-06-19 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 95.89,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2C_MSIL2A_20250624T033551_R061_T47PNQ_20250624T083123",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-06-24 03:35:51.025000+00:00",
+          "datetime_thailand": "2025-06-24 10:35:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 94.85,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20250626T034201_R061_T47PNQ_20250626T073921",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2025-06-26 03:42:01.024000+00:00",
+          "datetime_thailand": "2025-06-26 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 81.98,
+          "clear_inside_pixel_count": 1471,
+          "clear_inside_pct": 98.46
+        },
+        {
+          "id": "S2B_MSIL2A_20250629T033539_R061_T47PNQ_20250629T063507",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-06-29 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-06-29 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 93.49,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.4681,
+        "median_ndvi": 0.4874,
+        "p10_ndvi": 0.4099,
+        "p90_ndvi": 0.5266,
+        "median_ndre": 0.3321,
+        "median_mndwi": -0.1849,
+        "median_evi": 0.5133,
+        "median_mfi": 0.2149,
+        "water_fraction": 0.0054,
+        "green_proxy_fraction": 0.9659
+      }
+    },
+    {
+      "month": "2025-09",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 7,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2C_MSIL2A_20250902T033551_R061_T47PNQ_20250902T085021",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-09-02 03:35:51.025000+00:00",
+          "datetime_thailand": "2025-09-02 10:35:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 99.94,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250907T033539_R061_T47PNQ_20250907T072207",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-09-07 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-09-07 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 97.82,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2C_MSIL2A_20250912T033551_R061_T47PNQ_20250912T090014",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-09-12 03:35:51.025000+00:00",
+          "datetime_thailand": "2025-09-12 10:35:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 67.14,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20250914T034201_R061_T47PNQ_20250914T073413",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2025-09-14 03:42:01.024000+00:00",
+          "datetime_thailand": "2025-09-14 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 100.0,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250917T033529_R061_T47PNQ_20250917T080730",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-09-17 03:35:29.024000+00:00",
+          "datetime_thailand": "2025-09-17 10:35:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 89.9,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2C_MSIL2A_20250922T033551_R061_T47PNQ_20250922T091415",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-09-22 03:35:51.025000+00:00",
+          "datetime_thailand": "2025-09-22 10:35:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 98.04,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20250927T033539_R061_T47PNQ_20250927T072544",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-09-27 03:35:39.024000+00:00",
+          "datetime_thailand": "2025-09-27 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 99.89,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.2132,
+        "median_ndvi": 0.2157,
+        "p10_ndvi": 0.1981,
+        "p90_ndvi": 0.2298,
+        "median_ndre": 0.1424,
+        "median_mndwi": 0.1104,
+        "median_evi": 0.3815,
+        "median_mfi": 0.1316,
+        "water_fraction": 1.0,
+        "green_proxy_fraction": 0.002
+      }
+    },
+    {
+      "month": "2025-12",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 9,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2C_MSIL2A_20251201T034131_R061_T47PNQ_20251201T063318",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-12-01 03:41:31.025000+00:00",
+          "datetime_thailand": "2025-12-01 10:41:31 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 0.0,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20251203T034201_R061_T47PNQ_20251203T073813",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2025-12-03 03:42:01.024000+00:00",
+          "datetime_thailand": "2025-12-03 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 0.01,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20251206T034029_R061_T47PNQ_20251206T055750",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-12-06 03:40:29.024000+00:00",
+          "datetime_thailand": "2025-12-06 10:40:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 38.46,
+          "clear_inside_pixel_count": 125,
+          "clear_inside_pct": 8.37
+        },
+        {
+          "id": "S2C_MSIL2A_20251211T034151_R061_T47PNQ_20251211T063110",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-12-11 03:41:51.025000+00:00",
+          "datetime_thailand": "2025-12-11 10:41:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 86.19,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20251216T034049_R061_T47PNQ_20251216T055847",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-12-16 03:40:49.024000+00:00",
+          "datetime_thailand": "2025-12-16 10:40:49 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 8.06,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2C_MSIL2A_20251221T034201_R061_T47PNQ_20251221T063507",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-12-21 03:42:01.024000+00:00",
+          "datetime_thailand": "2025-12-21 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 0.04,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20251223T034211_R061_T47PNQ_20251223T073224",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2025-12-23 03:42:11.024000+00:00",
+          "datetime_thailand": "2025-12-23 10:42:11 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 18.64,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20251226T034049_R061_T47PNQ_20251226T061402",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2025-12-26 03:40:49.024000+00:00",
+          "datetime_thailand": "2025-12-26 10:40:49 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 9.62,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2C_MSIL2A_20251231T034151_R061_T47PNQ_20251231T062811",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2025-12-31 03:41:51.025000+00:00",
+          "datetime_thailand": "2025-12-31 10:41:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.11",
+          "catalog_cloud_cover_pct": 78.85,
+          "clear_inside_pixel_count": 280,
+          "clear_inside_pct": 18.74
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.5114,
+        "median_ndvi": 0.5284,
+        "p10_ndvi": 0.4703,
+        "p90_ndvi": 0.5582,
+        "median_ndre": 0.3674,
+        "median_mndwi": -0.1633,
+        "median_evi": 0.5591,
+        "median_mfi": 0.2086,
+        "water_fraction": 0.0094,
+        "green_proxy_fraction": 0.9846
+      }
+    },
+    {
+      "month": "2026-03",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 8,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2C_MSIL2A_20260301T033701_R061_T47PNQ_20260301T091613",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2026-03-01 03:37:01.025000+00:00",
+          "datetime_thailand": "2026-03-01 10:37:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 1.78,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20260306T033539_R061_T47PNQ_20260306T072603",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2026-03-06 03:35:39.024000+00:00",
+          "datetime_thailand": "2026-03-06 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 39.48,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2C_MSIL2A_20260311T033551_R061_T47PNQ_20260311T091010",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2026-03-11 03:35:51.025000+00:00",
+          "datetime_thailand": "2026-03-11 10:35:51 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 57.4,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2A_MSIL2A_20260313T034201_R061_T47PNQ_20260313T083010",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2026-03-13 03:42:01.027000+00:00",
+          "datetime_thailand": "2026-03-13 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 25.6,
+          "clear_inside_pixel_count": 819,
+          "clear_inside_pct": 54.82
+        },
+        {
+          "id": "S2B_MSIL2A_20260316T033529_R061_T47PNQ_20260316T072001",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2026-03-16 03:35:29.024000+00:00",
+          "datetime_thailand": "2026-03-16 10:35:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 28.27,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2C_MSIL2A_20260321T033541_R061_T47PNQ_20260321T090910",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2026-03-21 03:35:41.025000+00:00",
+          "datetime_thailand": "2026-03-21 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 30.56,
+          "clear_inside_pixel_count": 1254,
+          "clear_inside_pct": 83.94
+        },
+        {
+          "id": "S2B_MSIL2A_20260326T033529_R061_T47PNQ_20260326T072041",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2026-03-26 03:35:29.024000+00:00",
+          "datetime_thailand": "2026-03-26 10:35:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 6.08,
+          "clear_inside_pixel_count": 1407,
+          "clear_inside_pct": 94.18
+        },
+        {
+          "id": "S2C_MSIL2A_20260331T033541_R061_T47PNQ_20260331T085215",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2026-03-31 03:35:41.025000+00:00",
+          "datetime_thailand": "2026-03-31 10:35:41 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 10.08,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.4849,
+        "median_ndvi": 0.509,
+        "p10_ndvi": 0.4124,
+        "p90_ndvi": 0.5362,
+        "median_ndre": 0.3224,
+        "median_mndwi": -0.1613,
+        "median_evi": 0.5299,
+        "median_mfi": 0.2051,
+        "water_fraction": 0.0047,
+        "green_proxy_fraction": 0.9665
+      }
+    },
+    {
+      "month": "2026-08",
+      "analysis_mode": "single_scene",
+      "qa": "GOOD",
+      "inside_pixel_count": 1494,
+      "valid_pixel_count": 1494,
+      "coverage_pct": 100.0,
+      "scenes_evaluated_count": 6,
+      "scenes_used_count": 1,
+      "scenes": [
+        {
+          "id": "S2B_MSIL2A_20260803T033539_R061_T47PNQ_20260803T072631",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2026-08-03 03:35:39.024000+00:00",
+          "datetime_thailand": "2026-08-03 10:35:39 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 37.24,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2C_MSIL2A_20260808T033531_R061_T47PNQ_20260808T083957",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2026-08-08 03:35:31.025000+00:00",
+          "datetime_thailand": "2026-08-08 10:35:31 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 69.96,
+          "clear_inside_pixel_count": 1494,
+          "clear_inside_pct": 100.0
+        },
+        {
+          "id": "S2B_MSIL2A_20260813T033529_R061_T47PNQ_20260813T072506",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2026-08-13 03:35:29.024000+00:00",
+          "datetime_thailand": "2026-08-13 10:35:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 99.93,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2C_MSIL2A_20260818T033531_R061_T47PNQ_20260818T084111",
+          "satellite": "Sentinel-2C",
+          "datetime_utc": "2026-08-18 03:35:31.025000+00:00",
+          "datetime_thailand": "2026-08-18 10:35:31 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 62.44,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2A_MSIL2A_20260820T034201_R061_T47PNQ_20260820T103417",
+          "satellite": "Sentinel-2A",
+          "datetime_utc": "2026-08-20 03:42:01.024000+00:00",
+          "datetime_thailand": "2026-08-20 10:42:01 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 100.0,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        },
+        {
+          "id": "S2B_MSIL2A_20260823T033529_R061_T47PNQ_20260823T072632",
+          "satellite": "Sentinel-2B",
+          "datetime_utc": "2026-08-23 03:35:29.024000+00:00",
+          "datetime_thailand": "2026-08-23 10:35:29 UTC+7",
+          "mgrs_tile": "47PNQ",
+          "processing_baseline": "05.12",
+          "catalog_cloud_cover_pct": 95.84,
+          "clear_inside_pixel_count": 0,
+          "clear_inside_pct": 0.0
+        }
+      ],
+      "stats": {
+        "mean_ndvi": 0.5253,
+        "median_ndvi": 0.5435,
+        "p10_ndvi": 0.4786,
+        "p90_ndvi": 0.5662,
+        "median_ndre": 0.3946,
+        "median_mndwi": -0.1862,
+        "median_evi": 0.6004,
+        "median_mfi": 0.236,
+        "water_fraction": 0.0,
+        "green_proxy_fraction": 0.9886
+      }
+    }
+  ]
+}
