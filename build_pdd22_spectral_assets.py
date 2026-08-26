@@ -58,20 +58,18 @@ def load_clean(code):
 
 
 def get_item_retry(client, scene_id):
-    """Use the same STAC lookup form that already works in FCD V3."""
+    """Resolve a frozen scene ID through STAC item search, avoiding get_item API drift."""
     last = None
     for attempt in range(RETRIES):
         try:
-            item = client.get_item(scene_id, collection_id=sat.COLLECTION)
-            if item is None:
-                found = list(
-                    client.search(
-                        collections=[sat.COLLECTION],
-                        ids=[scene_id],
-                        max_items=1,
-                    ).items()
-                )
-                item = found[0] if found else None
+            found = list(
+                client.search(
+                    collections=[sat.COLLECTION],
+                    ids=[scene_id],
+                    max_items=1,
+                ).items()
+            )
+            item = found[0] if found else None
             if item is None:
                 raise RuntimeError(f"STAC item not found: {scene_id}")
             sat.pc.sign_inplace(item)
