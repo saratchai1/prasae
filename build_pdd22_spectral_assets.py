@@ -9,6 +9,7 @@ scientific statistics or carbon accounting.
 from __future__ import annotations
 
 import json
+import os
 import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
@@ -27,15 +28,19 @@ OUT = ROOT / "data/pdd22_spectral/plots"
 BANDS = ("B02", "B03", "B04", "B08", "B11", "B12")
 REFLECTANCE_MIN = 0.0
 REFLECTANCE_MAX = 0.40
-WORKERS = 2
+WORKERS = int(os.environ.get("PDD22_SPECTRAL_WORKERS", "2"))
 RETRIES = 6
+SHARD_COUNT = max(1, int(os.environ.get("PDD22_SPECTRAL_SHARD_COUNT", "1")))
+SHARD_INDEX = int(os.environ.get("PDD22_SPECTRAL_SHARD_INDEX", "0"))
 
 
 def load_plots():
     plots = json.loads(CATALOG.read_text(encoding="utf-8"))
     assert len(plots) == 22
     assert round(sum(float(p["area_rai"]) for p in plots), 2) == 6775.53
-    return plots
+    if not 0 <= SHARD_INDEX < SHARD_COUNT:
+        raise ValueError(f"invalid shard {SHARD_INDEX}/{SHARD_COUNT}")
+    return [plot for i, plot in enumerate(plots) if i % SHARD_COUNT == SHARD_INDEX]
 
 
 def load_clean(code):
@@ -173,6 +178,7 @@ def main():
     OUT.mkdir(parents=True, exist_ok=True)
     client = sat.pystac_client.Client.open(sat.STAC_URL, modifier=sat.pc.sign_inplace)
     results = []
+    print(f"Shard {SHARD_INDEX}/{SHARD_COUNT}: {len(plots)} plots", flush=True)
     with ThreadPoolExecutor(max_workers=WORKERS) as executor:
         futures = {executor.submit(build_plot, client, plot): plot for plot in plots}
         for future in as_completed(futures):
@@ -182,18 +188,15 @@ def main():
             print(f"DONE {code}", flush=True)
 
     available = sum(1 for _, dates in results for d in dates if d["status"] == "available")
-    assert len(results) == 22
-    index = {
-        "schema_version": "2.0-pdd22",
-        "plot_count": 22,
-        "observation_slots": 264,
+    summary = {
+        "shard_index": SHARD_INDEX,
+        "shard_count": SHARD_COUNT,
+        "plot_count": len(results),
+        "plot_codes": sorted(code for code, _ in results),
         "available_plot_months": available,
-        "bands": list(BANDS),
-        "source": "PDD22 cleaned Sentinel-2 frozen scene selections",
-        "visualization_only": True,
     }
-    (OUT.parent / "manifest.json").write_text(json.dumps(index, indent=2), encoding="utf-8")
-    print(f"Completed 22 plots; {available}/264 plot-month spectral packages", flush=True)
+    (OUT.parent / f"shard_{SHARD_INDEX}.json").write_text(json.dumps(summary, indent=2), encoding="utf-8")
+    print(f"Completed shard {SHARD_INDEX}: {len(results)} plots; {available} available plot-months", flush=True)
 
 
 if __name__ == "__main__":
