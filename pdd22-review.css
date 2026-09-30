@@ -1,0 +1,63 @@
+/* PDD22 review workspace, layered over the existing design tokens. */
+.overview-heading { margin-bottom:1.25rem; }
+.overview-heading h2 { font-size:1.5rem; line-height:1.35; margin:.35rem 0 .6rem; }
+.overview-heading p, .overview-context, .screening-note { color:#cbd5e1; font-size:.9rem; line-height:1.7; }
+.eyebrow { color:#7dd3fc!important; font-size:.72rem!important; letter-spacing:.08em; font-weight:700; }
+.overview-dates { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:1.1rem; }
+.overview-dates label { display:flex; flex-direction:column; gap:.4rem; font-size:.85rem; color:#cbd5e1; flex:1; min-width:160px; }
+.overview-dates select { width:100%; min-height:44px; padding:.55rem .7rem; background:#1e293b; color:#f8fafc; border:1px solid #475569; border-radius:8px; }
+.overview-cards { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem; }
+.overview-cards article { display:flex; flex-direction:column; gap:.35rem; padding:1rem; border:1px solid #334155; border-radius:12px; background:#111c30; }
+.overview-cards span { color:#cbd5e1; font-size:.83rem; }
+.overview-cards strong { font-size:1.65rem; }
+.overview-cards small { font-size:.8rem; color:#94a3b8; line-height:1.55; }
+.overview-context { margin:1rem 0; padding:.75rem 1rem; border-left:3px solid #38bdf8; background:#142135; }
+.review-table { min-width:650px; }
+.review-table th,.review-table td { font-size:.85rem; vertical-align:top; }
+.review-table small { display:block; margin-top:.35rem; font-size:.78rem; line-height:1.5; color:#aebdd0; }
+.review-status { font-size:.8rem; font-weight:700; }
+.review-status.review { color:#fde68a; }
+.review-status.insufficient { color:#cbd5e1; }
+.review-status.not_comparable { color:#c4b5fd; }
+.review-status.no_decrease { color:#7dd3fc; }
+.screening-note { font-size:.8rem; padding-top:1rem; }
+.review-table button,.observation-status button,#compare-loading button,#plots-data-table button { border:1px solid #475569; background:#1e293b; color:#f8fafc; border-radius:8px; min-height:44px; padding:.45rem .75rem; cursor:pointer; }
+.plot-card-item { color:inherit; text-align:left; font:inherit; }
+button:focus-visible,select:focus-visible,input:focus-visible { outline:3px solid #7dd3fc; outline-offset:3px; }
+.observation-status { border:1px solid #475569; background:#172438; border-radius:10px; padding:.75rem; font-size:.88rem; line-height:1.6; }
+.observation-status[data-state="ERROR"] { border-color:#fbbf24; color:#fde68a; }
+.fcd-summary-panel { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:.75rem; }
+.fcd-summary-panel>div { display:flex; flex-direction:column; gap:.4rem; padding:.8rem; border:1px solid #334155; border-radius:10px; }
+.fcd-summary-panel span { color:#cbd5e1; font-size:.83rem; }
+.fcd-summary-panel strong { font-size:1rem; }
+#fcd-note { grid-column:1/-1; color:#cbd5e1; font-size:.8rem; line-height:1.6; }
+#panel-detail .national-kpi-grid { margin-bottom:1rem; }
+#compare-container { display:block!important; position:relative; height:580px!important; touch-action:pan-y; }
+#pdd22-swipe-map { position:absolute; inset:0; }
+.pdd22-swipe-label { position:absolute; top:10px; z-index:650; pointer-events:none; padding:.55rem .7rem; border-radius:8px; color:white; background:rgba(15,23,42,.94); font-size:.85rem; }
+.pdd22-swipe-label.before { left:44px; }.pdd22-swipe-label.after { right:10px; }
+#pdd22-swipe-divider { position:absolute; top:0; bottom:0; left:50%; width:3px; background:white; z-index:660; pointer-events:none; }
+#pdd22-swipe-handle { position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); width:48px; height:48px; border:0; border-radius:50%; background:#fff; color:#0f172a; font-size:1.5rem; pointer-events:auto; touch-action:none; cursor:ew-resize; }
+#compare-loading { position:absolute; bottom:70px; left:10px; right:10px; z-index:670; padding:.55rem .7rem; border-radius:8px; background:rgba(15,23,42,.96); color:#e2e8f0; font-size:.8rem; line-height:1.5; }
+.compare-range-label { position:absolute; bottom:24px; left:15%; right:15%; z-index:670; display:flex; align-items:center; gap:.6rem; font-size:.75rem; color:white; background:#0f172a; padding:.4rem .7rem; border-radius:8px; }
+.compare-range-label input { flex:1; min-width:40px; }
+#comp-gain-pill { color:#e2e8f0; background:#334155; } /* A negative delta must not inherit a success-green badge. */
+#comp-ndvi-legend[hidden] { display:none; }
+.mobile-plot-picker { display:none; }
+@media(min-width:1101px) { .plot-sidebar { width:300px; } }
+@media(max-width:1100px) {
+  .mobile-plot-picker { display:block; min-height:44px; border:1px solid #475569; border-radius:8px; color:#f8fafc; background:#1e293b; padding:.6rem 1rem; text-align:left; }
+  .plot-sidebar { display:none; height:330px; }.plot-sidebar.mobile-open { display:flex; }
+  .portal-layout { gap:.75rem; }
+}
+@media(max-width:600px) {
+  .site-header { padding:.7rem 1rem; position:relative; }.brand-title { font-size:1rem; }.header-meta { display:none; }
+  .portal-layout { padding:.75rem; }.tab-content-panel { padding:.85rem; }.workspace-tabs { padding:.5rem; }
+  .overview-heading h2 { font-size:1.25rem; }.overview-cards { grid-template-columns:1fr 1fr; gap:.5rem; }
+  .overview-cards article { padding:.7rem; }.overview-cards strong { font-size:1.2rem; }
+  .overview-dates { gap:.6rem; }.overview-dates label { min-width:130px; }
+  .fcd-summary-panel { grid-template-columns:1fr 1fr; }.satellite-stage { min-height:360px; }
+  .stage-hud.top-right,.stage-hud.bottom-left { display:none; }.stage-hud.bottom-right { left:10px; right:auto; }
+  #compare-container { height:480px!important; }.pdd22-swipe-label { font-size:.7rem; padding:.4rem; }
+  .compare-range-label { left:10px; right:10px; }.compare-selectors { align-items:stretch; }.select-group { flex-wrap:wrap; }
+}
