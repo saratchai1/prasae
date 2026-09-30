@@ -1,0 +1,32 @@
+/* R2 spectral workspace: isolated styles; source imagery and other tabs unchanged. */
+#panel-spectral .spectral-shell{display:grid;grid-template-columns:minmax(0,1fr) 290px;gap:16px;align-items:start;min-width:0}
+#panel-spectral .spectral-canvas-card,#panel-spectral .spectral-controls{min-width:0;border:1px solid #334155;background:#111c30;border-radius:12px;overflow:hidden}
+#panel-spectral .spectral-controls{padding:16px}
+#panel-spectral .spectral-toolbar{display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap;padding:12px 14px;border-bottom:1px solid #334155}
+#spectral-status{font-size:.95rem;overflow-wrap:anywhere}
+#spectral-qa{font-size:.85rem;color:#cbd5e1}
+#spectral-formula{padding:10px 14px;font-size:.85rem;line-height:1.6;color:#cbd5e1;overflow-wrap:anywhere;min-height:42px}
+#pdd22-spectral-map{height:560px;min-height:340px;width:100%;background:#172438}
+#panel-spectral label{display:flex;flex-direction:column;gap:6px;font-size:.85rem;color:#cbd5e1;min-width:0}
+#panel-spectral select{width:100%;min-width:0;min-height:44px;padding:8px;border:1px solid #475569;border-radius:7px;background:#1e293b;color:#f8fafc}
+#panel-spectral button{min-height:44px;padding:8px;border:1px solid #475569;border-radius:8px;background:#1e293b;color:#f8fafc;cursor:pointer;line-height:1.4;font:inherit}
+#panel-spectral .spectral-presets{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:14px 0}
+#panel-spectral .spectral-presets button{font-size:.8rem;overflow-wrap:anywhere}
+#panel-spectral button[aria-pressed="true"]{border-color:#7dd3fc;background:#143a50}
+#panel-spectral .spectral-advanced{border-top:1px solid #334155;padding-top:12px}
+#panel-spectral summary{cursor:pointer;min-height:44px;font-size:.9rem;color:#e2e8f0}
+#panel-spectral .spectral-channel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:8px 0}
+#panel-spectral .spectral-slider{display:grid;grid-template-columns:80px minmax(40px,1fr) 48px;align-items:center;gap:8px;margin:12px 0}
+#panel-spectral .spectral-slider input{width:100%;min-width:0}
+#panel-spectral .spectral-slider output{text-align:right}
+#panel-spectral .spectral-boundary{flex-direction:row;align-items:center;margin:14px 0;min-height:44px}
+#panel-spectral .spectral-feedback-wrap{padding:12px 14px;border-top:1px solid #334155}
+#spectral-feedback{font-size:.88rem;line-height:1.6;overflow-wrap:anywhere}
+#spectral-feedback[data-state="ERROR"]{color:#fde68a}
+#spectral-retry{margin-top:8px}
+#spectral-retry[hidden]{display:none}
+#panel-spectral .spectral-basemap-note,#panel-spectral .spectral-band-note,#panel-spectral .spectral-warning{padding:10px 14px;font-size:.8rem;line-height:1.65;color:#cbd5e1}
+#panel-spectral .spectral-warning{padding:12px 0;color:#fde68a}
+#panel-spectral .spectral-band-note{padding:0}
+@media(max-width:1100px){#panel-spectral .spectral-shell{grid-template-columns:1fr}#pdd22-spectral-map{height:440px}#panel-spectral .spectral-presets{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:600px){#pdd22-spectral-map{height:360px}#panel-spectral .spectral-presets{grid-template-columns:1fr 1fr}#panel-spectral .spectral-controls{padding:12px}#spectral-status{font-size:.88rem}}
