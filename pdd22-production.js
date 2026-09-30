@@ -1,472 +1,269 @@
-// PDD22 production adapter — authoritative participating polygons + cleaned Sentinel-2 + FCD V3.
+/* PDD22 production adapter: one QA policy and explicit observation-frame ownership. */
 (() => {
-  const PDD22_VERSION = '20260826-1405';
-  const FCD_MONTHS = new Set(['2024-03', '2025-03', '2026-03', '2026-08']);
-  let portfolioRows = [];
+  'use strict';
+  const M = Pdd22Observations;
+  const VERSION = '20260930-integrity-1';
+  const DATA_VERSION = '20260826-1405'; // Frozen source data, not a new observation run.
+  let visiblePlots = [], pair = {before:'',after:''}, detailController = null;
+  const el = id => document.getElementById(id);
+  const text = (id,value) => { if (el(id)) el(id).textContent = value; };
+  const fmt = value => M.number(value) === null ? '—' : Number(value).toLocaleString('th-TH',{maximumFractionDigits:2});
+  const monthLabel = month => /^\d{4}-\d{2}$/.test(month || '')
+    ? `${thaiMonths[Number(month.slice(5))]} ${Number(month.slice(0,4)) + 543}` : '—';
+  const title = plot => `${plot.code} · ${plot.province}`;
+  const sign = value => value === null ? '—' : `${value > 0 ? '+' : ''}${fmt(value)}`;
+  const states = {REVIEW:'ควรตรวจการเปลี่ยนแปลง',INSUFFICIENT:'ข้อมูลไม่พอ',NOT_COMPARABLE:'ยังเปรียบเทียบไม่ได้',NO_DECREASE:'ไม่พบการลดลงในคู่นี้'};
+  const setSub = (id,value) => { const n=el(id)?.parentElement?.querySelector('.kpi-sub'); if(n)n.textContent=value; };
 
-  function n(value) {
-    if (value === null || value === undefined || value === '') return null;
-    const x = Number(value);
-    return Number.isFinite(x) ? x : null;
-  }
-
-  function parseSimpleCsv(text) {
-    const lines = text.replace(/^\uFEFF/, '').trim().split(/\r?\n/).filter(Boolean);
-    if (!lines.length) return [];
-    const header = lines[0].split(',');
-    return lines.slice(1).map(line => {
-      const cols = line.split(',');
-      const out = {};
-      header.forEach((key, i) => { out[key] = cols[i] ?? ''; });
-      return out;
-    });
-  }
-
-  function fcdObservation(plot, month) {
-    return plot?.fcd_by_month?.[month] || null;
-  }
-
-  function latestGoodFcd(plot) {
-    return fcdObservation(plot, '2026-08')?.qa === 'GOOD'
-      ? fcdObservation(plot, '2026-08')
-      : fcdObservation(plot, '2026-03')?.qa === 'GOOD'
-        ? fcdObservation(plot, '2026-03')
-        : null;
-  }
-
-  function fcdGreenPct(plot, month) {
-    const obs = fcdObservation(plot, month);
-    if (!obs || obs.qa !== 'GOOD' || !isFiniteNumber(obs.green_rai) || !plot.area_rai) return null;
-    return obs.green_rai / plot.area_rai * 100;
-  }
-
-  function formatRai(value) {
-    return isFiniteNumber(value)
-      ? Number(value).toLocaleString('th-TH', { minimumFractionDigits: 1, maximumFractionDigits: 1 })
-      : '—';
-  }
-
-  function qaClass(qa) {
-    return qa === 'GOOD' ? 'good' : qa === 'PARTIAL' ? 'partial' : qa === 'LOW_QA' ? 'low' : 'nodata';
-  }
-
-  loadData = async function pdd22LoadData() {
-    const [catalogResponse, coverageResponse, fcdResponse, portfolioResponse] = await Promise.all([
-      fetch(`data/pdd22/plots_catalog.json?v=${PDD22_VERSION}`, { cache: 'no-store' }),
-      fetch(`data/pdd22_satellite/coverage_report.csv?v=${PDD22_VERSION}`, { cache: 'no-store' }),
-      fetch(`data/pdd22_v3/plots_result.json?v=${PDD22_VERSION}`, { cache: 'no-store' }),
-      fetch(`data/pdd22_v3/portfolio_summary.csv?v=${PDD22_VERSION}`, { cache: 'no-store' })
-    ]);
-    if (!catalogResponse.ok) throw new Error(`PDD22 catalog HTTP ${catalogResponse.status}`);
-    if (!coverageResponse.ok) throw new Error(`PDD22 coverage HTTP ${coverageResponse.status}`);
-    if (!fcdResponse.ok) throw new Error(`PDD22 FCD V3 HTTP ${fcdResponse.status}`);
-
-    const catalog = await catalogResponse.json();
-    const coverageRows = parseSimpleCsv(await coverageResponse.text());
-    const fcdPlots = await fcdResponse.json();
-    portfolioRows = portfolioResponse.ok ? parseSimpleCsv(await portfolioResponse.text()) : [];
-
-    const coverageByCode = new Map();
-    for (const row of coverageRows) {
-      if (!coverageByCode.has(row.plot_code)) coverageByCode.set(row.plot_code, new Map());
-      coverageByCode.get(row.plot_code).set(row.month, row);
+  function csvRows(source) {
+    // RFC 4180 quoting, including commas/newlines in quoted fields.
+    const rows=[]; let row=[],field='',quoted=false;
+    const input=source.replace(/^\uFEFF/,'');
+    for(let i=0;i<input.length;i++) {
+      const c=input[i];
+      if(c==='"') { if(quoted&&input[i+1]==='"'){field+='"';i++;}else quoted=!quoted; }
+      else if(c===','&&!quoted){row.push(field);field='';}
+      else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&input[i+1]==='\n')i++;row.push(field);if(row.some(Boolean))rows.push(row);row=[];field='';}
+      else field+=c;
     }
-    const fcdByCode = new Map(fcdPlots.map(plot => [plot.code, plot]));
-
-    plotsCatalog = catalog.map((plot, index) => ({
-      ...plot,
-      id: Number(plot.id) || index + 1,
-      name: plot.name || plot.code,
-      area_rai: Number(plot.area_rai)
+    if(quoted) throw new Error('Malformed coverage CSV');
+    row.push(field);if(row.some(Boolean))rows.push(row);
+    const headers=rows.shift()||[];
+    return rows.map(r=>Object.fromEntries(headers.map((h,i)=>[h,r[i]??''])));
+  }
+  loadData = async function loadPdd22Data() {
+    const paths=['data/pdd22/plots_catalog.json','data/pdd22_satellite/coverage_report.csv','data/pdd22_v3/plots_result.json'];
+    const responses=await Promise.all(paths.map(async path=>{
+      const r=await fetch(`${path}?v=${DATA_VERSION}`,{cache:'no-store'});
+      if(!r.ok)throw new Error(`${path}: HTTP ${r.status}`);return r;
     }));
-
-    allPlotsData = plotsCatalog.map(plot => {
-      const rows = coverageByCode.get(plot.code) || new Map();
-      const fcd = fcdByCode.get(plot.code) || { observations: [] };
-      const fcd_by_month = Object.fromEntries((fcd.observations || []).map(obs => [obs.month, {
-        ...obs,
-        green_rai: n(obs.green_rai),
-        yellow_rai: n(obs.yellow_rai),
-        red_rai: n(obs.red_rai),
-        green_observed_rai: n(obs.green_observed_rai),
-        yellow_observed_rai: n(obs.yellow_observed_rai),
-        red_observed_rai: n(obs.red_observed_rai),
-        coverage_pct: n(obs.coverage_pct)
-      }]));
-
-      const timeseries = MILESTONE_MONTHS.map(month => {
-        const row = rows.get(month) || {};
-        return {
-          ...parseMonthKey(month),
-          mean_ndvi_inside: n(row.mean_ndvi),
-          median_ndvi_inside: n(row.median_ndvi),
-          vegetation_coverage_proxy_pct: fcd_by_month[month]?.qa === 'GOOD' && fcd_by_month[month]?.green_rai != null
-            ? fcd_by_month[month].green_rai / Number(plot.area_rai) * 100
-            : null,
-          scenes_used: Number(row.scene_count || 0),
-          clear_pixel_pct: n(row.coverage_pct),
-          status: row.qa || 'NO_DATA',
-          source: 'PDD22 cleaned Sentinel-2 L2A',
-          scene_ids: [],
-          qa: row.qa || 'NO_DATA',
-          analysis_mode: row.analysis_mode || 'no_data',
-          median_ndre: n(row.median_ndre),
-          median_mndwi: n(row.median_mndwi),
-          median_mfi: n(row.median_mfi)
-        };
+    const [catalog,coverageSource,fcd]=await Promise.all([responses[0].json(),responses[1].text(),responses[2].json()]);
+    if(!Array.isArray(catalog)||!catalog.length||!Array.isArray(fcd))throw new Error('Invalid PDD22 catalog');
+    const rows=new Map(csvRows(coverageSource).map(r=>[`${r.plot_code}|${r.month}`,r]));
+    const fcdByCode=new Map(fcd.map(p=>[p.code,p]));
+    const seen=new Set();
+    plotsCatalog=catalog.map((p,i)=>{
+      if(!p.code||seen.has(p.code)||M.number(p.area_rai)===null||Number(p.area_rai)<=0||!p.geometry)throw new Error('Invalid/duplicate PDD22 plot');
+      seen.add(p.code);return {...p,id:Number(p.id)||i+1,name:p.code,area_rai:Number(p.area_rai)};
+    });
+    allPlotsData=plotsCatalog.map(p=>{
+      const fcd_by_month=Object.fromEntries((fcdByCode.get(p.code)?.observations||[]).map(o=>[o.month,{...o,
+        ...Object.fromEntries(['green_rai','yellow_rai','red_rai','green_observed_rai','yellow_observed_rai','red_observed_rai','coverage_pct'].map(k=>[k,M.number(o[k])]))}]));
+      const timeseries=MILESTONE_MONTHS.map(month=>{
+        const r=rows.get(`${p.code}|${month}`)||{};
+        return {...parseMonthKey(month),mean_ndvi_inside:M.number(r.mean_ndvi),median_ndvi_inside:M.number(r.median_ndvi),
+          clear_pixel_pct:M.number(r.coverage_pct),qa:r.qa||'NO_DATA',status:r.qa||'NO_DATA',analysis_mode:r.analysis_mode||'no_data',
+          scenes_used:M.number(r.scene_count)||0,source:'PDD22 cleaned Sentinel-2 L2A',scene_ids:[],
+          vegetation_coverage_proxy_pct:M.goodFcd(fcd_by_month[month]) ? fcd_by_month[month].green_rai/p.area_rai*100 : null};
       });
-
-      const sep23 = timeseries.find(x => x.month === '2023-09');
-      const aug26 = timeseries.find(x => x.month === '2026-08');
-      const initial = sep23?.mean_ndvi_inside ?? null;
-      const current = aug26?.mean_ndvi_inside ?? null;
-      const gain = isFiniteNumber(initial) && isFiniteNumber(current) ? current - initial : null;
-      const out = {
-        ...plot,
-        timeseries,
-        fcd_by_month,
-        initial_ndvi: initial,
-        current_ndvi: current,
-        gain_ndvi: gain,
-        growth_pct: isFiniteNumber(initial) && initial !== 0 && isFiniteNumber(current) ? (current - initial) / Math.abs(initial) * 100 : null,
-        current_vegetation_proxy_pct: null,
-        data_quality: 'PDD22_CLEANED'
-      };
-      const latest = latestGoodFcd(out);
-      out.current_vegetation_proxy_pct = latest && isFiniteNumber(latest.green_rai)
-        ? latest.green_rai / out.area_rai * 100 : null;
-      return out;
+      return {...p,timeseries,fcd_by_month,initial_ndvi:null,current_ndvi:null,gain_ndvi:null,growth_pct:null,current_vegetation_proxy_pct:null};
     });
-
-    verifiedDatasetLoaded = true;
+    visiblePlots=allPlotsData;pair=M.defaultPair(allPlotsData);
+    currentMonthIndex=Math.max(0,MILESTONE_MONTHS.indexOf(pair.after));
+    verifiedDatasetLoaded=true;
   };
 
-  const baseInjectRuntimeStyles = injectRuntimeStyles;
-  injectRuntimeStyles = function pdd22Styles() {
-    baseInjectRuntimeStyles();
-    const style = document.createElement('style');
-    style.id = 'pdd22-production-styles';
-    style.textContent = `
-      .pdd-portfolio-banner{margin:0 0 14px;padding:13px 16px;border:1px solid rgba(56,189,248,.2);border-radius:12px;background:linear-gradient(135deg,rgba(14,116,144,.13),rgba(15,23,42,.78));display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
-      .pdd-portfolio-title{font-weight:800;color:#e2e8f0;font-size:.82rem}.pdd-portfolio-sub{color:#94a3b8;font-size:.65rem;margin-top:3px}
-      .pdd-portfolio-values{display:flex;gap:8px;flex-wrap:wrap}.pdd-chip{border-radius:999px;padding:5px 9px;font-size:.65rem;font-weight:800;border:1px solid rgba(255,255,255,.08);background:#0f172a}
-      .pdd-chip.green{color:#86efac}.pdd-chip.yellow{color:#fde047}.pdd-chip.red{color:#fca5a5}.pdd-chip.delta{color:#bae6fd}
-      .fcd-summary-panel{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:0 0 14px}
-      .fcd-card{border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:10px 12px;background:rgba(15,23,42,.72)}
-      .fcd-card-label{font-size:.6rem;color:#94a3b8;font-weight:700}.fcd-card-value{font-size:1.15rem;font-weight:800;margin-top:3px}.fcd-card.green .fcd-card-value{color:#4ade80}.fcd-card.yellow .fcd-card-value{color:#facc15}.fcd-card.red .fcd-card-value{color:#fb7185}.fcd-card.qa .fcd-card-value{font-size:.8rem;color:#e2e8f0}
-      .fcd-note{grid-column:1/-1;font-size:.61rem;color:#94a3b8;line-height:1.45;padding:0 2px}.fcd-note strong{color:#e2e8f0}
-      .qa-pill-inline{display:inline-block;border-radius:999px;padding:2px 7px;font-size:.58rem;font-weight:800;margin-left:4px}.qa-pill-inline.good{background:rgba(34,197,94,.15);color:#86efac}.qa-pill-inline.partial{background:rgba(234,179,8,.14);color:#fde047}.qa-pill-inline.low,.qa-pill-inline.nodata{background:rgba(239,68,68,.14);color:#fca5a5}
-      @media(max-width:850px){.fcd-summary-panel{grid-template-columns:1fr 1fr}}
-    `;
-    document.head.appendChild(style);
+  updateStaticCopy = function initializePdd22Workspace() {
+    document.title='PDD22 · ภาพรวมและการตรวจแปลง';
+    document.querySelector('.brand-title').textContent=`ติดตามป่าชายเลน PDD22 · ${allPlotsData.length} แปลง`;
+    document.querySelector('.brand-subtitle').textContent='ภาพตามช่วงเวลาจริง · แยกคุณภาพข้อมูลจากสัญญาณเปลี่ยนแปลง';
+    const pills=document.querySelectorAll('.header-meta .meta-pill');
+    if(pills[0])pills[0].textContent=`${allPlotsData.length} แปลง · ${fmt(M.summarize(allPlotsData,pair.before,pair.after).totalArea)} ไร่`;
+    if(pills[1])pills[1].textContent='ขอบเขตเข้าร่วม PDD เท่านั้น';
+    if(pills[2])pills[2].textContent=`ชุดข้อมูลถึง ${monthLabel(MILESTONE_MONTHS.at(-1))}`;
+    const slider=el('month-slider');slider.min='0';slider.max=String(MILESTONE_MONTHS.length-1);slider.value=String(currentMonthIndex);
+    slider.setAttribute('aria-label','เลือกช่วงข้อมูลดาวเทียม');
+    document.querySelector('.slider-ticks').textContent='เลือกเฉพาะเดือนในชุดข้อมูล · เดือนที่ไม่มีข้อมูลแสดงตามจริง';
+    text('kpi-total-area',`${fmt(M.summarize(allPlotsData,pair.before,pair.after).totalArea)} ไร่`);
+    el('kpi-plot-canopy-pct').parentElement.querySelector('.kpi-label').textContent='FCD เขียว · ช่วงที่แสดง';
+    el('kpi-plot-ndvi-gain').classList.remove('text-success');
+    document.querySelector('.chart-box-subtitle').textContent='แสดงค่าที่ผ่าน QA GOOD เท่านั้น · เว้นช่องว่างเมื่อข้อมูลไม่พอ · ไม่สร้างค่าทดแทน';
+    document.querySelector('.chart-badge-tag').textContent='ค่าจาก pipeline ต้นฉบับ';
+    const bands=document.querySelector('.band-btn-group');
+    const basemap=bands.querySelector('[data-layer="esri"]');if(basemap)basemap.textContent='ภาพพื้นหลัง (ไม่อิงเดือน)';
+    if(!bands.querySelector('[data-layer="fcd"]')){
+      const b=document.createElement('button');b.className='band-btn';b.dataset.layer='fcd';b.textContent='FCD เขียว / เหลือง / แดง';b.onclick=()=>setPlotMapLayer('fcd');bands.append(b);
+    }
+    if(!el('comp-mode-select').querySelector('[value="fcd"]')){const o=new Option('FCD vs FCD','fcd');el('comp-mode-select').add(o);}
+    const status=document.createElement('div');status.id='observation-status';status.className='observation-status';status.setAttribute('role','status');status.setAttribute('aria-live','polite');
+    document.querySelector('.viewer-toolbar').after(status);
+    const panel=document.createElement('div');panel.id='fcd-summary-panel';panel.className='fcd-summary-panel';
+    panel.innerHTML='<div><span>เขียว</span><strong id="fcd-green-value">—</strong></div><div><span>เหลือง</span><strong id="fcd-yellow-value">—</strong></div><div><span>แดง</span><strong id="fcd-red-value">—</strong></div><div><span>QA / Coverage</span><strong id="fcd-qa-value">—</strong></div><p id="fcd-note"></p>';
+    status.after(panel);
+    // Put plot-only KPIs inside the plot tab; the landing page is portfolio-only.
+    el('panel-detail').prepend(document.querySelector('.national-kpi-grid'));
+    const picker=el('plot-picker-toggle');
+    if(picker)picker.onclick=()=>{const sidebar=el('plot-sidebar');sidebar.classList.toggle('mobile-open');picker.setAttribute('aria-expanded',String(sidebar.classList.contains('mobile-open')));};
+    injectOverview();
+    switchWorkspaceTab('overview');
   };
 
-  const baseUpdateStaticCopy = updateStaticCopy;
-  updateStaticCopy = function pdd22Copy() {
-    baseUpdateStaticCopy();
-    document.title = 'PDD22 Mangrove Monitoring — Sentinel-2 + FCD';
-    const title = document.querySelector('.brand-title');
-    if (title) title.textContent = 'ระบบติดตาม PDD22 ป่าชายเลน — 22 แปลง';
-    const subtitle = document.querySelector('.brand-subtitle');
-    if (subtitle) subtitle.textContent = 'PDD participating area 6,775.53 ไร่ • Cleaned Sentinel-2 L2A • FCD V3 Green / Yellow / Red';
-    const pills = document.querySelectorAll('.header-meta .meta-pill');
-    if (pills[0]) pills[0].innerHTML = '<span class="pill-dot"></span> 22 PDD plots • 6,775.53 rai';
-    if (pills[1]) pills[1].textContent = 'Participating boundary only';
-    if (pills[2]) pills[2].textContent = 'Sentinel QA + FCD V3';
-
-    const kpi4 = document.getElementById('kpi-plot-canopy-pct');
-    const kpi4card = kpi4?.parentElement;
-    if (kpi4card) {
-      const label = kpi4card.querySelector('.kpi-label');
-      const sub = kpi4card.querySelector('.kpi-sub');
-      if (label) label.textContent = 'FCD Green ล่าสุด (QA GOOD)';
-      if (sub) sub.textContent = 'PDD-anchored screening • ไม่ใช่ tCO₂e';
+  function injectOverview() {
+    const button=document.createElement('button');button.className='w-tab-btn';button.id='wtab-overview';button.textContent='ภาพรวม / เลือกแปลงตรวจ';button.onclick=()=>switchWorkspaceTab('overview');
+    document.querySelector('.workspace-tabs').prepend(button);
+    const panel=document.createElement('section');panel.id='panel-overview';panel.className='tab-content-panel';
+    panel.innerHTML=`<div class="overview-heading"><div><p class="eyebrow">PDD22 · OBSERVATION REVIEW</p><h2>เริ่มจากแปลงที่ควรเปิดตรวจต่อ</h2><p>แยกสัญญาณเปลี่ยนแปลงออกจากข้อมูลไม่พอ โดยไม่สรุปว่าป่าเสียหายจากสีเพียงอย่างเดียว</p></div></div>
+      <div class="overview-dates"><label>ช่วงก่อน<select id="overview-before"></select></label><label>ช่วงหลัง<select id="overview-after"></select></label><label>รายการที่ต้องการดู<select id="overview-filter"><option value="ALL">ทั้งหมด</option><option value="REVIEW">ควรตรวจการเปลี่ยนแปลง</option><option value="INSUFFICIENT">ข้อมูลไม่พอ</option><option value="NOT_COMPARABLE">ยังเปรียบเทียบไม่ได้</option><option value="NO_DECREASE">ไม่พบการลดลงในคู่นี้</option></select></label></div>
+      <div class="overview-cards" id="overview-cards"></div><p class="overview-context" id="overview-context" role="status"></p>
+      <div class="table-container"><table class="plots-table review-table"><thead><tr><th>แปลง / จังหวัด</th><th>สถานะ / เหตุผล</th><th>Δ เขียว (ไร่)</th><th>QA ก่อน → หลัง</th><th>ตรวจประกอบ</th></tr></thead><tbody id="overview-rows"></tbody></table></div>
+      <p class="screening-note">ผล FCD เป็น screening ไม่ใช่คาร์บอนเครดิตหรือคำยืนยันความเสียหาย · เลือกเดือนเดียวกันต่างปีและ QA GOOD ทั้งสองช่วงเพื่อลดความต่างฤดูกาล แต่ยังไม่ได้จับคู่น้ำขึ้นลงหรือยืนยันภาคสนาม · ค่า Δ ไม่ใช่การทดสอบนัยสำคัญ</p>`;
+    el('panel-detail').before(panel);
+    for(const id of ['overview-before','overview-after']){
+      M.months(allPlotsData).forEach(m=>el(id).add(new Option(monthLabel(m),m)));
+      el(id).value=id.endsWith('before')?pair.before:pair.after;
+      el(id).onchange=()=>{pair={before:el('overview-before').value,after:el('overview-after').value};renderOverview();initTable(visiblePlots);refreshMapStyles();if(activePlot)updatePairKpi(activePlot);};
     }
-    const chartTitle = document.getElementById('chart-plot-title');
-    if (chartTitle) chartTitle.textContent = 'NDVI — cleaned Sentinel-2 exact-month observations';
-    const chartSub = document.querySelector('.chart-box-subtitle');
-    if (chartSub) chartSub.textContent = 'ใช้ขอบเขต PDD participating เท่านั้น • QA ตาม clear coverage • ไม่มี interpolation หรือ synthetic pixel';
-    const badge = document.querySelector('.chart-badge-tag');
-    if (badge) badge.textContent = 'PDD22 cleaned dataset';
-
-    const hudGreen = document.getElementById('hud-in-cover')?.parentElement;
-    if (hudGreen) hudGreen.firstChild.textContent = 'FCD Green: ';
-
-    const bandGroup = document.querySelector('.band-btn-group');
-    if (bandGroup && !bandGroup.querySelector('[data-layer="fcd"]')) {
-      const button = document.createElement('button');
-      button.className = 'band-btn';
-      button.dataset.layer = 'fcd';
-      button.textContent = 'FCD เขียว / เหลือง / แดง';
-      button.onclick = () => setPlotMapLayer('fcd');
-      bandGroup.appendChild(button);
-    }
-
-    const compareMode = document.getElementById('comp-mode-select');
-    if (compareMode && !compareMode.querySelector('option[value="fcd"]')) {
-      const opt = document.createElement('option');
-      opt.value = 'fcd'; opt.textContent = 'FCD vs FCD'; compareMode.appendChild(opt);
-    }
-
-    injectPortfolioBanner();
-    injectFcdPanel();
-    const slider = document.getElementById('month-slider');
-    if (slider) slider.disabled = false;
-  };
-
-  function injectPortfolioBanner() {
-    if (document.getElementById('pdd-portfolio-banner')) return;
-    const workspace = document.querySelector('.workspace-card');
-    if (!workspace) return;
-    const m24 = portfolioRows.find(r => r.month === '2024-03');
-    const m26 = portfolioRows.find(r => r.month === '2026-03');
-    const banner = document.createElement('div');
-    banner.id = 'pdd-portfolio-banner';
-    banner.className = 'pdd-portfolio-banner';
-    if (m26) {
-      const dg = n(m26.green_rai) - n(m24?.green_rai);
-      banner.innerHTML = `<div><div class="pdd-portfolio-title">ภาพรวม FCD มีนาคม 2569 — ครบ 22 แปลง / 6,775.53 ไร่</div><div class="pdd-portfolio-sub">เทียบแบบ same-season กับมีนาคม 2567 • ผล screening ไม่ใช่การคำนวณคาร์บอนเครดิต</div></div><div class="pdd-portfolio-values"><span class="pdd-chip green">เขียว ${formatRai(n(m26.green_rai))} ไร่</span><span class="pdd-chip yellow">เหลือง ${formatRai(n(m26.yellow_rai))} ไร่</span><span class="pdd-chip red">แดง ${formatRai(n(m26.red_rai))} ไร่</span><span class="pdd-chip delta">Δเขียว ${dg >= 0 ? '+' : ''}${formatRai(dg)} ไร่</span></div>`;
-    } else {
-      banner.textContent = 'กำลังโหลดผล FCD V3';
-    }
-    workspace.parentNode.insertBefore(banner, workspace);
+    el('overview-filter').onchange=renderOverview;
+    renderOverview();
   }
-
-  function injectFcdPanel() {
-    if (document.getElementById('fcd-summary-panel')) return;
-    const chart = document.querySelector('#panel-detail .chart-box');
-    if (!chart) return;
-    const panel = document.createElement('div');
-    panel.id = 'fcd-summary-panel';
-    panel.className = 'fcd-summary-panel';
-    panel.innerHTML = `
-      <div class="fcd-card green"><div class="fcd-card-label">FCD เขียว</div><div class="fcd-card-value" id="fcd-green-value">—</div></div>
-      <div class="fcd-card yellow"><div class="fcd-card-label">FCD เหลือง</div><div class="fcd-card-value" id="fcd-yellow-value">—</div></div>
-      <div class="fcd-card red"><div class="fcd-card-label">FCD แดง</div><div class="fcd-card-value" id="fcd-red-value">—</div></div>
-      <div class="fcd-card qa"><div class="fcd-card-label">QA / Coverage</div><div class="fcd-card-value" id="fcd-qa-value">—</div></div>
-      <div class="fcd-note" id="fcd-note">FCD มีสำหรับ มี.ค. 2567, มี.ค. 2568, มี.ค. 2569 และ ส.ค. 2569</div>`;
-    chart.insertAdjacentElement('afterend', panel);
-  }
-
-  function updateFcdPanel() {
-    if (!activePlot) return;
-    const month = activePlot.timeseries?.[currentMonthIndex]?.month;
-    const obs = fcdObservation(activePlot, month);
-    const greenEl = document.getElementById('fcd-green-value');
-    const yellowEl = document.getElementById('fcd-yellow-value');
-    const redEl = document.getElementById('fcd-red-value');
-    const qaEl = document.getElementById('fcd-qa-value');
-    const note = document.getElementById('fcd-note');
-    const hud = document.getElementById('hud-in-cover');
-    if (!greenEl || !obs) {
-      if (greenEl) greenEl.textContent = '—';
-      if (yellowEl) yellowEl.textContent = '—';
-      if (redEl) redEl.textContent = '—';
-      if (qaEl) qaEl.textContent = FCD_MONTHS.has(month) ? 'ไม่มีผล' : 'นอกช่วง FCD';
-      if (note) note.innerHTML = `<strong>${activePlot.code}</strong> • เดือน ${month || '—'} ไม่มี FCD V3; เลือก มี.ค. 2567/68/69 หรือ ส.ค. 2569`;
-      if (hud) hud.textContent = '—';
-      return;
-    }
-    const equivalent = obs.qa === 'GOOD' && isFiniteNumber(obs.green_rai);
-    const g = equivalent ? obs.green_rai : obs.green_observed_rai;
-    const y = equivalent ? obs.yellow_rai : obs.yellow_observed_rai;
-    const r = equivalent ? obs.red_rai : obs.red_observed_rai;
-    greenEl.textContent = `${formatRai(g)} ไร่`;
-    yellowEl.textContent = `${formatRai(y)} ไร่`;
-    redEl.textContent = `${formatRai(r)} ไร่`;
-    qaEl.innerHTML = `${obs.qa} <span class="qa-pill-inline ${qaClass(obs.qa)}">${isFiniteNumber(obs.coverage_pct) ? obs.coverage_pct.toFixed(1) : '—'}%</span>`;
-    if (note) note.innerHTML = equivalent
-      ? `<strong>${activePlot.code} • ${month}</strong> — equivalent class area จาก QA GOOD; Green/Yellow/Red รวมบน PDD participating area (แยก water/bare ตาม model)`
-      : `<strong>${activePlot.code} • ${month}</strong> — QA ${obs.qa}; ตัวเลขข้างต้นเป็น observed-only และ <strong>ไม่ extrapolate เต็มแปลง</strong>`;
-    if (hud) hud.textContent = equivalent ? `${(obs.green_rai / activePlot.area_rai * 100).toFixed(1)}%` : 'QA<95%';
-  }
-
-  renderSidebarList = function pdd22Sidebar(plots) {
-    const container = document.getElementById('plot-list-container');
-    document.getElementById('sidebar-count-display').textContent = `แสดง ${plots.length} จาก ${allPlotsData.length} PDD plots`;
-    container.innerHTML = '';
-    plots.forEach(plot => {
-      const march24 = fcdObservation(plot, '2024-03');
-      const march26 = fcdObservation(plot, '2026-03');
-      const dg = march24?.qa === 'GOOD' && march26?.qa === 'GOOD' ? march26.green_rai - march24.green_rai : null;
-      const card = document.createElement('div');
-      card.className = `plot-card-item ${activePlot?.id === plot.id ? 'active' : ''}`;
-      card.id = `sidebar-card-${plot.id}`;
-      card.onclick = () => selectPlot(plot.id);
-      card.innerHTML = `<div class="p-card-header"><span class="p-card-title">${escapeHtml(plot.code)}</span><span class="p-prov-tag">${escapeHtml(plot.province)}</span></div><div class="p-card-body"><span>พื้นที่ <strong>${Number(plot.area_rai).toFixed(2)} ไร่</strong></span><span>${isFiniteNumber(dg) ? `Δเขียว 67→69 <strong>${dg >= 0 ? '+' : ''}${dg.toFixed(1)} ไร่</strong>` : 'FCD comparison —'}</span></div>`;
-      container.appendChild(card);
+  function renderOverview() {
+    if(!el('overview-rows'))return;
+    const summary=M.summarize(visiblePlots,pair.before,pair.after);
+    const latest=M.months(allPlotsData).at(-1);
+    const latestCount=visiblePlots.filter(p=>M.goodFcd(p.fcd_by_month[latest])).length;
+    el('overview-cards').innerHTML=[
+      ['แปลงในตัวกรอง',`${visiblePlots.length} แปลง`,`${fmt(summary.totalArea)} ไร่`],
+      ['ควรตรวจการเปลี่ยนแปลง',`${summary.reviewCount} แปลง`,'พบพื้นที่จัดกลุ่มเขียวลดลงในคู่ที่เทียบได้'],
+      ['ข้อมูลไม่พอ',`${summary.insufficientCount} แปลง`,'ไม่ใช้แทนคำว่าป่าดีหรือป่าเสียหาย'],
+      [`QA GOOD รอบ ${monthLabel(latest)}`,`${latestCount} / ${visiblePlots.length} แปลง`,'เป็นรอบล่าสุดในชุดข้อมูล ไม่ใช่ค่าของเดือนที่เลือก']
+    ].map(([label,value,note])=>`<article><span>${label}</span><strong>${value}</strong><small>${note}</small></article>`).join('');
+    text('overview-context',`${monthLabel(pair.before)} → ${monthLabel(pair.after)} · เทียบได้ ${summary.matchedCount}/${visiblePlots.length} แปลง · ${fmt(summary.matchedArea)} ไร่ (${fmt(summary.matchedAreaPct)}%) · Δ เขียว ${sign(summary.delta)} ไร่ — คำนวณทั้งสองฝั่งจากแปลงชุดเดียวกันเท่านั้น`);
+    const filter=el('overview-filter').value;
+    const rows=summary.rows.filter(r=>filter==='ALL'||r.status===filter).sort((a,b)=>{
+      const order={REVIEW:0,INSUFFICIENT:1,NOT_COMPARABLE:2,NO_DECREASE:3};
+      return order[a.status]-order[b.status] || (a.delta??0)-(b.delta??0) || a.plot.code.localeCompare(b.plot.code);
     });
-  };
+    const tbody=el('overview-rows');tbody.innerHTML='';
+    for(const r of rows){const tr=document.createElement('tr');tr.innerHTML=`<td><strong>${escapeHtml(r.plot.code)}</strong><small>${escapeHtml(r.plot.province)} · ${fmt(r.plot.area_rai)} ไร่</small></td><td><span class="review-status ${r.status.toLowerCase()}">${states[r.status]}</span><small>${r.reason}</small></td><td>${sign(r.delta)}</td><td>${r.beforeQa} → ${r.afterQa}</td><td><button type="button">เปิดภาพก่อน–หลัง</button></td>`;
+      tr.querySelector('button').onclick=()=>openComparison(r.plot.id);tbody.append(tr);}
+    if(!rows.length)tbody.innerHTML='<tr><td colspan="5">ไม่พบแปลงตามตัวกรองนี้</td></tr>';
+  }
+  function openComparison(id){
+    selectPlot(id);const index=MILESTONE_MONTHS.indexOf(pair.after);if(index>=0)setMonthIndex(index);
+    el('comp-left-select').value=String(MILESTONE_MONTHS.indexOf(pair.before));el('comp-right-select').value=String(index);
+    el('comp-mode-select').value='fcd';switchWorkspaceTab('compare');
+  }
 
-  initLeafletThailandMap = function pdd22ThailandMap() {
-    leafletMap = L.map('thailand-map').setView([9.2, 100.0], 6);
-    L.tileLayer(ESRI_WORLD_IMAGERY, { maxZoom: 19, attribution: 'Tiles &copy; Esri' }).addTo(leafletMap);
-    const features = allPlotsData.map(plot => ({ type: 'Feature', properties: { id: plot.id, code: plot.code, province: plot.province, area_rai: plot.area_rai }, geometry: plot.geometry }));
-    thailandGeojsonLayer = L.geoJSON({ type: 'FeatureCollection', features }, {
-      style: feature => {
-        const plot = allPlotsData.find(p => p.id === feature.properties.id);
-        const a = fcdObservation(plot, '2026-03');
-        const color = a?.qa === 'GOOD' && a.red_rai > a.green_rai ? '#fb7185' : '#22c55e';
-        return { color, weight: 2, opacity: .95, fillColor: color, fillOpacity: .08 };
+  renderSidebarList = function renderPdd22Sidebar(plots) {
+    visiblePlots=plots;const container=el('plot-list-container');container.innerHTML='';
+    text('sidebar-count-display',`แสดง ${plots.length} จาก ${allPlotsData.length} แปลง`);
+    plots.forEach(p=>{const b=document.createElement('button');b.type='button';b.className=`plot-card-item ${activePlot?.id===p.id?'active':''}`;b.id=`sidebar-card-${p.id}`;
+      b.innerHTML=`<span class="p-card-header"><strong>${escapeHtml(p.code)}</strong><span class="p-prov-tag">${escapeHtml(p.province)}</span></span><span class="p-card-body">พื้นที่ ${fmt(p.area_rai)} ไร่</span>`;
+      b.onclick=()=>{selectPlot(p.id);switchWorkspaceTab('detail');el('plot-sidebar')?.classList.remove('mobile-open');el('plot-picker-toggle')?.setAttribute('aria-expanded','false');};container.append(b);});
+    renderOverview();initTable(plots);refreshMapStyles();
+  };
+  function refreshMapStyles(){
+    thailandGeojsonLayer?.eachLayer(layer=>{
+      const plot=allPlotsData.find(p=>p.id===layer.feature.properties.id);if(!plot)return;
+      const status=M.compare(plot,pair.before,pair.after).status;
+      const color={REVIEW:'#fbbf24',INSUFFICIENT:'#94a3b8',NOT_COMPARABLE:'#a78bfa',NO_DECREASE:'#38bdf8'}[status];
+      layer.setStyle({color,fillColor:color,weight:activePlot?.id===plot.id?5:2,fillOpacity:.12,dashArray:status==='INSUFFICIENT'?'5 5':null});
+      if(activePlot?.id===plot.id)layer.bringToFront();
+    });
+    const hint=document.querySelector('.map-hint');if(hint)hint.textContent=`${monthLabel(pair.before)} → ${monthLabel(pair.after)} · เหลือง: ควรตรวจ · เทาประ: ข้อมูลไม่พอ · ม่วง: เทียบไม่ได้ · ฟ้า: ไม่พบการลดลงในคู่นี้`;
+  }
+  initLeafletThailandMap = function initializePdd22Map(){
+    leafletMap=L.map('thailand-map').setView([9.2,100],6);
+    L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19,attribution:'Tiles &copy; Esri'}).addTo(leafletMap);
+    thailandGeojsonLayer=L.geoJSON({type:'FeatureCollection',features:allPlotsData.map(p=>({type:'Feature',properties:{id:p.id},geometry:p.geometry}))},{
+      onEachFeature(feature,layer){const p=allPlotsData.find(p=>p.id===feature.properties.id);
+        layer.bindTooltip(escapeHtml(title(p)));layer.on('click',()=>{selectPlot(p.id);});}
+    }).addTo(leafletMap);refreshMapStyles();resetMapZoom();
+  };
+  resetMapZoom = function fitPdd22(){const bounds=thailandGeojsonLayer?.getBounds();if(bounds?.isValid())leafletMap.fitBounds(bounds,{padding:[20,20]});};
+
+  function clearDetail(){
+    if(currentSentinelOverlay&&plotSatelliteMap?.hasLayer(currentSentinelOverlay))plotSatelliteMap.removeLayer(currentSentinelOverlay);
+    currentSentinelOverlay=null;
+  }
+  function renderSnapshot(s,error=false){
+    const {plot,item,layer}=s, fcd=plot.fcd_by_month[item.month];
+    text('hud-month-label',layer==='esri'?'ภาพพื้นหลัง · ไม่อิงเดือน':monthLabel(item.month));
+    text('hud-plot-label',title(plot));
+    text('hud-coords-label',`${title(plot)} · ${fmt(plot.area_rai)} ไร่`);
+    text('hud-in-ndvi',error||M.ndvi(item)===null?'—':M.ndvi(item).toFixed(3));
+    const equivalent=!error&&M.goodFcd(fcd);
+    text('hud-in-cover',equivalent?`${fmt(fcd.green_rai/plot.area_rai*100)}%`:'—');
+    text('kpi-plot-canopy-pct',equivalent?`${fmt(fcd.green_rai/plot.area_rai*100)}%`:'—');
+    setSub('kpi-plot-canopy-pct',`${monthLabel(item.month)} · ${error?'ภาพโหลดไม่สำเร็จ':M.qa(fcd)}`);
+    ['green','yellow','red'].forEach(k=>{
+      const value=error||!fcd||M.qa(fcd)==='NO_DATA'?null:equivalent?fcd[`${k}_rai`]:fcd[`${k}_observed_rai`];
+      text(`fcd-${k}-value`,value===null?'—':`${fmt(value)} ไร่`);
+    });
+    text('fcd-qa-value',`${fcd?M.qa(fcd):'ไม่มี FCD'} · ${fmt(M.coverage(fcd))}%`);
+    const latest=M.latestGood(plot);
+    text('fcd-note',`${monthLabel(item.month)}: ${equivalent?'equivalent class area ตามโมเดล QA GOOD; water/bare แยกต่างหาก':'แสดงเฉพาะพื้นที่สังเกตได้เมื่อมีข้อมูล; ไม่ขยายเต็มแปลง'} · ผล FCD ล่าสุดที่ผ่านเกณฑ์: ${latest?monthLabel(latest.month):'ไม่มี'} (ไม่ได้ใช้แทนค่าของเดือนที่เลือก)`);
+    const tag=document.querySelector('.stage-hud.top-right .hud-tag');
+    if(tag)tag.textContent=layer==='esri'?'Esri World Imagery':layer==='fcd'?'FCD V3 screening':'Sentinel-2 · '+M.qa(item);
+    const sub=document.querySelector('.stage-hud.top-right .hud-sub');
+    if(sub)sub.textContent=layer==='esri'?'ไม่ใช่ภาพของเดือนที่เลือก':`${monthLabel(item.month)} · coverage ${fmt(M.coverage(layer==='fcd'?fcd:item))}%`;
+    if(!error)text('observation-status',layer==='esri'?`ค่าด้านล่างอ้างอิง ${monthLabel(item.month)} แต่ภาพพื้นหลังไม่อิงเดือนนี้`:s.state==='AVAILABLE'?`${title(plot)} · ${monthLabel(item.month)} · ภาพและค่าตรงช่วงเดียวกัน · ${M.qa(layer==='fcd'?fcd:item)} · coverage ${fmt(M.coverage(layer==='fcd'?fcd:item))}%`:s.state==='NO_FCD'?`${monthLabel(item.month)} ไม่มีผล FCD — ไม่ใช้เดือนอื่นแทน`:`${monthLabel(item.month)} ข้อมูลไม่พอ — ไม่แสดงภาพหรือค่าแทน`);
+    el('observation-status').dataset.state=error?'ERROR':s.state;
+    updatePairKpi(plot);
+  }
+  function updatePairKpi(plot){
+    const a=plot.timeseries.find(i=>i.month===pair.before),b=plot.timeseries.find(i=>i.month===pair.after);
+    const comparable=M.compare(plot,pair.before,pair.after).status!=='NOT_COMPARABLE'&&pair.before<pair.after&&pair.before.slice(5)===pair.after.slice(5);
+    const delta=comparable&&M.ndvi(a)!==null&&M.ndvi(b)!==null?M.ndvi(b)-M.ndvi(a):null;
+    text('kpi-plot-ndvi-gain',delta===null?'—':`${delta>=0?'+':''}${delta.toFixed(3)}`);
+    setSub('kpi-plot-ndvi-gain',`${monthLabel(pair.before)} → ${monthLabel(pair.after)} · QA GOOD ทั้งสองช่วงเท่านั้น`);
+  }
+  function controller(){
+    if(detailController)return detailController;
+    detailController=M.createFrameController({
+      load:(s,current)=>M.loadLeafletFrame(L,plotSatelliteMap,s,current,{className:'sentinel-overlay'}),
+      loading(s,displayed){
+        if(displayed&&currentSentinelOverlay)renderSnapshot(displayed);
+        else {['hud-in-ndvi','hud-in-cover','kpi-plot-canopy-pct','fcd-green-value','fcd-yellow-value','fcd-red-value','fcd-qa-value'].forEach(id=>text(id,'—'));text('hud-month-label','กำลังโหลดภาพ');text('hud-plot-label',title(s.plot));setSub('kpi-plot-canopy-pct',`${monthLabel(s.item.month)} · กำลังโหลด`);text('fcd-note','รอภาพและข้อมูลของช่วงที่เลือก');}
+        text('observation-status',`กำลังโหลด ${title(s.plot)} · ${monthLabel(s.item.month)}${displayed&&currentSentinelOverlay?` — ภาพและค่าที่ยังแสดงเป็น ${monthLabel(displayed.item.month)}`:''}`);el('observation-status').dataset.state='LOADING';
       },
-      onEachFeature: (feature, layer) => {
-        const plot = allPlotsData.find(p => p.id === feature.properties.id);
-        const a = fcdObservation(plot, '2026-03');
-        const fcdText = a?.qa === 'GOOD' ? `เขียว ${formatRai(a.green_rai)} • เหลือง ${formatRai(a.yellow_rai)} • แดง ${formatRai(a.red_rai)} ไร่` : 'FCD QA ไม่เพียงพอ';
-        layer.bindPopup(`<div class="popup-title">${escapeHtml(plot.code)}</div><div class="popup-meta">${escapeHtml(plot.province)} • ${Number(plot.area_rai).toFixed(2)} ไร่<br>มี.ค. 2569: ${fcdText}</div><button class="popup-btn" onclick="selectPlot(${plot.id}); switchWorkspaceTab('detail');">ดูแปลงนี้</button>`);
-        layer.on('click', () => selectPlot(plot.id));
-      }
-    }).addTo(leafletMap);
-    const bounds = thailandGeojsonLayer.getBounds();
-    if (bounds.isValid()) leafletMap.fitBounds(bounds, { padding: [20, 20] });
+      commit(s,frame){if(frame){const old=currentSentinelOverlay;currentSentinelOverlay=frame.overlay;frame.overlay.setOpacity(.94);if(old&&plotSatelliteMap.hasLayer(old))plotSatelliteMap.removeLayer(old);plotBoundaryLayer?.bringToFront();}renderSnapshot(s);},
+      clear:clearDetail,
+      failed(s){renderSnapshot(s,true);text('observation-status',`${title(s.plot)} · ${monthLabel(s.item.month)} โหลดภาพไม่สำเร็จ — ล้างภาพเก่าแล้ว`);const b=document.createElement('button');b.type='button';b.textContent='ลองใหม่';b.onclick=()=>updateGeeOverlay();el('observation-status').append(' ',b);}
+    });return detailController;
+  }
+  updateGeeOverlay = function requestPdd22Frame(){
+    if(!activePlot||!plotSatelliteMap)return;
+    const item=activePlot.timeseries[currentMonthIndex];if(!item)return;
+    const spec=M.asset(activePlot,item,currentPlotLayerKey);
+    const snapshot={...spec,url:spec.url?`${spec.url}?v=${DATA_VERSION}`:null,plot:activePlot,item,layer:currentPlotLayerKey,bounds:imageBoundsForPlot(activePlot)};
+    return controller().request(snapshot);
   };
-
-  setPlotMapLayer = function pdd22Layer(layerKey) {
-    currentPlotLayerKey = layerKey;
-    document.querySelectorAll('.band-btn-group .band-btn').forEach(button => button.classList.toggle('active', button.dataset.layer === layerKey));
-    sentinelSwapToken++;
-    if (layerKey === 'esri') {
-      if (pendingSentinelOverlay && plotSatelliteMap?.hasLayer(pendingSentinelOverlay)) plotSatelliteMap.removeLayer(pendingSentinelOverlay);
-      pendingSentinelOverlay = null;
-      if (currentSentinelOverlay && plotSatelliteMap?.hasLayer(currentSentinelOverlay)) plotSatelliteMap.removeLayer(currentSentinelOverlay);
-      currentSentinelOverlay = null;
-      return;
-    }
+  setPlotMapLayer = function selectPdd22Layer(layer){
+    currentPlotLayerKey=layer;
+    document.querySelectorAll('.band-btn-group .band-btn').forEach(b=>b.classList.toggle('active',b.dataset.layer===layer));
     updateGeeOverlay();
   };
-
-  updateGeeOverlay = async function pdd22Overlay() {
-    if (!activePlot || !plotSatelliteMap || currentPlotLayerKey === 'esri') return;
-    const item = activePlot.timeseries[currentMonthIndex];
-    if (!item) return;
-    let url;
-    if (currentPlotLayerKey === 'fcd') {
-      if (!FCD_MONTHS.has(item.month)) {
-        if (currentSentinelOverlay && plotSatelliteMap.hasLayer(currentSentinelOverlay)) plotSatelliteMap.removeLayer(currentSentinelOverlay);
-        currentSentinelOverlay = null;
-        return;
-      }
-      url = `data/pdd22_v3/maps/${activePlot.code}/fcd_${item.month}.png?v=${PDD22_VERSION}`;
-    } else {
-      const prefix = currentPlotLayerKey === 'gee_ndvi' ? 'ndvi' : 'rgb';
-      url = `data/pdd22_satellite/plots/${activePlot.code}/${item.month}/${prefix}.png?v=${PDD22_VERSION}`;
-    }
-    const token = ++sentinelSwapToken;
-    try {
-      await preloadImage(url);
-      if (token !== sentinelSwapToken || !activePlot) return;
-      const next = L.imageOverlay(url, imageBoundsForPlot(activePlot), { opacity: .92, interactive: false, className: 'sentinel-overlay' });
-      next.addTo(plotSatelliteMap);
-      if (currentSentinelOverlay && plotSatelliteMap.hasLayer(currentSentinelOverlay)) plotSatelliteMap.removeLayer(currentSentinelOverlay);
-      currentSentinelOverlay = next;
-      pendingSentinelOverlay = null;
-      if (plotBoundaryLayer && document.getElementById('toggle-boundary-check')?.checked !== false) plotBoundaryLayer.bringToFront();
-    } catch (error) {
-      console.warn('PDD22 overlay unavailable', url, error);
-    }
+  setMonthIndex = function selectPdd22Month(value){
+    if(!activePlot)return;
+    currentMonthIndex=Math.max(0,Math.min(activePlot.timeseries.length-1,Math.trunc(Number(value)||0)));
+    const item=activePlot.timeseries[currentMonthIndex];text('playback-date-display',monthLabel(item.month));el('month-slider').value=String(currentMonthIndex);
+    if(plotNdviChart){plotNdviChart.setActiveElements([{datasetIndex:0,index:currentMonthIndex}]);plotNdviChart.update('none');}
+    return updateGeeOverlay();
   };
-
-  const baseSetMonthIndex = setMonthIndex;
-  setMonthIndex = function pdd22Month(index) {
-    baseSetMonthIndex(index);
-    updateFcdPanel();
-    const tag = document.querySelector('.stage-hud.top-right .hud-tag');
-    const sub = document.querySelector('.stage-hud.top-right .hud-sub');
-    if (tag) tag.textContent = currentPlotLayerKey === 'fcd' ? 'FCD V3 screening' : 'Cleaned Sentinel-2';
-    if (sub) sub.textContent = currentPlotLayerKey === 'fcd' ? 'Green / Yellow / Red • PDD participating boundary' : 'SCL QA • exact-month • no interpolation';
+  const baseSelectPlot=selectPlot;
+  selectPlot = function selectPdd22Plot(id){
+    if(!allPlotsData.some(p=>p.id===Number(id)))return;
+    detailController?.invalidate();clearDetail();baseSelectPlot(id);refreshMapStyles();updatePairKpi(activePlot);
   };
-
-  const baseSelectPlot = selectPlot;
-  selectPlot = function pdd22Select(id) {
-    baseSelectPlot(id);
-    updateFcdPanel();
-    const latest = latestGoodFcd(activePlot);
-    const kpi = document.getElementById('kpi-plot-canopy-pct');
-    if (kpi) kpi.textContent = latest && isFiniteNumber(latest.green_rai) ? `${(latest.green_rai / activePlot.area_rai * 100).toFixed(1)}%` : '—';
+  initCompareSelectors = function initializePdd22Compare(plot){
+    ['comp-left-select','comp-right-select'].forEach(id=>{const select=el(id);select.innerHTML='';plot.timeseries.forEach((o,i)=>select.add(new Option(`${monthLabel(o.month)} · ${M.qa(o)}`,String(i))));});
+    el('comp-left-select').value=String(Math.max(0,MILESTONE_MONTHS.indexOf(pair.before)));
+    el('comp-right-select').value=String(Math.max(0,MILESTONE_MONTHS.indexOf(pair.after)));
   };
-
-  initTable = function pdd22Table(plots) {
-    const table = document.getElementById('plots-data-table');
-    const tbody = document.getElementById('table-body');
-    document.getElementById('table-count-label').textContent = `PDD participating plots ${plots.length} แปลง • 6,775.53 ไร่`;
-    table.querySelector('thead').innerHTML = `<tr><th>รหัสแปลง</th><th>จังหวัด</th><th>พื้นที่ (ไร่)</th><th>เขียว มี.ค.69</th><th>เหลือง มี.ค.69</th><th>แดง มี.ค.69</th><th>Δเขียว มี.ค.67→69</th><th>ส.ค.69 QA</th><th>การกระทำ</th></tr>`;
-    tbody.innerHTML = '';
-    plots.forEach(plot => {
-      const a24 = fcdObservation(plot, '2024-03');
-      const a26 = fcdObservation(plot, '2026-03');
-      const aug = fcdObservation(plot, '2026-08');
-      const dg = a24?.qa === 'GOOD' && a26?.qa === 'GOOD' ? a26.green_rai - a24.green_rai : null;
-      const row = document.createElement('tr');
-      row.innerHTML = `<td><strong>${escapeHtml(plot.code)}</strong></td><td>${escapeHtml(plot.province)}</td><td>${Number(plot.area_rai).toFixed(2)}</td><td>${formatRai(a26?.green_rai)}</td><td>${formatRai(a26?.yellow_rai)}</td><td>${formatRai(a26?.red_rai)}</td><td><strong>${isFiniteNumber(dg) ? `${dg >= 0 ? '+' : ''}${dg.toFixed(2)}` : '—'}</strong></td><td><span class="qa-pill-inline ${qaClass(aug?.qa)}">${aug?.qa || '—'}</span></td><td><button class="btn-table-view">ดูรายละเอียด</button></td>`;
-      row.querySelector('button').onclick = () => { selectPlot(plot.id); switchWorkspaceTab('detail'); };
-      tbody.appendChild(row);
-    });
+  initTable = function renderPdd22Table(plots){
+    if(!el('table-body'))return;
+    text('table-count-label',`${plots.length} แปลงในตัวกรอง · ${monthLabel(pair.before)} → ${monthLabel(pair.after)}`);
+    el('plots-data-table').querySelector('thead').innerHTML='<tr><th>รหัสแปลง</th><th>จังหวัด</th><th>พื้นที่ (ไร่)</th><th>เขียวก่อน (ไร่)</th><th>เขียวหลัง (ไร่)</th><th>Δ เขียว (ไร่)</th><th>QA ก่อน → หลัง</th><th>สถานะ</th><th>การกระทำ</th></tr>';
+    const tbody=el('table-body');tbody.innerHTML='';
+    plots.forEach(p=>{const r=M.compare(p,pair.before,pair.after),a=p.fcd_by_month[pair.before],b=p.fcd_by_month[pair.after],tr=document.createElement('tr');
+      tr.innerHTML=`<td>${escapeHtml(p.code)}</td><td>${escapeHtml(p.province)}</td><td>${fmt(p.area_rai)}</td><td>${M.goodFcd(a)?fmt(a.green_rai):'—'}</td><td>${M.goodFcd(b)?fmt(b.green_rai):'—'}</td><td>${sign(r.delta)}</td><td>${r.beforeQa} → ${r.afterQa}</td><td>${states[r.status]}</td><td><button type="button">ตรวจภาพ</button></td>`;tr.querySelector('button').onclick=()=>openComparison(p.id);tbody.append(tr);});
   };
-
-  exportPlotsCSV = function pdd22Csv() {
-    const header = ['Plot Code','Province','PDD Area Rai','Green Mar 2024','Yellow Mar 2024','Red Mar 2024','Green Mar 2026','Yellow Mar 2026','Red Mar 2026','Delta Green Mar24-Mar26','Aug 2026 QA'];
-    const rows = allPlotsData.map(plot => {
-      const a = fcdObservation(plot,'2024-03'); const b = fcdObservation(plot,'2026-03'); const aug = fcdObservation(plot,'2026-08');
-      const dg = a?.qa === 'GOOD' && b?.qa === 'GOOD' ? b.green_rai - a.green_rai : '';
-      return [plot.code, plot.province, plot.area_rai, a?.green_rai ?? '', a?.yellow_rai ?? '', a?.red_rai ?? '', b?.green_rai ?? '', b?.yellow_rai ?? '', b?.red_rai ?? '', dg, aug?.qa ?? ''];
-    });
-    const csv = '\uFEFF' + [header.join(','), ...rows.map(row => row.join(','))].join('\n');
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'pdd22_fcd_v3.csv'; a.click(); URL.revokeObjectURL(url);
+  exportPlotsCSV = function exportPdd22VisibleRows(){
+    const header=['Plot Code','Province','PDD Area Rai','Before Month','After Month','Before QA','After QA','Before Coverage %','After Coverage %','Green Before Rai','Green After Rai','Delta Green Rai','Status','Reason','Method'];
+    const rows=visiblePlots.map(p=>{const r=M.compare(p,pair.before,pair.after),a=p.fcd_by_month[pair.before],b=p.fcd_by_month[pair.after];return [p.code,p.province,p.area_rai,pair.before,pair.after,r.beforeQa,r.afterQa,M.coverage(a),M.coverage(b),M.goodFcd(a)?a.green_rai:null,M.goodFcd(b)?b.green_rai:null,r.delta,r.status,r.reason,'PDD22 FCD V3 screening; not carbon credit'];});
+    const csv='\uFEFF'+[header,...rows].map(r=>r.map(M.csvCell).join(',')).join('\r\n');
+    const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=`pdd22_${pair.before}_${pair.after}_filtered.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   };
-
-  const baseInitCompareSelectors = initCompareSelectors;
-  initCompareSelectors = function pdd22CompareSelectors(plot) {
-    baseInitCompareSelectors(plot);
-    const left = document.getElementById('comp-left-select');
-    const right = document.getElementById('comp-right-select');
-    if (left) left.value = '2';
-    if (right) right.value = '10';
-  };
-
-  updateCompareView = function pdd22Compare() {
-    if (!activePlot) return;
-    ensureCompareMaps();
-    let li = Math.max(0, Math.min(11, parseInt(document.getElementById('comp-left-select').value || '2', 10)));
-    let ri = Math.max(0, Math.min(11, parseInt(document.getElementById('comp-right-select').value || '10', 10)));
-    const mode = document.getElementById('comp-mode-select')?.value || 'rgb';
-    if (mode === 'fcd') {
-      if (!FCD_MONTHS.has(activePlot.timeseries[li].month)) li = 2;
-      if (!FCD_MONTHS.has(activePlot.timeseries[ri].month)) ri = 10;
-      document.getElementById('comp-left-select').value = String(li);
-      document.getElementById('comp-right-select').value = String(ri);
-    }
-    const leftItem = activePlot.timeseries[li], rightItem = activePlot.timeseries[ri];
-    let leftUrl, rightUrl, leftLabel, rightLabel;
-    if (mode === 'fcd') {
-      leftUrl = `data/pdd22_v3/maps/${activePlot.code}/fcd_${leftItem.month}.png?v=${PDD22_VERSION}`;
-      rightUrl = `data/pdd22_v3/maps/${activePlot.code}/fcd_${rightItem.month}.png?v=${PDD22_VERSION}`;
-      leftLabel = `${leftItem.month} • FCD`; rightLabel = `${rightItem.month} • FCD`;
-    } else {
-      let lp = 'rgb', rp = 'rgb';
-      if (mode === 'ndvi') lp = rp = 'ndvi';
-      if (mode === 'rgb_vs_ndvi') rp = 'ndvi';
-      leftUrl = `data/pdd22_satellite/plots/${activePlot.code}/${leftItem.month}/${lp}.png?v=${PDD22_VERSION}`;
-      rightUrl = `data/pdd22_satellite/plots/${activePlot.code}/${rightItem.month}/${rp}.png?v=${PDD22_VERSION}`;
-      leftLabel = `${leftItem.month} • ${lp.toUpperCase()}`; rightLabel = `${rightItem.month} • ${rp.toUpperCase()}`;
-    }
-    document.getElementById('comp-label-before').textContent = leftLabel;
-    document.getElementById('comp-label-after').textContent = rightLabel;
-    compareLeftOverlay = replaceCompareLayer(compareLeftMap, compareLeftOverlay, leftUrl, activePlot);
-    compareRightOverlay = replaceCompareLayer(compareRightMap, compareRightOverlay, rightUrl, activePlot);
-    const show = document.getElementById('comp-boundary-toggle')?.checked !== false;
-    compareLeftBoundary = replaceCompareBoundary(compareLeftMap, compareLeftBoundary, activePlot, show);
-    compareRightBoundary = replaceCompareBoundary(compareRightMap, compareRightBoundary, activePlot, show);
-    const bounds = L.geoJSON({ type:'Feature', properties:{}, geometry:activePlot.geometry }).getBounds();
-    if (bounds.isValid()) { const opts={padding:[34,34],maxZoom:17,animate:false}; compareLeftMap.fitBounds(bounds,opts); compareRightMap.fitBounds(bounds,opts); }
-    const stat = document.getElementById('comp-in-stat-text'), pill = document.getElementById('comp-gain-pill');
-    if (mode === 'fcd') {
-      const a=fcdObservation(activePlot,leftItem.month), b=fcdObservation(activePlot,rightItem.month);
-      if (a?.qa==='GOOD' && b?.qa==='GOOD') { const dg=b.green_rai-a.green_rai; stat.innerHTML=`FCD Green: <strong>${formatRai(a.green_rai)}</strong> ➜ <strong>${formatRai(b.green_rai)}</strong> ไร่`; pill.textContent=`Δ ${dg>=0?'+':''}${dg.toFixed(1)} ไร่`; }
-      else { stat.textContent='FCD comparison ต้องใช้ QA GOOD เพื่อเทียบพื้นที่เต็มแปลง'; pill.textContent='QA guardrail'; }
-    } else {
-      const a=leftItem.mean_ndvi_inside,b=rightItem.mean_ndvi_inside;
-      if(isFiniteNumber(a)&&isFiniteNumber(b)){const d=b-a;stat.innerHTML=`Mean NDVI: <strong>${a.toFixed(3)}</strong> ➜ <strong>${b.toFixed(3)}</strong>`;pill.textContent=`${d>=0?'+':''}${d.toFixed(3)}`;} else {stat.textContent='ไม่มี NDVI ที่ผ่าน QA สำหรับช่วงที่เลือก';pill.textContent='No metric';}
-    }
-  };
+  window.Pdd22Ui={monthLabel,format:fmt,getPair:()=>({...pair}),getVisiblePlots:()=>visiblePlots.slice(),version:VERSION};
 })();
