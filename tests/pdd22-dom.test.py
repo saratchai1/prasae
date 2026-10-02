@@ -90,9 +90,14 @@ def run():
             exported = Path(export_all.value.path()).read_text(encoding='utf-8-sig')
             lines = [line for line in exported.splitlines() if line.strip()]
             assert len(lines) == 3
-            assert 'Green Before Rai' in lines[0] and 'Green After Rai' in lines[0]
-            assert 'Yellow Before Rai' in lines[0] and 'Red After Rai' in lines[0]
-            assert 'Before FCD Image URL' in lines[0] and 'After FCD Image URL' in lines[0]
+            assert 'พื้นที่สีเขียวก่อน (ไร่)' in lines[0] and 'พื้นที่สีเขียวหลัง (ไร่)' in lines[0]
+            assert 'พื้นที่สีเหลืองก่อน (ไร่)' in lines[0] and 'พื้นที่สีแดงหลัง (ไร่)' in lines[0]
+            assert 'ลิงก์ภาพ FCD ก่อน' in lines[0] and 'ลิงก์ภาพ FCD หลัง' in lines[0]
+            assert 'คุณภาพข้อมูลก่อน' in lines[0] and 'ความครอบคลุมหลัง (%)' in lines[0]
+            assert 'มี.ค. 2567' in exported and 'มี.ค. 2569' in exported
+            assert 'ดี' in exported and 'ได้' in exported
+            assert 'ควรตรวจการเปลี่ยนแปลง' in exported
+            assert 'Plot Code' not in exported and 'Before Month' not in exported
             assert 'TEST-A' in exported and 'TEST-B' in exported
             assert 'data/pdd22_v3/maps/TEST-A/fcd_2024-03.png' in exported
             assert 'data/pdd22_v3/maps/TEST-A/fcd_2026-03.png' in exported

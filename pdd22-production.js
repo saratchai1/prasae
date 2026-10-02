@@ -13,6 +13,9 @@
   const title = plot => `${plot.code} · ${plot.province}`;
   const sign = value => value === null ? '—' : `${value > 0 ? '+' : ''}${fmt(value)}`;
   const states = {REVIEW:'ควรตรวจการเปลี่ยนแปลง',INSUFFICIENT:'ข้อมูลไม่พอ',NOT_COMPARABLE:'ยังเปรียบเทียบไม่ได้',NO_DECREASE:'ไม่พบการลดลงในคู่นี้'};
+  const qaThai = value => ({GOOD:'ดี',PARTIAL:'บางส่วน',LOW_QA:'คุณภาพต่ำ',NO_DATA:'ไม่มีข้อมูล'}[value] || String(value || '—'));
+  const filterThai = value => ({ALL:'ทั้งหมด',REVIEW:'ควรตรวจการเปลี่ยนแปลง',INSUFFICIENT:'ข้อมูลไม่พอ',NOT_COMPARABLE:'ยังเปรียบเทียบไม่ได้',NO_DECREASE:'ไม่พบการลดลงในคู่นี้'}[value] || String(value || 'ทั้งหมด'));
+  const safeFilePart = value => String(value || '').replace(/[\\/:*?"<>|]/g,'-').replace(/\s+/g,'_');
   const setSub = (id,value) => { const n=el(id)?.parentElement?.querySelector('.kpi-sub'); if(n)n.textContent=value; };
 
   function csvRows(source) {
@@ -141,13 +144,13 @@
     if(!rows.length)return;
 
     const header=[
-      'Plot Code','Province','PDD Area Rai',
-      'Before Month','After Month','Comparison Eligible',
-      'Before QA','After QA','Before Coverage %','After Coverage %',
-      'Green Before Rai','Green After Rai','Delta Green Rai',
-      'Yellow Before Rai','Yellow After Rai','Delta Yellow Rai',
-      'Red Before Rai','Red After Rai','Delta Red Rai',
-      'Status','Reason','Before FCD Image URL','After FCD Image URL','Method'
+      'รหัสแปลง','จังหวัด','พื้นที่ PDD (ไร่)',
+      'ช่วงก่อน','ช่วงหลัง','เปรียบเทียบได้',
+      'คุณภาพข้อมูลก่อน','คุณภาพข้อมูลหลัง','ความครอบคลุมก่อน (%)','ความครอบคลุมหลัง (%)',
+      'พื้นที่สีเขียวก่อน (ไร่)','พื้นที่สีเขียวหลัง (ไร่)','การเปลี่ยนแปลงสีเขียว (ไร่)',
+      'พื้นที่สีเหลืองก่อน (ไร่)','พื้นที่สีเหลืองหลัง (ไร่)','การเปลี่ยนแปลงสีเหลือง (ไร่)',
+      'พื้นที่สีแดงก่อน (ไร่)','พื้นที่สีแดงหลัง (ไร่)','การเปลี่ยนแปลงสีแดง (ไร่)',
+      'สถานะ','เหตุผล','ลิงก์ภาพ FCD ก่อน','ลิงก์ภาพ FCD หลัง','วิธีการ'
     ];
     const delta=(a,b,key)=>M.goodFcd(a)&&M.goodFcd(b)
       ? Math.round((M.number(b[key])-M.number(a[key]))*100)/100 : null;
@@ -156,19 +159,19 @@
       const plot=r.plot,a=plot.fcd_by_month?.[pair.before],b=plot.fcd_by_month?.[pair.after];
       return [
         plot.code,plot.province,plot.area_rai,
-        pair.before,pair.after,r.delta!==null?'TRUE':'FALSE',
-        r.beforeQa,r.afterQa,M.coverage(a),M.coverage(b),
+        monthLabel(pair.before),monthLabel(pair.after),r.delta!==null?'ได้':'ไม่ได้',
+        qaThai(r.beforeQa),qaThai(r.afterQa),M.coverage(a),M.coverage(b),
         value(a,'green_rai'),value(b,'green_rai'),delta(a,b,'green_rai'),
         value(a,'yellow_rai'),value(b,'yellow_rai'),delta(a,b,'yellow_rai'),
         value(a,'red_rai'),value(b,'red_rai'),delta(a,b,'red_rai'),
-        r.status,r.reason,absoluteFcdImageUrl(plot,pair.before),absoluteFcdImageUrl(plot,pair.after),
-        'PDD22 FCD V3 screening; whole-plot class areas and deltas require QA GOOD at both endpoints; not carbon credit'
+        states[r.status] || r.status,r.reason,absoluteFcdImageUrl(plot,pair.before),absoluteFcdImageUrl(plot,pair.after),
+        'การคัดกรอง PDD22 ด้วย FCD V3; พื้นที่จำแนกทั้งแปลงและค่าการเปลี่ยนแปลงคำนวณเฉพาะเมื่อทั้งสองช่วงผ่านเกณฑ์คุณภาพข้อมูลระดับดี; ไม่ใช่การคำนวณคาร์บอนเครดิต'
       ];
     });
     const csv='\uFEFF'+[header,...records].map(row=>row.map(M.csvCell).join(',')).join('\r\n');
     const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
     const a=document.createElement('a');a.href=url;
-    a.download=`pdd22_compare_${pair.before}_vs_${pair.after}_${filter.toLowerCase()}.csv`;
+    a.download=`PDD22_เปรียบเทียบ_${safeFilePart(monthLabel(pair.before))}_ถึง_${safeFilePart(monthLabel(pair.after))}_${safeFilePart(filterThai(filter))}.csv`;
     a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   }
 
@@ -320,10 +323,10 @@
       tr.innerHTML=`<td>${escapeHtml(p.code)}</td><td>${escapeHtml(p.province)}</td><td>${fmt(p.area_rai)}</td><td>${M.goodFcd(a)?fmt(a.green_rai):'—'}</td><td>${M.goodFcd(b)?fmt(b.green_rai):'—'}</td><td>${sign(r.delta)}</td><td>${r.beforeQa} → ${r.afterQa}</td><td>${states[r.status]}</td><td><button type="button">ตรวจภาพ</button></td>`;tr.querySelector('button').onclick=()=>openComparison(p.id);tbody.append(tr);});
   };
   exportPlotsCSV = function exportPdd22VisibleRows(){
-    const header=['Plot Code','Province','PDD Area Rai','Before Month','After Month','Before QA','After QA','Before Coverage %','After Coverage %','Green Before Rai','Green After Rai','Delta Green Rai','Status','Reason','Method'];
-    const rows=visiblePlots.map(p=>{const r=M.compare(p,pair.before,pair.after),a=p.fcd_by_month[pair.before],b=p.fcd_by_month[pair.after];return [p.code,p.province,p.area_rai,pair.before,pair.after,r.beforeQa,r.afterQa,M.coverage(a),M.coverage(b),M.goodFcd(a)?a.green_rai:null,M.goodFcd(b)?b.green_rai:null,r.delta,r.status,r.reason,'PDD22 FCD V3 screening; not carbon credit'];});
+    const header=['รหัสแปลง','จังหวัด','พื้นที่ PDD (ไร่)','ช่วงก่อน','ช่วงหลัง','คุณภาพข้อมูลก่อน','คุณภาพข้อมูลหลัง','ความครอบคลุมก่อน (%)','ความครอบคลุมหลัง (%)','พื้นที่สีเขียวก่อน (ไร่)','พื้นที่สีเขียวหลัง (ไร่)','การเปลี่ยนแปลงสีเขียว (ไร่)','สถานะ','เหตุผล','วิธีการ'];
+    const rows=visiblePlots.map(p=>{const r=M.compare(p,pair.before,pair.after),a=p.fcd_by_month[pair.before],b=p.fcd_by_month[pair.after];return [p.code,p.province,p.area_rai,monthLabel(pair.before),monthLabel(pair.after),qaThai(r.beforeQa),qaThai(r.afterQa),M.coverage(a),M.coverage(b),M.goodFcd(a)?a.green_rai:null,M.goodFcd(b)?b.green_rai:null,r.delta,states[r.status] || r.status,r.reason,'การคัดกรอง PDD22 ด้วย FCD V3; ไม่ใช่การคำนวณคาร์บอนเครดิต'];});
     const csv='\uFEFF'+[header,...rows].map(r=>r.map(M.csvCell).join(',')).join('\r\n');
-    const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=`pdd22_${pair.before}_${pair.after}_filtered.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+    const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=`PDD22_ตาราง_FCD_${safeFilePart(monthLabel(pair.before))}_ถึง_${safeFilePart(monthLabel(pair.after))}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   };
   window.Pdd22Ui={monthLabel,format:fmt,getPair:()=>({...pair}),getVisiblePlots:()=>visiblePlots.slice(),exportOverviewComparisonCSV,version:VERSION};
 })();
