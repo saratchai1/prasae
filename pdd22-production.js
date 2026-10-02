@@ -102,7 +102,7 @@
     const button=document.createElement('button');button.className='w-tab-btn';button.id='wtab-overview';button.textContent='ภาพรวม / เลือกแปลงตรวจ';button.onclick=()=>switchWorkspaceTab('overview');
     document.querySelector('.workspace-tabs').prepend(button);
     const panel=document.createElement('section');panel.id='panel-overview';panel.className='tab-content-panel';
-    panel.innerHTML=`<div class="overview-heading"><div><p class="eyebrow">PDD22 · OBSERVATION REVIEW</p><h2>เริ่มจากแปลงที่ควรเปิดตรวจต่อ</h2><p>แยกสัญญาณเปลี่ยนแปลงออกจากข้อมูลไม่พอ โดยไม่สรุปว่าป่าเสียหายจากสีเพียงอย่างเดียว</p></div></div>
+    panel.innerHTML=`<div class="overview-heading"><div><p class="eyebrow">PDD22 · OBSERVATION REVIEW</p><h2>เริ่มจากแปลงที่ควรเปิดตรวจต่อ</h2><p>แยกสัญญาณเปลี่ยนแปลงออกจากข้อมูลไม่พอ โดยไม่สรุปว่าป่าเสียหายจากสีเพียงอย่างเดียว</p></div><div class="overview-actions"><button type="button" id="overview-export-csv" class="overview-export-btn">ส่งออก CSV ก่อน–หลัง</button><small>ตามช่วงเวลาและตัวกรองที่เลือก</small></div></div>
       <div class="overview-dates"><label>ช่วงก่อน<select id="overview-before"></select></label><label>ช่วงหลัง<select id="overview-after"></select></label><label>รายการที่ต้องการดู<select id="overview-filter"><option value="ALL">ทั้งหมด</option><option value="REVIEW">ควรตรวจการเปลี่ยนแปลง</option><option value="INSUFFICIENT">ข้อมูลไม่พอ</option><option value="NOT_COMPARABLE">ยังเปรียบเทียบไม่ได้</option><option value="NO_DECREASE">ไม่พบการลดลงในคู่นี้</option></select></label></div>
       <div class="overview-cards" id="overview-cards"></div><p class="overview-context" id="overview-context" role="status"></p>
       <div class="table-container"><table class="plots-table review-table"><thead><tr><th>แปลง / จังหวัด</th><th>สถานะ / เหตุผล</th><th>Δ เขียว (ไร่)</th><th>QA ก่อน → หลัง</th><th>ตรวจประกอบ</th></tr></thead><tbody id="overview-rows"></tbody></table></div>
@@ -114,8 +114,64 @@
       el(id).onchange=()=>{pair={before:el('overview-before').value,after:el('overview-after').value};renderOverview();initTable(visiblePlots);refreshMapStyles();if(activePlot)updatePairKpi(activePlot);};
     }
     el('overview-filter').onchange=renderOverview;
+    el('overview-export-csv').onclick=exportOverviewComparisonCSV;
     renderOverview();
   }
+
+  function overviewRows(summary=M.summarize(visiblePlots,pair.before,pair.after)) {
+    const filter=el('overview-filter')?.value || 'ALL';
+    return summary.rows.filter(r=>filter==='ALL'||r.status===filter).sort((a,b)=>{
+      const order={REVIEW:0,INSUFFICIENT:1,NOT_COMPARABLE:2,NO_DECREASE:3};
+      return order[a.status]-order[b.status] || (a.delta??0)-(b.delta??0) || a.plot.code.localeCompare(b.plot.code);
+    });
+  }
+
+  function absoluteFcdImageUrl(plot,month) {
+    const item=plot.timeseries?.find(x=>x.month===month);
+    if(!item)return '';
+    const spec=M.asset(plot,item,'fcd');
+    if(spec.state!=='AVAILABLE'||!spec.url)return '';
+    try{return new URL(`${spec.url}?v=${DATA_VERSION}`,document.baseURI).href;}
+    catch{return spec.url;}
+  }
+
+  function exportOverviewComparisonCSV() {
+    const filter=el('overview-filter')?.value || 'ALL';
+    const rows=overviewRows();
+    if(!rows.length)return;
+
+    const header=[
+      'Plot Code','Province','PDD Area Rai',
+      'Before Month','After Month','Comparison Eligible',
+      'Before QA','After QA','Before Coverage %','After Coverage %',
+      'Green Before Rai','Green After Rai','Delta Green Rai',
+      'Yellow Before Rai','Yellow After Rai','Delta Yellow Rai',
+      'Red Before Rai','Red After Rai','Delta Red Rai',
+      'Status','Reason','Before FCD Image URL','After FCD Image URL','Method'
+    ];
+    const delta=(a,b,key)=>M.goodFcd(a)&&M.goodFcd(b)
+      ? Math.round((M.number(b[key])-M.number(a[key]))*100)/100 : null;
+    const value=(obs,key)=>M.goodFcd(obs)?M.number(obs[key]):null;
+    const records=rows.map(r=>{
+      const plot=r.plot,a=plot.fcd_by_month?.[pair.before],b=plot.fcd_by_month?.[pair.after];
+      return [
+        plot.code,plot.province,plot.area_rai,
+        pair.before,pair.after,r.delta!==null?'TRUE':'FALSE',
+        r.beforeQa,r.afterQa,M.coverage(a),M.coverage(b),
+        value(a,'green_rai'),value(b,'green_rai'),delta(a,b,'green_rai'),
+        value(a,'yellow_rai'),value(b,'yellow_rai'),delta(a,b,'yellow_rai'),
+        value(a,'red_rai'),value(b,'red_rai'),delta(a,b,'red_rai'),
+        r.status,r.reason,absoluteFcdImageUrl(plot,pair.before),absoluteFcdImageUrl(plot,pair.after),
+        'PDD22 FCD V3 screening; whole-plot class areas and deltas require QA GOOD at both endpoints; not carbon credit'
+      ];
+    });
+    const csv='\uFEFF'+[header,...records].map(row=>row.map(M.csvCell).join(',')).join('\r\n');
+    const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));
+    const a=document.createElement('a');a.href=url;
+    a.download=`pdd22_compare_${pair.before}_vs_${pair.after}_${filter.toLowerCase()}.csv`;
+    a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  }
+
   function renderOverview() {
     if(!el('overview-rows'))return;
     const summary=M.summarize(visiblePlots,pair.before,pair.after);
@@ -128,11 +184,15 @@
       [`QA GOOD รอบ ${monthLabel(latest)}`,`${latestCount} / ${visiblePlots.length} แปลง`,'เป็นรอบล่าสุดในชุดข้อมูล ไม่ใช่ค่าของเดือนที่เลือก']
     ].map(([label,value,note])=>`<article><span>${label}</span><strong>${value}</strong><small>${note}</small></article>`).join('');
     text('overview-context',`${monthLabel(pair.before)} → ${monthLabel(pair.after)} · เทียบได้ ${summary.matchedCount}/${visiblePlots.length} แปลง · ${fmt(summary.matchedArea)} ไร่ (${fmt(summary.matchedAreaPct)}%) · Δ เขียว ${sign(summary.delta)} ไร่ — คำนวณทั้งสองฝั่งจากแปลงชุดเดียวกันเท่านั้น`);
-    const filter=el('overview-filter').value;
-    const rows=summary.rows.filter(r=>filter==='ALL'||r.status===filter).sort((a,b)=>{
-      const order={REVIEW:0,INSUFFICIENT:1,NOT_COMPARABLE:2,NO_DECREASE:3};
-      return order[a.status]-order[b.status] || (a.delta??0)-(b.delta??0) || a.plot.code.localeCompare(b.plot.code);
-    });
+    const rows=overviewRows(summary);
+    const exportButton=el('overview-export-csv');
+    if(exportButton){
+      exportButton.disabled=rows.length===0;
+      exportButton.textContent=`ส่งออก CSV ก่อน–หลัง · ${rows.length} แปลง`;
+      exportButton.title=rows.length
+        ? `ส่งออก ${monthLabel(pair.before)} → ${monthLabel(pair.after)} ตามตัวกรองที่เลือก`
+        : 'ไม่มีแปลงในตัวกรองสำหรับส่งออก';
+    }
     const tbody=el('overview-rows');tbody.innerHTML='';
     for(const r of rows){const tr=document.createElement('tr');tr.innerHTML=`<td><strong>${escapeHtml(r.plot.code)}</strong><small>${escapeHtml(r.plot.province)} · ${fmt(r.plot.area_rai)} ไร่</small></td><td><span class="review-status ${r.status.toLowerCase()}">${states[r.status]}</span><small>${r.reason}</small></td><td>${sign(r.delta)}</td><td>${r.beforeQa} → ${r.afterQa}</td><td><button type="button">เปิดภาพก่อน–หลัง</button></td>`;
       tr.querySelector('button').onclick=()=>openComparison(r.plot.id);tbody.append(tr);}
@@ -265,5 +325,5 @@
     const csv='\uFEFF'+[header,...rows].map(r=>r.map(M.csvCell).join(',')).join('\r\n');
     const url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));const a=document.createElement('a');a.href=url;a.download=`pdd22_${pair.before}_${pair.after}_filtered.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
   };
-  window.Pdd22Ui={monthLabel,format:fmt,getPair:()=>({...pair}),getVisiblePlots:()=>visiblePlots.slice(),version:VERSION};
+  window.Pdd22Ui={monthLabel,format:fmt,getPair:()=>({...pair}),getVisiblePlots:()=>visiblePlots.slice(),exportOverviewComparisonCSV,version:VERSION};
 })();

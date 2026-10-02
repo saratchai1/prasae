@@ -1,0 +1,37 @@
+name: PDD22 overview comparison CSV checks
+
+on:
+  pull_request:
+    branches: [gh-pages]
+    paths:
+      - pdd22-production.js
+      - pdd22-review.css
+      - tests/pdd22-dom.test.py
+      - .github/workflows/pdd22-overview-export-check.yml
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Syntax and unit checks
+        run: |
+          node --check pdd22-production.js
+          node --test tests/pdd22-observations.test.cjs
+      - name: Install Chromium test dependency
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+          python -c "from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print('CHROMIUM_PATH='+p.chromium.executable_path); p.stop()" >> "$GITHUB_ENV"
+      - name: Overview/browser regression
+        run: python tests/pdd22-dom.test.py

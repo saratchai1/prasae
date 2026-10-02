@@ -85,11 +85,31 @@ def run():
             page.select_option('#overview-filter','REVIEW')
             assert page.locator('#overview-rows tr').count()==1
             page.select_option('#overview-filter','ALL')
+            with page.expect_download() as export_all:
+                page.locator('#overview-export-csv').click()
+            exported = Path(export_all.value.path()).read_text(encoding='utf-8-sig')
+            lines = [line for line in exported.splitlines() if line.strip()]
+            assert len(lines) == 3
+            assert 'Green Before Rai' in lines[0] and 'Green After Rai' in lines[0]
+            assert 'Yellow Before Rai' in lines[0] and 'Red After Rai' in lines[0]
+            assert 'Before FCD Image URL' in lines[0] and 'After FCD Image URL' in lines[0]
+            assert 'TEST-A' in exported and 'TEST-B' in exported
+            assert 'data/pdd22_v3/maps/TEST-A/fcd_2024-03.png' in exported
+            assert 'data/pdd22_v3/maps/TEST-A/fcd_2026-03.png' in exported
+            page.select_option('#overview-filter','REVIEW')
+            with page.expect_download() as export_review:
+                page.locator('#overview-export-csv').click()
+            review_exported = Path(export_review.value.path()).read_text(encoding='utf-8-sig')
+            review_lines = [line for line in review_exported.splitlines() if line.strip()]
+            assert len(review_lines) == 2
+            assert 'TEST-A' in review_exported and 'TEST-B' not in review_exported
+            assert '-10' in review_exported
+            page.select_option('#overview-filter','ALL')
             page.evaluate("onPlotSearchInput('test-a')")
             assert page.locator('#overview-rows tr').count()==1
             assert page.locator('#table-body tr').count()==1
             page.evaluate("onPlotSearchInput('')")
-            checks.append(f'{width}: triage and global filters agree with table scope')
+            checks.append(f'{width}: triage, CSV export and global filters agree with the visible comparison scope')
             page.evaluate("switchWorkspaceTab('detail');setPlotMapLayer('gee_rgb')")
             page.wait_for_function("document.getElementById('observation-status').dataset.state==='AVAILABLE'")
             page.evaluate('setMonthIndex(3)')

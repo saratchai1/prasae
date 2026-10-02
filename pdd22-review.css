@@ -1,5 +1,11 @@
 /* PDD22 review workspace, layered over the existing design tokens. */
-.overview-heading { margin-bottom:1.25rem; }
+.overview-heading { margin-bottom:1.25rem; display:flex; justify-content:space-between; align-items:flex-start; gap:1.25rem; }
+.overview-heading>div:first-child { min-width:0; }
+.overview-actions { margin-left:auto; display:flex; flex-direction:column; align-items:flex-end; gap:.4rem; flex:0 0 auto; }
+.overview-actions small { color:#94a3b8; font-size:.72rem; }
+.overview-export-btn { min-height:44px; border:1px solid rgba(16,185,129,.45); background:rgba(16,185,129,.13); color:#6ee7b7; border-radius:10px; padding:.6rem .9rem; font:inherit; font-size:.82rem; font-weight:700; cursor:pointer; white-space:nowrap; }
+.overview-export-btn:hover { background:rgba(16,185,129,.2); border-color:rgba(16,185,129,.7); }
+.overview-export-btn:disabled { opacity:.45; cursor:not-allowed; }
 .overview-heading h2 { font-size:1.5rem; line-height:1.35; margin:.35rem 0 .6rem; }
 .overview-heading p, .overview-context, .screening-note { color:#cbd5e1; font-size:.9rem; line-height:1.7; }
 .eyebrow { color:#7dd3fc!important; font-size:.72rem!important; letter-spacing:.08em; font-weight:700; }
@@ -53,7 +59,7 @@ button:focus-visible,select:focus-visible,input:focus-visible { outline:3px soli
 @media(max-width:600px) {
   .site-header { padding:.7rem 1rem; position:relative; }.brand-title { font-size:1rem; }.header-meta { display:none; }
   .portal-layout { padding:.75rem; }.tab-content-panel { padding:.85rem; }.workspace-tabs { padding:.5rem; }
-  .overview-heading h2 { font-size:1.25rem; }.overview-cards { grid-template-columns:1fr 1fr; gap:.5rem; }
+  .overview-heading { flex-direction:column; }.overview-heading h2 { font-size:1.25rem; }.overview-actions { width:100%; margin-left:0; align-items:stretch; }.overview-export-btn { width:100%; }.overview-actions small { text-align:left; }.overview-cards { grid-template-columns:1fr 1fr; gap:.5rem; }
   .overview-cards article { padding:.7rem; }.overview-cards strong { font-size:1.2rem; }
   .overview-dates { gap:.6rem; }.overview-dates label { min-width:130px; }
   .fcd-summary-panel { grid-template-columns:1fr 1fr; }.satellite-stage { min-height:360px; }
