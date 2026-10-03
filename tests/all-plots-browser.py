@@ -32,8 +32,8 @@ def run():
    full.route('https://fonts.googleapis.com/**',lambda route:route.abort());full.route('https://fonts.gstatic.com/**',lambda route:route.abort())
    full.goto(f'http://127.0.0.1:{PORT}/index.html',wait_until='domcontentloaded',timeout=30000)
    full.wait_for_function('window.__allPlotsReady===true && document.getElementById("wtab-overview")',timeout=30000)
-   assert full.locator('#wtab-allplots').inner_text()=='แปลงทั่วไป · 210';full.locator('#wtab-allplots').click();assert full.locator('#allplots-rows tr').count()==210;assert full.evaluate("document.body.classList.contains('allplots-mode')")
-   full.locator('#wtab-overview').click();assert not full.evaluate("document.body.classList.contains('allplots-mode')");assert full.locator('#overview-rows tr').count()==22;assert not full_errors,full_errors
+   assert full.locator('#wtab-allplots').inner_text()=='แปลงทั่วไป · 210';full.locator('#wtab-allplots').click();assert full.locator('#allplots-rows tr').count()==210;assert full.evaluate("document.body.classList.contains('allplots-mode')");assert '210 แปลงทั่วไป' in full.locator('.brand-title').inner_text()
+   full.locator('#wtab-overview').click();assert not full.evaluate("document.body.classList.contains('allplots-mode')");assert full.locator('#overview-rows tr').count()==22;assert 'PDD22' in full.locator('.brand-title').inner_text();assert not full_errors,full_errors
    checks.append('full index: PDD22 and 210-plot workspaces coexist without page errors');full.close()
    browser.close()
  finally:s.shutdown()
