@@ -1,7 +1,7 @@
 name: Unified 210 workspace check
 on:
   push:
-    branches: [feat/unified-210-workspace-20261003]
+    branches: [gh-pages]
     paths:
       - unified-data.js
       - unified-workspace.js
