@@ -9,8 +9,12 @@ Safety:
 - Scientific TIFF DN encoding is validated separately; these batches use DN / 10000 reflectance.
 """
 from __future__ import annotations
-import json, re, zipfile, warnings
+import json, re, zipfile, warnings, sys
 from pathlib import Path
+
+R=Path(__file__).resolve().parents[1]
+if str(R) not in sys.path:
+    sys.path.insert(0,str(R))
 from collections import defaultdict, Counter
 from datetime import datetime, timezone
 import numpy as np
@@ -23,7 +27,6 @@ from shapely.geometry import shape, box
 import process_verified_12_dates as base
 import process_verified_12_dates_v4 as v4
 
-R=Path(__file__).resolve().parents[1]
 IN=R/'incoming'
 CAT=R/'data/plots_catalog.json'
 TS=R/'data/timeseries_verified_12.json'
