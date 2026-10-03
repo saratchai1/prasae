@@ -20,6 +20,9 @@ jobs:
           node --check all-plots-portfolio.js
           node --test tests/all-plots-core.test.cjs tests/pdd22-observations.test.cjs
           python tests/all-plots-source-audit.py
+          python -m pip install Pillow==11.3.0 numpy==2.2.6
+          python tests/build_all_plots_visual_qa.py
+          cmp audit-artifacts/all_plots_visual_qa.json data/all_plots_visual_qa.json
       - name: Chromium
         run: |
           python -m pip install playwright==1.55.0
