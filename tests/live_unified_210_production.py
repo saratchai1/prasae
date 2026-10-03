@@ -32,7 +32,7 @@ with sync_playwright() as p:
     checks.append('live non-PDD registry plot cannot use FCD')
 
     page.locator('#wtab-map').click()
-    page.wait_for_function('window.thailandGeojsonLayer && thailandGeojsonLayer.getLayers().length===210',timeout=15000)
+    page.wait_for_function('typeof thailandGeojsonLayer!=="undefined" && thailandGeojsonLayer && thailandGeojsonLayer.getLayers().length===210',timeout=15000)
     checks.append('live GIS contains 210 registry features')
 
     page.locator('#wtab-table').click()
