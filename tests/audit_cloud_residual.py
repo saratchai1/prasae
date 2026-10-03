@@ -35,6 +35,12 @@ for o in rows:
   path=R/'data/pdd22_satellite/plots'/o['plot_code']/o['month']/'rgb.png'
   s=score(path);pdd.append({**s,'dataset':'pdd22','code':o['plot_code'],'province':o['province'],'month':o['month'],'coverage_pct':float(o['coverage_pct']),'path':str(path.relative_to(R)),'mean_ndvi':float(o['mean_ndvi']) if o.get('mean_ndvi') else None})
 for arr in (general,pdd): arr.sort(key=lambda x:(x['cloud_like_pct'],x['haze_like_pct']),reverse=True)
+def month_summary(arr):
+  months={}
+  for x in arr:
+    m=x['month'];d=months.setdefault(m,{'good':0,'cloud_like_gt_1pct':0,'cloud_like_gt_3pct':0})
+    d['good']+=1;d['cloud_like_gt_1pct']+=x['cloud_like_pct']>1;d['cloud_like_gt_3pct']+=x['cloud_like_pct']>3
+  return months
 out={
  'general_good_images':len(general),
  'pdd22_good_images':len(pdd),
@@ -42,6 +48,11 @@ out={
  'general_cloud_like_gt_3pct':sum(x['cloud_like_pct']>3 for x in general),
  'pdd22_cloud_like_gt_1pct':sum(x['cloud_like_pct']>1 for x in pdd),
  'pdd22_cloud_like_gt_3pct':sum(x['cloud_like_pct']>3 for x in pdd),
+ 'general_by_month':month_summary(general),
+ 'pdd22_by_month':month_summary(pdd),
+ 'general_march_2024_gt3':[x for x in general if x['month']=='2024-03' and x['cloud_like_pct']>3],
+ 'general_march_2026_gt3':[x for x in general if x['month']=='2026-03' and x['cloud_like_pct']>3],
+ 'pdd22_fcd_target_gt3':[x for x in pdd if x['month'] in {'2024-03','2025-03','2026-03','2026-08'} and x['cloud_like_pct']>3],
  'general_top20':general[:20],
  'pdd22_top20':pdd[:20],
  'note':'Secondary RGB brightness/neutrality heuristic only; flags candidates for visual review and is not itself a cloud classifier.'
