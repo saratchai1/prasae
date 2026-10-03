@@ -24,18 +24,27 @@
     L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19,attribution:'Tiles &copy; Esri'}).addTo(map);
   }
   async function jsonPackage(s,signal){
-    if(manifests.has(s.code))return manifests.get(s.code);
-    const r=await fetch(`data/pdd22_spectral/plots/${encodeURIComponent(s.code)}/spectral_manifest.json?v=${DATA_VERSION}`,{signal,cache:'no-store'});
+    const manifestKey=s.scope==='pdd'?`pdd|${s.code}`:`registry|${s.registryId}`;
+    if(manifests.has(manifestKey))return manifests.get(manifestKey);
+    const path=s.scope==='pdd'
+      ? `data/pdd22_spectral/plots/${encodeURIComponent(s.code)}/spectral_manifest.json`
+      : `data/plots/${encodeURIComponent(s.registryId)}/spectral_manifest.json`;
+    const r=await fetch(`${path}?v=${DATA_VERSION}`,{signal,cache:'no-store'});
+    if(r.status===404)throw S.failure('NO_DATA');
     if(!r.ok)throw S.failure('HTTP_ERROR');
     const result=await r.json();S.aborted(signal);
-    if(result.plot_code!==s.code||result.asset_role!=='browser_visualization_only')throw S.failure('INVALID_PACKAGE');
-    manifests.set(s.code,result);return result;
+    const identityOk=s.scope==='pdd'?result.plot_code===s.code:Number(result.plot_id)===Number(s.registryId);
+    if(!identityOk||result.asset_role!=='browser_visualization_only')throw S.failure('INVALID_PACKAGE');
+    manifests.set(manifestKey,result);return result;
   }
   async function bandPixels(s,spec,band,signal){
-    const key=`${s.code}|${s.month}|${band}`;
+    const key=`${s.scope}|${s.registryId}|${s.code}|${s.month}|${band}`;
     const cached=cache.get(key);if(cached)return cached;
     const filename=spec.date.files[band];
-    const r=await fetch(`data/pdd22_spectral/plots/${encodeURIComponent(s.code)}/${encodeURIComponent(filename)}?v=${DATA_VERSION}`,{signal});
+    const base=s.scope==='pdd'
+      ? `data/pdd22_spectral/plots/${encodeURIComponent(s.code)}`
+      : `data/plots/${encodeURIComponent(s.registryId)}`;
+    const r=await fetch(`${base}/${encodeURIComponent(filename)}?v=${DATA_VERSION}`,{signal});
     if(!r.ok)throw S.failure('HTTP_ERROR');
     const blob=await r.blob();S.aborted(signal);
     const url=URL.createObjectURL(blob),image=new Image();
@@ -94,7 +103,9 @@
       old?.dispose();if(oldBoundary&&map.hasLayer(oldBoundary))map.removeLayer(oldBoundary);
       const panel=el('panel-spectral');panel.dataset.displayedPlot=s.code;panel.dataset.displayedMonth=s.month;panel.dataset.displayedPreset=s.preset;
       text('spectral-status',label(s));
-      text('spectral-qa',`${M.qa(next.spec.date)} · ${M.coverage(next.spec.date)===null?'—':M.coverage(next.spec.date)}%`);
+      const coverage=M.number(next.spec.date.coverage_pct ?? next.spec.date.clear_pixel_pct);
+      const qa=s.scope==='pdd'?M.qa(next.spec.date):(coverage===null||coverage<5?'NO_DATA':coverage>=95?'GOOD':coverage>=50?'PARTIAL':'LOW_QA');
+      text('spectral-qa',`${qa} · ${coverage===null?'—':coverage}%`);
       text('spectral-formula',`${next.spec.preset.formula||next.spec.preset.bands.join(' / ')} · ภาพแสดงผล 8-bit ไม่ใช่ค่าวิเคราะห์ต้นฉบับ`);
       feedback('READY',`ภาพและข้อมูลตรงกัน · ${label(s)} · ความสว่าง ${Math.round(s.brightness*100)}% / contrast ${Math.round(s.contrast*100)}% / gamma ${s.gamma.toFixed(2)}`);
       map.invalidateSize();
@@ -113,7 +124,7 @@
       if(!visible()||!activePlot){runner.cancel();clearFrame();return;}
       const item=activePlot.timeseries[currentMonthIndex];if(!item)return;
       if(el('spectral-month'))el('spectral-month').value=String(currentMonthIndex);
-      const s={...desired,channels:{...desired.channels},plot:activePlot,code:activePlot.code,month:item.month,bounds:imageBoundsForPlot(activePlot)};
+      const s={...desired,channels:{...desired.channels},plot:activePlot,scope:activePlot.scope||'pdd',registryId:activePlot.registryId??activePlot.id,code:activePlot.code,month:item.month,bounds:imageBoundsForPlot(activePlot)};
       runner.run(s);
     });
   }
@@ -155,6 +166,7 @@
     if(tab==='spectral'){ensureMap();map?.invalidateSize();refresh();}
     return result;
   };
+  window.UnifiedSpectralRefresh=refresh;
   window.addEventListener('pagehide',()=>{runner.cancel();clearFrame();});
   window.addEventListener('pageshow',event=>{if(event.persisted)refresh();});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',inject);else inject();
