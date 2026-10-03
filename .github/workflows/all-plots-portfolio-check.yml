@@ -1,0 +1,29 @@
+name: All-plots portfolio checks
+on:
+  pull_request:
+    branches: [gh-pages]
+    paths: [all-plots-core.js, all-plots-portfolio.js, all-plots-portfolio.css, index.html, tests/all-plots-core.test.cjs, tests/all-plots-browser.py, tests/all-plots-source-audit.py, .github/workflows/all-plots-portfolio-check.yml]
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Core and source verification
+        run: |
+          node --check all-plots-core.js
+          node --check all-plots-portfolio.js
+          node --test tests/all-plots-core.test.cjs tests/pdd22-observations.test.cjs
+          python tests/all-plots-source-audit.py
+      - name: Chromium
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+          python -c "from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print('CHROMIUM_PATH='+p.chromium.executable_path); p.stop()" >> "$GITHUB_ENV"
+      - name: Actual data/browser verification
+        run: python tests/all-plots-browser.py
