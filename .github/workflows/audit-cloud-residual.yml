@@ -13,4 +13,45 @@ jobs:
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
       - run: pip install Pillow==11.3.0 numpy==2.2.6
-      - run: python tests/audit_cloud_residual.py
+      - run: python tests/audit_cloud_residual.py | tee cloud-audit.json
+      - name: Build visual review contact sheet
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image,ImageDraw,ImageFont
+          R=Path('.')
+          samples=[
+            ('GEN 87-VSD/PLOT_164 2025-06','data/plots/164/rgb_2025-06.png'),
+            ('GEN 87-VSD/PLOT_164 2025-09','data/plots/164/rgb_2025-09.png'),
+            ('GEN 87-VSD/PLOT_164 2025-12','data/plots/164/rgb_2025-12.png'),
+            ('GEN PLOT_164 NDVI 2025-09','data/plots/164/ndvi_2025-09.png'),
+            ('PDD 87-VSD 2025-06','data/pdd22_satellite/plots/87-VSD/2025-06/rgb.png'),
+            ('PDD 87-VSD 2025-09','data/pdd22_satellite/plots/87-VSD/2025-09/rgb.png'),
+            ('PDD 87-VSD 2025-12','data/pdd22_satellite/plots/87-VSD/2025-12/rgb.png'),
+            ('PDD 87-VSD NDVI 2025-09','data/pdd22_satellite/plots/87-VSD/2025-09/ndvi.png'),
+            ('GEN 97-VSD/PLOT_121 2025-03','data/plots/121/rgb_2025-03.png'),
+            ('GEN 97-VSD/PLOT_121 2025-06','data/plots/121/rgb_2025-06.png'),
+            ('GEN 97-VSD/PLOT_121 2025-09','data/plots/121/rgb_2025-09.png'),
+            ('GEN PLOT_121 NDVI 2025-06','data/plots/121/ndvi_2025-06.png'),
+            ('PDD 97-VSD 2025-03','data/pdd22_satellite/plots/97-VSD/2025-03/rgb.png'),
+            ('PDD 97-VSD 2025-06','data/pdd22_satellite/plots/97-VSD/2025-06/rgb.png'),
+            ('PDD 97-VSD 2025-09','data/pdd22_satellite/plots/97-VSD/2025-09/rgb.png'),
+            ('PDD 97-VSD NDVI 2025-06','data/pdd22_satellite/plots/97-VSD/2025-06/ndvi.png'),
+          ]
+          W,H=360,300;cols=4;rows=(len(samples)+cols-1)//cols
+          sheet=Image.new('RGB',(cols*W,rows*H),(30,30,30));d=ImageDraw.Draw(sheet)
+          for i,(label,path) in enumerate(samples):
+            p=Path(path);im=Image.open(p).convert('RGBA')
+            bg=Image.new('RGBA',im.size,(15,15,15,255));bg.alpha_composite(im)
+            bg.thumbnail((W-20,H-55),Image.Resampling.NEAREST)
+            x=(i%cols)*W+(W-bg.width)//2;y=(i//cols)*H+35
+            sheet.paste(bg.convert('RGB'),(x,y));d.text(((i%cols)*W+8,(i//cols)*H+8),label,fill='white')
+          Path('audit-artifacts').mkdir(exist_ok=True)
+          sheet.save('audit-artifacts/cloud-review-contact-sheet.png')
+          Path('audit-artifacts/cloud-audit.json').write_text(Path('cloud-audit.json').read_text(),encoding='utf-8')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cloud-visual-review
+          path: audit-artifacts/
+          retention-days: 7
