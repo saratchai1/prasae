@@ -25,6 +25,16 @@ def run():
     page.select_option('#allplots-province','ALL');page.select_option('#allplots-before','2024-03');page.select_option('#allplots-after','2026-03');target=page.evaluate('()=>{const C=AllPlotsCore,s=AllPlotsPortfolio.state,p=s.plots.find(p=>C.asset(p,C.obs(p,"2024-03"),"rgb")&&C.asset(p,C.obs(p,"2026-03"),"rgb"));return p&&p.id}');assert target;page.evaluate('(id)=>AllPlotsPortfolio.selectById(id)',target);page.wait_for_function("document.getElementById('allplots-before-img').naturalWidth>0&&document.getElementById('allplots-after-img').naturalWidth>0",timeout=10000);assert 'rgb_2024-03.png' in page.locator('#allplots-before-img').get_attribute('src');assert 'rgb_2026-03.png' in page.locator('#allplots-after-img').get_attribute('src');page.locator('[data-allplots-layer="ndvi"]').click();page.wait_for_function("document.getElementById('allplots-before-img').naturalWidth>0&&document.getElementById('allplots-before-img').src.includes('ndvi_2024-03.png')",timeout=10000);checks.append(f'{width}: exact-month real RGB/NDVI images load')
     if width<600:assert page.evaluate('document.documentElement.scrollWidth<=document.documentElement.clientWidth+1');checks.append(f'{width}: no page overflow')
     assert not errors,errors;page.close()
+   # Full production HTML integration: PDD22 and general portfolio coexist.
+   full=browser.new_page(viewport={'width':1440,'height':950});full_errors=[];full.on('pageerror',lambda e:full_errors.append(str(e)))
+   transparent=bytes.fromhex('89504e470d0a1a0a0000000d49484452000000010000000108060000001f15c4890000000d49444154789c6360000000020001e221bc330000000049454e44ae426082')
+   full.route('https://server.arcgisonline.com/**',lambda route:route.fulfill(status=200,content_type='image/png',body=transparent))
+   full.route('https://fonts.googleapis.com/**',lambda route:route.abort());full.route('https://fonts.gstatic.com/**',lambda route:route.abort())
+   full.goto(f'http://127.0.0.1:{PORT}/index.html',wait_until='domcontentloaded',timeout=30000)
+   full.wait_for_function('window.__allPlotsReady===true && document.getElementById("wtab-overview")',timeout=30000)
+   assert full.locator('#wtab-allplots').inner_text()=='แปลงทั่วไป · 210';full.locator('#wtab-allplots').click();assert full.locator('#allplots-rows tr').count()==210;assert full.evaluate("document.body.classList.contains('allplots-mode')")
+   full.locator('#wtab-overview').click();assert not full.evaluate("document.body.classList.contains('allplots-mode')");assert full.locator('#overview-rows tr').count()==22;assert not full_errors,full_errors
+   checks.append('full index: PDD22 and 210-plot workspaces coexist without page errors');full.close()
    browser.close()
  finally:s.shutdown()
  print(json.dumps({'mode':'ACTUAL_COMMITTED_210_PLOT_DATA_AND_IMAGES','passed':len(checks),'checks':checks},ensure_ascii=False,indent=2))
