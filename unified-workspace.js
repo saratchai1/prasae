@@ -1,63 +1,324 @@
-/* Unified 210-plot workspace: registry identity + optional PDD participating scope. */
+/* Unified 210-plot workspace. One registry identity per plot; PDD is an optional scope, never a duplicate plot. */
 (() => {
   'use strict';
-  const U=window.UnifiedData,C=window.AllPlotsCore;
-  if(!U||!C){window.__unifiedWorkspaceError='UnifiedData unavailable';return;}
-  const S={masters:[],filtered:[],before:'2024-03',after:'2025-03',id:null,scope:'registry',loaded:false};
-  const e=id=>document.getElementById(id),fmt=v=>U.number(v)===null?'—':Number(v).toLocaleString('th-TH',{maximumFractionDigits:2});
-  const esc=v=>String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;');
-  const thai=s=>({REVIEW:'ควรตรวจ',NO_DECREASE:'ไม่พบการลดลง',INSUFFICIENT:'ข้อมูลไม่พอ',NOT_COMPARABLE:'เทียบไม่ได้',ATMOSPHERE_REVIEW:'ตรวจเมฆ/หมอก',TIDE_WATER_REVIEW:'ตรวจน้ำ',VISUAL_REVIEW:'ตรวจภาพ',MISSING_ANALYSIS:'ยังไม่มีผลวิเคราะห์'}[s]||s||'—');
-  const plot=m=>S.scope==='pdd'&&m.pdd?m.pdd:m.registry;
-  function inject(){
-    if(e('wtab-unified210'))return;
-    const tabs=document.querySelector('.workspace-tabs'),detail=e('panel-detail');if(!tabs||!detail)return;
-    const b=document.createElement('button');b.id='wtab-unified210';b.className='w-tab-btn';b.textContent='210 แปลงรวม';b.onclick=()=>switchWorkspaceTab('unified210');tabs.prepend(b);
-    const p=document.createElement('section');p.id='panel-unified210';p.className='tab-content-panel';
-    p.innerHTML='<div class="allplots-heading"><div><p class="allplots-eyebrow">UNIFIED REGISTRY + PDD SCOPE</p><h2>210 แปลงทะเบียน</h2><p>หนึ่ง identity ต่อแปลง; 22 แปลง PDD เป็น scope ภายในแปลงเดิม ไม่สร้างรายการซ้ำ</p></div></div>'+
-    '<div class="allplots-method-warning">PDD raster ใช้ซ้ำเฉพาะเมื่อ scope + เดือน + scene + asset ตรงกันจริง; raster เฉพาะ PDD ห้ามแทนขอบเขตทะเบียน</div>'+
-    '<div class="allplots-filters"><label>จังหวัด<select id="u-province"><option value="ALL">ทุกจังหวัด</option></select></label><label>ค้นหา<input id="u-search" type="search"></label><label>ก่อน<select id="u-before"></select></label><label>หลัง<select id="u-after"></select></label><label>สมาชิก<select id="u-member"><option value="ALL">ทั้งหมด</option><option value="PDD">PDD22</option><option value="NON">ไม่ใช่ PDD22</option></select></label></div>'+
-    '<div class="allplots-cards" id="u-cards"></div><p class="allplots-context" id="u-context"></p>'+
-    '<section class="allplots-inspector"><div class="allplots-inspector-head"><div><span>แปลงที่เลือก</span><h3 id="u-title">—</h3><p id="u-sub">—</p></div><div class="allplots-layer"><button data-u-scope="registry" class="active">ขอบเขตทะเบียน</button><button data-u-scope="pdd">ขอบเขต PDD</button></div></div><div class="allplots-compare-grid"><article><div id="u-bt" class="allplots-image-title"></div><div class="allplots-image-wrap"><img id="u-bi"><div id="u-be" class="allplots-image-empty"></div></div></article><article><div id="u-at" class="allplots-image-title"></div><div class="allplots-image-wrap"><img id="u-ai"><div id="u-ae" class="allplots-image-empty"></div></div></article></div><div class="allplots-metric-strip" id="u-metrics"></div></section>'+
-    '<div class="table-container"><table class="plots-table allplots-table"><thead><tr><th>แปลง</th><th>พื้นที่ทะเบียน</th><th>PDD22</th><th>ทะเบียน</th><th>PDD</th><th></th></tr></thead><tbody id="u-rows"></tbody></table></div>';
-    detail.before(p);
-    C.MONTHS.forEach(m=>{e('u-before').add(new Option(C.monthLabel(m),m));e('u-after').add(new Option(C.monthLabel(m),m));});
-    e('u-before').value=S.before;e('u-after').value=S.after;
-    e('u-before').onchange=()=>{S.before=e('u-before').value;render();};e('u-after').onchange=()=>{S.after=e('u-after').value;render();};
-    e('u-province').onchange=render;e('u-member').onchange=render;e('u-search').oninput=render;
-    document.querySelectorAll('[data-u-scope]').forEach(x=>x.onclick=()=>{const m=S.masters.find(v=>v.id===S.id);if(x.dataset.uScope==='pdd'&&!m?.pdd)return;S.scope=x.dataset.uScope;inspect();});
+  const U=UnifiedData, C=AllPlotsCore, P=Pdd22Observations;
+  const DATA_VERSION='20261003-unified-1';
+  let masters=[], masterById=new Map(), pair={before:'2024-03',after:'2026-03'}, visiblePlots=[];
+
+  const el=id=>document.getElementById(id);
+  const text=(id,value)=>{const n=el(id);if(n)n.textContent=value;};
+  const fmt=v=>U.number(v)===null?'—':Number(v).toLocaleString('th-TH',{maximumFractionDigits:2});
+  const sign=v=>U.number(v)===null?'—':`${Number(v)>0?'+':''}${fmt(v)}`;
+  const title=p=>`${p.code} · ${p.province||'ไม่ระบุ'}`;
+  const masterFor=id=>masterById.get(Number(id))||null;
+  const currentMaster=()=>activePlot?masterFor(activePlot.registryId??activePlot.id):null;
+  const currentScope=()=>activePlot?.scope||'registry';
+  const secondaryLabel=q=>({
+    CLEAR:'ผ่าน QA เพิ่มเติม',COVERAGE_ONLY:'QA coverage',ATMOSPHERE_REVIEW:'ตรวจเมฆ / หมอก',
+    TIDE_WATER_REVIEW:'ตรวจน้ำ / น้ำขึ้นลง',VISUAL_REVIEW:'ตรวจภาพเพิ่มเติม',INSUFFICIENT:'ข้อมูลไม่พอ'
+  }[q]||q||'—');
+  const statusLabel=s=>U.labels[s]||({
+    GOOD:'ผ่าน QA',REVIEW:'ควรตรวจการเปลี่ยนแปลง',NO_DECREASE:'ไม่พบการลดลงในคู่นี้',
+    INSUFFICIENT:'ข้อมูลไม่พอ',NOT_COMPARABLE:'เทียบไม่ได้',MISSING_ANALYSIS:'ยังไม่มีผลวิเคราะห์'
+  }[s]||String(s||'—'));
+
+  function withSummaryFields(plot){
+    const a=plot.timeseries.find(o=>o.month==='2024-03'),b=plot.timeseries.find(o=>o.month==='2026-03');
+    const qa=U.quality(plot,a),qb=U.quality(plot,b);
+    const na=qa.eligible?U.number(a?.mean_ndvi_inside):null,nb=qb.eligible?U.number(b?.mean_ndvi_inside):null;
+    const current=plot.timeseries.find(o=>o.month==='2026-08');
+    return {...plot,
+      initial_ndvi:na,current_ndvi:nb,gain_ndvi:na!==null&&nb!==null?Math.round((nb-na)*10000)/10000:null,
+      current_vegetation_proxy_pct:current?U.greenPct(plot,current):null};
   }
-  function visible(){
-    const pr=e('u-province').value,mem=e('u-member').value,q=e('u-search').value.trim().toLowerCase();
-    return S.masters.filter(m=>(pr==='ALL'||m.registry.province===pr)&&(mem==='ALL'||(mem==='PDD'?!!m.pdd:!m.pdd))&&(!q||[m.code,m.registry.fullName,m.registry.province].join(' ').toLowerCase().includes(q)));
+
+  loadData=async function loadUnified210(){
+    const paths=[
+      'data/plots_catalog.json','data/timeseries_verified_12.json','data/pdd22/plots_catalog.json',
+      'data/pdd22_v3/plots_result.json','data/pdd22_satellite/coverage_report.csv','data/all_plots_visual_qa.json'
+    ];
+    const rs=await Promise.all(paths.map(async path=>{
+      const r=await fetch(`${path}?v=${DATA_VERSION}`,{cache:'no-store'});
+      if(!r.ok)throw new Error(`${path}: HTTP ${r.status}`);
+      return r;
+    }));
+    const [catalog,verified,pddCatalog,fcd,coverageText,visualQa]=await Promise.all([
+      rs[0].json(),rs[1].json(),rs[2].json(),rs[3].json(),rs[4].text(),rs[5].json()
+    ]);
+    const coverage=U.parseCsv(coverageText);
+    masters=U.merge(catalog,verified,pddCatalog,fcd,coverage,visualQa);
+    masterById=new Map(masters.map(m=>[m.id,m]));
+    plotsCatalog=masters.map(m=>m.registry);
+    allPlotsData=masters.map(m=>withSummaryFields({...m.registry,hasPdd:!!m.pdd}));
+    visiblePlots=allPlotsData.slice();
+    verifiedDatasetLoaded=true;
+    const candidates=[];
+    for(const after of MILESTONE_MONTHS)for(const before of MILESTONE_MONTHS){
+      if(before<after&&before.slice(5)===after.slice(5)){
+        const s=U.summarize(allPlotsData,before,after);candidates.push({before,after,count:s.matched});
+      }
+    }
+    candidates.sort((a,b)=>b.count-a.count||b.after.localeCompare(a.after)||a.before.localeCompare(b.before));
+    if(candidates[0])pair={before:candidates[0].before,after:candidates[0].after};
+    currentMonthIndex=Math.max(0,MILESTONE_MONTHS.indexOf(pair.after));
+    window.UnifiedWorkspace={masters,masterById,getPair:()=>({...pair}),getMaster:id=>masterFor(id),version:DATA_VERSION};
+  };
+
+  function injectScopeControl(){
+    if(el('analysis-scope-select'))return;
+    const toolbar=document.querySelector('.viewer-toolbar');if(!toolbar)return;
+    const wrap=document.createElement('div');wrap.className='unified-scope-control';wrap.id='analysis-scope-wrap';
+    wrap.innerHTML='<label for="analysis-scope-select">ขอบเขตวิเคราะห์</label><select id="analysis-scope-select"><option value="registry">ขอบเขตทะเบียนแปลง</option><option value="pdd">พื้นที่เข้าร่วม PDD</option></select><small id="analysis-scope-note"></small>';
+    toolbar.prepend(wrap);
+    el('analysis-scope-select').onchange=e=>setAnalysisScope(e.target.value);
   }
-  function render(){
-    if(!S.loaded)return;S.filtered=visible();if(!S.filtered.some(m=>m.id===S.id)){S.id=S.filtered[0]?.id??null;S.scope='registry';}
-    const rs=U.summarize(S.filtered.map(m=>m.registry),S.before,S.after),pc=S.filtered.filter(m=>m.pdd).length;
-    e('u-cards').innerHTML=[['แปลง',S.filtered.length],['PDD22',pc],['ทะเบียนเทียบได้',rs.matched],['ควรตรวจ',rs.review]].map(x=>'<article><span>'+x[0]+'</span><strong>'+x[1]+'</strong></article>').join('');
-    e('u-context').textContent=C.monthLabel(S.before)+' → '+C.monthLabel(S.after)+' · ขาดข้อมูลคงเป็นขาดข้อมูล ไม่มี nearest-month substitution';
-    const body=e('u-rows');body.innerHTML='';S.filtered.forEach(m=>{const rr=U.compare(m.registry,S.before,S.after),pp=m.pdd?U.compare(m.pdd,S.before,S.after):null,tr=document.createElement('tr');tr.innerHTML='<td><strong>'+esc(m.code)+'</strong><small>'+esc(m.registry.province)+'</small></td><td>'+fmt(m.registry.area_rai)+' ไร่</td><td>'+(m.pdd?fmt(m.pdd.area_rai)+' ไร่':'—')+'</td><td>'+thai(rr.status)+'</td><td>'+(pp?thai(pp.status):'—')+'</td><td><button>เปิด</button></td>';tr.querySelector('button').onclick=()=>{S.id=m.id;S.scope='registry';inspect();};body.append(tr);});inspect();
+
+  function injectStatusPanel(){
+    if(el('unified-observation-status'))return;
+    const stage=document.querySelector('.satellite-stage');if(!stage)return;
+    const p=document.createElement('div');p.id='unified-observation-status';p.className='unified-observation-status';
+    stage.after(p);
   }
-  function img(id,empty,p,o){
-    const sp=U.asset(p,o,'gee_rgb'),i=e(id),z=e(empty);i.hidden=true;z.hidden=false;
-    if(!sp||sp.state!=='AVAILABLE'||!sp.url){z.textContent='ไม่มีภาพเดือนนี้';return;}z.textContent='กำลังโหลด…';i.onload=()=>{i.hidden=false;z.hidden=true;};i.onerror=()=>{i.hidden=true;z.textContent='โหลดภาพไม่สำเร็จ';};i.src=sp.url+'?v=20261003-u1';
+
+  updateStaticCopy=function unifiedStaticCopy(){
+    document.title='ติดตามป่าชายเลน · 210 แปลง';
+    const total=allPlotsData.reduce((s,p)=>s+(U.number(p.area_rai)||0),0);
+    const provinces=new Set(allPlotsData.map(p=>p.province).filter(p=>p&&p!=='ไม่ระบุ')).size;
+    document.querySelector('.brand-title').textContent=`ติดตามป่าชายเลน · ${allPlotsData.length} แปลง`;
+    document.querySelector('.brand-subtitle').textContent='Sentinel-2 L2A · Green Cover Proxy / NDVI · PDD22 FCD เฉพาะเมื่อเลือกขอบเขต PDD';
+    const pills=[...document.querySelectorAll('.header-meta .meta-pill')];
+    if(pills[0])pills[0].textContent=`${allPlotsData.length} แปลง`;
+    if(pills[1])pills[1].textContent=`${fmt(total)} ไร่`;
+    if(pills[2])pills[2].textContent=`${provinces} จังหวัด + รายการไม่ระบุจังหวัด`;
+    text('kpi-total-area',`${fmt(total)} ไร่`);
+    const totalSub=el('kpi-total-area')?.parentElement?.querySelector('.kpi-sub');if(totalSub)totalSub.textContent='พื้นที่ทะเบียน 210 แปลง';
+    el('wtab-table').textContent='ตารางผลวิเคราะห์';
+    document.querySelector('.chart-badge-tag').textContent='210 plots';
+    document.querySelector('.chart-box-subtitle').textContent='ผล precomputed จาก Sentinel-2 · เว้นค่าเมื่อไม่ผ่าน QA · ไม่มี nearest-month substitution';
+    const bands=document.querySelector('.band-btn-group');
+    if(bands&&!bands.querySelector('[data-layer="fcd"]')){
+      const b=document.createElement('button');b.className='band-btn';b.dataset.layer='fcd';b.textContent='FCD เขียว / เหลือง / แดง';b.onclick=()=>setPlotMapLayer('fcd');bands.append(b);
+    }
+    injectScopeControl();injectStatusPanel();
+  };
+
+  renderSidebarList=function unifiedSidebar(plots){
+    visiblePlots=plots.slice();const container=el('plot-list-container');container.innerHTML='';
+    text('sidebar-count-display',`แสดง ${plots.length} จาก ${allPlotsData.length} แปลง`);
+    for(const p of plots){
+      const m=masterFor(p.id),card=document.createElement('div');
+      card.className=`plot-card-item ${activePlot?.registryId===p.id||activePlot?.id===p.id?'active':''}`;
+      card.id=`sidebar-card-${p.id}`;card.tabIndex=0;card.setAttribute('role','button');
+      const choose=()=>selectPlot(p.id);card.onclick=choose;card.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();choose();}};
+      const latest=p.timeseries.find(o=>o.month==='2026-08'),q=U.quality(p,latest);
+      card.innerHTML=`<div class="p-card-header"><span class="p-card-title">${escapeHtml(p.code)}</span><span class="p-prov-tag">${escapeHtml(p.province||'ไม่ระบุ')}</span></div>
+        <div class="p-card-body"><span>พื้นที่ <strong>${fmt(p.area_rai)} ไร่</strong></span><span>${secondaryLabel(q.secondary)}${m?.pdd?' · PDD':''}</span></div>`;
+      container.append(card);
+    }
+  };
+
+  function syncScopeUi(){
+    const m=currentMaster(),sel=el('analysis-scope-select'),wrap=el('analysis-scope-wrap');
+    if(!sel||!m)return;
+    sel.value=currentScope();sel.querySelector('option[value="pdd"]').disabled=!m.pdd;
+    wrap.classList.toggle('has-pdd',!!m.pdd);
+    text('analysis-scope-note',m.pdd?'แปลงนี้มีทั้งขอบเขตทะเบียนและขอบเขตเข้าร่วม PDD — เลือกได้โดยไม่สร้างแปลงซ้ำ':'แปลงนี้ไม่มีขอบเขต PDD22');
+    const fcdBtn=document.querySelector('[data-layer="fcd"]');
+    if(fcdBtn){fcdBtn.disabled=currentScope()!=='pdd';fcdBtn.title=currentScope()==='pdd'?'FCD V3 สำหรับขอบเขตเข้าร่วม PDD':'FCD มีเฉพาะขอบเขตเข้าร่วม PDD';}
+    const bottom=document.querySelector('.stage-hud.bottom-left .hud-sub:last-child');
+    if(bottom)bottom.textContent=U.scopeLabel(activePlot);
   }
-  function inspect(){
-    const m=S.masters.find(v=>v.id===S.id);if(!m)return;if(S.scope==='pdd'&&!m.pdd)S.scope='registry';
-    document.querySelectorAll('[data-u-scope]').forEach(x=>{x.classList.toggle('active',x.dataset.uScope===S.scope);x.hidden=x.dataset.uScope==='pdd'&&!m.pdd;});
-    const p=plot(m),a=U.observation(p,S.before),b=U.observation(p,S.after),r=U.compare(p,S.before,S.after);
-    e('u-title').textContent=m.code+' · '+p.province;e('u-sub').textContent=U.scopeLabel(p)+' · '+fmt(p.area_rai)+' ไร่ · '+U.methodLabel(p);
-    e('u-bt').textContent='ก่อน · '+C.monthLabel(S.before);e('u-at').textContent='หลัง · '+C.monthLabel(S.after);img('u-bi','u-be',p,a);img('u-ai','u-ae',p,b);
-    e('u-metrics').innerHTML='<div><span>สถานะ</span><strong>'+thai(r.status)+'</strong></div><div><span>Δ เขียว</span><strong>'+fmt(r.delta)+' ไร่</strong></div><div><span>Δ NDVI</span><strong>'+fmt(r.deltaNdvi)+'</strong></div><div><span>Scope</span><strong>'+esc(U.scopeLabel(p))+'</strong></div>';
+
+  window.setAnalysisScope=function(scope){
+    const m=currentMaster();if(!m)return;
+    const next=scope==='pdd'&&m.pdd?m.pdd:m.registry;
+    activePlot=next;
+    if(currentPlotLayerKey==='fcd'&&next.scope!=='pdd')currentPlotLayerKey='gee_rgb';
+    applyActivePlot();
+  };
+
+  selectPlot=function unifiedSelectPlot(id){
+    const m=masterFor(id);if(!m)return;
+    activePlot=m.registry;applyActivePlot();
+    document.querySelectorAll('.plot-card-item').forEach(c=>c.classList.toggle('active',Number(c.dataset.plotId)===Number(id)));
+    el(`sidebar-card-${id}`)?.scrollIntoView({behavior:'smooth',block:'nearest'});
+  };
+
+  function applyActivePlot(){
+    const p=activePlot;if(!p)return;
+    syncScopeUi();
+    text('kpi-current-plot-name',p.code);
+    text('kpi-current-plot-sub',`${U.scopeLabel(p)} · ${fmt(p.area_rai)} ไร่ · ${p.province||'ไม่ระบุ'}`);
+    text('chart-plot-title',`NDVI + ${U.methodLabel(p)} — ${p.code}`);
+    renderPlotChart(p);updatePlotSatelliteViewer(p);initCompareSelectors(p);comparePlotId=null;setMonthIndex(currentMonthIndex);
+    if(el('panel-compare')?.classList.contains('active'))setTimeout(updateCompareView,0);
+    refreshMapStyles();
+    window.UnifiedSpectralRefresh?.();
   }
-  async function load(){
-    try{
-      const paths=['data/plots_catalog.json','data/timeseries_verified_12.json','data/pdd22/plots_catalog.json','data/pdd22_v3/plots_result.json','data/pdd22_satellite/coverage_report.csv','data/all_plots_visual_qa.json'];
-      const r=await Promise.all(paths.map(x=>fetch(x+'?v=20261003-u1',{cache:'no-store'})));if(r.some(x=>!x.ok))throw Error('dataset load failed');
-      const catalog=await r[0].json(),verified=await r[1].json(),pdd=await r[2].json(),fcd=await r[3].json(),cov=U.parseCsv(await r[4].text()),qa=await r[5].json();
-      S.masters=U.merge(catalog,verified,pdd,fcd,cov,qa);if(S.masters.length!==210||S.masters.filter(m=>m.pdd).length!==22)throw Error('identity mapping invariant failed');
-      [...new Set(S.masters.map(m=>m.registry.province))].sort((a,b)=>a.localeCompare(b,'th')).forEach(x=>e('u-province').add(new Option(x,x)));
-      S.loaded=true;S.id=S.masters[0].id;e('wtab-unified210').textContent='210 แปลงรวม · 210';render();window.__unifiedWorkspaceReady=true;setTimeout(()=>switchWorkspaceTab('unified210'),0);
-    }catch(err){window.__unifiedWorkspaceError=String(err);if(e('u-context'))e('u-context').textContent='Unified workspace error: '+err.message;}
+
+  renderPlotChart=function unifiedChart(p){
+    const labels=p.timeseries.map(o=>U.monthLabel(o.month));
+    const ndvi=p.timeseries.map(o=>U.ndvi(p,o));
+    const green=p.timeseries.map(o=>U.greenPct(p,o));
+    if(plotNdviChart)plotNdviChart.destroy();
+    plotNdviChart=new Chart(el('plotNdviChart').getContext('2d'),{
+      type:'line',data:{labels,datasets:[
+        {label:'NDVI · ผ่าน QA',data:ndvi,borderColor:'#10b981',backgroundColor:'transparent',spanGaps:false,tension:0,pointRadius:4,yAxisID:'y'},
+        {label:U.methodLabel(p)+' (%)',data:green,borderColor:'#38bdf8',backgroundColor:'transparent',spanGaps:false,tension:0,pointRadius:3,yAxisID:'y1'}
+      ]},
+      options:{responsive:true,maintainAspectRatio:false,interaction:{mode:'index',intersect:false},onClick:(e,items)=>{if(items?.length)setMonthIndex(items[0].index);},
+        scales:{y:{min:-.1,max:.9,position:'left',ticks:{color:'#94a3b8'},grid:{color:'rgba(255,255,255,.05)'}},y1:{min:0,max:100,position:'right',ticks:{color:'#94a3b8',callback:v=>v+'%'},grid:{drawOnChartArea:false}},x:{ticks:{color:'#64748b'},grid:{color:'rgba(255,255,255,.04)'}}},
+        plugins:{legend:{labels:{color:'#cbd5e1'}}}}
+    });
+  };
+
+  updatePlotSatelliteViewer=function unifiedViewer(p){
+    if(!plotSatelliteMap||!p.geometry)return;
+    if(plotBoundaryLayer&&plotSatelliteMap.hasLayer(plotBoundaryLayer))plotSatelliteMap.removeLayer(plotBoundaryLayer);
+    plotBoundaryLayer=L.geoJSON({type:'Feature',properties:{},geometry:p.geometry},{style:{color:'#34d399',weight:2,fillOpacity:0}}).addTo(plotSatelliteMap);
+    const b=plotBoundaryLayer.getBounds();if(b.isValid())plotSatelliteMap.fitBounds(b,{padding:[45,45],maxZoom:17,animate:false});
+    togglePlotBoundary(el('toggle-boundary-check')?.checked!==false);
+  };
+
+  function clearOverlay(){
+    sentinelSwapToken++;
+    if(pendingSentinelOverlay&&plotSatelliteMap?.hasLayer(pendingSentinelOverlay))plotSatelliteMap.removeLayer(pendingSentinelOverlay);
+    pendingSentinelOverlay=null;
+    if(currentSentinelOverlay&&plotSatelliteMap?.hasLayer(currentSentinelOverlay))plotSatelliteMap.removeLayer(currentSentinelOverlay);
+    currentSentinelOverlay=null;
   }
-  const start=()=>{inject();load();};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start);else start();
+
+  setPlotMapLayer=function unifiedLayer(layer){
+    if(layer==='fcd'&&activePlot?.scope!=='pdd')return;
+    currentPlotLayerKey=layer;document.querySelectorAll('.band-btn').forEach(b=>b.classList.toggle('active',b.dataset.layer===layer));
+    if(layer==='esri'){clearOverlay();renderCurrentStatus();return;}
+    updateGeeOverlay();
+  };
+
+  function renderCurrentStatus(error=''){
+    if(!activePlot)return;const item=activePlot.timeseries[currentMonthIndex],q=U.quality(activePlot,item),g=U.greenPct(activePlot,item),n=U.ndvi(activePlot,item);
+    text('hud-month-label',currentPlotLayerKey==='esri'?'ภาพพื้นหลัง · ไม่อิงเดือน':U.monthLabel(item.month));
+    text('hud-plot-label',title(activePlot));
+    text('hud-coords-label',`${fmt(activePlot.area_rai)} ไร่ · ${U.scopeLabel(activePlot)}`);
+    text('hud-in-ndvi',n===null?'—':n.toFixed(3));
+    text('hud-in-cover',g===null?'—':`${fmt(g)}%`);
+    text('kpi-plot-canopy-pct',g===null?'—':`${fmt(g)}%`);
+    const k=el('kpi-plot-canopy-pct')?.parentElement?.querySelector('.kpi-label');if(k)k.textContent=U.methodLabel(activePlot)+' · ช่วงที่แสดง';
+    const sub=el('kpi-plot-canopy-pct')?.parentElement?.querySelector('.kpi-sub');if(sub)sub.textContent=`${U.monthLabel(item.month)} · ${q.label}`;
+    const tag=document.querySelector('.stage-hud.top-right .hud-tag');if(tag)tag.textContent=currentPlotLayerKey==='esri'?'Esri World Imagery':currentPlotLayerKey==='fcd'?'FCD V3':`Sentinel-2 · ${q.label}`;
+    const ts=document.querySelector('.stage-hud.top-right .hud-sub');if(ts)ts.textContent=error||`coverage ${fmt(item.clear_pixel_pct)}% · ${secondaryLabel(q.secondary)}`;
+    text('unified-observation-status',error||`${title(activePlot)} · ${U.monthLabel(item.month)} · ${q.label} · ${q.reason||''}`);
+  }
+
+  updateGeeOverlay=async function unifiedOverlay(){
+    if(!activePlot||!plotSatelliteMap||currentPlotLayerKey==='esri')return;
+    const item=activePlot.timeseries[currentMonthIndex];if(!item)return;
+    const spec=U.asset(activePlot,item,currentPlotLayerKey);
+    if(spec.state!=='AVAILABLE'||!spec.url){clearOverlay();renderCurrentStatus(spec.state==='MISSING_ANALYSIS'?'ไม่มี FCD สำหรับขอบเขตทะเบียนนี้':'ไม่มีภาพที่ใช้ได้ในเดือนนี้ — ไม่ใช้เดือนอื่นแทน');return;}
+    const url=`${spec.url}?v=${DATA_VERSION}`,token=++sentinelSwapToken;
+    try{await preloadImage(url);}catch{if(token===sentinelSwapToken){clearOverlay();renderCurrentStatus('โหลดภาพไม่สำเร็จ');}return;}
+    if(token!==sentinelSwapToken)return;
+    const old=currentSentinelOverlay,next=L.imageOverlay(url,imageBoundsForPlot(activePlot),{opacity:0,interactive:false,className:'sentinel-overlay'});pendingSentinelOverlay=next;
+    next.once('load',()=>{if(token!==sentinelSwapToken)return;requestAnimationFrame(()=>next.setOpacity(.94));setTimeout(()=>{if(old&&old!==next&&plotSatelliteMap.hasLayer(old))plotSatelliteMap.removeLayer(old);currentSentinelOverlay=next;pendingSentinelOverlay=null;plotBoundaryLayer?.bringToFront();},260);});
+    next.addTo(plotSatelliteMap);plotBoundaryLayer?.bringToFront();renderCurrentStatus();
+  };
+
+  setMonthIndex=function unifiedMonth(index){
+    if(!activePlot)return;currentMonthIndex=Math.max(0,Math.min(MILESTONE_MONTHS.length-1,Number(index)||0));
+    const item=activePlot.timeseries[currentMonthIndex];el('month-slider').value=String(currentMonthIndex);
+    text('playback-date-display',U.monthLabel(item.month));renderCurrentStatus();
+    if(currentPlotLayerKey!=='esri')updateGeeOverlay();
+    if(plotNdviChart){plotNdviChart.setActiveElements([{datasetIndex:0,index:currentMonthIndex}]);plotNdviChart.update('none');}
+    window.UnifiedSpectralRefresh?.();
+  };
+
+  initCompareSelectors=function unifiedCompareSelectors(p){
+    const l=el('comp-left-select'),r=el('comp-right-select');l.innerHTML='';r.innerHTML='';
+    p.timeseries.forEach((o,i)=>{const q=U.quality(p,o),opt=new Option(`${U.monthLabel(o.month)} · ${q.label}`,String(i));l.add(opt);r.add(opt.cloneNode(true));});
+    l.value=String(Math.max(0,MILESTONE_MONTHS.indexOf(pair.before)));r.value=String(Math.max(0,MILESTONE_MONTHS.indexOf(pair.after)));
+  };
+
+  ensureCompareMaps=function unifiedCompareMaps(){
+    if(compareLeftMap&&compareRightMap)return;
+    const c=el('compare-container');c.innerHTML='<div class="compare-map-panel"><div id="compare-map-left" class="compare-leaflet-half"></div><div class="compare-side-label" id="comp-label-before">ก่อน</div></div><div class="compare-map-panel"><div id="compare-map-right" class="compare-leaflet-half"></div><div class="compare-side-label" id="comp-label-after">หลัง</div></div><div class="compare-center-divider"></div>';
+    compareLeftMap=L.map('compare-map-left',{attributionControl:false,scrollWheelZoom:false}).setView([10,100],8);
+    compareRightMap=L.map('compare-map-right',{scrollWheelZoom:false}).setView([10,100],8);
+    L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19}).addTo(compareLeftMap);L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19,attribution:'Tiles &copy; Esri'}).addTo(compareRightMap);
+  };
+
+  function setCompareImage(map,old,spec,p){
+    if(old&&map.hasLayer(old))map.removeLayer(old);
+    if(spec.state!=='AVAILABLE'||!spec.url)return null;
+    return L.imageOverlay(`${spec.url}?v=${DATA_VERSION}`,imageBoundsForPlot(p),{opacity:.94,interactive:false}).addTo(map);
+  }
+  function setCompareBoundary(map,old,p,show){
+    if(old&&map.hasLayer(old))map.removeLayer(old);
+    const b=L.geoJSON({type:'Feature',properties:{},geometry:p.geometry},{style:{color:'#34d399',weight:2,fillOpacity:0}});
+    if(show)b.addTo(map);return b;
+  }
+
+  updateCompareView=function unifiedCompare(){
+    if(!activePlot)return;ensureCompareMaps();
+    const li=Math.max(0,Math.min(11,Number(el('comp-left-select').value)||0)),ri=Math.max(0,Math.min(11,Number(el('comp-right-select').value)||11));
+    const a=activePlot.timeseries[li],b=activePlot.timeseries[ri],mode=el('comp-mode-select')?.value||'rgb';
+    pair={before:a.month,after:b.month};
+    let la=mode==='ndvi'?'gee_ndvi':'gee_rgb',lb=mode==='rgb_vs_ndvi'?'gee_ndvi':mode==='ndvi'?'gee_ndvi':'gee_rgb';
+    if(mode==='fcd'){la=lb='fcd';}
+    const sa=U.asset(activePlot,a,la),sb=U.asset(activePlot,b,lb);
+    compareLeftOverlay=setCompareImage(compareLeftMap,compareLeftOverlay,sa,activePlot);compareRightOverlay=setCompareImage(compareRightMap,compareRightOverlay,sb,activePlot);
+    text('comp-label-before',`${U.monthLabel(a.month)} · ${U.quality(activePlot,a).label}`);text('comp-label-after',`${U.monthLabel(b.month)} · ${U.quality(activePlot,b).label}`);
+    const show=el('comp-boundary-toggle')?.checked!==false;compareLeftBoundary=setCompareBoundary(compareLeftMap,compareLeftBoundary,activePlot,show);compareRightBoundary=setCompareBoundary(compareRightMap,compareRightBoundary,activePlot,show);
+    const bounds=L.geoJSON({type:'Feature',properties:{},geometry:activePlot.geometry}).getBounds();if(bounds.isValid()){const o={padding:[34,34],maxZoom:17,animate:false};compareLeftMap.fitBounds(bounds,o);compareRightMap.fitBounds(bounds,o);}
+    const cmp=U.compare(activePlot,a.month,b.month,mode==='fcd');
+    text('comp-in-stat-text',cmp.delta===null?cmp.reason:`${U.methodLabel(activePlot)}: Δ ${sign(cmp.delta)} ไร่`);
+    text('comp-gain-pill',statusLabel(cmp.status));comparePlotId=activePlot.id;
+  };
+
+  toggleCompareBoundary=function unifiedCompareBoundary(show){
+    if(compareLeftBoundary){if(show&&!compareLeftMap.hasLayer(compareLeftBoundary))compareLeftBoundary.addTo(compareLeftMap);if(!show&&compareLeftMap.hasLayer(compareLeftBoundary))compareLeftMap.removeLayer(compareLeftBoundary);}
+    if(compareRightBoundary){if(show&&!compareRightMap.hasLayer(compareRightBoundary))compareRightBoundary.addTo(compareRightMap);if(!show&&compareRightMap.hasLayer(compareRightBoundary))compareRightMap.removeLayer(compareRightBoundary);}
+  };
+
+  initLeafletThailandMap=function unifiedGis(){
+    leafletMap=L.map('thailand-map').setView([10.5,100.5],6);L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19,attribution:'Tiles &copy; Esri'}).addTo(leafletMap);
+    thailandGeojsonLayer=L.geoJSON({type:'FeatureCollection',features:allPlotsData.map(p=>({type:'Feature',properties:{id:p.id,code:p.code,province:p.province,area_rai:p.area_rai},geometry:p.geometry}))},{
+      style:{color:'#10b981',weight:2,fillOpacity:.04},
+      onEachFeature:(f,l)=>{l.bindTooltip(`${escapeHtml(f.properties.code)} · ${escapeHtml(f.properties.province||'ไม่ระบุ')}`);l.on('click',()=>{selectPlot(f.properties.id);switchWorkspaceTab('detail');});}
+    }).addTo(leafletMap);refreshMapStyles();resetMapZoom();
+  };
+  resetMapZoom=function unifiedReset(){const b=thailandGeojsonLayer?.getBounds();if(b?.isValid())leafletMap.fitBounds(b,{padding:[20,20]});};
+
+  window.refreshMapStyles=function(){
+    thailandGeojsonLayer?.eachLayer(l=>{
+      const p=allPlotsData.find(x=>x.id===l.feature.properties.id);if(!p)return;
+      const r=U.compare(p,pair.before,pair.after),color={REVIEW:'#fbbf24',NO_DECREASE:'#38bdf8',INSUFFICIENT:'#94a3b8',NOT_COMPARABLE:'#a78bfa',ATMOSPHERE_REVIEW:'#f97316',TIDE_WATER_REVIEW:'#22d3ee',VISUAL_REVIEW:'#e879f9'}[r.status]||'#64748b';
+      l.setStyle({color,fillColor:color,weight:(activePlot?.registryId??activePlot?.id)===p.id?5:2,fillOpacity:.10,dashArray:r.delta===null?'5 5':null});
+    });
+    const h=document.querySelector('.map-hint');if(h)h.textContent=`${U.monthLabel(pair.before)} → ${U.monthLabel(pair.after)} · สีคือสถานะ screening/QA ไม่ใช่การยืนยันความเสียหาย`;
+  };
+
+  initTable=function unifiedTable(plots){
+    const th=el('plots-data-table').querySelector('thead');th.innerHTML='<tr><th>รหัสแปลง</th><th>จังหวัด</th><th>พื้นที่</th><th>วิธี</th><th>ค่าก่อน → หลัง</th><th>Δ (ไร่)</th><th>QA</th><th>สถานะ</th><th></th></tr>';
+    text('table-count-label',`แสดง ${plots.length} แปลง · ${U.monthLabel(pair.before)} → ${U.monthLabel(pair.after)}`);
+    const body=el('table-body');body.innerHTML='';
+    for(const p of plots){const r=U.compare(p,pair.before,pair.after),a=U.observation(p,pair.before),b=U.observation(p,pair.after),ga=U.green(p,a),gb=U.green(p,b),tr=document.createElement('tr');
+      tr.innerHTML=`<td><strong>${escapeHtml(p.code)}</strong></td><td>${escapeHtml(p.province||'ไม่ระบุ')}</td><td>${fmt(p.area_rai)} ไร่</td><td>${escapeHtml(U.methodLabel(p))}</td><td>${ga===null?'—':fmt(ga)} → ${gb===null?'—':fmt(gb)}</td><td>${sign(r.delta)}</td><td>${escapeHtml(r.qa.label)} → ${escapeHtml(r.qb.label)}</td><td>${escapeHtml(statusLabel(r.status))}</td><td><button type="button">ดูแปลง</button></td>`;
+      tr.querySelector('button').onclick=()=>{selectPlot(p.id);switchWorkspaceTab('detail');};body.append(tr);}
+  };
+
+  exportPlotsCSV=function unifiedCsv(){
+    const rows=visiblePlots.length?visiblePlots:allPlotsData;
+    const head=['รหัสแปลง','จังหวัด','พื้นที่ทะเบียน (ไร่)','ช่วงก่อน','ช่วงหลัง','วิธี','QA ก่อน','QA หลัง','ค่าพื้นที่กลุ่มพืชก่อน (ไร่)','ค่าพื้นที่กลุ่มพืชหลัง (ไร่)','Δ (ไร่)','NDVI ก่อน','NDVI หลัง','สถานะ','เหตุผล'];
+    const data=rows.map(p=>{const r=U.compare(p,pair.before,pair.after),a=U.observation(p,pair.before),b=U.observation(p,pair.after);return [p.code,p.province,p.area_rai,U.monthLabel(pair.before),U.monthLabel(pair.after),U.methodLabel(p),r.qa.label,r.qb.label,U.green(p,a),U.green(p,b),r.delta,U.ndvi(p,a),U.ndvi(p,b),statusLabel(r.status),r.reason];});
+    const csv='\uFEFF'+[head,...data].map(row=>row.map(U.csvCell).join(',')).join('\r\n'),url=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'})),a=document.createElement('a');
+    a.href=url;a.download=`mangrove_210_${pair.before}_to_${pair.after}.csv`;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);
+  };
+
+  const oldFilter=filterPlots;
+  filterPlots=function unifiedFilter(province,query){
+    let f=allPlotsData;if(province!=='ALL')f=f.filter(p=>p.province===province);if(query)f=f.filter(p=>[p.code,p.fullName,p.province,p.registryCode].join(' ').toLowerCase().includes(query));
+    renderSidebarList(f);visiblePlots=f;initTable(f);
+  };
+
+  window.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{const allBtn=el('wtab-allplots');if(allBtn)allBtn.remove();const allPanel=el('panel-allplots');if(allPanel)allPanel.remove();},0);});
 })();
