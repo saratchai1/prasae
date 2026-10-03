@@ -1,0 +1,23 @@
+name: Build conservative all-plot visual QA
+on:
+  push:
+    branches: [fix/all-plots-qa-viewer-20261003]
+    paths:
+      - tests/build_all_plots_visual_qa.py
+      - .github/workflows/build-all-plots-visual-qa.yml
+permissions: {contents: read}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install Pillow==11.3.0 numpy==2.2.6
+      - run: python tests/build_all_plots_visual_qa.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: all-plots-visual-qa
+          path: audit-artifacts/all_plots_visual_qa.json
+          retention-days: 7
