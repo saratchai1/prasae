@@ -626,67 +626,54 @@
       "month": "2026-03",
       "year": 2026,
       "month_num": 3,
-      "status": "insufficient_clear_pixels",
+      "status": "observed_monthly_composite",
       "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
       "proxy_version": "v4_site_calibrated_green_cover",
-      "scenes_used": 4,
-      "scene_ids": [
-        "S2B_MSIL2A_20260316T033529_R061_T47NMJ_20260316T072001",
-        "S2A_MSIL2A_20260313T034201_R061_T47NMJ_20260313T083010",
-        "S2B_MSIL2A_20260326T033529_R061_T47NMJ_20260326T072041",
-        "S2C_MSIL2A_20260321T033541_R061_T47NMJ_20260321T090910"
-      ],
-      "scene_metadata": [
-        {
-          "id": "S2B_MSIL2A_20260316T033529_R061_T47NMJ_20260316T072001",
-          "datetime": "2026-03-16T03:35:29.024000+00:00",
-          "catalog_cloud_cover_pct": 4.675947,
-          "clear_inside_pct": 4.07,
-          "processing_baseline": "05.12"
-        },
-        {
-          "id": "S2A_MSIL2A_20260313T034201_R061_T47NMJ_20260313T083010",
-          "datetime": "2026-03-13T03:42:01.027000+00:00",
-          "catalog_cloud_cover_pct": 5.423556,
-          "clear_inside_pct": 4.07,
-          "processing_baseline": "05.12"
-        },
-        {
-          "id": "S2B_MSIL2A_20260326T033529_R061_T47NMJ_20260326T072041",
-          "datetime": "2026-03-26T03:35:29.024000+00:00",
-          "catalog_cloud_cover_pct": 7.504265,
-          "clear_inside_pct": 4.07,
-          "processing_baseline": "05.12"
-        },
-        {
-          "id": "S2C_MSIL2A_20260321T033541_R061_T47NMJ_20260321T090910",
-          "datetime": "2026-03-21T03:35:41.025000+00:00",
-          "catalog_cloud_cover_pct": 9.534007,
-          "clear_inside_pct": 4.07,
-          "processing_baseline": "05.12"
-        }
-      ],
-      "clear_pixel_pct": 4.07,
-      "mean_ndvi_inside": null,
-      "median_ndvi_inside": null,
-      "ndvi_p10_inside": null,
-      "ndvi_p90_inside": null,
-      "canopy_ndvi_median": null,
-      "ndre_median": null,
-      "evi_median": null,
-      "mfi_median": null,
-      "mfi_positive_pct": null,
-      "mndwi_median": null,
-      "vegetation_coverage_proxy_pct": null,
-      "open_water_pct": null,
-      "open_nonvegetated_pct": null,
-      "proxy_area_rai": null,
-      "open_water_area_rai": null,
       "green_proxy_threshold": 0.25,
       "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
       "green_proxy_calibration_source": "portfolio conservative default",
-      "submerged_mangrove_signal_pct": null,
-      "mfi_only_signal_pct": null
+      "scenes_used": 2,
+      "scene_ids": [
+        "S2B_MSIL2A_20260316T033529_N0512_R061_T47NMJ_20260316T072001",
+        "S2B_MSIL2A_20260326T033529_R061_T47NNJ_20260326T072041"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20260316T033529_N0512_R061_T47NMJ_20260316T072001",
+          "datetime": "2026-03-16T03:35:29+00:00",
+          "catalog_cloud_cover_pct": null,
+          "clear_inside_pct": 4.07,
+          "processing_baseline": "0512",
+          "ingest_source": "user Drive Sentinel-2 L2A TIFF"
+        },
+        {
+          "id": "S2B_MSIL2A_20260326T033529_R061_T47NNJ_20260326T072041",
+          "datetime": "2026-03-26T03:35:29+00:00",
+          "catalog_cloud_cover_pct": null,
+          "clear_inside_pct": 100.0,
+          "processing_baseline": null,
+          "ingest_source": "user Drive Sentinel-2 L2A TIFF"
+        }
+      ],
+      "clear_pixel_pct": 100.0,
+      "mean_ndvi_inside": 0.5239,
+      "median_ndvi_inside": 0.5421,
+      "ndvi_p10_inside": 0.4576,
+      "ndvi_p90_inside": 0.562,
+      "canopy_ndvi_median": 0.5422,
+      "ndre_median": 0.4139,
+      "evi_median": 0.5882,
+      "mfi_median": 0.20946,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 0.2,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.1581,
+      "vegetation_coverage_proxy_pct": 99.8,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 0.2,
+      "proxy_area_rai": 410.69,
+      "open_water_area_rai": 0.0,
+      "ingest_provenance": "user Drive source TIFF; exact month; registry scope"
     },
     {
       "month": "2026-08",
@@ -750,5 +737,12 @@
   "proxy_version": "v4_site_calibrated_green_cover",
   "green_proxy_threshold": 0.25,
   "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
-  "green_proxy_calibration_source": "portfolio conservative default"
+  "green_proxy_calibration_source": "portfolio conservative default",
+  "ingest_notes": [
+    {
+      "month": "2026-03",
+      "source": "user Drive Sentinel-2 L2A TIFF",
+      "rule": "missing registry observation only; exact month; no substitution"
+    }
+  ]
 }
