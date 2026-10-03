@@ -12,6 +12,7 @@ catalog=json.loads((R/'data/pdd22/plots_catalog.json').read_text(encoding='utf-8
 manifest=json.loads((R/'data/pdd22_satellite/manifest.json').read_text(encoding='utf-8'))
 rows=list(csv.DictReader((R/'data/pdd22_satellite/coverage_report.csv').open(encoding='utf-8-sig')))
 fcd=json.loads((R/'data/pdd22_v3/plots_result.json').read_text(encoding='utf-8'))
+calibration=json.loads((R/'data/pdd22_v3/calibration.json').read_text(encoding='utf-8'))
 assert len(catalog)==22 and len(manifest['plots'])==22 and len(rows)==264 and len(fcd)==22
 cat={p['code']:p for p in catalog};man={p['plot_code']:p for p in manifest['plots']};fcdm={p['code']:p for p in fcd}
 errors=[];image_checks=0;fcd_checks=0
@@ -53,8 +54,18 @@ for code,p in cat.items():
       alpha=a[...,3]>0
       if np.any(alpha & ~inside):errors.append([code,mo,'fcd_alpha_outside',int((alpha&~inside).sum())])
       if not np.array_equal(alpha,inside):errors.append([code,mo,'fcd_inside_coverage_diff',int(np.count_nonzero(alpha^inside))])
-    vals=[float(o.get(k,0) or 0) for k in ['green_rai','yellow_rai','red_rai','water_rai','unknown_rai']]
-    if abs(sum(vals)-float(p['area_rai']))>0.08:errors.append([code,mo,'fcd_area_sum',sum(vals),p['area_rai'],vals])
+    observed_vals=[float(o.get(k,0) or 0) for k in ['green_observed_rai','yellow_observed_rai','red_observed_rai','water_observed_rai','unknown_observed_rai']]
+    if abs(sum(observed_vals)-float(p['area_rai']))>0.10:
+      errors.append([code,mo,'fcd_observed_area_sum',sum(observed_vals),p['area_rai'],observed_vals])
+    eq=[o.get('green_rai'),o.get('yellow_rai'),o.get('red_rai')]
+    if o.get('qa')=='GOOD':
+      if any(v is None for v in eq):errors.append([code,mo,'good_missing_equivalent_area',eq])
+      else:
+        target=float(p['area_rai'])*float(calibration['province_anchors'][p['province']]['class_frac'])
+        if abs(sum(float(v) for v in eq)-target)>0.10:
+          errors.append([code,mo,'equivalent_area_vs_frozen_anchor',sum(float(v) for v in eq),target,eq])
+    elif any(v is not None for v in eq):
+      errors.append([code,mo,'non_good_has_equivalent_area',eq])
 
 # Static compare contract: both sides must use the same georeferenced bounds.
 src=(R/'pdd22-compare-swipe.js').read_text(encoding='utf-8')
