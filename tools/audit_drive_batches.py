@@ -102,3 +102,12 @@ for x in summary:
 md += ["","## Bands","",json.dumps(dict(by_band),ensure_ascii=False),"","## Months","",json.dumps(dict(sorted(by_month.items())),ensure_ascii=False)]
 (OUT/"drive_batch_inventory.md").write_text("\n".join(md),encoding="utf-8")
 print(json.dumps({k:report[k] for k in ["zip_count","total_files","resolved_plot_month_band_paths","unresolved_paths","unique_business_codes","unique_plot_ids","unique_scene_ids","bands","months"]},ensure_ascii=False,indent=2))
+print("\n=== ZIP STRUCTURE SAMPLES ===")
+for x in summary:
+    print("\n##", x["zip"], x.get("top_level"), x.get("extensions"))
+    for e in [r for r in entries if r["zip"]==x["zip"]][:120]:
+        print(e["path"])
+print("\n=== MANIFEST / METADATA CANDIDATES ===")
+for m in manifest_candidates[:80]:
+    print("\n---",m["zip"],m["path"],m.get("bytes"))
+    print(m.get("preview") or m.get("error") or "")
