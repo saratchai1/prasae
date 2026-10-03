@@ -1,7 +1,7 @@
 name: Unified catalog mapping audit
 on:
   push:
-    branches: [feat/unified-210-workspace-20261003]
+    branches: [gh-pages]
     paths: [tests/audit_unified_catalog.py, .github/workflows/unified-catalog-audit.yml]
 permissions: {contents: read}
 jobs:

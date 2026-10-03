@@ -1,7 +1,7 @@
 name: Drive satellite batch inventory
 on:
   push:
-    branches: [feat/unified-210-workspace-20261003]
+    branches: [gh-pages]
     paths:
       - tools/audit_drive_batches.py
       - .github/workflows/drive-satellite-batch-inventory.yml

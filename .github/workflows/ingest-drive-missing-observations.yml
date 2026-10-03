@@ -1,7 +1,7 @@
 name: Ingest missing Drive observations
 on:
   push:
-    branches: [feat/unified-210-workspace-20261003]
+    branches: [gh-pages]
     paths:
       - tools/ingest_drive_missing_observations.py
       - .github/workflows/ingest-drive-missing-observations.yml
@@ -44,7 +44,7 @@ jobs:
             echo "No data changes"
           else
             git commit -m "data: ingest exact-month Drive observations into missing registry slots"
-            git push origin HEAD:feat/unified-210-workspace-20261003
+            git push origin HEAD:gh-pages
           fi
       - uses: actions/upload-artifact@v4
         with:
