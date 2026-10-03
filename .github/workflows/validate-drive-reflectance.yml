@@ -1,7 +1,7 @@
 name: Validate Drive reflectance encoding
 on:
   push:
-    branches: [feat/unified-210-workspace-20261003]
+    branches: [gh-pages]
     paths:
       - tools/validate_drive_reflectance.py
       - .github/workflows/validate-drive-reflectance.yml
