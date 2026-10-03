@@ -1,6 +1,19 @@
 (()=>{'use strict';const C=AllPlotsCore,DATA_VERSION='20260817-2309',state={plots:[],filtered:[],pair:{before:'',after:''},selectedId:null,layer:'rgb',loaded:false};
 const el=id=>document.getElementById(id),esc=v=>String(v??'').replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#039;'),fmt=v=>C.number(v)===null?'—':Number(v).toLocaleString('th-TH',{maximumFractionDigits:2}),signed=v=>C.number(v)===null?'—':`${Number(v)>0?'+':''}${fmt(v)}`,safe=v=>String(v||'').replace(/[\\/:*?"<>|]/g,'-').replace(/\s+/g,'_'),abs=p=>{if(!p)return'';try{return new URL(`${p}?v=${DATA_VERSION}`,document.baseURI).href}catch{return p}};
-function normalize(catalog,verified){const m=new Map(verified.map(p=>[Number(p.id),p]));return catalog.map(c=>{const v=m.get(Number(c.id))||{},bm=new Map((v.timeseries||[]).map(o=>[o.month,o]));return{...c,...v,id:Number(c.id),name:c.name||v.name||c.code,timeseries:C.MONTHS.map(month=>({month,year:Number(month.slice(0,4)),month_num:Number(month.slice(5)),...(bm.get(month)||{status:'no_data',clear_pixel_pct:0}}))}})}
+function normalize(catalog,verified){
+  const m=new Map(verified.map(p=>[Number(p.id),p]));
+  return catalog.map(c=>{
+    const v=m.get(Number(c.id))||{};
+    const bm=new Map((v.timeseries||[]).map(o=>[o.month,o]));
+    return {
+      ...c,...v,id:Number(c.id),name:c.name||v.name||c.code,
+      timeseries:C.MONTHS.map(month=>({
+        month,year:Number(month.slice(0,4)),month_num:Number(month.slice(5)),
+        ...(bm.get(month)||{status:'no_data',clear_pixel_pct:0})
+      }))
+    };
+  });
+}
 function inject(){if(el('wtab-allplots'))return;const tabs=document.querySelector('.workspace-tabs'),detail=el('panel-detail');if(!tabs||!detail)return;const b=document.createElement('button');b.type='button';b.className='w-tab-btn';b.id='wtab-allplots';b.textContent='แปลงทั่วไป · กำลังโหลด';b.onclick=()=>switchWorkspaceTab('allplots');tabs.prepend(b);
 const p=document.createElement('section');p.className='tab-content-panel';p.id='panel-allplots';p.innerHTML=`<div class="allplots-heading"><div><p class="allplots-eyebrow">VERIFIED 12-DATE · GENERAL PLOTS</p><h2>แปลงทั่วไปนอกชุด PDD22</h2><p>ใช้ Green Cover Proxy / NDVI จาก pipeline verified 12-date เดิม ไม่ใช่ FCD V3 ของ PDD22 และไม่สร้างข้อมูลแทนช่วงที่ไม่มีภาพ</p></div><div class="allplots-actions"><button type="button" id="allplots-export">ส่งออก CSV ภาษาไทย</button><small id="allplots-export-note">กำลังโหลดข้อมูล</small></div></div>
 <div class="allplots-filters"><label>จังหวัด<select id="allplots-province"><option value="ALL">ทุกจังหวัด</option></select></label><label>ค้นหา<input id="allplots-search" type="search" placeholder="รหัสแปลง / ชื่อ / จังหวัด"></label><label>ช่วงก่อน<select id="allplots-before"></select></label><label>ช่วงหลัง<select id="allplots-after"></select></label><label>สถานะ<select id="allplots-status"><option value="ALL">ทั้งหมด</option><option value="REVIEW">ควรตรวจการเปลี่ยนแปลง</option><option value="INSUFFICIENT">ข้อมูลไม่พอ</option><option value="NOT_COMPARABLE">ยังเปรียบเทียบไม่ได้</option><option value="NO_DECREASE">ไม่พบการลดลงในคู่นี้</option></select></label></div>
