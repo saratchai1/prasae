@@ -54,7 +54,7 @@ for pid,p in list(byid.items()):
  for o in meta.get('dates',[]):
   mo=o.get('month');target=o.get('mean_ndvi_inside')
   if target is None:continue
-  selected=o.get('selected_scene_ids') or []
+  selected=o.get('scene_ids') or []
   available=[s for s in selected if all((pid,mo,s,b) in members for b in ['B04','B08','SCL'])]
   if not available:continue
   stacks0=[];stacks1=[];masks=[];transform=None
