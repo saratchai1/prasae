@@ -51,9 +51,8 @@ def dilate(mask):
 rows=[]
 for pid,p in list(byid.items()):
  meta=json.loads((R/'data/plots'/str(pid)/'metadata.json').read_text(encoding='utf-8'))
- for o in meta.get('observations',[]):
-  mo=o.get('month');target=o.get('stats',{}).get('mean_ndvi') if isinstance(o.get('stats'),dict) else o.get('mean_ndvi_inside')
-  if target is None:target=o.get('mean_ndvi_inside')
+ for o in meta.get('dates',[]):
+  mo=o.get('month');target=o.get('mean_ndvi_inside')
   if target is None:continue
   selected=o.get('selected_scene_ids') or []
   available=[s for s in selected if all((pid,mo,s,b) in members for b in ['B04','B08','SCL'])]
