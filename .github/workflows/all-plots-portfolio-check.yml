@@ -17,6 +17,13 @@ on:
       - tests/unified-workspace-browser.py
       - tests/all-plots-source-audit.py
       - .github/workflows/all-plots-portfolio-check.yml
+      - .github/workflows/drive-satellite-batch-inventory.yml
+      - .github/workflows/drive-source-tif-qa.yml
+      - .github/workflows/ingest-drive-missing-observations.yml
+      - .github/workflows/reconcile-drive-scenes.yml
+      - .github/workflows/unified-catalog-audit.yml
+      - .github/workflows/unified-workspace-check.yml
+      - .github/workflows/validate-drive-reflectance.yml
 permissions: {contents: read}
 jobs:
   verify:
