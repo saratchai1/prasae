@@ -1,0 +1,16 @@
+name: PDD22 spatial and scale audit
+on:
+  push:
+    branches: [audit/pdd22-spatial-analysis-20261003]
+    paths: [tests/audit_pdd22_spatial.py, .github/workflows/audit-pdd22-spatial.yml]
+permissions: {contents: read}
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install Pillow==11.3.0 numpy==2.2.6 shapely==2.1.1 rasterio==1.4.3
+      - run: python tests/audit_pdd22_spatial.py
