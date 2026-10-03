@@ -1,0 +1,53 @@
+name: Ingest missing Drive observations
+on:
+  push:
+    branches: [feat/unified-210-workspace-20261003]
+    paths:
+      - tools/ingest_drive_missing_observations.py
+      - .github/workflows/ingest-drive-missing-observations.yml
+  workflow_dispatch:
+permissions: {contents: write}
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Download current Drive batches
+        run: |
+          python -m pip install --quiet gdown==5.2.0
+          mkdir -p incoming
+          python - <<'PY'
+          import gdown
+          out=gdown.download_folder(url="https://drive.google.com/drive/folders/1mC8mnCCXW2-WsyJYOLZNc-HIwoKrNxYn",output="incoming",quiet=False,remaining_ok=True)
+          print("downloaded",len(out or []),"files")
+          PY
+      - name: Process genuinely missing registry observations
+        run: |
+          python -m pip install --quiet numpy==2.2.6 Pillow==11.3.0 rasterio==1.4.3 shapely==2.1.1 pyproj==3.7.2 pystac-client==0.9.0 planetary-computer==1.0.0
+          python tools/ingest_drive_missing_observations.py
+      - name: Regenerate conservative visual QA
+        run: |
+          python tests/build_all_plots_visual_qa.py
+          cp audit-artifacts/all_plots_visual_qa.json data/all_plots_visual_qa.json
+      - name: Verify source integrity
+        run: |
+          python tests/all-plots-source-audit.py
+      - name: Commit accepted observations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/timeseries_verified_12.json data/all_plots_visual_qa.json data/plots
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "data: ingest exact-month Drive observations into missing registry slots"
+            git push origin HEAD:feat/unified-210-workspace-20261003
+          fi
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drive-missing-observation-ingest
+          path: audit-artifacts/
+          retention-days: 14
