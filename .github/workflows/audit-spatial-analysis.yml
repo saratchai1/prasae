@@ -1,0 +1,18 @@
+name: Spatial and analysis audit
+on:
+  push:
+    branches: [audit/all-plots-spatial-analysis-20261003]
+    paths: [tests/audit_spatial_analysis.py, .github/workflows/audit-spatial-analysis.yml]
+permissions: {contents: read}
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Install audit dependencies
+        run: pip install Pillow==11.3.0 numpy==2.2.6 shapely==2.1.1 rasterio==1.4.3
+      - name: Audit geometry, raster placement, alpha masks and metrics
+        run: python tests/audit_spatial_analysis.py
