@@ -44,7 +44,7 @@ for (pid,mo),scenes in sorted(archive.items()):
  complete={s for s,bs in scenes.items() if bands<=bs}
  meta=json.loads((R/'data/plots'/str(pid)/'metadata.json').read_text(encoding='utf-8'))
  o=next((x for x in meta.get('observations',[]) if x.get('month')==mo),{})
- selected=set(o.get('selected_scene_ids') or [])
+ selected=set(o.get('scene_ids') or [])
  usable=o.get('status') in {'observed_single_scene','observed_monthly_composite'} and float(o.get('clear_pixel_pct') or 0)>=5
  exact=bool(selected) and selected<=complete
  overlap=selected & complete
