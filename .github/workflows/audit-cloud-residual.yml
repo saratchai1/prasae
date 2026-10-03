@@ -1,0 +1,16 @@
+name: Cloud residual audit
+on:
+  push:
+    branches: [audit/cloud-residual-20261003]
+    paths: [tests/audit_cloud_residual.py, .github/workflows/audit-cloud-residual.yml]
+permissions: {contents: read}
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - run: pip install Pillow==11.3.0 numpy==2.2.6
+      - run: python tests/audit_cloud_residual.py
