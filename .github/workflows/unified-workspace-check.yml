@@ -1,0 +1,35 @@
+name: Unified 210 workspace check
+on:
+  push:
+    branches: [feat/unified-210-workspace-20261003]
+    paths:
+      - unified-data.js
+      - unified-workspace.js
+      - unified-workspace.css
+      - index.html
+      - pdd22-spectral-studio.js
+      - tests/unified-workspace-browser.py
+      - .github/workflows/unified-workspace-check.yml
+permissions: {contents: read}
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Syntax
+        run: |
+          node --check unified-data.js
+          node --check unified-workspace.js
+          node --check pdd22-spectral-studio.js
+      - name: Chromium
+        run: |
+          python -m pip install playwright==1.55.0
+          python -m playwright install --with-deps chromium
+          python -c "from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print('CHROMIUM_PATH='+p.chromium.executable_path); p.stop()" >> "$GITHUB_ENV"
+      - name: Actual 210-plot browser verification
+        run: python tests/unified-workspace-browser.py
