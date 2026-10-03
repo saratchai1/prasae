@@ -3204,10 +3204,17 @@
       "other_good_month_water_median_pct": null
     },
     "25|2026-03": {
-      "status": "INSUFFICIENT",
-      "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "status": "CLEAR",
+      "base_qa": "GOOD",
+      "coverage_pct": 100.0,
+      "reason": "ผ่าน coverage และ secondary visual screening สำหรับการคัดกรอง",
+      "valid_pixels": 747,
+      "cloud_like_pct": 0.0,
+      "haze_like_pct": 0.0,
+      "bright_pct": 0.0,
+      "open_water_pct": 0.0,
+      "catalog_cloud_cover_max_pct": null,
+      "other_good_month_water_median_pct": null
     },
     "25|2026-08": {
       "status": "CLEAR",
@@ -15047,7 +15054,7 @@
     "115|2026-08": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
+      "coverage_pct": 62.5,
       "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
     },
     "116|2023-09": {
@@ -17115,10 +17122,17 @@
       "other_good_month_water_median_pct": null
     },
     "131|2026-03": {
-      "status": "INSUFFICIENT",
-      "base_qa": "INSUFFICIENT",
-      "coverage_pct": 4.07,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "status": "CLEAR",
+      "base_qa": "GOOD",
+      "coverage_pct": 100.0,
+      "reason": "ผ่าน coverage และ secondary visual screening สำหรับการคัดกรอง",
+      "valid_pixels": 3296,
+      "cloud_like_pct": 0.0,
+      "haze_like_pct": 0.0,
+      "bright_pct": 0.061,
+      "open_water_pct": 0.0,
+      "catalog_cloud_cover_max_pct": null,
+      "other_good_month_water_median_pct": null
     },
     "131|2026-08": {
       "status": "CLEAR",
@@ -17251,7 +17265,7 @@
     "132|2026-08": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
+      "coverage_pct": 19.27,
       "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
     },
     "133|2023-09": {
@@ -20300,7 +20314,7 @@
     "155|2026-08": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
+      "coverage_pct": 15.64,
       "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
     },
     "156|2023-09": {
@@ -20435,7 +20449,7 @@
     "156|2026-08": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
+      "coverage_pct": 18.61,
       "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
     },
     "157|2023-09": {
@@ -27773,8 +27787,8 @@
   },
   "summary": {
     "ATMOSPHERE_REVIEW": 29,
-    "CLEAR": 1757,
-    "INSUFFICIENT": 714,
+    "CLEAR": 1759,
+    "INSUFFICIENT": 712,
     "TIDE_WATER_REVIEW": 4,
     "VISUAL_REVIEW": 16
   }

@@ -1,0 +1,35 @@
+name: Reconcile Drive scenes with verified observations
+on:
+  push:
+    branches: [feat/unified-210-workspace-20261003]
+    paths:
+      - tools/reconcile_drive_scenes.py
+      - .github/workflows/reconcile-drive-scenes.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  reconcile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: {python-version: '3.12'}
+      - name: Download current Drive folder
+        run: |
+          python -m pip install --quiet gdown==5.2.0
+          mkdir -p incoming
+          python - <<'PY'
+          import gdown
+          print(gdown.download_folder(url="https://drive.google.com/drive/folders/1mC8mnCCXW2-WsyJYOLZNc-HIwoKrNxYn",output="incoming",quiet=False,remaining_ok=True))
+          PY
+      - name: Reconcile scenes
+        run: |
+          python -m pip install --quiet rasterio==1.4.3 shapely==2.1.1
+          python tools/reconcile_drive_scenes.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drive-scene-reconcile
+          path: audit-artifacts/drive_scene_reconcile.json
+          retention-days: 14

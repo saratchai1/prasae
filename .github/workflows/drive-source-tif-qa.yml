@@ -1,0 +1,37 @@
+name: Drive source TIFF QA
+on:
+  push:
+    branches: [feat/unified-210-workspace-20261003]
+    paths:
+      - tools/inspect_drive_tifs.py
+      - .github/workflows/drive-source-tif-qa.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download current Drive folder
+        run: |
+          python -m pip install --quiet gdown==5.2.0
+          mkdir -p incoming
+          python - <<'PY'
+          import gdown
+          out=gdown.download_folder(url="https://drive.google.com/drive/folders/1mC8mnCCXW2-WsyJYOLZNc-HIwoKrNxYn",output="incoming",quiet=False,remaining_ok=True)
+          print("downloaded",len(out or []),"items")
+          PY
+      - name: Inspect scientific TIFFs
+        run: |
+          python -m pip install --quiet rasterio==1.4.3 shapely==2.1.1 numpy==2.2.6
+          python tools/inspect_drive_tifs.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drive-source-tif-qa
+          path: audit-artifacts/drive_tif_qa.json
+          retention-days: 14
