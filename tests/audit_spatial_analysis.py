@@ -63,7 +63,11 @@ for p in catalog:
             th=n(o.get('green_proxy_threshold'))
             if th is None or abs(th-expected_threshold)>1e-9: metric_errors.append([pid,month,'obs_threshold',th,expected_threshold])
             green_area=n(o.get('proxy_area_rai')); exp_area=round(float(p['area_rai'])*vals[0]/100,2) if vals[0] is not None else None
-            if green_area is None or abs(green_area-exp_area)>0.011: metric_errors.append([pid,month,'proxy_area_mismatch',green_area,exp_area])
+            # vegetation_coverage_proxy_pct is stored rounded to 0.1 percentage point,
+            # while proxy_area_rai was computed from the unrounded pixel fraction.
+            rounding_bound=float(p['area_rai'])*0.0005+0.011
+            if green_area is None or abs(green_area-exp_area)>rounding_bound:
+                metric_errors.append([pid,month,'proxy_area_beyond_rounding_bound',green_area,exp_area,rounding_bound])
             for path,kind in [(rgb,'rgb'),(ndvi,'ndvi')]:
                 if not path.is_file(): spatial_errors.append([pid,month,kind,'missing']); continue
                 with Image.open(path) as im:
