@@ -1,7 +1,7 @@
 name: Reconcile Drive scenes with verified observations
 on:
   push:
-    branches: [feat/unified-210-workspace-20261003]
+    branches: [gh-pages]
     paths:
       - tools/reconcile_drive_scenes.py
       - .github/workflows/reconcile-drive-scenes.yml
