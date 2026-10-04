@@ -297,6 +297,7 @@
       <div id="unified-compare-status" role="status" aria-live="polite"></div>
       <label class="unified-compare-range" for="compare-position">เส้นเปรียบเทียบ<input id="compare-position" type="range" min="0" max="100" step="1" value="50"></label>`;
     compareMap=L.map('unified-compare-map',{scrollWheelZoom:false,zoomAnimation:false}).setView([10,100],8);
+    L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19,attribution:'แผนที่พื้นหลัง &copy; Esri'}).addTo(compareMap);
     // Keep the existing tab resize hook attached to this single map.
     compareLeftMap=compareMap;compareRightMap=null;
     [['unifiedCompareAfter',410],['unifiedCompareBefore',420],['unifiedCompareBoundary',430]].forEach(([name,z])=>{
@@ -358,7 +359,7 @@
       }
     });
     const hint=document.querySelector('.compare-hint');
-    if(hint)hint.textContent='ลากปุ่ม ↔ หรือเลื่อนแถบเพื่อแบ่งภาพก่อนทางซ้าย / หลังทางขวา · ลากพื้นที่ภาพเพื่อเลื่อนแผนที่ · พื้นที่ว่างคือไม่มีพิกเซลภาพที่ใช้ได้';
+    if(hint)hint.textContent='ลากปุ่ม ↔ หรือเลื่อนแถบเพื่อแบ่งภาพก่อนทางซ้าย / หลังทางขวา · ลากพื้นที่ภาพเพื่อเลื่อนแผนที่ · แผนที่พื้นหลังใช้อ้างอิงตำแหน่ง';
   };
 
   updateCompareView=function unifiedCompare(){
