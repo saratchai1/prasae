@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   const U=UnifiedData, C=AllPlotsCore, P=Pdd22Observations;
-  const DATA_VERSION='20261003-unified-1';
+  const DATA_VERSION='20261004-local-ingest-1';
   let masters=[], masterById=new Map(), pair={before:'2024-03',after:'2026-03'}, visiblePlots=[];
 
   const el=id=>document.getElementById(id);

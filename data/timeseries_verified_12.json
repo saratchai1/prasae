@@ -71713,43 +71713,153 @@
         "month": "2024-06",
         "year": 2024,
         "month_num": 6,
-        "status": "insufficient_clear_pixels",
+        "status": "observed_single_scene",
         "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
         "proxy_version": "v4_site_calibrated_green_cover",
-        "scenes_used": 1,
-        "scene_ids": [
-          "S2A_MSIL2A_20240616T032521_R018_T47PRP_20240616T101339"
-        ],
-        "scene_metadata": [
-          {
-            "id": "S2A_MSIL2A_20240616T032521_R018_T47PRP_20240616T101339",
-            "datetime": "2024-06-16T03:25:21.024000+00:00",
-            "catalog_cloud_cover_pct": 60.505444,
-            "clear_inside_pct": 3.77,
-            "processing_baseline": "05.10"
-          }
-        ],
-        "clear_pixel_pct": 3.77,
-        "mean_ndvi_inside": null,
-        "median_ndvi_inside": null,
-        "ndvi_p10_inside": null,
-        "ndvi_p90_inside": null,
-        "canopy_ndvi_median": null,
-        "ndre_median": null,
-        "evi_median": null,
-        "mfi_median": null,
-        "mfi_positive_pct": null,
-        "mndwi_median": null,
-        "vegetation_coverage_proxy_pct": null,
-        "open_water_pct": null,
-        "open_nonvegetated_pct": null,
-        "proxy_area_rai": null,
-        "open_water_area_rai": null,
         "green_proxy_threshold": 0.25,
         "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
         "green_proxy_calibration_source": "portfolio conservative default",
-        "submerged_mangrove_signal_pct": null,
-        "mfi_only_signal_pct": null
+        "scenes_used": 1,
+        "scene_ids": [
+          "S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952"
+        ],
+        "scene_metadata": [
+          {
+            "id": "S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952",
+            "datetime": "2024-06-16T03:25:21+00:00",
+            "catalog_cloud_cover_pct": null,
+            "clear_inside_pct": 5.05,
+            "processing_baseline": "0510"
+          }
+        ],
+        "clear_pixel_pct": 5.05,
+        "mean_ndvi_inside": 0.0748,
+        "median_ndvi_inside": 0.0355,
+        "ndvi_p10_inside": -0.0151,
+        "ndvi_p90_inside": 0.2154,
+        "canopy_ndvi_median": 0.2682,
+        "ndre_median": 0.2202,
+        "evi_median": 0.2769,
+        "mfi_median": 0.03738,
+        "mfi_positive_pct": 96.2,
+        "mfi_only_signal_pct": 90.8,
+        "submerged_mangrove_signal_pct": 30.0,
+        "mndwi_median": -0.0208,
+        "vegetation_coverage_proxy_pct": 5.4,
+        "open_water_pct": 33.8,
+        "open_nonvegetated_pct": 60.8,
+        "proxy_area_rai": 17.26,
+        "open_water_area_rai": 108.5,
+        "ingest_provenance": "local scientific TIFF; exact month; registry scope",
+        "source_provenance": {
+          "version": "local-registry-v4-20261004",
+          "processing_version": "v4_site_calibrated_green_cover",
+          "ingested_at": "2026-10-04T03:28:15.863683+00:00",
+          "registry_plot_id": 82,
+          "registry_code": "13-VSD",
+          "exact_month": "2024-06",
+          "scope": "REGISTRY",
+          "scope_classification": "REGISTRY_CONTAINED",
+          "reflectance_formula": "DN / 10000",
+          "source_manifest_sha256": "96fcd8ca94e998607b6b727eff036b9a1b1d70a498a529df357e4eb3eb9f1439",
+          "scenes": [
+            {
+              "scene_id": "S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952",
+              "acquisition_datetime": "2024-06-16T03:25:21+00:00",
+              "source_fingerprint": "52e6d6aba72410ce95526f72c7b68ebcd1b256c2467d282d274673b90799af57",
+              "assets": {
+                "B02": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B02.tif",
+                  "original_filename": "B02.tif",
+                  "member_path": null,
+                  "sha256": "87e217b603e993dabe795a3b80372e167737588206b9361505426ca00902b71e",
+                  "filesize": 47680,
+                  "raster_signature": "79e46ca06dcd6e779fed9738d5451e294ef00969651243787c7c727d864421bb"
+                },
+                "B03": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B03.tif",
+                  "original_filename": "B03.tif",
+                  "member_path": null,
+                  "sha256": "4a607623c5fe5d36a6f680f393d75905478d975949067f1a9f9dc7cbdcff8ad1",
+                  "filesize": 49653,
+                  "raster_signature": "9490bf35d8a43764f842cdb019e33c909d245bb96ccc18fffc0986674737af4c"
+                },
+                "B04": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B04.tif",
+                  "original_filename": "B04.tif",
+                  "member_path": null,
+                  "sha256": "90026b7da3f34c8d8023cb215e71b413bc67e7959d247fac261f33a96ea0120b",
+                  "filesize": 49327,
+                  "raster_signature": "7641d8dd9a9a349102f228774a96c2a6f8e8b1fa6a9b61e1f163c1e4936d1e2c"
+                },
+                "B05": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B05.tif",
+                  "original_filename": "B05.tif",
+                  "member_path": null,
+                  "sha256": "d537511991f7e840c5ccc1241c3603b55f551975832f9b0efbefed90ec3026da",
+                  "filesize": 52092,
+                  "raster_signature": "2cf170500f0540668834712c405519241e53b0d01eeb86d19f3dff282e2a45d4"
+                },
+                "B06": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B06.tif",
+                  "original_filename": "B06.tif",
+                  "member_path": null,
+                  "sha256": "88f88374eb30547a2a655b22bcaa0f2bcf4cbb612080689d869cf9d4777841d9",
+                  "filesize": 63695,
+                  "raster_signature": "0c92571ca3bcd2f72bd861be180e66b0323c24884d408e9a949373908fa9f522"
+                },
+                "B07": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B07.tif",
+                  "original_filename": "B07.tif",
+                  "member_path": null,
+                  "sha256": "56d4cc21ae5e5683f5446c9724ec17a1b01f7eb7724e99bf9d138972cd3604cf",
+                  "filesize": 65780,
+                  "raster_signature": "71d5d0aa5579eee59b8bfdeb41a93a98045af86b89fcfff853c0ba9860e7c1bb"
+                },
+                "B08": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B08.tif",
+                  "original_filename": "B08.tif",
+                  "member_path": null,
+                  "sha256": "0df59d45f029b78c84c81198a52790bf678fc1ceab572b8be2d589e556c82b3a",
+                  "filesize": 65912,
+                  "raster_signature": "ace38b972d5b8d5f41e34ac8bf35b289c032b2033f69f78a08d7dbf59a7493a8"
+                },
+                "B11": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B11.tif",
+                  "original_filename": "B11.tif",
+                  "member_path": null,
+                  "sha256": "2d5018fca18cbf6a5d5bbd634ac099c204baf06122ace69749c24340d0e77b73",
+                  "filesize": 57058,
+                  "raster_signature": "bdd387999d030d130b9c4abaeac1119e516a9a65b8201f663b2d8b3c6a612049"
+                },
+                "B12": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B12.tif",
+                  "original_filename": "B12.tif",
+                  "member_path": null,
+                  "sha256": "4423973ce304aab553702c7a55754fa561a1b02df71b36b67643807d807addde",
+                  "filesize": 52030,
+                  "raster_signature": "3f328bdf4ac5f9ab112d54e5209f7560ae1b43dc18460d34c4c17e3e08228c40"
+                },
+                "B8A": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/B8A.tif",
+                  "original_filename": "B8A.tif",
+                  "member_path": null,
+                  "sha256": "4669c37aee4389bac9b996fd98e2439a9c18733407c43e235ba668e1ab6dd440",
+                  "filesize": 66621,
+                  "raster_signature": "4f9f70b26960d74212029e7e9242359981b2308b2444d4d1f9e76db870911103"
+                },
+                "SCL": {
+                  "source_id": "13-VSD/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/SCL.tif",
+                  "original_filename": "SCL.tif",
+                  "member_path": null,
+                  "sha256": "b95a4bb4257529171f3b154052e0ce2f12b477df89da5a66781a34d4f191d2d6",
+                  "filesize": 2698,
+                  "raster_signature": "2c6b2cbd152a385cb5c92aa7b974225db99744d59b86b2223f40836c1c436baa"
+                }
+              }
+            }
+          ]
+        }
       },
       {
         "month": "2024-09",

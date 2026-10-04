@@ -1,10 +1,5 @@
 name: Validate Drive reflectance encoding
 on:
-  push:
-    branches: [gh-pages]
-    paths:
-      - tools/validate_drive_reflectance.py
-      - .github/workflows/validate-drive-reflectance.yml
   workflow_dispatch:
 permissions: {contents: read}
 jobs:

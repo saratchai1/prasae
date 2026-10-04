@@ -1,10 +1,5 @@
 name: Drive source TIFF QA
 on:
-  push:
-    branches: [gh-pages]
-    paths:
-      - tools/inspect_drive_tifs.py
-      - .github/workflows/drive-source-tif-qa.yml
   workflow_dispatch:
 permissions:
   contents: read

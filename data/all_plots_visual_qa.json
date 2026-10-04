@@ -10390,7 +10390,7 @@
     "82|2024-06": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 3.77,
+      "coverage_pct": 5.05,
       "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
     },
     "82|2024-09": {
