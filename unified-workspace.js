@@ -238,45 +238,149 @@
     l.value=String(Math.max(0,MILESTONE_MONTHS.indexOf(pair.before)));r.value=String(Math.max(0,MILESTONE_MONTHS.indexOf(pair.after)));
   };
 
-  ensureCompareMaps=function unifiedCompareMaps(){
-    if(compareLeftMap&&compareRightMap)return;
-    const c=el('compare-container');c.innerHTML='<div class="compare-map-panel"><div id="compare-map-left" class="compare-leaflet-half"></div><div class="compare-side-label" id="comp-label-before">ก่อน</div></div><div class="compare-map-panel"><div id="compare-map-right" class="compare-leaflet-half"></div><div class="compare-side-label" id="comp-label-after">หลัง</div></div><div class="compare-center-divider"></div>';
-    compareLeftMap=L.map('compare-map-left',{attributionControl:false,scrollWheelZoom:false}).setView([10,100],8);
-    compareRightMap=L.map('compare-map-right',{scrollWheelZoom:false}).setView([10,100],8);
-    L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19}).addTo(compareLeftMap);L.tileLayer(ESRI_WORLD_IMAGERY,{maxZoom:19,attribution:'Tiles &copy; Esri'}).addTo(compareRightMap);
-  };
+  // One map keeps both dates on exactly the same geographic transform. Clip
+  // both rasters: transparent pixels on the left must not reveal the right date.
+  let compareMap=null,compareFrames=null,compareController=null,comparePercent=50,compareFramingKey=null;
 
-  function setCompareImage(map,old,spec,p){
-    if(old&&map.hasLayer(old))map.removeLayer(old);
-    if(spec.state!=='AVAILABLE'||!spec.url)return null;
-    return L.imageOverlay(`${spec.url}?v=${DATA_VERSION}`,imageBoundsForPlot(p),{opacity:.94,interactive:false}).addTo(map);
+  function setComparePosition(value){
+    comparePercent=Math.max(0,Math.min(100,Number(value)||0));
+    const divider=el('unified-compare-divider'),handle=el('unified-compare-handle'),range=el('compare-position');
+    if(divider)divider.style.left=`${comparePercent}%`;
+    if(handle)handle.setAttribute('aria-valuenow',String(Math.round(comparePercent)));
+    if(range)range.value=String(comparePercent);
+    if(!compareFrames||!compareMap)return;
+    const area=compareMap.getContainer().getBoundingClientRect(),split=area.left+area.width*comparePercent/100;
+    for(const [side,frame] of [['before',compareFrames.before],['after',compareFrames.after]]){
+      const image=frame.overlay.getElement(),rect=image.getBoundingClientRect();if(!rect.width)continue;
+      const x=Math.max(0,Math.min(100,(split-rect.left)/rect.width*100));
+      image.style.clipPath=side==='before'?`polygon(0 0, ${x}% 0, ${x}% 100%, 0 100%)`:`polygon(${x}% 0, 100% 0, 100% 100%, ${x}% 100%)`;
+      image.style.webkitClipPath=image.style.clipPath;
+    }
   }
-  function setCompareBoundary(map,old,p,show){
-    if(old&&map.hasLayer(old))map.removeLayer(old);
-    const b=L.geoJSON({type:'Feature',properties:{},geometry:p.geometry},{style:{color:'#34d399',weight:2,fillOpacity:0}});
-    if(show)b.addTo(map);return b;
+
+  function clearCompareFrames(){
+    compareFrames?.dispose();compareFrames=null;compareLeftOverlay=null;compareRightOverlay=null;
   }
+
+  function showCompareBoundary(snapshot){
+    if(compareLeftBoundary&&compareMap.hasLayer(compareLeftBoundary))compareMap.removeLayer(compareLeftBoundary);
+    compareLeftBoundary=L.geoJSON({type:'Feature',properties:{},geometry:snapshot.plot.geometry},{
+      pane:'unifiedCompareBoundary',style:{color:'#34d399',weight:2,fillOpacity:0}
+    });
+    if(el('comp-boundary-toggle')?.checked!==false)compareLeftBoundary.addTo(compareMap);
+    const key=`${snapshot.plot.registryId??snapshot.plot.id}|${snapshot.plot.scope}`;
+    if(key!==compareFramingKey){
+      const bounds=compareLeftBoundary.getBounds();
+      if(bounds.isValid())compareMap.fitBounds(bounds,{padding:[38,38],maxZoom:17,animate:false});
+      compareFramingKey=key;
+    }
+  }
+
+  function renderCompareSnapshot(snapshot,available){
+    const {plot,before,after,mode}=snapshot;
+    text('comp-label-before',`ก่อน · ${U.monthLabel(before.month)} · ${snapshot.beforeLayer} · ${U.quality(plot,before).label}`);
+    text('comp-label-after',`หลัง · ${U.monthLabel(after.month)} · ${snapshot.afterLayer} · ${U.quality(plot,after).label}`);
+    el('comp-ndvi-legend').hidden=mode!=='ndvi'&&mode!=='rgb_vs_ndvi';
+    const cmp=U.compare(plot,before.month,after.month,mode==='fcd');
+    text('comp-in-stat-text',available?(cmp.delta===null?cmp.reason:`${U.methodLabel(plot)}: Δ ${sign(cmp.delta)} ไร่`):'ไม่มีภาพที่ใช้ได้ครบทั้งสองฝั่ง');
+    text('comp-gain-pill',available?statusLabel(cmp.status):'ยังเปรียบเทียบไม่ได้');
+    comparePlotId=plot.id;
+  }
+
+  ensureCompareMaps=function unifiedCompareMaps(){
+    if(compareMap)return;
+    const stage=el('compare-container');stage.classList.add('unified-compare-stage');
+    stage.innerHTML=`<div id="unified-compare-map"></div>
+      <div class="unified-compare-label before" id="comp-label-before">ก่อน</div>
+      <div class="unified-compare-label after" id="comp-label-after">หลัง</div>
+      <div id="unified-compare-divider"><button type="button" id="unified-compare-handle" role="slider" aria-label="เลื่อนเส้นเปรียบเทียบภาพก่อนและหลัง" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" aria-orientation="horizontal">↔</button></div>
+      <div id="unified-compare-status" role="status" aria-live="polite"></div>
+      <label class="unified-compare-range" for="compare-position">เส้นเปรียบเทียบ<input id="compare-position" type="range" min="0" max="100" step="1" value="50"></label>`;
+    compareMap=L.map('unified-compare-map',{scrollWheelZoom:false,zoomAnimation:false}).setView([10,100],8);
+    // Keep the existing tab resize hook attached to this single map.
+    compareLeftMap=compareMap;compareRightMap=null;
+    [['unifiedCompareAfter',410],['unifiedCompareBefore',420],['unifiedCompareBoundary',430]].forEach(([name,z])=>{
+      compareMap.createPane(name);compareMap.getPane(name).style.zIndex=z;
+    });
+    compareMap.attributionControl.addAttribution('Sentinel-2 · ภาพตามเดือนที่เลือก');
+    compareMap.on('zoom move resize',()=>setComparePosition(comparePercent));
+    new ResizeObserver(()=>{compareMap.invalidateSize();setComparePosition(comparePercent);}).observe(stage);
+    el('compare-position').oninput=e=>setComparePosition(e.target.value);
+    const handle=el('unified-compare-handle');let dragging=false;
+    handle.onpointerdown=e=>{
+      if(e.button!==0)return;dragging=true;compareMap.dragging.disable();
+      handle.setPointerCapture(e.pointerId);e.stopPropagation();e.preventDefault();
+    };
+    handle.onpointermove=e=>{
+      if(!dragging)return;
+      const rect=compareMap.getContainer().getBoundingClientRect();setComparePosition((e.clientX-rect.left)/rect.width*100);
+      e.preventDefault();
+    };
+    const stopDrag=()=>{dragging=false;compareMap.dragging.enable();};
+    handle.onpointerup=e=>{if(handle.hasPointerCapture(e.pointerId))handle.releasePointerCapture(e.pointerId);stopDrag();};
+    handle.onpointercancel=handle.onlostpointercapture=stopDrag;
+    handle.onkeydown=e=>{
+      if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;
+      e.preventDefault();setComparePosition(e.key==='Home'?0:e.key==='End'?100:comparePercent+(e.key==='ArrowRight'?5:-5));
+    };
+    compareController=P.createFrameController({
+      async load(snapshot,current){
+        const results=await Promise.allSettled([
+          P.loadLeafletFrame(L,compareMap,{url:snapshot.beforeUrl,bounds:snapshot.bounds},current,{pane:'unifiedCompareBefore',className:'compare-before-raster'}),
+          P.loadLeafletFrame(L,compareMap,{url:snapshot.afterUrl,bounds:snapshot.bounds},current,{pane:'unifiedCompareAfter',className:'compare-after-raster'})
+        ]);
+        const failure=results.find(r=>r.status==='rejected');
+        if(failure){results.forEach(r=>{if(r.status==='fulfilled')r.value.dispose();});throw failure.reason;}
+        const before=results[0].value,after=results[1].value;
+        return {before,after,dispose(){before.dispose();after.dispose();}};
+      },
+      loading(snapshot,displayed){
+        stage.setAttribute('aria-busy','true');
+        text('unified-compare-status',`กำลังโหลด ${snapshot.plot.code} · ${U.monthLabel(snapshot.before.month)} → ${U.monthLabel(snapshot.after.month)}${displayed?' · ภาพและป้ายที่เห็นยังเป็นคู่ก่อนหน้า':''}`);
+      },
+      commit(snapshot,next){
+        stage.setAttribute('aria-busy','false');
+        if(next){
+          const old=compareFrames;compareFrames=next;
+          compareLeftOverlay=next.before.overlay;compareRightOverlay=next.after.overlay;
+          showCompareBoundary(snapshot);setComparePosition(comparePercent);
+          next.before.overlay.setOpacity(1);next.after.overlay.setOpacity(1);old?.dispose();
+        }else showCompareBoundary(snapshot);
+        renderCompareSnapshot(snapshot,!!next);
+        text('unified-compare-status',next?`${snapshot.plot.code} · ซ้าย: ก่อน ${snapshot.beforeLayer} · ขวา: หลัง ${snapshot.afterLayer}`:'ไม่มีภาพที่ใช้ได้ครบทั้งสองฝั่ง · ไม่ใช้ภาพจากเดือนอื่นแทน');
+        requestAnimationFrame(()=>{compareMap.invalidateSize();setComparePosition(comparePercent);});
+      },
+      clear:clearCompareFrames,
+      failed(snapshot){
+        stage.setAttribute('aria-busy','false');showCompareBoundary(snapshot);renderCompareSnapshot(snapshot,false);
+        text('unified-compare-status','โหลดภาพไม่สำเร็จ · ล้างภาพเก่าทั้งสองฝั่งแล้ว');
+        const retry=document.createElement('button');retry.type='button';retry.textContent='ลองใหม่';retry.onclick=()=>updateCompareView();el('unified-compare-status').append(' ',retry);
+      }
+    });
+    const hint=document.querySelector('.compare-hint');
+    if(hint)hint.textContent='ลากปุ่ม ↔ หรือเลื่อนแถบเพื่อแบ่งภาพก่อนทางซ้าย / หลังทางขวา · ลากพื้นที่ภาพเพื่อเลื่อนแผนที่ · พื้นที่ว่างคือไม่มีพิกเซลภาพที่ใช้ได้';
+  };
 
   updateCompareView=function unifiedCompare(){
     if(!activePlot)return;ensureCompareMaps();
-    const li=Math.max(0,Math.min(11,Number(el('comp-left-select').value)||0)),ri=Math.max(0,Math.min(11,Number(el('comp-right-select').value)||11));
-    const a=activePlot.timeseries[li],b=activePlot.timeseries[ri],mode=el('comp-mode-select')?.value||'rgb';
-    pair={before:a.month,after:b.month};
-    let la=mode==='ndvi'?'gee_ndvi':'gee_rgb',lb=mode==='rgb_vs_ndvi'?'gee_ndvi':mode==='ndvi'?'gee_ndvi':'gee_rgb';
-    if(mode==='fcd'){la=lb='fcd';}
-    const sa=U.asset(activePlot,a,la),sb=U.asset(activePlot,b,lb);
-    compareLeftOverlay=setCompareImage(compareLeftMap,compareLeftOverlay,sa,activePlot);compareRightOverlay=setCompareImage(compareRightMap,compareRightOverlay,sb,activePlot);
-    text('comp-label-before',`${U.monthLabel(a.month)} · ${U.quality(activePlot,a).label}`);text('comp-label-after',`${U.monthLabel(b.month)} · ${U.quality(activePlot,b).label}`);
-    const show=el('comp-boundary-toggle')?.checked!==false;compareLeftBoundary=setCompareBoundary(compareLeftMap,compareLeftBoundary,activePlot,show);compareRightBoundary=setCompareBoundary(compareRightMap,compareRightBoundary,activePlot,show);
-    const bounds=L.geoJSON({type:'Feature',properties:{},geometry:activePlot.geometry}).getBounds();if(bounds.isValid()){const o={padding:[34,34],maxZoom:17,animate:false};compareLeftMap.fitBounds(bounds,o);compareRightMap.fitBounds(bounds,o);}
-    const cmp=U.compare(activePlot,a.month,b.month,mode==='fcd');
-    text('comp-in-stat-text',cmp.delta===null?cmp.reason:`${U.methodLabel(activePlot)}: Δ ${sign(cmp.delta)} ไร่`);
-    text('comp-gain-pill',statusLabel(cmp.status));comparePlotId=activePlot.id;
+    const last=activePlot.timeseries.length-1;
+    const li=Math.max(0,Math.min(last,Number(el('comp-left-select').value)||0));
+    const ri=Math.max(0,Math.min(last,Number(el('comp-right-select').value)||0));
+    const before=activePlot.timeseries[li],after=activePlot.timeseries[ri],mode=el('comp-mode-select')?.value||'rgb';
+    pair={before:before.month,after:after.month};
+    const leftLayer=mode==='fcd'?'fcd':mode==='ndvi'?'gee_ndvi':'gee_rgb';
+    const rightLayer=mode==='rgb_vs_ndvi'?'gee_ndvi':leftLayer;
+    const a=U.asset(activePlot,before,leftLayer),b=U.asset(activePlot,after,rightLayer);
+    const available=a.state==='AVAILABLE'&&b.state==='AVAILABLE';
+    return compareController.request({plot:activePlot,before,after,mode,state:available?'AVAILABLE':'NO_DATA',url:available?'pair':null,
+      beforeLayer:leftLayer==='fcd'?'FCD':leftLayer==='gee_ndvi'?'NDVI':'RGB',afterLayer:rightLayer==='fcd'?'FCD':rightLayer==='gee_ndvi'?'NDVI':'RGB',
+      beforeUrl:a.url?`${a.url}?v=${DATA_VERSION}`:null,afterUrl:b.url?`${b.url}?v=${DATA_VERSION}`:null,bounds:imageBoundsForPlot(activePlot)});
   };
 
   toggleCompareBoundary=function unifiedCompareBoundary(show){
-    if(compareLeftBoundary){if(show&&!compareLeftMap.hasLayer(compareLeftBoundary))compareLeftBoundary.addTo(compareLeftMap);if(!show&&compareLeftMap.hasLayer(compareLeftBoundary))compareLeftMap.removeLayer(compareLeftBoundary);}
-    if(compareRightBoundary){if(show&&!compareRightMap.hasLayer(compareRightBoundary))compareRightBoundary.addTo(compareRightMap);if(!show&&compareRightMap.hasLayer(compareRightBoundary))compareRightMap.removeLayer(compareRightBoundary);}
+    if(!compareMap||!compareLeftBoundary)return;
+    if(show&&!compareMap.hasLayer(compareLeftBoundary))compareLeftBoundary.addTo(compareMap);
+    if(!show&&compareMap.hasLayer(compareLeftBoundary))compareMap.removeLayer(compareLeftBoundary);
   };
 
   initLeafletThailandMap=function unifiedGis(){

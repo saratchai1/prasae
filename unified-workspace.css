@@ -8,3 +8,18 @@
 .band-btn:disabled{opacity:.38;cursor:not-allowed}
 .plot-card-item .p-card-body span:last-child{color:#94a3b8}
 @media(max-width:700px){.unified-scope-control{width:100%;margin:0 0 .5rem}.unified-scope-control select{flex:1}}
+
+/* Before / After shares one map; each date is clipped at the movable divider. */
+#compare-container.unified-compare-stage{display:block!important;height:580px!important;min-height:420px;cursor:default!important;isolation:isolate}
+#unified-compare-map{position:absolute;inset:0;z-index:1;background:#0b1120}
+.unified-compare-label{position:absolute;top:12px;z-index:650;max-width:calc(50% - 54px);padding:.45rem .6rem;border:1px solid rgba(255,255,255,.18);border-radius:8px;background:rgba(15,23,42,.94);color:#fff;font-size:.74rem;line-height:1.5;pointer-events:none}
+.unified-compare-label.before{left:48px}.unified-compare-label.after{right:12px}
+#unified-compare-divider{position:absolute;top:0;bottom:0;left:50%;width:3px;transform:translateX(-1.5px);z-index:660;pointer-events:none;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.5)}
+#unified-compare-handle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;align-items:center;justify-content:center;width:48px;height:48px;border:2px solid #0f172a;border-radius:50%;background:#fff;color:#0f172a;font-size:1.5rem;box-shadow:0 3px 12px rgba(0,0,0,.4);pointer-events:auto;touch-action:none;cursor:ew-resize}
+#unified-compare-handle:focus-visible{outline:3px solid #38bdf8;outline-offset:3px}
+#unified-compare-status{position:absolute;bottom:66px;left:12px;right:12px;z-index:670;padding:.4rem .6rem;border-radius:8px;background:rgba(15,23,42,.93);color:#cbd5e1;font-size:.74rem;line-height:1.5;pointer-events:none}
+#unified-compare-status button{pointer-events:auto;margin-left:.4rem;border:1px solid #475569;border-radius:6px;background:#1e293b;color:#fff;padding:.3rem .6rem;cursor:pointer}
+.unified-compare-range{position:absolute;bottom:14px;left:12px;right:12px;z-index:670;display:flex;align-items:center;gap:.65rem;min-height:38px;padding:.3rem .7rem;border-radius:8px;background:rgba(15,23,42,.94);color:#fff;font-size:.75rem}
+.unified-compare-range input{flex:1;min-width:40px;cursor:ew-resize;accent-color:#34d399}
+#comp-ndvi-legend[hidden]{display:none}
+@media(max-width:700px){#compare-container.unified-compare-stage{height:480px!important}.unified-compare-label{font-size:.64rem;max-width:calc(50% - 35px);padding:.3rem .4rem}.unified-compare-label.before{left:44px}.unified-compare-label.after{right:8px}#unified-compare-status{font-size:.67rem}}
