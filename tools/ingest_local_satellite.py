@@ -506,7 +506,7 @@ def verify_source_unchanged(record):
         raise RuntimeError(f'source checksum changed: {record["source_id"]}')
 
 
-def ingest_slot(pid, month, result, stage, initial_series_bytes, initial_metadata_bytes):
+def ingest_slot(pid, month, result, stage, initial_series_bytes, initial_metadata_bytes, *, version=VERSION):
     """Fail closed on concurrent edits before copying either imagery or metadata."""
     ts_path = R / 'data/timeseries_verified_12.json'
     if ts_path.read_bytes() != initial_series_bytes:
@@ -535,7 +535,7 @@ def ingest_slot(pid, month, result, stage, initial_series_bytes, initial_metadat
     target['timeseries'][i] = result
     md['dates'][mi] = result
     md.setdefault('ingest_notes', []).append({'month': month, 'source': 'local Sentinel-2 L2A scientific TIFF',
-                                            'rule': 'missing registry observation only; exact month; no substitution', 'version': VERSION})
+                                            'rule': 'missing registry observation only; exact month; no substitution', 'version': version})
     write_json(md_path, md)
     write_json(ts_path, current)
     return ts_path.read_bytes()

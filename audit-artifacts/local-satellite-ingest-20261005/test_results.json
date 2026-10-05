@@ -1,0 +1,42 @@
+{
+  "source_audit": "PASS",
+  "registry_identities": 210,
+  "duplicate_registry_ids": 0,
+  "pdd_scope_not_extra_plots": "PASS",
+  "observed_entries": 2262,
+  "images_checked": 4524,
+  "catalog_audit": "PASS",
+  "python_ingest_safety_regressions": {
+    "result": "PASS",
+    "tests": 10
+  },
+  "python_native_radiometry_regressions": {
+    "result": "PASS",
+    "tests": 9
+  },
+  "python_sequential_manifest_regressions": {
+    "result": "PASS",
+    "tests": 27
+  },
+  "node_regressions": {
+    "result": "PASS",
+    "tests": 43
+  },
+  "javascript_syntax": "PASS",
+  "unified_browser": {
+    "result": "PASS",
+    "checks": 16,
+    "accepted_slots_tested": 33,
+    "all_new_rgb_ndvi_requests_verified": true
+  },
+  "committed_manifest_provenance": "PASS",
+  "canonical_qa_rebuild_byte_match": "PASS",
+  "idempotence": {
+    "result": "PASS",
+    "reapply_newly_accepted": 0,
+    "app_files_checked": 5001,
+    "app_files_changed": 0,
+    "observed": 2262,
+    "missing": 258
+  }
+}

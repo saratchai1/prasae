@@ -1,0 +1,9 @@
+{
+  "zip_count": 0,
+  "zip_valid": 0,
+  "zip_corrupt": 0,
+  "zip_duplicate_source": 0,
+  "total_members": 0,
+  "archives": [],
+  "note": "No ZIP found. Every prepared and held repair TIFF is decoded and hashed."
+}

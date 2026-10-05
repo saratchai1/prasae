@@ -62,19 +62,21 @@ try:
 
   # Newly ingested low-coverage observations have real imagery, while chart
   # metrics remain null until they satisfy the portfolio comparison QA gate.
-  report_path=R/'audit-artifacts/local-satellite-ingest/ingest_result.json'
-  if report_path.exists():
-   accepted=[r for r in json.loads(report_path.read_text())['records'] if r['result']=='ACCEPTED']
+  report_paths=sorted((R/'audit-artifacts').glob('local-satellite-ingest*/ingest_result.json'))
+  if report_paths:
+   accepted=[r for report_path in report_paths for r in json.loads(report_path.read_text())['records'] if r['result']=='ACCEPTED']
    for rec in accepted:
     month_index=['2023-09','2023-12','2024-03','2024-06','2024-09','2024-12','2025-03','2025-06','2025-09','2025-12','2026-03','2026-08'].index(rec['month'])
+    page.evaluate('setPlotMapLayer("esri")')
     page.evaluate('(id)=>selectPlot(id)',rec['plot_id'])
     assert page.evaluate('()=>plotNdviChart.data.labels.length')==12
-    if rec['coverage_pct']<95:
+    if rec['coverage_pct']<95 or not page.evaluate('(i)=>UnifiedData.quality(activePlot,activePlot.timeseries[i]).eligible',month_index):
      assert page.evaluate('(i)=>plotNdviChart.data.datasets[0].data[i]',month_index) is None
      assert page.evaluate('(i)=>plotNdviChart.data.datasets[1].data[i]',month_index) is None
      assert page.evaluate('()=>plotNdviChart.data.datasets[0].spanGaps') is False
     for layer,prefix in [('gee_rgb','rgb'),('gee_ndvi','ndvi')]:
      path=f"data/plots/{rec['plot_id']}/{prefix}_{rec['month']}.png"
+     page.evaluate('setPlotMapLayer("esri")')
      with page.expect_response(lambda response: path in response.url and response.status==200):
       page.evaluate('([i,layer])=>{setMonthIndex(i);setPlotMapLayer(layer)}',[month_index,layer])
      page.wait_for_function('(path)=>Array.from(document.querySelectorAll("img.sentinel-overlay")).some(im=>im.src.includes(path)&&im.complete&&im.naturalWidth>0)',arg=path)

@@ -15,7 +15,7 @@
   const currentScope=()=>activePlot?.scope||'registry';
   const secondaryLabel=q=>({
     CLEAR:'ผ่าน QA เพิ่มเติม',COVERAGE_ONLY:'QA coverage',ATMOSPHERE_REVIEW:'ตรวจเมฆ / หมอก',
-    TIDE_WATER_REVIEW:'ตรวจน้ำ / น้ำขึ้นลง',VISUAL_REVIEW:'ตรวจภาพเพิ่มเติม',INSUFFICIENT:'ข้อมูลไม่พอ'
+    TIDE_WATER_REVIEW:'ตรวจน้ำ / น้ำขึ้นลง',VISUAL_REVIEW:'ตรวจภาพเพิ่มเติม',RADIOMETRY_REVIEW:'ยังเทียบค่าข้ามชุดไม่ได้',INSUFFICIENT:'ข้อมูลไม่พอ'
   }[q]||q||'—');
   const statusLabel=s=>U.labels[s]||({
     GOOD:'ผ่าน QA',REVIEW:'ควรตรวจการเปลี่ยนแปลง',NO_DECREASE:'ไม่พบการลดลงในคู่นี้',

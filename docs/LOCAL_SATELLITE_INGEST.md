@@ -39,7 +39,7 @@ Every selected scene must be an exact acquisition month, readable, complete in B
 
 The canonical `process_verified_12_dates_v4.py` provides all metrics, grid, exact Polygon/MultiPolygon clipping with holes, SCL classes 4/5/6/7, contamination classes 1/2/3/8/9/10/11 and the existing one-pixel contamination buffer. It keeps the promoted 0.155 threshold for registry 76 and 0.25 elsewhere. No nearest-month, synthesized pixels or substituted assets are introduced.
 
-The source batch uses `reflectance = DN / 10000`, without subtracting 1000. The local reader requires DN encoding metadata and rechecks this empirically against matching committed acquisition sets, including a comparison to the alternative offset. A failed encoding or reference gate stops ingestion. The TIFFs themselves do not carry independent Sentinel product offset metadata; the report states this limit explicitly.
+The 2026-10-04 legacy source batch uses `reflectance = DN / 10000`, without subtracting 1000. Its local reader requires DN encoding metadata and rechecks this empirically against matching committed acquisition sets, including a comparison to the alternative offset. A failed encoding or reference gate stops ingestion. Those TIFFs do not carry independent Sentinel product offset metadata; the report states this limit explicitly.
 
 Scenes below 1% clear inside the plot do not contribute to composites. The canonical composite acceptance gate remains 5% valid registry pixels. **Acceptance is not portfolio comparability**: the separate existing full-plot QA gate requires at least 95% coverage plus secondary screening. A low-coverage observation may provide actual RGB/NDVI imagery while its chart/portfolio metrics remain excluded.
 
@@ -52,3 +52,21 @@ Assets are staged privately. The importer re-reads the exact slot and checks con
 The five historical Drive inventory, TIFF QA, reconciliation, radiometry and ingestion workflows are retained as **manual `workflow_dispatch` audit tools**. They do not run on normal pushes. Manual legacy ingestion has read-only repository permission and exports a binary data patch for review instead of pushing `gh-pages`. Review such a patch against the current local-ingest provenance/scope policy before integration. The scripts and their diagnostic artifacts remain available.
 
 Only application metadata/PNG assets and audit evidence are committed. `.local/`, `incoming/`, and the temporary duplicate QA output are ignored. The archived raw source is never needed by normal CI.
+
+## Native Earth Search C1 delivery, 2026-10-05
+
+`tools/ingest_antigravity_satellite.py` reads a separate local delivery with `prepared/inputs`, saved `source-items/earth-search` STAC items, `metadata/<product>/radiometry.json`, and its reviewed export script. It reuses the private prepared-source SQLite index. Actual decoded files are authoritative: the supplied download/request manifests and append-only checksum list are incomplete.
+
+```sh
+python tools/ingest_antigravity_satellite.py --source-dir /path/to/inputs-next
+python tools/ingest_antigravity_satellite.py --source-dir /path/to/inputs-next --reuse-index \
+  --apply --report-dir audit-artifacts/local-satellite-ingest-YYYYMMDD
+```
+
+This exporter writes native DN and omits zero nodata and radiometry from TIFF headers. The adapter requires the exact product, provider, band identity, dtype, independent STAC/sidecar agreement and reviewed exporter hash. It masks STAC nodata before resampling and applies **each band's** `DN * scale + offset` once. SCL remains categorical. All 1,060 spectral asset metadata records in this delivery specify scale `0.0001` and offset `-0.1`; this is an explicit new-batch rule, not a reinterpretation of legacy observations. [Earth Search documents applying nonzero offset after scale](https://github.com/Element84/earth-search#gainoffset-in-items-after-jan-25-2022); [Copernicus describes native L2A encoding](https://sentiwiki.copernicus.eu/web/s2-products).
+
+Metadata-valid native reflectance does **not** establish comparability with the legacy DN/10000 batch or its existing calibration. Newly filled full-coverage observations remain `RADIOMETRY_REVIEW` until cross-batch harmonization is verified. Their real RGB/NDVI imagery is available, while charts and portfolio deltas exclude them. New low-coverage observations remain `INSUFFICIENT`. Registry radiometry review does not propagate to an unrelated PDD analysis. No old observation, imagery, QA record or calibration is altered.
+
+QA refresh publishes only newly accepted keys. The canonical QA builder also keeps water references within the same radiometric family, so adding native observations cannot change legacy water medians. CI recomputes QA deterministically and verifies all original records and assets across sequential ingest batches. Reports from earlier ingests remain historical evidence; the latest batch alone supplies current totals.
+
+The 2026-10-05 delivery has 2,859 prepared TIFFs, 212 complete and 64 partial scenes, plus three readable repair TIFFs whose targets already have usable observations. It filled **32** missing slots across 29 plots, adding 64 images and preserving all 2,230 prior usable observations. The dataset now has **2,262 observed and 258 missing** registry slots. Ten new full-coverage slots retain radiometry review; 22 new slots remain coverage-insufficient. Detailed evidence is in `audit-artifacts/local-satellite-ingest-20261005/`.

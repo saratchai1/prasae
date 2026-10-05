@@ -4,25 +4,35 @@ on:
     branches: [gh-pages]
     paths:
       - tools/ingest_local_satellite.py
+      - tools/ingest_antigravity_satellite.py
       - process_verified_12_dates_v4.py
       - tests/local-satellite-*
+      - tests/antigravity-*
+      - tests/unified-radiometry*
       - tests/audit_unified_catalog.py
       - audit-artifacts/local-satellite-ingest/**
+      - audit-artifacts/local-satellite-ingest-*/**
       - data/timeseries_verified_12.json
       - data/all_plots_visual_qa.json
       - data/plots/**
+      - unified-data.js
       - .github/workflows/local-satellite-manifest-check.yml
   push:
     branches: [gh-pages]
     paths:
       - tools/ingest_local_satellite.py
+      - tools/ingest_antigravity_satellite.py
       - process_verified_12_dates_v4.py
       - tests/local-satellite-*
+      - tests/antigravity-*
+      - tests/unified-radiometry*
       - tests/audit_unified_catalog.py
       - audit-artifacts/local-satellite-ingest/**
+      - audit-artifacts/local-satellite-ingest-*/**
       - data/timeseries_verified_12.json
       - data/all_plots_visual_qa.json
       - data/plots/**
+      - unified-data.js
       - .github/workflows/local-satellite-manifest-check.yml
   workflow_dispatch:
 permissions: {contents: read}
@@ -34,9 +44,15 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with: {python-version: '3.12'}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
       - run: python -m pip install -r requirements-verified.txt
       - name: Local-ingest safety regression fixtures
-        run: python tests/local-satellite-ingest.test.py
+        run: |
+          python tests/local-satellite-ingest.test.py
+          python tests/antigravity-radiometry.test.py
+          python tests/local-satellite-manifest-audit.test.py
+          node --test tests/unified-radiometry.test.cjs
       - name: Committed evidence and application assets only
         run: |
           python tests/local-satellite-manifest-audit.py
