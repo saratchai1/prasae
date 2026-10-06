@@ -1,0 +1,64 @@
+{
+  "result": "PASS",
+  "manifest": {
+    "result": "PASS",
+    "registry_identities": 210,
+    "batches": 3,
+    "source_files": 38854,
+    "preserved_observations": 2229,
+    "accepted": 33,
+    "observed_after": 2262,
+    "preserved_qa_records": 2520,
+    "no_nearest_month_substitution": "PASS",
+    "no_synthetic_imagery": "PASS",
+    "registry_pdd_scope_boundary": "PASS",
+    "expected_derived_files": "PASS"
+  },
+  "source": {
+    "plots": 210,
+    "observed_entries": 2262,
+    "images_checked": 4524
+  },
+  "catalog": {
+    "registry_identities": 210,
+    "duplicate_registry_ids": 0,
+    "pdd_scope_not_extra_plots": "PASS"
+  },
+  "regressions": {
+    "ingest-regression": {
+      "result": "PASS",
+      "tests": 10
+    },
+    "radiometry-regression": {
+      "result": "PASS",
+      "tests": 9
+    },
+    "manifest-regression": {
+      "result": "PASS",
+      "tests": 27
+    }
+  },
+  "application_files_unchanged": 5001,
+  "application_files_changed": 0,
+  "source_or_test_code_edits_by_verifier": 0,
+  "node_regressions": {
+    "result": "PASS",
+    "tests": 43
+  },
+  "javascript_syntax": "PASS",
+  "unified_browser": {
+    "result": "PASS",
+    "checks": 16,
+    "accepted_slots_tested": 33,
+    "all_rgb_ndvi_requests_verified": true
+  },
+  "canonical_qa_rebuild_byte_match": "PASS",
+  "idempotence": {
+    "result": "PASS",
+    "reapply_newly_accepted": 0,
+    "app_files_checked": 5001,
+    "app_files_changed": 0,
+    "observed": 2262,
+    "missing": 258
+  }
+}

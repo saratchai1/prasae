@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "reapply_newly_accepted": 0,
+  "app_files_checked": 5001,
+  "app_files_changed": 0,
+  "observed": 2262,
+  "missing": 258
+}

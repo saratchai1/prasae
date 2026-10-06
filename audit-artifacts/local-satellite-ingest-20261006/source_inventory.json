@@ -1,0 +1,2900 @@
+{
+  "local_files_scanned": 6685,
+  "local_bytes": 505132094,
+  "scientific_tifs": 6208,
+  "zip_count": 0,
+  "zip_valid": 0,
+  "zip_corrupt": 0,
+  "zip_duplicate_source": 0,
+  "total_members": 0,
+  "archive_scientific_tifs": 0,
+  "prepared_scientific_tifs": 6207,
+  "repair_scientific_tifs": 1,
+  "held_scientific_files": [
+    {
+      "source_id": "repairs/repair_registry_75_2024-06/B11.tif",
+      "filesize": 52287,
+      "checksum": "1cabfd3b8d8c0d277d1a426a65010d6cad9efe30e18248b241916a798e4cb721",
+      "integrity_status": "VALID",
+      "action": "EXISTING_REGISTRY_OBSERVATION",
+      "plot_id": 75,
+      "month": "2024-06",
+      "band": "B11",
+      "reason": "repair target already has a usable registry observation; no replacement"
+    }
+  ],
+  "processing_version": "earth-search-c1-local-v4-20261005",
+  "source_manifest_sha256": "5c3b49a0228d6e01779d56e7e8550a450f5a8a49ac594875b2adb8199ef81d81",
+  "integrity_counts": {
+    "VALID": 6208
+  },
+  "resolved_plots": 154,
+  "unique_scientific_checksums": 6208,
+  "non_scientific_files": [
+    {
+      "source_id": "checksums.sha256",
+      "filesize": 8471127,
+      "checksum": "70cfdfe2316b8e0f86263599486334f68eb277c8f7d7093f89c99701d79c00f1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "download_manifest.json",
+      "filesize": 3136204,
+      "checksum": "8c014db2d24ecb5d9a117cd61f5a32caa7fd1978388a62c3c3ce8f2fd92e4b68",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230903T033541_N0509_R061_T47PQQ_20230903T090458/radiometry.json",
+      "filesize": 908,
+      "checksum": "d1734ea167aaa3d86b5cec59c53dc09e0f072168bd4ae17b593c4167e03d7cde",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230903T033541_N0509_R061_T47PRQ_20230903T090458/radiometry.json",
+      "filesize": 908,
+      "checksum": "b440915f17d743c0cd9cc57cfcd179611b9d1ac85d525a0b7c41496846a51019",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230906T034541_N0509_R104_T47PMM_20230906T090656/radiometry.json",
+      "filesize": 908,
+      "checksum": "c025aaefb328091fd6e5a53116b8c89e86384618a1284e9be62367e8b26e49da",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230913T033541_N0509_R061_T47NNJ_20230913T090759/radiometry.json",
+      "filesize": 908,
+      "checksum": "18b22ce3d1cf6b6d333d75aee711ffed3f789b5d8b4c1970e80e95fc6a6eca2f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230913T033541_N0509_R061_T47PMK_20230913T090759/radiometry.json",
+      "filesize": 908,
+      "checksum": "09d76085ada8cd043d8ae252af2ab685329ef715d65ba49c7e7e2821a1928c7c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230913T033541_N0509_R061_T47PQQ_20230913T090759/radiometry.json",
+      "filesize": 908,
+      "checksum": "a4ad1dba1a0320b0f228d65c4885a5c3686c147cc68ec006ef1393c05a94df05",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230920T032521_N0509_R018_T47PRP_20230920T083502/radiometry.json",
+      "filesize": 908,
+      "checksum": "923712612ec431aa9a7c90293327c1a142dff3e5d02f80cc51a72427fe7fa9a7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230923T033541_N0509_R061_T47PMK_20230923T075900/radiometry.json",
+      "filesize": 908,
+      "checksum": "6b8576b937f326735ceb5dfbb75459fcf8e59c0f007d42f31ce2dde8d510ec72",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230923T033541_N0509_R061_T47PNL_20230923T075900/radiometry.json",
+      "filesize": 908,
+      "checksum": "50c6c38ddf73313afacbc9b4c7260192ec0d9f14e4e2f776ade22a216e985088",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230923T033541_N0509_R061_T47PNN_20230923T075900/radiometry.json",
+      "filesize": 908,
+      "checksum": "8617cd75014a89c28e384445b5d0122fa80f5075d79be0998725f529a87098cf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101/radiometry.json",
+      "filesize": 908,
+      "checksum": "cacbf60304f381bcd940a97d6328781d8c4f558e5a80b91f0c02d3d108d81806",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231205T035121_N0509_R104_T47PMK_20231205T064951/radiometry.json",
+      "filesize": 908,
+      "checksum": "9cae081121f64a60a15415c705aa26a73e2febd2aa3f7c4971edfa149dc312c4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231219T033141_N0510_R018_T47NQH_20231219T064753/radiometry.json",
+      "filesize": 908,
+      "checksum": "ae61042cfbe34ff8d4b08f3921d6d71ba167bf1a1dc4fc1cb65f175f55021b06",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231222T034151_N0510_R061_T47NMJ_20231222T065853/radiometry.json",
+      "filesize": 908,
+      "checksum": "4157a3ff0f130d73aa84e14b533b9c7c8d28a9fdf2cfd63b7866021cee746acf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231222T034151_N0510_R061_T47NNH_20231222T065853/radiometry.json",
+      "filesize": 908,
+      "checksum": "f8ee51fb8e46a054bae1c9c34eb77ba769a2481fcbe6d995041bf3a6b6087a6e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231222T034151_N0510_R061_T47NNJ_20231222T065853/radiometry.json",
+      "filesize": 908,
+      "checksum": "305231c9d276b88dea802ef2c328f5af556e6848ae25e6d72c324e8990cf6d5e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853/radiometry.json",
+      "filesize": 908,
+      "checksum": "9bc3f6a93afde347ce551f8854ecfa5a1c9cc87bea7cc518a94133c305e5c387",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231222T034151_N0510_R061_T47PNM_20231222T065853/radiometry.json",
+      "filesize": 906,
+      "checksum": "4e05b1d3b08f7fb79d1ea923388884249cd2a94b444db08d6bddd01077f7d285",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20231229T033141_N0510_R018_T47NQH_20231229T064651/radiometry.json",
+      "filesize": 908,
+      "checksum": "a04941a332aa79fb0f1cb7a8ed8e46a90b0925606b952df95de0e9dd374006e7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240301T033651_N0510_R061_T47NMJ_20240301T075048/radiometry.json",
+      "filesize": 908,
+      "checksum": "a0f834c5f84fa03334269c5ccd7086fe9487aeedc57a5065fcd2179dd7d5a6f6",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240301T033651_N0510_R061_T47PPK_20240301T075048/radiometry.json",
+      "filesize": 908,
+      "checksum": "44d9b86c3ecf21ec6e8e75f4d565879dfe8bc9e5fdbeec1f54ae5adfe5cfe8b7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240301T033651_N0510_R061_T47PQQ_20240301T075048/radiometry.json",
+      "filesize": 908,
+      "checksum": "fa4556b6bdd8175b8a9a7d67645b5234b17b85b1eec94a6b0fab6568c6d39a8e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240308T032601_N0510_R018_T47PRP_20240308T074151/radiometry.json",
+      "filesize": 907,
+      "checksum": "3b96b31831ecf8e46aed7303e3162d6fd3b7f1715e53dea5bd91a0c518471dfb",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240308T032601_N0510_R018_T48PTU_20240308T074151/radiometry.json",
+      "filesize": 907,
+      "checksum": "ffad6f9dc66e09333e2ef9ba12d9ed673af9360af05871ee4d9a7c168935331e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240318T032521_N0510_R018_T47PRP_20240318T074851/radiometry.json",
+      "filesize": 908,
+      "checksum": "cca40320044373bd644c254bb8ae71ddea6ad6da9dad4179787953653891d6a2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240321T033541_N0510_R061_T47NMJ_20240321T075552/radiometry.json",
+      "filesize": 908,
+      "checksum": "5b244e85b20ffb3411aa6b6587e683f17a5d1491a91872963250f1453e124504",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240324T034531_N0510_R104_T47PMK_20240324T090053/radiometry.json",
+      "filesize": 907,
+      "checksum": "9e2dfb666499338faca736a5e9c4a916e2579c07c4e11b11541a33419195d644",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240331T033531_N0510_R061_T47PQQ_20240331T084455/radiometry.json",
+      "filesize": 908,
+      "checksum": "2752a2c9cbb76f2496d487934bf4b4878c28ee8e84e333841ed2abe86446e7c4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240331T033531_N0510_R061_T47PRQ_20240331T084455/radiometry.json",
+      "filesize": 908,
+      "checksum": "9a34a3e45d5aa7aead7ea95993a91eb760bc8b58f919340730964a9779ca35db",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T084402/radiometry.json",
+      "filesize": 908,
+      "checksum": "3a52d3f9dcb5261774756b12cfc55f2b78d18aa692f537eac51952ac026bc41e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240609T033541_N0510_R061_T47NPH_20240609T084649/radiometry.json",
+      "filesize": 908,
+      "checksum": "f4919a9135b854dd464a977470ced13a82a5b3c6f8945f697f61df41042c18b0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240612T034541_N0510_R104_T47PMK_20240612T083604/radiometry.json",
+      "filesize": 908,
+      "checksum": "a9db21d129c719f7d45dd207071a0fce28f753274af1ff758e80e8b82825a07b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952/radiometry.json",
+      "filesize": 908,
+      "checksum": "8a1c9df662a8b2077d34c49ae2d13bbc4602f05a8407601ea05ba3f5f9b6a331",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+      "filesize": 908,
+      "checksum": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240619T033541_N0510_R061_T47NNJ_20240619T082953/radiometry.json",
+      "filesize": 908,
+      "checksum": "c1a821b5da4705ed0a06968cf6e248911d8d1f029b1f702d85bd7e4732696086",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240619T033541_N0510_R061_T47NPH_20240619T081753/radiometry.json",
+      "filesize": 908,
+      "checksum": "648392461a47e69142454f05b8363edc6ecb2efd1d924bbf94d12fd5bc4d4a0a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240619T033541_N0510_R061_T47PNQ_20240619T082953/radiometry.json",
+      "filesize": 908,
+      "checksum": "e0d420e556c357d88704c8ee4b37baba02686cecb853a9cebd0b7d654f2c8f94",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240619T033541_N0510_R061_T47PQQ_20240619T082953/radiometry.json",
+      "filesize": 908,
+      "checksum": "7ba9dabf8c52e4e09157632b646622dcbd99e0200a99af423076f4bcc0eb4a53",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240629T033541_N0510_R061_T47NNJ_20240629T083552/radiometry.json",
+      "filesize": 908,
+      "checksum": "20fa3e2e8e2aa7988331c87f412661635c9342221df9c316c6f409ba185d3e2d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240629T033541_N0510_R061_T47PNK_20240629T083552/radiometry.json",
+      "filesize": 908,
+      "checksum": "85e70925dccb14a41ccbfa99f56f305c4e71b3b3f5acaf3ff1145bc72e822060",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240629T033541_N0510_R061_T47PNL_20240629T083552/radiometry.json",
+      "filesize": 907,
+      "checksum": "b5b0f1bd8e5ccb5f4c5e5afecfff2c02d782ef8f92d98eacdf887fac44831277",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240629T033541_N0510_R061_T47PPK_20240629T083552/radiometry.json",
+      "filesize": 908,
+      "checksum": "7ca8f6fb90622819b18f4d56c623ef0482507f9bac55400b8b81831c6a5bd3fe",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240907T033531_N0511_R061_T47NPH_20240907T090557/radiometry.json",
+      "filesize": 908,
+      "checksum": "f640a3a55154936ac49eabaa79d8521c7124808d87f8493e43b0b901b218a808",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240907T033531_N0511_R061_T47PNN_20240907T090557/radiometry.json",
+      "filesize": 906,
+      "checksum": "bd83fb045498584198240aee0b62a44c616332ecf42b409ea05f1862b67bcc07",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240924T032521_N0511_R018_T47NQH_20240924T074657/radiometry.json",
+      "filesize": 908,
+      "checksum": "07165e3bd149d62970377bdd9ef93cf54af96bff41033c0e5c4662475838474c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240927T033541_N0511_R061_T47NNJ_20240927T085345/radiometry.json",
+      "filesize": 908,
+      "checksum": "54c75db32d0b6db02abcf5cad8bb8735effe9ac007fc35e38d9ed4edcfc91482",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240927T033541_N0511_R061_T47NPH_20240927T085345/radiometry.json",
+      "filesize": 908,
+      "checksum": "adff6b33e258f06907ab2844d52d8844c4509f882ee2e7b0fb3ac67989292d85",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240927T033541_N0511_R061_T47PMK_20240927T085345/radiometry.json",
+      "filesize": 908,
+      "checksum": "c9eeb0c8f1b5fffa8614c30c7d757d415684ae39e41280a4dbc198b2ad026a41",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240927T033541_N0511_R061_T47PNN_20240927T085345/radiometry.json",
+      "filesize": 908,
+      "checksum": "2f42f88f6c4d235ae5ddcc2bb587c3039d9b429cc4f144362dbf767d4de16ac8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240927T033541_N0511_R061_T47PPK_20240927T085345/radiometry.json",
+      "filesize": 908,
+      "checksum": "d45fcb4a8921ea94a452925eb3b99263ffbf4853961878181b4f9c884c7b756e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240930T034541_N0511_R104_T47PMK_20240930T074749/radiometry.json",
+      "filesize": 908,
+      "checksum": "1e49c9cc2062e78ec3bfb3407242f005e1b61d7334880b6218d51f92323c4167",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20240930T034541_N0511_R104_T47PML_20240930T074749/radiometry.json",
+      "filesize": 908,
+      "checksum": "d8d37bc662e6673da81ae1fcac8814ce35a3b8058c91c2851756712e39eeadb6",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20241206T034131_N0511_R061_T47NMJ_20241206T070059/radiometry.json",
+      "filesize": 908,
+      "checksum": "5f8fc29f5bf6f1d68015413e349a2bcf03e2791ccfec49b50ac0f726ade03e64",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20241206T034131_N0511_R061_T47NNJ_20241206T070059/radiometry.json",
+      "filesize": 907,
+      "checksum": "72930be410f93dd7b17e89ef00c5bb145f7ce2f072e8510882975c2e27620a4a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20241219T035151_N0511_R104_T47PMK_20241219T070750/radiometry.json",
+      "filesize": 908,
+      "checksum": "20c3c07bf1238d846dbf4f4f8a947af100fa9393f3f7dd25b5f212637e29c4eb",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20241219T035151_N0511_R104_T47PMM_20241219T070750/radiometry.json",
+      "filesize": 908,
+      "checksum": "01329bb016effb50d876bda3935b739d45040a6f4175e2830b3cee4a2cc140dc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20241226T034151_N0511_R061_T47NMJ_20241226T064949/radiometry.json",
+      "filesize": 908,
+      "checksum": "6a46f15b1fb6ab3d539749ce50b1b4ed3e97ade1ab7585ccaa00a8fadf4529e3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20241226T034151_N0511_R061_T47NNJ_20241226T064949/radiometry.json",
+      "filesize": 908,
+      "checksum": "3cdd1b6c749b687f04e1d7ef59b1ada57b1d88af9480d8b715d077e548de84b7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250606T034201_N0511_R061_T47NNJ_20250606T073218/radiometry.json",
+      "filesize": 908,
+      "checksum": "7fc80c55e8a31715e7e749388f42bc796b131da29c889641f0eab72ebdd14307",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250606T034201_N0511_R061_T47PNM_20250606T073218/radiometry.json",
+      "filesize": 908,
+      "checksum": "a11cf5ecad57e60883b5b15de0092e78057de6f68e2842ec530f134dbda6142d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250606T034201_N0511_R061_T47PQQ_20250606T073218/radiometry.json",
+      "filesize": 908,
+      "checksum": "f4f582997846c62bf7d949af8a842b23d6e6aab2d09d380395273ae9ed7c6115",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250609T035201_N0511_R104_T47PMK_20250609T074706/radiometry.json",
+      "filesize": 908,
+      "checksum": "3084a097bf5a87135221ac819968ea71b5663428627b407bfebc2ae822f3a951",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250609T035201_N0511_R104_T47PML_20250609T074706/radiometry.json",
+      "filesize": 908,
+      "checksum": "4ef967e4072aec66e0b0d92a84be54dd9f35885a79731de49fac4bdd0b926643",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250626T034201_N0511_R061_T47PNM_20250626T073921/radiometry.json",
+      "filesize": 908,
+      "checksum": "1e0203e68778ed4f4e9a7f14c0daa85eebf3cf5934c3d2ec6e67141cf83086df",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250626T034201_N0511_R061_T47PQQ_20250626T073921/radiometry.json",
+      "filesize": 908,
+      "checksum": "3ea81f8c2f108c624ab54a16f1ffdabdee20bdcee00a66bbf56d549c895f62b1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250629T035201_N0511_R104_T47NMJ_20250629T084417/radiometry.json",
+      "filesize": 908,
+      "checksum": "b029081b74d6eb5c6604bbff3d4708a766bef73a927e086898dbed97dba70b93",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20250629T035201_N0511_R104_T47PMK_20250629T084417/radiometry.json",
+      "filesize": 908,
+      "checksum": "cf673dad58d8d73c1160ef6ccd6fb0ed36d7c0a459fa7d88f1848e7c5a27459e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20251203T034201_N0511_R061_T47PMK_20251203T073813/radiometry.json",
+      "filesize": 907,
+      "checksum": "19a7f8e68199400ffbcb760d1914669672740faed1f2b405231ffa6cc552142d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20260313T034201_N0512_R061_T47NMJ_20260313T083010/radiometry.json",
+      "filesize": 907,
+      "checksum": "1c91b05b458308312b73e174b905064b2275c2d93f89547c206ddd2c0dbdbf5f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20260313T034201_N0512_R061_T47PQQ_20260313T083010/radiometry.json",
+      "filesize": 908,
+      "checksum": "3735ca7d77a8bd8633d1ef94be693c8a17a0faed41f938a695b2efa07e9f2506",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20260326T035211_N0512_R104_T47PMK_20260326T084309/radiometry.json",
+      "filesize": 907,
+      "checksum": "674dc44e0f190df3d4df11de1c281ea2b56772181482dc5d2c6b11d0d77d03bc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20260813T035201_N0512_R104_T47NMJ_20260813T100908/radiometry.json",
+      "filesize": 908,
+      "checksum": "9a1d2a2d3b3d72e29ae37c9b9a169f5a87a2ab2e7d2ef12df884bd6aa7db0f74",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20260813T035201_N0512_R104_T47PMK_20260813T100908/radiometry.json",
+      "filesize": 908,
+      "checksum": "dad40930c235ab015567fa46f1b41fc826c4b2562bd98b7b1f150809104982e0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20260813T035201_N0512_R104_T47PMM_20260813T100908/radiometry.json",
+      "filesize": 908,
+      "checksum": "8eeb5c6ec68bb3383e1d7e16a3ce131eac3032aafa117280e19226fcf1d427de",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2A_MSIL2A_20260827T033201_N0512_R018_T47NQH_20260827T102111/radiometry.json",
+      "filesize": 908,
+      "checksum": "e3a5c97dfec34a59c22772b4ae71535998e388f12524ce54109f2e057a989b33",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230911T034539_N0509_R104_T47PMK_20230911T081554/radiometry.json",
+      "filesize": 908,
+      "checksum": "4fbec21684c786d632be148381c10bf03eafff6b41965807bc27d7268840a92b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230911T034539_N0509_R104_T47PML_20230911T081554/radiometry.json",
+      "filesize": 908,
+      "checksum": "8d35695a77c5a27f71c45dcc344cbf8395a7c575e8f4d1ac8092b49d6bb644e3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230918T033539_N0509_R061_T47NMJ_20230918T081422/radiometry.json",
+      "filesize": 908,
+      "checksum": "31627eddcb786289bbb3dd52f0f600aeaa9fe7ede43e4d6321ef164391a731c4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T081422/radiometry.json",
+      "filesize": 908,
+      "checksum": "1e17e4f924b930090c98120ddce37c8f580045f3c2da71af4d745ebb1457cee0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230918T033539_N0509_R061_T47PMK_20230918T081422/radiometry.json",
+      "filesize": 907,
+      "checksum": "196545b443881877a9e2ef608137949006a72d14200c9a5944e0bf5a8fc0d71b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230918T033539_N0509_R061_T47PNL_20230918T081422/radiometry.json",
+      "filesize": 908,
+      "checksum": "6fb774070f8117f348c0d7c1f572573277b9097fb26c94348da024c8ced00b6a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230918T033539_N0509_R061_T47PNP_20230918T081422/radiometry.json",
+      "filesize": 908,
+      "checksum": "494f6bff312f675140ea13cbd4689b484abdab9ba0c2b7eecf83a33b9cc4f72e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230921T034539_N0509_R104_T47NMJ_20230921T075934/radiometry.json",
+      "filesize": 908,
+      "checksum": "18529e1d0034ced050bd78fdae56836a6edc41b99341fc3d3cc0f3360570ef9f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230921T034539_N0509_R104_T47PMK_20230921T075934/radiometry.json",
+      "filesize": 907,
+      "checksum": "3ab27541b10c249adcc91cd1c7a5c919b7baf9be9989e8ce9a9abd51cce46edc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230925T032519_N0509_R018_T47NQH_20230925T064327/radiometry.json",
+      "filesize": 907,
+      "checksum": "c7d0bab3593e00830265699bf7e086d513abdb04af5bd7225e3f2e545d35c3b9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327/radiometry.json",
+      "filesize": 908,
+      "checksum": "f06e80d67c05d149205393ab44ce3070f3c93ce9cd322f0e45f2a32ad4df65d0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230925T032519_N0509_R018_T48PTU_20230925T064327/radiometry.json",
+      "filesize": 908,
+      "checksum": "1816a51cd8f253d83812081eedbb5e802953bece993cff4144a2db6f606082c2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T071653/radiometry.json",
+      "filesize": 907,
+      "checksum": "d7154a5625884244ce844f55ede618a08830107ba67128e5e6ca985d3e2795b2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231204T033119_N0509_R018_T47NQH_20231204T055435/radiometry.json",
+      "filesize": 908,
+      "checksum": "7b12b95e5933c08ce5fb7ec050142292ff155a16227de29953a8179a311e4057",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231217T034149_N0510_R061_T47NMJ_20231217T061943/radiometry.json",
+      "filesize": 907,
+      "checksum": "7e0cab46911a8d5dbd879105c3408bceee9d0c0f3326597f22e8cd78bc14fff4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231217T034149_N0510_R061_T47NNJ_20231217T061943/radiometry.json",
+      "filesize": 908,
+      "checksum": "6d58e8fe7738ccc09fa6ce95a2de68b197f9a4daf5985cdde2cfce24907f49ad",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231217T061943/radiometry.json",
+      "filesize": 908,
+      "checksum": "97af0d56e865e908aae0ecaec02f39a6018f6cff594c40a73fffa16875ff367d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231217T034149_N0510_R061_T47PMK_20231217T061943/radiometry.json",
+      "filesize": 908,
+      "checksum": "fca6e3a009e79d5b35cb1adc4df7b5e83922ce772512b513affd98c1e57fd466",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231217T034149_N0510_R061_T47PPK_20231217T061943/radiometry.json",
+      "filesize": 908,
+      "checksum": "0c986a01194790dd084bf6e70d10052ca62e08823a00af3e9e763e239c305892",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231220T035149_N0510_R104_T47PMK_20231220T060900/radiometry.json",
+      "filesize": 905,
+      "checksum": "3bf268508fc110c71c8f32562a7f42ff8cc457bcc847b503fd9b03a6f2480c7e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231220T035149_N0510_R104_T47PMM_20231220T060900/radiometry.json",
+      "filesize": 908,
+      "checksum": "7f6ef989015e53da876dcc138650d8189f9cbad3ba0945d74f9be55574ab5b41",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T062839/radiometry.json",
+      "filesize": 908,
+      "checksum": "47a7791a1a8477e7d0c01ac9aa021776b2a3be15f376a6f6fd09aa1dc0359538",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231227T034149_N0510_R061_T47PMK_20231227T062839/radiometry.json",
+      "filesize": 908,
+      "checksum": "d8ac4e35f0aea31b165468a7a5b98b142c60901f756097660fdcd7442f99f0ce",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231227T034149_N0510_R061_T47PNM_20231227T062839/radiometry.json",
+      "filesize": 908,
+      "checksum": "c3a9d9013bb651966e91ec582e48f8bf9ab8d249c57e74edd8ec191e7c354c9c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231227T034149_N0510_R061_T47PPK_20231227T062839/radiometry.json",
+      "filesize": 908,
+      "checksum": "5d92b8f2f111396b07cb6560789ec09eda457bf7c9147202ca313c28a8e3bb25",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20231230T035149_N0510_R104_T47PMM_20231230T060909/radiometry.json",
+      "filesize": 907,
+      "checksum": "b17b9977941b30b19ec446cebbf126eaa7f465c808b1121594d5f53e08a16849",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240303T032629_N0510_R018_T47NQH_20240303T063049/radiometry.json",
+      "filesize": 907,
+      "checksum": "5724ca4d8b759a04412ef412323421e20f8fc29502a677f13f7b49fbea9ee4a3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240303T032629_N0510_R018_T47PRP_20240303T063049/radiometry.json",
+      "filesize": 907,
+      "checksum": "4c9047f8a25584d479e847c00511d12cb3d393af5902155f293d6dce5d0237fc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240306T033609_N0510_R061_T47PQQ_20240306T064359/radiometry.json",
+      "filesize": 908,
+      "checksum": "b2af0b76c00b33e5c656170fda0f5efc8cca823e638f8f3dba0c83dbe2c012ee",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240313T032519_N0510_R018_T47NQH_20240313T150158/radiometry.json",
+      "filesize": 908,
+      "checksum": "efc1935a6eb3e45fb34e48f87970567be2fdeb6720929578edcfd66ff51ddc9d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240316T033539_N0510_R061_T47PPK_20240316T064514/radiometry.json",
+      "filesize": 907,
+      "checksum": "ac1365e110f67d44a37ca9e170cf5f82811ad69f70c8efbbb02c5d4347d8bb1f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240319T034529_N0510_R104_T47PMK_20240319T065306/radiometry.json",
+      "filesize": 907,
+      "checksum": "b4f6b6639dcbbca842fbde8f6c8ab93b264592d5c179ccbf0819bdda7dcab91f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240323T032519_N0510_R018_T47NQH_20240323T064307/radiometry.json",
+      "filesize": 907,
+      "checksum": "9ac1203149efbe9a10676d9e0bd5de440a221111f692572f18f9214d9be25c35",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240323T032519_N0510_R018_T47PRP_20240323T064307/radiometry.json",
+      "filesize": 907,
+      "checksum": "eb650c30aed9de333011d0b973982dca3888db718dece04c37a2561ee4b62289",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240326T033539_N0510_R061_T47NMJ_20240326T073954/radiometry.json",
+      "filesize": 907,
+      "checksum": "6378c67ac75f1b6710bb16c51cc6c7ff17d260517f8670705c2bbe0a21ba0e32",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240326T033539_N0510_R061_T47PQQ_20240326T074702/radiometry.json",
+      "filesize": 908,
+      "checksum": "05382a6564ae3f371753e10d53d0c03fa752a1cea0459020538ff89d6c281714",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240604T033539_N0510_R061_T47NMJ_20240604T065104/radiometry.json",
+      "filesize": 908,
+      "checksum": "502c322374afa2f5ad080c42464cc1297482baadbde9f07cb7b98fca82febac1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240604T033539_N0510_R061_T47NNJ_20240604T065104/radiometry.json",
+      "filesize": 907,
+      "checksum": "b64350057cbebcf52c08cb93e51730768d0dba30a80493598710fc37a57a52d9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240604T033539_N0510_R061_T47NPH_20240604T065104/radiometry.json",
+      "filesize": 908,
+      "checksum": "0bc9a9ae7b8d60d68ebc6220a65364d931507c85017837d952b85da1b59d6fd3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240604T033539_N0510_R061_T47PMK_20240604T065104/radiometry.json",
+      "filesize": 908,
+      "checksum": "f4a9c1a606a66c505c3c44e0862c03822040b19b3ce808a612f7031a05a38d92",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240604T033539_N0510_R061_T47PNM_20240604T065104/radiometry.json",
+      "filesize": 908,
+      "checksum": "179e6e9e6aac448f9cf13cf52e1abcafe2870943f52911289b432db04ca8bf83",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240604T033539_N0510_R061_T47PNN_20240604T065104/radiometry.json",
+      "filesize": 907,
+      "checksum": "9e331a1f3b5f88ff4844a2b26ba9cde0a34e1152e2356df833a174e4d22afc53",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058/radiometry.json",
+      "filesize": 908,
+      "checksum": "e3b9dd1c0c0e81f107cb94d49e6f3bc9abc8b5da9427ec44deaa75f8f6297101",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47NMJ_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "9f3cb471dba5709512d0a5fa2bc2ec2e9d7c79fb2a4d562aa0721cea9a8d340c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47NNJ_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "ddca983b5f21dca20d97d413543dd3cdcd70872c1d11ce9ef66b076cb8567faf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47PMK_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "ed72a5c05b18330c3588a5f82b30f3f57972646a83da66fde6ad477397cd5f04",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNL_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "73d6ecfb51717ed4fe253692d525acc3912595070072bd19d68a14ea8b7350b6",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNM_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "5a000c59279e6ab71b8edf2ea03b4e60cef3ff397eef5ab49986560c5a0ccefd",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNN_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "c1fd87eb1772fed9930de38fa4901561414282e05e2b532854968584e61fbe2c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNQ_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "1a38a72c9a255e76a1f25dd6020c5cea86d40e980e6bb1885beb9c35f00a14ec",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47PQQ_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "f1850d169159f8dd1273b05bc12180788770ae38d4b86a7308c5cf4cdd1634c9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240614T033539_N0510_R061_T47PRP_20240614T072828/radiometry.json",
+      "filesize": 908,
+      "checksum": "2eb03e22c734d0139855a9e9f64d5a5ed65b76e9a839a6f04b19c8e6f024d2fd",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240627T034539_N0510_R104_T47PMK_20240627T064708/radiometry.json",
+      "filesize": 908,
+      "checksum": "535ca6d8cdaf5be353b4995ad01a716dca15226763951b89ea615d95242a4614",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240912T033539_N0511_R061_T47NNJ_20240912T082434/radiometry.json",
+      "filesize": 908,
+      "checksum": "19f7e507c7cc4b4c29f982f28296a98598c2857faea9533c6c2fadc580b38150",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240922T033529_N0511_R061_T47NNJ_20240922T081602/radiometry.json",
+      "filesize": 908,
+      "checksum": "91dd88eca59968fdbc6af3dd102e0f0a4bf9c60bf2ea9fd9fde4ad389f78332c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240922T033529_N0511_R061_T47PMK_20240922T081602/radiometry.json",
+      "filesize": 908,
+      "checksum": "644ead7be96db97f6562216f2bd886fa1a1a4116f7d72ce058419a91e314ed36",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240922T033529_N0511_R061_T47PPK_20240922T081602/radiometry.json",
+      "filesize": 907,
+      "checksum": "83df934082af0a165582c3e56218ec68ce311e7ffdcc1b65c15bf2d4c7bd0285",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240925T034529_N0511_R104_T47PMK_20240925T084408/radiometry.json",
+      "filesize": 908,
+      "checksum": "5026d5e5b199b3031efb0d9b76be84e31427ff99659ba47580e84d066c9dee2a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240925T034529_N0511_R104_T47PML_20240925T084408/radiometry.json",
+      "filesize": 908,
+      "checksum": "91c950100e3e6c988d5a31510df20a1f8c97a4af7a196942e45cfbe1f21e5f87",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20240929T032519_N0511_R018_T47NQH_20240929T075334/radiometry.json",
+      "filesize": 908,
+      "checksum": "aee32ac424b9f3d2d8ffd65284b7f181228c2c1e169177e9aae7e325cdf1e48d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241208T033039_N0511_R018_T47NQH_20241208T071110/radiometry.json",
+      "filesize": 907,
+      "checksum": "a5498ca8e023f94d3ad210cb1e8767e67906af3a3eb3b24376833d5d3dfd9764",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241218T033049_N0511_R018_T47NQH_20241218T100110/radiometry.json",
+      "filesize": 908,
+      "checksum": "efbadf7f0a8a3313af46e6c4de8ce79bbc48f360a2933553e70c2dd2f3aa2608",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241221T034059_N0511_R061_T47PMK_20241221T072432/radiometry.json",
+      "filesize": 908,
+      "checksum": "01560117aca0744921c0ae81baee5b67a5c71959453268a74fb80326d3acb0c5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241224T035059_N0511_R104_T47PMM_20241224T061923/radiometry.json",
+      "filesize": 908,
+      "checksum": "61d3021526464aade2e287a967279331406cbfb654027bbf19d374a4258eb938",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241228T033049_N0511_R018_T47NQH_20241228T061536/radiometry.json",
+      "filesize": 908,
+      "checksum": "aa29663f9f65244cb57da7493b3be8c7493738ab11b32f14766382bd34914556",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241231T034049_N0511_R061_T47NMJ_20241231T063102/radiometry.json",
+      "filesize": 908,
+      "checksum": "9c41b4625ca4845b69d10736b97318a44ff3da5d0c53dc555919e647bff383b7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241231T034049_N0511_R061_T47NNJ_20241231T063102/radiometry.json",
+      "filesize": 908,
+      "checksum": "219e279179e1c67a51ce6f4a91c71c13516edf8ab6c3202b89cdd29ddf70954f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241231T034049_N0511_R061_T47PMK_20241231T063102/radiometry.json",
+      "filesize": 908,
+      "checksum": "ffaa0cec9f73c70b8ffa519994bdebfb2733968ebf92f7ee06ca02b71395c51a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241231T034049_N0511_R061_T47PNK_20241231T063102/radiometry.json",
+      "filesize": 907,
+      "checksum": "bf24a8c216f16a03bac951f12a5f4f77f33510306297074d01c2c78a1acd78c9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20241231T034049_N0511_R061_T47PPK_20241231T063102/radiometry.json",
+      "filesize": 908,
+      "checksum": "77edcbe52b70c101b97eb11c39b9f78a0e4b8e08690db098eca24e697eb5bf3a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250308T032519_N0511_R018_T47NQH_20250308T062224/radiometry.json",
+      "filesize": 908,
+      "checksum": "4b51b5738117461ae2eb12983412cdf2b3c65330120c3dfa17332c16f69f0d86",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250324T034539_N0511_R104_T47PMK_20250324T072707/radiometry.json",
+      "filesize": 906,
+      "checksum": "b8f0591a437d6392846ae1b205a9c2013263229f72b0dd0382d7b9c77ddddfb0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250331T033539_N0511_R061_T47PMK_20250331T072416/radiometry.json",
+      "filesize": 907,
+      "checksum": "5f8fdf2fbb123bd29920886d16729a704c431671176c82c107dc3fe16f722290",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250602T034539_N0511_R104_T47PMK_20250602T072429/radiometry.json",
+      "filesize": 908,
+      "checksum": "33dba20fd3f13bcf143b270b785ae2165cc7624c48048731e0e419aabc95e9a3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250606T032519_N0511_R018_T47PRP_20250606T071450/radiometry.json",
+      "filesize": 908,
+      "checksum": "16d17fd741c716f8ffba96c0016e61ab22c355c9f4403d00d089886e15ffaede",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250609T033539_N0511_R061_T47NMJ_20250609T071418/radiometry.json",
+      "filesize": 908,
+      "checksum": "2cd1d048d72518ccff989a60c3c5cc67282268ad6037a5a520abbca1980c89d5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250609T033539_N0511_R061_T47NNJ_20250609T071418/radiometry.json",
+      "filesize": 908,
+      "checksum": "ca8b3512d2fc82de82f70127eb662d4d5f6f9e65bc093c074a1904e164dbe7b8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250609T033539_N0511_R061_T47PMK_20250609T071418/radiometry.json",
+      "filesize": 908,
+      "checksum": "774607dd36fa82f3cfd2f5ea13b0da21e4494e12cca000432ae821b5b2a9a40e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250609T033539_N0511_R061_T47PQQ_20250609T071418/radiometry.json",
+      "filesize": 908,
+      "checksum": "8edb17cffe0a29c7eb56a5bdc3890c3d9bc204956c1a39d2ce0ef22796a5db40",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250609T033539_N0511_R061_T47PRQ_20250609T071418/radiometry.json",
+      "filesize": 908,
+      "checksum": "6a71e9528bbcac15c81d1bcc2a378f8d909a83c828ce7a78193240629df2084c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250616T032519_N0511_R018_T47NQH_20250616T070931/radiometry.json",
+      "filesize": 908,
+      "checksum": "f4d812a290152bbc288328abcf5fc175e695e0c0d8724f7c386a0e60130e66bb",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250629T033539_N0511_R061_T47NMJ_20250629T063507/radiometry.json",
+      "filesize": 908,
+      "checksum": "741d45ae2f0225b10cc5b00e6be686704cef60ef102458028657a5c47bd5a2c8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250629T033539_N0511_R061_T47NNJ_20250629T063507/radiometry.json",
+      "filesize": 908,
+      "checksum": "d1b5c94f885afed04b5f4b4b5e42efe07012298fa5ab00f8eb9d3152d74fe2ff",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250629T033539_N0511_R061_T47NPH_20250629T063507/radiometry.json",
+      "filesize": 908,
+      "checksum": "28fedab77ee4808e29c9a2136cd7a831672ccbc88d30e7af6acc73394455f489",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250629T033539_N0511_R061_T47PMK_20250629T063507/radiometry.json",
+      "filesize": 908,
+      "checksum": "363fd0c99939b59cfc7bbcd875a7c0a1214dbb75131b06d83175f8e0f4edd2df",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250629T033539_N0511_R061_T47PPK_20250629T063507/radiometry.json",
+      "filesize": 908,
+      "checksum": "c3b144993a1f75d4ec23aee338d3053c26d45f001715d34caf7b199dd3c88c80",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250629T033539_N0511_R061_T47PQQ_20250629T063507/radiometry.json",
+      "filesize": 908,
+      "checksum": "3bac4aab47d8a84ec1cb924e6465591372532aadc6f8f30c0a28afaa5369ab85",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925/radiometry.json",
+      "filesize": 908,
+      "checksum": "c6a824d911421da54a19994604e1248d8030641a6c63921072425fddbf334a61",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250924T032519_N0511_R018_T47PRP_20250924T071321/radiometry.json",
+      "filesize": 908,
+      "checksum": "5843a81dd4e0d2726b70ba1f6fa4639b546a217ca026d6c7b973625cfe5270ef",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250924T032519_N0511_R018_T48PTU_20250924T071321/radiometry.json",
+      "filesize": 908,
+      "checksum": "93a07714034fc86e75191bf4b8cc202d6bee4fb262e06e33b5e121357d040bc7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20250927T033539_N0511_R061_T47NNJ_20250927T072544/radiometry.json",
+      "filesize": 908,
+      "checksum": "ea0f215185a5155fc24cc79eb5e5054c2c2cf62316872d8080b2ca7046d2d11f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20251203T033019_N0511_R018_T47NQH_20251203T070239/radiometry.json",
+      "filesize": 908,
+      "checksum": "d48721f34c000b19c0968bf8040da9625378678ef445adc7a3f78aa0871ff155",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20251209T035049_N0511_R104_T47PMK_20251209T054856/radiometry.json",
+      "filesize": 907,
+      "checksum": "1768ae0f74710064a357cba43f789fd9256b836066754d73132c3476a818cd00",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20251223T033049_N0511_R018_T47NQH_20251223T071315/radiometry.json",
+      "filesize": 908,
+      "checksum": "b633ab2d5c30ca281b2d0254f57c5004f95a8dfcfea70aea5118fdda431ec412",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260303T032539_N0512_R018_T47PRP_20260303T085226/radiometry.json",
+      "filesize": 908,
+      "checksum": "52ee29cf1a6d52015f0f297c354cf624d99ef4c6b2107b13f92612caa956cc91",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260316T033529_N0512_R061_T47NMJ_20260316T072001/radiometry.json",
+      "filesize": 907,
+      "checksum": "f0fca8a83ed99f787d59996266d6a695698b1f4517f994991cb3c457a7b6c52b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260323T032529_N0512_R018_T47PRP_20260323T071407/radiometry.json",
+      "filesize": 908,
+      "checksum": "89a5887a5bab52584a1b413aff04ef35daa33a5a3c0947c07b13db7901d60fed",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260329T034529_N0512_R104_T47PMK_20260329T073814/radiometry.json",
+      "filesize": 907,
+      "checksum": "56a58db7ef222874619f0311cc4ac3b2cfd913eeeffda8124330cc1b70c406e7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47NMJ_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "31eb38c344d55f98eac47ff3be4aff25a58af6402bd444a15c6a690a338e2575",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47NNJ_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "39364db59d0c7af66690e3d78f7cf8df77283afaad7d6fda9884d39d2e09f414",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47NPH_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "f39e4f01ecdb294c412a2f08c3da93c8d6f9c01ecc963b6f2aaebbba9a99e554",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PMK_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "083502fbd413c5476d5c9ee57ae8204d5f6d89378e305615cefea36bafd240e1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PNL_20260803T072631/radiometry.json",
+      "filesize": 907,
+      "checksum": "eca49990c2db1ecac541e37f5f79c3a516651f020e79432cfc409f39e4a1e778",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PNM_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "38a4f41253ccffa5d2533c5560c13970ddb0eba23f42ae8c34dd07fd229afbbf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PNN_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "ef2d18391924d837f769ab1183a48ea69bfe8c9282c78cb52004464944d6ace2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PPK_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "1be597828765b6ea85626b73ba5223fbaab270a5f819b8c298bb6c173f092d7e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PQQ_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "b19afc7db672dbbe0a2c053f87d20c6af6ee12e34a7843b3870a5a9d467ae5e1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PRP_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "be0a7abcdcd326f44c3930ae787ad07bc5e93400326f8494887f168116cf3442",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260803T033539_N0512_R061_T47PRQ_20260803T072631/radiometry.json",
+      "filesize": 908,
+      "checksum": "488ca76dc19ad0bc295b88442aac14c838d55b36ffab13d0bd18b32c1b34c652",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260806T034529_N0512_R104_T47PMK_20260806T073405/radiometry.json",
+      "filesize": 908,
+      "checksum": "ad53644725600275bae8326251e66dede1d1af7ad04e93a628a1c5d13a332125",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260813T033529_N0512_R061_T47NNJ_20260813T072506/radiometry.json",
+      "filesize": 908,
+      "checksum": "f826c5370dccd76cee6e1b31eed9d1d7d731e32bd6e7ad1860789b5aaf98dfce",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260813T033529_N0512_R061_T47PNL_20260813T072506/radiometry.json",
+      "filesize": 907,
+      "checksum": "0ec9e7dc8d8e347b8b7a7a06d70f21ec50d55bb60af9480169093db389233f3b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260813T033529_N0512_R061_T47PNM_20260813T072506/radiometry.json",
+      "filesize": 908,
+      "checksum": "cb2564f727422ee7dbdbb235ecc3061fdfad7ea9b468a5ab5d33838a99291652",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260813T033529_N0512_R061_T47PNN_20260813T072506/radiometry.json",
+      "filesize": 908,
+      "checksum": "0f42bfea3c1fd927b9b1875e31ec1489ab4348c194247099e43e314af15370ac",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260813T033529_N0512_R061_T47PPK_20260813T072506/radiometry.json",
+      "filesize": 907,
+      "checksum": "79f3202ca0b2102e7f94cf979d03b7bc9cf7a8c0a24f5fb6a31efebfd9e295c5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260813T033529_N0512_R061_T47PQQ_20260813T072506/radiometry.json",
+      "filesize": 908,
+      "checksum": "d97626791bd6110720ca984390c4234763406eae494226f8b769d312047bd85d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260816T034529_N0512_R104_T47PML_20260816T073343/radiometry.json",
+      "filesize": 908,
+      "checksum": "bfefd5957f87fa7d2e3f816f08c0c4e6a54a7173f27284dc2a8e87217dc1bd38",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260823T033529_N0512_R061_T47NPH_20260823T072632/radiometry.json",
+      "filesize": 908,
+      "checksum": "2a388a3ea2623a9e5602a58fbe88ee89bfb34d5910543e60991b8eeeb6711e26",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260823T033529_N0512_R061_T47PNP_20260823T072632/radiometry.json",
+      "filesize": 908,
+      "checksum": "6e9a1d6f3e9ab931a6a2d3658967606c63de73e358dd96fb273ddca3d3818c13",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260826T034529_N0512_R104_T47NMJ_20260826T073432/radiometry.json",
+      "filesize": 908,
+      "checksum": "c9e592e5e49f3cc84f736e80a4bde20fe4c916954edc8aff96ff7aae67c932a0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260826T034529_N0512_R104_T47PMK_20260826T073432/radiometry.json",
+      "filesize": 908,
+      "checksum": "b0a8e1f4cc0375e137caa9b2422c2194d5fdf954705e724bb088cffcf5dedb9d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2B_MSIL2A_20260830T032529_N0512_R018_T47NQH_20260830T071403/radiometry.json",
+      "filesize": 907,
+      "checksum": "6a3ea6d41d45414cc68b01f44cc073e5cee8a2e562f7946cf5fe8892c4f8c0fc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20241219T035612_N0511_R104_T47PMK_20260406T065007/radiometry.json",
+      "filesize": 908,
+      "checksum": "b4681f2cb5eb411fb4df922cff89142a91a6711a8315b352aff2c2ae279869a4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250306T033641_N0511_R061_T47PQQ_20250306T085914/radiometry.json",
+      "filesize": 907,
+      "checksum": "435e51cc71ed451af869abf15ba325e05bbb3ef947e9c1c00e3fd16d06ef25ec",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250306T033641_N0511_R061_T47PRQ_20250306T085914/radiometry.json",
+      "filesize": 907,
+      "checksum": "231be54778fea62be8c071fc6ecf39bcf920460278c10db1fc67e22fa885e344",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250316T033601_N0511_R061_T47PNK_20250316T090315/radiometry.json",
+      "filesize": 907,
+      "checksum": "014bc378b96c60694059589dca6f6155071892605db05c3e1b5cfe9107e9b897",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250316T033601_N0511_R061_T47PPK_20250316T090315/radiometry.json",
+      "filesize": 907,
+      "checksum": "3e9c85b6a1bfe49658d74cff85d5a29e350fbb1d949f3625027551818272ea44",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250326T033601_N0511_R061_T47PQQ_20250326T085914/radiometry.json",
+      "filesize": 908,
+      "checksum": "ccc56056281d18327842a2b4a27e4871f08381478dfb3fcdb468fbb222250010",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250329T034601_N0511_R104_T47PMK_20250329T101612/radiometry.json",
+      "filesize": 908,
+      "checksum": "f7637e7a1fecdbc917516bb87db7dadf038cc67c0ec803a772bbd7e269fa628e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250601T032601_N0511_R018_T47NQH_20250601T081256/radiometry.json",
+      "filesize": 908,
+      "checksum": "79f66dd3df22010522eb8e3b9038be4afdda12d73d373f2db5f67ed7ecac799b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250601T032601_N0511_R018_T47PRP_20250601T074819/radiometry.json",
+      "filesize": 908,
+      "checksum": "25d5fbfad1a02abbcb829cc8ddc7428f9ffed6444c9008cf3333f71e654f0a7c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250601T032601_N0511_R018_T48PTU_20250601T074819/radiometry.json",
+      "filesize": 908,
+      "checksum": "8035a309eec953b44875c7046aa0614ae7e38d3f36b8296ade7e974bf19f8b34",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250604T033601_N0511_R061_T47NPH_20250604T084721/radiometry.json",
+      "filesize": 908,
+      "checksum": "16eb8e001da43c31601b42aa9469bbe69c4b0cccbe48d23fdb6133102c00997d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250604T033601_N0511_R061_T47PNN_20250604T084721/radiometry.json",
+      "filesize": 908,
+      "checksum": "cf9f97800f2c05cabc32b3af89707a22118039986e4f8ceb5e676be63107ada3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250604T033601_N0511_R061_T47PNP_20250604T084721/radiometry.json",
+      "filesize": 908,
+      "checksum": "56a555fb9ff340e719ca1de526b706e15a98be734b9240e6466a47aacbca6406",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250614T033551_N0511_R061_T47PMK_20250614T090546/radiometry.json",
+      "filesize": 908,
+      "checksum": "6eef782b3b8d957b698af383e13948f949f36bdae212d9259b959f02b51680fc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250617T034551_N0511_R104_T47NMJ_20250617T084215/radiometry.json",
+      "filesize": 908,
+      "checksum": "4cecc329bc933b5e675f875def86636eb016b107adb3c7354be1c36e33ab07bd",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250617T034551_N0511_R104_T47PMK_20250617T084215/radiometry.json",
+      "filesize": 908,
+      "checksum": "abb678611acfce5ec77a6eb119d01a600cb433c50c6c2e18c694243a29104fda",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250624T033551_N0511_R061_T47NPH_20250624T083123/radiometry.json",
+      "filesize": 908,
+      "checksum": "662897b914f4a15b8faad2156259dd6d5292fb71ca53e9c8a18bd9e98843c4a7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250624T033551_N0511_R061_T47PPK_20250624T083123/radiometry.json",
+      "filesize": 908,
+      "checksum": "62a067c59ccfdfc5238905d35a94bd38ab222f0fafab57c0343867e4e3d49fb1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250902T033551_N0511_R061_T47NNJ_20250902T085021/radiometry.json",
+      "filesize": 908,
+      "checksum": "68ffc236a4ea500deaac3a1c642fe12261f722d02e08d0127ebb5fe2330cfc41",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250912T033551_N0511_R061_T47NPH_20250912T090014/radiometry.json",
+      "filesize": 908,
+      "checksum": "9dd7cc603bc7bb7405ab6738b172c365f6327e14e40bcff60e300cff635c6db1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250912T033551_N0511_R061_T47PNQ_20250912T090014/radiometry.json",
+      "filesize": 907,
+      "checksum": "5b6ac97236ba5dd49e15bcc9bb80fb0d57e25c3be85512ced83a56ae50739715",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250915T034551_N0511_R104_T47PMK_20250915T102519/radiometry.json",
+      "filesize": 908,
+      "checksum": "9bcea1c873907f19983dfe6c593be6a4133fde7f46d035882f642e8135441a35",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20250922T033551_N0511_R061_T47PNM_20250922T091415/radiometry.json",
+      "filesize": 908,
+      "checksum": "a6d86941424e5e86c0a3b1bd452dcfa1ecf7ebae31722353e188ff77ce15694d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260301T033701_N0512_R061_T47NMJ_20260301T091613/radiometry.json",
+      "filesize": 906,
+      "checksum": "568749378eeda42d89e1503eb33e65ed7a4faf464b0a7d022266fa1635a57092",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260311T033551_N0512_R061_T47PQQ_20260311T091010/radiometry.json",
+      "filesize": 908,
+      "checksum": "744d5f59ac57ef074b3cb686192b4a4bbb655de65438cc9c6471e99ee1205b5f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260321T033541_N0512_R061_T47PMK_20260321T090910/radiometry.json",
+      "filesize": 906,
+      "checksum": "2dfd208ad8d1ecd622b6dc83619cbfefa17a0bc96bea7a8de04725c9c690d6b2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260328T032541_N0512_R018_T47PRP_20260328T083810/radiometry.json",
+      "filesize": 908,
+      "checksum": "c6b9e37b1856d940bd190a9e8a965c1ef7f99208a0d1e718a427c86819bd8b98",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260801T034531_N0512_R104_T47PMK_20260801T082610/radiometry.json",
+      "filesize": 907,
+      "checksum": "61e73c48fded3d9296223dcdbed7a2c665103d5aa979a1d991cef25c92fc33bc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260811T034531_N0512_R104_T47NMJ_20260811T084712/radiometry.json",
+      "filesize": 908,
+      "checksum": "9b079ec0a57935c1d9a89234decbb3bbe47fea17a2c0aefd226b2b1c968c5e4c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260811T034531_N0512_R104_T47PMK_20260811T084712/radiometry.json",
+      "filesize": 908,
+      "checksum": "00d83ebe4c2174677582f82d201c1461b1f5714e7a195154ff4ae13cb3d2d6d8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260811T034531_N0512_R104_T47PML_20260811T084712/radiometry.json",
+      "filesize": 908,
+      "checksum": "c302895df9b7e56711446b2114b1d5ad9ca805fb7b2bbb224c32d4478aae9596",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260818T033531_N0512_R061_T47PRP_20260818T084111/radiometry.json",
+      "filesize": 908,
+      "checksum": "6d698a81c5db52a16a3e2574930c156e3a96703bee79c60e515a005f8d480a5a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260828T033531_N0512_R061_T47NMJ_20260828T083911/radiometry.json",
+      "filesize": 908,
+      "checksum": "ed3e7854c4c99e5d7f960dafe2faddda26983c85b086cc90f195566699792974",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260828T033531_N0512_R061_T47NNJ_20260828T083911/radiometry.json",
+      "filesize": 908,
+      "checksum": "e9d3f975b66359b8e5feeb23051a0d730139e970597a213efe3d4ae125fbee83",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260828T033531_N0512_R061_T47PMK_20260828T083911/radiometry.json",
+      "filesize": 908,
+      "checksum": "f7e0adef254c3ed8eb45e5f4d342244e4c14a6907cf4bc1c2fb35941bfc93b22",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "metadata/S2C_MSIL2A_20260831T034531_N0512_R104_T47PMM_20260831T084412/radiometry.json",
+      "filesize": 908,
+      "checksum": "9b3193794925defd37dea8a1651428ba2835f28c33063485e0dd1893640fd612",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "pipeline.log",
+      "filesize": 2494599,
+      "checksum": "26951b5d7d50f7e435a540acf1cb920bf141ec93c58ccab05449b84dfe8d1633",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "pipeline_all.log",
+      "filesize": 8059881,
+      "checksum": "172c6893aa6067212e17d20e2c7477b5b3581cc1ad19372a697fc118b3ce4b18",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "repair_results.json",
+      "filesize": 3188,
+      "checksum": "ea0251d61c24f38e271e57c5dbb8f8b342f656e48036874eefbb768fc195b6e9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "repairs/repair_registry_121_2024-09/stac_item.json",
+      "filesize": 25432,
+      "checksum": "a020e469d517f2a9b63f1289597b9adc7f626c586b1eeb9a9114aaa452fc0d92",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "repairs/repair_registry_75_2024-06/stac_item.json",
+      "filesize": 25510,
+      "checksum": "829fa225c322b9e49efcc66e7a76d7c3d0b574682b9fc4d31da4d89ee6d0f90f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "request_results.json",
+      "filesize": 12272644,
+      "checksum": "cd5b923c9f061fd0b3bb1361339a696c37ff7de9932bed96555f23353b08a156",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "scene_search_log.jsonl",
+      "filesize": 4736634,
+      "checksum": "0866238efb55615b1db57a978ea676ce8532bda29f0d3ecc7bb084af9953b9fd",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "scripts/qa_check.py",
+      "filesize": 3126,
+      "checksum": "4155a204fd42de833b05a29d5e04030cd942c6b5fb2748711d5c0c7f04c16945",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "scripts/sentinel_pipeline.py",
+      "filesize": 52133,
+      "checksum": "967d2ed3185b7d8ada415fbc9ea0255089f082db423e80e8036e6e8d3a20a7db",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230903T033541_N0509_R061_T47PQQ_20230903T090458.json",
+      "filesize": 25143,
+      "checksum": "7a5d9b66c4e07f35204e5b7f1375da7f2a17277bf186be72d1322e61e2cca1a1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230903T033541_N0509_R061_T47PRQ_20230903T090458.json",
+      "filesize": 25148,
+      "checksum": "ecb2a9f0a3da70e22e6633df93accdb958b373fc644f5418f8f43543373df5b1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230906T034541_N0509_R104_T47PMM_20230906T090656.json",
+      "filesize": 25216,
+      "checksum": "8ad6692eab1f97f07313841e04ca69c5405509e5af16503ecd78cbf191b6243e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230913T033541_N0509_R061_T47NNJ_20230913T090759.json",
+      "filesize": 25105,
+      "checksum": "d74ee354a984a9948d5c40e4525c4950e3c76c1808a9b4d4e67e739c30dd5587",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230913T033541_N0509_R061_T47PMK_20230913T090759.json",
+      "filesize": 25133,
+      "checksum": "a195944968ebe66ca4ecb2b6ab1a44399788e7451d25a942deed3d0ed883c741",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230913T033541_N0509_R061_T47PQQ_20230913T090759.json",
+      "filesize": 25144,
+      "checksum": "41086ee84ca7e100576ba67d18becaa2e11405f247f38058e55a1922aace2614",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230920T032521_N0509_R018_T47PRP_20230920T083502.json",
+      "filesize": 25225,
+      "checksum": "d3a6ffe74c3e91a607b80d8befb8593a1d454161dbb7d7483fd8dc32acff27e2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230923T033541_N0509_R061_T47PMK_20230923T075900.json",
+      "filesize": 25134,
+      "checksum": "2120c7e10b7acbc1d99bf7cb7865959d171ee772dc94d162053f1971eca4b373",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230923T033541_N0509_R061_T47PNL_20230923T075900.json",
+      "filesize": 25125,
+      "checksum": "e977f79405050917b8944748c2a1740d30bc572b9ac33709b57df3ed481f67ff",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230923T033541_N0509_R061_T47PNN_20230923T075900.json",
+      "filesize": 25224,
+      "checksum": "da720bc03d1c977046a0e3abbd309f30b128f9e46a08907a6f39da525ccff253",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101.json",
+      "filesize": 25119,
+      "checksum": "314d45e3caf96595ed2c24690b935da5954009465d5369c382cf51ad383b8890",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231205T035121_N0509_R104_T47PMK_20231205T064951.json",
+      "filesize": 25158,
+      "checksum": "b497578a1e040b110162c2b6a7b67b4eb351d69081423851a8f3e91338c79dea",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231219T033141_N0510_R018_T47NQH_20231219T064753.json",
+      "filesize": 25143,
+      "checksum": "196152edc42fa12cd07a5221ce40234733b3d721ed4a05c950852ceed6f8875b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231222T034151_N0510_R061_T47NMJ_20231222T065853.json",
+      "filesize": 25137,
+      "checksum": "966172316786820720155bcc389dd548b3d6198d0fc8e4835a983ab29eb4dd75",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231222T034151_N0510_R061_T47NNH_20231222T065853.json",
+      "filesize": 25135,
+      "checksum": "0e33f886a8e95929a73fcf1db784cd494a33bce729ee63fc9511e19911ac6442",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231222T034151_N0510_R061_T47NNJ_20231222T065853.json",
+      "filesize": 25136,
+      "checksum": "2b87d372e9c7ca86275a69d11af8a23be3bfd8fa73c391af00c24976028d14aa",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853.json",
+      "filesize": 25146,
+      "checksum": "19c8698ad304ee9d9ac4bb7bb4d984319753a1bd8295d2ccb571e29a0277b267",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231222T034151_N0510_R061_T47PNM_20231222T065853.json",
+      "filesize": 25154,
+      "checksum": "cdb67ae2a7b451aa25c5bbe92dd140bcd9b8c77b3bc468a4d9f1812e16849b49",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20231229T033141_N0510_R018_T47NQH_20231229T064651.json",
+      "filesize": 25138,
+      "checksum": "940e448fb0fffc46328cb7afeaa1f8a5da9efd19e3f24a8ab67ca97e83e222a1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240301T033651_N0510_R061_T47NMJ_20240301T075048.json",
+      "filesize": 25114,
+      "checksum": "cf6fb833b079d65d32fc547dce0c99922c042d200992cb9509e9ec7c541b29f7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240301T033651_N0510_R061_T47PPK_20240301T075048.json",
+      "filesize": 25127,
+      "checksum": "9bff20103304cd885462e521b33358d5a148aa9e17af79b76896a3d8501adc36",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240301T033651_N0510_R061_T47PQQ_20240301T075048.json",
+      "filesize": 25142,
+      "checksum": "5e6356faace4122ec0cbe1156fcac7e3c8033548344a8a17b70941a9d770f6d4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240308T032601_N0510_R018_T47PRP_20240308T074151.json",
+      "filesize": 25226,
+      "checksum": "5e159b1c33d31cea0fc0d00b88eda266eda19790f1a4ffc00b268ac9d1c4db7f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240308T032601_N0510_R018_T48PTU_20240308T074151.json",
+      "filesize": 25143,
+      "checksum": "f870fe6f9ac12570a053a0ee154b902d0dab7483da842e675cdc6de1ae2adfe7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240318T032521_N0510_R018_T47PRP_20240318T074851.json",
+      "filesize": 25217,
+      "checksum": "b2c2860f4ab94758b0bfaaf9e4f145ca6b3344d10b32833cf71f798c072e0636",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240321T033541_N0510_R061_T47NMJ_20240321T075552.json",
+      "filesize": 25115,
+      "checksum": "21940e625a40d849717c8fe6e1a42cfc35b78bd812ebbcd91bd5fb077a3d052c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240324T034531_N0510_R104_T47PMK_20240324T090053.json",
+      "filesize": 25129,
+      "checksum": "ac2cea96d1cb317b94117ff2d77ab136742d9b22c12e04dda25a7e7da7abe803",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240331T033531_N0510_R061_T47PQQ_20240331T084455.json",
+      "filesize": 25147,
+      "checksum": "34d53f8a74299c201b3f62db2d690a4ab8a790d85caba4b0a8ebec87ffe3711b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240331T033531_N0510_R061_T47PRQ_20240331T084455.json",
+      "filesize": 25148,
+      "checksum": "e1fa5ae13c866308b8c752246f8cd67a14bb6496cad937d6d8819faffc0cb27f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T084402.json",
+      "filesize": 25483,
+      "checksum": "5d3f9395e8550a4a1a958dcb27a2f3b8dd20c26b3157a99430b2673a0cfff57a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240609T033541_N0510_R061_T47NPH_20240609T084649.json",
+      "filesize": 25482,
+      "checksum": "869abd3dfe56223a3e20405dcefa0889683483251aaa533a90297f166ec3957c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240612T034541_N0510_R104_T47PMK_20240612T083604.json",
+      "filesize": 25504,
+      "checksum": "97fdbf701f0888c106202d116ea2fc721acd115153a7150d9ddc8b5b6b1b7903",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T47PRP_20240616T091952.json",
+      "filesize": 25596,
+      "checksum": "e604c9ff8a8f552f877a31828297530dc3e2b16f4c5045dfba9b5156a472e79d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+      "filesize": 25513,
+      "checksum": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240619T033541_N0510_R061_T47NNJ_20240619T082953.json",
+      "filesize": 25478,
+      "checksum": "c265a2a097f02cb56f8bff748bda0e571c13509ec2f9e2849a03cc0c51b7630f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240619T033541_N0510_R061_T47NPH_20240619T081753.json",
+      "filesize": 25493,
+      "checksum": "d6bccdcfc0a565841b2fe5fda82a1b683191a5fa47dea67725b973b3a8fedb4f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240619T033541_N0510_R061_T47PNQ_20240619T082953.json",
+      "filesize": 25513,
+      "checksum": "d5a85e1440aaf34334233e64628d879d9f33ca52f8038030302fe299caa79cd5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240619T033541_N0510_R061_T47PQQ_20240619T082953.json",
+      "filesize": 25509,
+      "checksum": "5fabe2ccbc372f769e34ac0f94cc329dd7d36a38bb2c2803b4409fbffa38b669",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240629T033541_N0510_R061_T47NNJ_20240629T083552.json",
+      "filesize": 25475,
+      "checksum": "37018cce5cbecbf77cdeaf67bd5999e7a12fdb88cbab08cbf8fd9f5b1fa7d475",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240629T033541_N0510_R061_T47PNK_20240629T083552.json",
+      "filesize": 25492,
+      "checksum": "ef51c678e65f498a556306636b39dc8ef903bcf1664b3a554ca0c3b6c071e278",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240629T033541_N0510_R061_T47PNL_20240629T083552.json",
+      "filesize": 25491,
+      "checksum": "08dd8cb796ce51c3c72b03d89690ea301c6050eba80f982865ce84efe00fccee",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240629T033541_N0510_R061_T47PPK_20240629T083552.json",
+      "filesize": 25495,
+      "checksum": "22be28acb5d861f8495303431361eb391d681d42a2a759c39507f33c24115f64",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240907T033531_N0511_R061_T47NPH_20240907T090557.json",
+      "filesize": 25438,
+      "checksum": "a4b5aef578028481264ac3ab96d804b076865070394fa6d553c847d315449c2a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240907T033531_N0511_R061_T47PNN_20240907T090557.json",
+      "filesize": 25535,
+      "checksum": "6fa8e7ef33ee3b420c6d22420a634ab9a343f85ccb033797e676c0f6d1a38a59",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240924T032521_N0511_R018_T47NQH_20240924T074657.json",
+      "filesize": 25435,
+      "checksum": "10b3ad7d8443aa0f24c3255f008d9dafd190b573926bd6e3bb3bb7428b4f8d57",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240927T033541_N0511_R061_T47NNJ_20240927T085345.json",
+      "filesize": 25432,
+      "checksum": "3c5defa60c3b3433bf3d6fbab5d77a4fc13297176cb39e5cd7f1de869968a884",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240927T033541_N0511_R061_T47NPH_20240927T085345.json",
+      "filesize": 25444,
+      "checksum": "4e7efff3a17d6207874af86ee25f2e896a8b4183c7425254bfadbd70c9c1f1c3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240927T033541_N0511_R061_T47PMK_20240927T085345.json",
+      "filesize": 25457,
+      "checksum": "40daeb5dd8a24f17d1cb67c5f360e53631ea816cd33f9452ce080d0391fa93ca",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240927T033541_N0511_R061_T47PNN_20240927T085345.json",
+      "filesize": 25541,
+      "checksum": "af40bfea384e25377f5197c69cb8234d8afadad42c8eae03b14ea6b9c63420f2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240927T033541_N0511_R061_T47PPK_20240927T085345.json",
+      "filesize": 25451,
+      "checksum": "12d4552ddb2092bca398c5942960043f9f7c00b00e7a7d36bc69d5ed59fad834",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240930T034541_N0511_R104_T47PMK_20240930T074749.json",
+      "filesize": 25454,
+      "checksum": "be97f4f78bd33a105d7269bca0eea4ef2814fa6c14fd190d85154996d7ef80e8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20240930T034541_N0511_R104_T47PML_20240930T074749.json",
+      "filesize": 25457,
+      "checksum": "d3ec341f36db62407fa831ca9ce2127becae55e78697cea61805800e9ebdfa67",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20241206T034131_N0511_R061_T47NMJ_20241206T070059.json",
+      "filesize": 25457,
+      "checksum": "b5024f4a83b1befac7b331659d1615575bedf002d2371799255c2f073184a785",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20241206T034131_N0511_R061_T47NNJ_20241206T070059.json",
+      "filesize": 25452,
+      "checksum": "7a237d931308915c2760b534eb0ea4845b3304fa6638308e4298abd250961bcf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20241219T035151_N0511_R104_T47PMK_20241219T070750.json",
+      "filesize": 25480,
+      "checksum": "a39ae928546f036b22bac56097fa342cbca9fe19db5c4b49009121f1829aa524",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20241219T035151_N0511_R104_T47PMM_20241219T070750.json",
+      "filesize": 25563,
+      "checksum": "1546e83f3fe71d6b3392c25e710bf3dbd0284948c101bb11ccbdec1a895c7c9f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20241226T034151_N0511_R061_T47NMJ_20241226T064949.json",
+      "filesize": 25451,
+      "checksum": "08abc041c017db9e21e58095af587aedfe8d885b4b9572726629e05d44d01867",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20241226T034151_N0511_R061_T47NNJ_20241226T064949.json",
+      "filesize": 25456,
+      "checksum": "f9ca5998be7e769c6d48f764a17cf2b8c4d0aaa23c703933147472f6d8d1f166",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250606T034201_N0511_R061_T47NNJ_20250606T073218.json",
+      "filesize": 25427,
+      "checksum": "7c688246b9b726446fd7d8c9597d94e0b7904e855f6f07d2f7471ba944b8cb23",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250606T034201_N0511_R061_T47PNM_20250606T073218.json",
+      "filesize": 25451,
+      "checksum": "e06063dbb032587f57a74210bdd9995e66aab18015f10e1f7c9dad55ada89180",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250606T034201_N0511_R061_T47PQQ_20250606T073218.json",
+      "filesize": 25466,
+      "checksum": "8f5ed1f49625e5dd4cda325d4d5a30857411353b238a369e3b2f0d16bc3e8181",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250609T035201_N0511_R104_T47PMK_20250609T074706.json",
+      "filesize": 25452,
+      "checksum": "b227b43c143ac31063e214e70eaff9a7dfb5fbd28fada5c32aea7aae78e22020",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250609T035201_N0511_R104_T47PML_20250609T074706.json",
+      "filesize": 25454,
+      "checksum": "18854ad1dcc001d3d4559cfbc75d2089436e0a57a6a6e684c839d69f18b7d303",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250626T034201_N0511_R061_T47PNM_20250626T073921.json",
+      "filesize": 25644,
+      "checksum": "85d34060312703d91a316ed3c96806357135405a23d5d6abbb50c2592204047e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250626T034201_N0511_R061_T47PQQ_20250626T073921.json",
+      "filesize": 25655,
+      "checksum": "90ae3e582ea7136b5ed55907f60f79d8ff7949097acd72c2b8a1aac8daabcac4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250629T035201_N0511_R104_T47NMJ_20250629T084417.json",
+      "filesize": 25619,
+      "checksum": "a8c7c0ff450bdd0e108531263e0a527ca5a56f82a794531565dd7938e057567c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20250629T035201_N0511_R104_T47PMK_20250629T084417.json",
+      "filesize": 25644,
+      "checksum": "557a461a648c4ad1dff31faf76b79cb20948c35569e283bc0b2bf25be03745a8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20251203T034201_N0511_R061_T47PMK_20251203T073813.json",
+      "filesize": 25657,
+      "checksum": "9a8d4a07b6a9ab9c3d6cc2f737dafb98d94c02cfe7f03a09e26deccc77274d92",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20260313T034201_N0512_R061_T47NMJ_20260313T083010.json",
+      "filesize": 25620,
+      "checksum": "281c3ca1445a81b9d940b01ffd78ddcb06bc67ed6a34a3b18ee78aa2da5e8adf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20260313T034201_N0512_R061_T47PQQ_20260313T083010.json",
+      "filesize": 25654,
+      "checksum": "a5a3da1759a590b52e4cf3bd1d322e3a435819fd617da9e35440f55f424a95cf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20260326T035211_N0512_R104_T47PMK_20260326T084309.json",
+      "filesize": 25639,
+      "checksum": "38894509e43d3388c76c27ba01558664ec3922cec92d96971bec2c895fd51d4e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20260813T035201_N0512_R104_T47NMJ_20260813T100908.json",
+      "filesize": 25618,
+      "checksum": "14a01321599f1e3f43521332d466e5ebd496e2fc17e6fc294c9480570d572921",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20260813T035201_N0512_R104_T47PMK_20260813T100908.json",
+      "filesize": 25647,
+      "checksum": "218a85732c297a04c323d5a279ffe6f794eb515b1b50245302d8315b4301c4b0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20260813T035201_N0512_R104_T47PMM_20260813T100908.json",
+      "filesize": 25729,
+      "checksum": "bb05297c43dfdef1a84f2c8d1b47e06150432fbe0c5f1352f2d2a69320739b77",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2A_MSIL2A_20260827T033201_N0512_R018_T47NQH_20260827T102111.json",
+      "filesize": 25627,
+      "checksum": "aa55304a261e0b5953275372e58f7182a52c9a835548d7477230f4b4a897c63f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230911T034539_N0509_R104_T47PMK_20230911T081554.json",
+      "filesize": 25135,
+      "checksum": "78542d063f35bfc3bc9a0fae26d03f1686c4c333e8481733188f1b3fb053e8b0",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230911T034539_N0509_R104_T47PML_20230911T081554.json",
+      "filesize": 25136,
+      "checksum": "a9d2bf9eca430f7478c926b9b9aac955910610819e0e15b023266b55b79058b7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230918T033539_N0509_R061_T47NMJ_20230918T081422.json",
+      "filesize": 25116,
+      "checksum": "3a703067aa69aced1441b23c05a25870abb8806fbf2e3f47be7038352ddebd16",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T081422.json",
+      "filesize": 25114,
+      "checksum": "fff35ddedb1dbcecd73e15f729d779c3b5a47a247c7c3f67d82e5d6f98be0a09",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230918T033539_N0509_R061_T47PMK_20230918T081422.json",
+      "filesize": 25132,
+      "checksum": "97e2b2f3bedfba3974e33479e4a1264647de2f17291827f0409615f7c54a0dee",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230918T033539_N0509_R061_T47PNL_20230918T081422.json",
+      "filesize": 25126,
+      "checksum": "d641c749ab58d4f5ba609c8696070a8a43b950ee12e4dc15514cf0b49408db35",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230918T033539_N0509_R061_T47PNP_20230918T081422.json",
+      "filesize": 25146,
+      "checksum": "cb4ad7c0621a05beb113ad9be4ac0dda349a84f8e9e778574ef153e79a81b84e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230921T034539_N0509_R104_T47NMJ_20230921T075934.json",
+      "filesize": 25096,
+      "checksum": "a66732ef42e31d13696dcdc327f9f718aedfc403e20f63935c430536270d63f2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230921T034539_N0509_R104_T47PMK_20230921T075934.json",
+      "filesize": 25133,
+      "checksum": "e3a8335dfe4f6abf9d087058d1438933ec6ef1c1b74d7a0f314669cb7223c4f4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230925T032519_N0509_R018_T47NQH_20230925T064327.json",
+      "filesize": 25115,
+      "checksum": "f639201a161987446ec2c1d43833ffd64dfa466215f39acfa894d42872d80e28",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327.json",
+      "filesize": 25228,
+      "checksum": "96609a4e17db70ba4fac0e4d30c29b6af9d858f891fd727192961822372e84da",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230925T032519_N0509_R018_T48PTU_20230925T064327.json",
+      "filesize": 25149,
+      "checksum": "62827b6db5c45c997c3a560f00ec33f75aba54ee9bb8dd31b99972e70422bd8c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T071653.json",
+      "filesize": 25110,
+      "checksum": "63e68cec95b21fdf87e6ed21df5b2218415955475355ea77c9688a1b19a7bdcf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231204T033119_N0509_R018_T47NQH_20231204T055435.json",
+      "filesize": 25140,
+      "checksum": "b9140ca2f2587c7ea61bb5f364306f5cd6ee0458bde495c69b02eda4727b4ce4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231217T034149_N0510_R061_T47NMJ_20231217T061943.json",
+      "filesize": 25136,
+      "checksum": "16b2222ad91ee480a5c697b46e8f13fbbbf25051a9e6e57d61af4665a22e5b4d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231217T034149_N0510_R061_T47NNJ_20231217T061943.json",
+      "filesize": 25130,
+      "checksum": "d59dd2dd3d6c219d41c78ccbe35422055dd163a88f0fae92c5a7b68de9029d0e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231217T061943.json",
+      "filesize": 25148,
+      "checksum": "ecb4c3464d2d94fa364d63e211261de9d2a50ae982fa8a1266c85e9d5a8c3ce9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231217T034149_N0510_R061_T47PMK_20231217T061943.json",
+      "filesize": 25160,
+      "checksum": "c38273608048d218397ad21120f56241ee82b16261f9eabb3e5e9ce144b67f90",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231217T034149_N0510_R061_T47PPK_20231217T061943.json",
+      "filesize": 25149,
+      "checksum": "d125947bc788c7b00054619fc66df883b1eadab3cdd35bc659500dec94f10203",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231220T035149_N0510_R104_T47PMK_20231220T060900.json",
+      "filesize": 25153,
+      "checksum": "a2f6c6cd68b42191195053db7c4eea8496098e984a0d7b4d5718e12b5115e4c3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231220T035149_N0510_R104_T47PMM_20231220T060900.json",
+      "filesize": 25239,
+      "checksum": "e3e92b56ae9e95bd50dda98bbdb5f9d1d96313b999e240dc85151203de6874dc",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T062839.json",
+      "filesize": 25142,
+      "checksum": "1b004857ceb13f15ba476148e6f647c8a269a4d6b1d9af0deeeb8ecd98a027f9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231227T034149_N0510_R061_T47PMK_20231227T062839.json",
+      "filesize": 25154,
+      "checksum": "f8d64690dbe899094d15ffe32d8d3a161d72f8dd54a3d638b77c11dfea3e10f5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231227T034149_N0510_R061_T47PNM_20231227T062839.json",
+      "filesize": 25155,
+      "checksum": "4a5beb393c3b0468c23222d2d84910f0da76dff8b59d85f21fcf54cf0adb2827",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231227T034149_N0510_R061_T47PPK_20231227T062839.json",
+      "filesize": 25149,
+      "checksum": "2be9df17ff27609993d29c7ca86e9e95f658d56dc562dd5d3630d98c4bcde7f5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20231230T035149_N0510_R104_T47PMM_20231230T060909.json",
+      "filesize": 25238,
+      "checksum": "e2e2722053adc82dcac19698d2d95b9164f2fef59ed14b2c1e4e98f989d9b45d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240303T032629_N0510_R018_T47NQH_20240303T063049.json",
+      "filesize": 25115,
+      "checksum": "ed884347dbbe7af12bf07246da8257edebf0025cc3b66777f663c786c274e7c2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240303T032629_N0510_R018_T47PRP_20240303T063049.json",
+      "filesize": 25231,
+      "checksum": "abaae3e3ab369205b21759c36cfe01c8c6f714952f3759a029037ade5f07adaf",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240306T033609_N0510_R061_T47PQQ_20240306T064359.json",
+      "filesize": 25144,
+      "checksum": "4241b3fcc473c35bd107f2bbc2d4b1771350f50b82f87936dd8646cd176efbad",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240313T032519_N0510_R018_T47NQH_20240313T150158.json",
+      "filesize": 25116,
+      "checksum": "17ef9e6f7727bbb107655af8c58882d174ea125fe5e87efef27041ca11eb841e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240316T033539_N0510_R061_T47PPK_20240316T064514.json",
+      "filesize": 25124,
+      "checksum": "ec8161de426591e5bc3f23e200ef5a07d4e7be0cb2c7a3cb41d139a8686f3d95",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240319T034529_N0510_R104_T47PMK_20240319T065306.json",
+      "filesize": 25117,
+      "checksum": "b9b6a01b701d1d1ed827bff197b53ec0ea688a804831370204768c22e69f9615",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240323T032519_N0510_R018_T47NQH_20240323T064307.json",
+      "filesize": 25106,
+      "checksum": "1dfe07cd35a082531e9bcf70d77d3abf9d4c2426098eb7f0a22e759246c5e696",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240323T032519_N0510_R018_T47PRP_20240323T064307.json",
+      "filesize": 25223,
+      "checksum": "8bef63b4eb27e4eecb613afb6353d4cd2f9b1bec80eea1aab137472c4730cb5e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240326T033539_N0510_R061_T47NMJ_20240326T073954.json",
+      "filesize": 25110,
+      "checksum": "6b5005839ebf2e1b2fd783ef668cf8cb7de3c6bcff799088430e454aa432a234",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240326T033539_N0510_R061_T47PQQ_20240326T074702.json",
+      "filesize": 25145,
+      "checksum": "f08436c4430a824f20d02474d0655b7991ca1441a1e676320a62f692af9d951d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240604T033539_N0510_R061_T47NMJ_20240604T065104.json",
+      "filesize": 25476,
+      "checksum": "6f50e2bd6c6f69e4f0559a1e5413befed2565e37a2f9483e712fddeb62926186",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240604T033539_N0510_R061_T47NNJ_20240604T065104.json",
+      "filesize": 25475,
+      "checksum": "bbbc8c46234c04c9041b067358da1b0952678f1a3314d089fbb5ebf5c777799f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240604T033539_N0510_R061_T47NPH_20240604T065104.json",
+      "filesize": 25487,
+      "checksum": "e70ed24a9059e29cdff0713dfb03eabd5f36c0b8fef950fe76ae7624a616be0d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240604T033539_N0510_R061_T47PMK_20240604T065104.json",
+      "filesize": 25498,
+      "checksum": "a928666ec492ff81aa8e1e195fbeb93a66035f3c55557fc2e539a4ae62f9e8c7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240604T033539_N0510_R061_T47PNM_20240604T065104.json",
+      "filesize": 25497,
+      "checksum": "e79647693282e1f6a2f297c41d0e51d07cba0c8bdbd9e16f43a7875ca8ca7767",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240604T033539_N0510_R061_T47PNN_20240604T065104.json",
+      "filesize": 25583,
+      "checksum": "40884abc4a74a0179e3763229379498282ab67db7b51cfecda0b2c2fae1ae112",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058.json",
+      "filesize": 25483,
+      "checksum": "82d3a32eab7ca37bca69d28d4cbaf61d4c2984dfb8d1df4d21997ee2c2901627",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47NMJ_20240614T072828.json",
+      "filesize": 25481,
+      "checksum": "96a2be819999369e70473f4025b52b848a4a15d021a402e9006a59b0fbdc2e6e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47NNJ_20240614T072828.json",
+      "filesize": 25479,
+      "checksum": "b8362ef775d97c3aa56f7d9e5b2ad9ae9097a0eb21ebb5d0f4cef0d917b55e78",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47PMK_20240614T072828.json",
+      "filesize": 25495,
+      "checksum": "ac1395c4ec697c148d67370e9b189e159cf4479ca51f774650d920739e78500a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNL_20240614T072828.json",
+      "filesize": 25488,
+      "checksum": "eac511a65235dc00192afe3a68224983ee178cac290ea1d34dac7e51bf4240ab",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNM_20240614T072828.json",
+      "filesize": 25498,
+      "checksum": "5aeed35014411094511652d5a0fd666443d949c295efc8a150353535888a214b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNN_20240614T072828.json",
+      "filesize": 25584,
+      "checksum": "675e52936b1c055c06f2d31914de179cf4c06aad7a7e29338753a3fb4a8b273e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47PNQ_20240614T072828.json",
+      "filesize": 25512,
+      "checksum": "5ae35282eec81438237bcc3868d212156c72458b93c9175fb7938d00bb4a6f97",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47PQQ_20240614T072828.json",
+      "filesize": 25510,
+      "checksum": "829fa225c322b9e49efcc66e7a76d7c3d0b574682b9fc4d31da4d89ee6d0f90f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240614T033539_N0510_R061_T47PRP_20240614T072828.json",
+      "filesize": 25501,
+      "checksum": "a3e4ff50b4c97275093aceecf6180a8b7ad3ba806b6d2dfb6581ce6420daf57f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240627T034539_N0510_R104_T47PMK_20240627T064708.json",
+      "filesize": 25499,
+      "checksum": "0eb04f96878ec178ea630bc02fbaff7a4bdae2593b7e29c2f32f422da32a7cd7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240912T033539_N0511_R061_T47NNJ_20240912T082434.json",
+      "filesize": 25426,
+      "checksum": "c388f1c81c668b99e5b81e326985dd02ccbf3acb494abf7c53ed2e1ccbe3200e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240922T033529_N0511_R061_T47NNJ_20240922T081602.json",
+      "filesize": 25432,
+      "checksum": "a020e469d517f2a9b63f1289597b9adc7f626c586b1eeb9a9114aaa452fc0d92",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240922T033529_N0511_R061_T47PMK_20240922T081602.json",
+      "filesize": 25457,
+      "checksum": "594cdd8bdd422981b55fdbe275e06b0c26cbd6f5290e1272e86b7ed68709d967",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240922T033529_N0511_R061_T47PPK_20240922T081602.json",
+      "filesize": 25450,
+      "checksum": "ac259fda97150cb584092a9da1925e71d15fd8ca8c802495e1bc70633d5e04fd",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240925T034529_N0511_R104_T47PMK_20240925T084408.json",
+      "filesize": 25455,
+      "checksum": "6a52aa0e0ea3fa6376e120c262e9777d5b4acb81b38db6bdca2dee6306ac5879",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240925T034529_N0511_R104_T47PML_20240925T084408.json",
+      "filesize": 25455,
+      "checksum": "37afe7b693008b69cc720c50dcecd5fc08e4fcc0108b92781ab4e482732ee75f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20240929T032519_N0511_R018_T47NQH_20240929T075334.json",
+      "filesize": 25433,
+      "checksum": "53b001ac8bee17a176554dbc31c5533c95c693b4424803ec237f29d4a5469163",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241208T033039_N0511_R018_T47NQH_20241208T071110.json",
+      "filesize": 25461,
+      "checksum": "e8587821642c65e327bbbb209ca77d0222d9796d73df5fd4c3bf56c1e2615d52",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241218T033049_N0511_R018_T47NQH_20241218T100110.json",
+      "filesize": 25460,
+      "checksum": "c33899713c7b149b7f1aa1e97eeebf82f2307772301c93239d2a980ab4f36357",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241221T034059_N0511_R061_T47PMK_20241221T072432.json",
+      "filesize": 25479,
+      "checksum": "08966802699ac9c15eef933ec03888a681deb70aa4b9a408bc4ff245024ac0fb",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241224T035059_N0511_R104_T47PMM_20241224T061923.json",
+      "filesize": 25561,
+      "checksum": "2203ba07ef9d26d25c88776147ff02e2558fd9b1fa12f24d1554454950d46815",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241228T033049_N0511_R018_T47NQH_20241228T061536.json",
+      "filesize": 25457,
+      "checksum": "2a070b320fd1d8822d39037b4f9c9d81d112ac0871ad0f31ec207303f2897e2f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241231T034049_N0511_R061_T47NMJ_20241231T063102.json",
+      "filesize": 25454,
+      "checksum": "9d70df23853aefe99bef1383b8afe853d0a2eb0c90a8f274d088b3d994782db6",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241231T034049_N0511_R061_T47NNJ_20241231T063102.json",
+      "filesize": 25456,
+      "checksum": "9f6130a6b090904ea7556dc5a11116099c6ae7838082d7ac3bf2dafba4dfdc0d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241231T034049_N0511_R061_T47PMK_20241231T063102.json",
+      "filesize": 25478,
+      "checksum": "ac4d760d1b8e744bda1032d9f20f58352daa7069d21cf9b9c3e2136a0c3cc0f6",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241231T034049_N0511_R061_T47PNK_20241231T063102.json",
+      "filesize": 25469,
+      "checksum": "437c2c6d59f9717713f95293d502e240b1fa2537513b83d130250622b8dc030b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20241231T034049_N0511_R061_T47PPK_20241231T063102.json",
+      "filesize": 25470,
+      "checksum": "2d6b07a4bd1f297ecd3bfb7424780249fb0c111e0d5c46dbab1eccd0632a2aa9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250308T032519_N0511_R018_T47NQH_20250308T062224.json",
+      "filesize": 25438,
+      "checksum": "4e17462ed3f9981faa7b1402925e5d4bc6b292777f4b945ba467958cf327f443",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250324T034539_N0511_R104_T47PMK_20250324T072707.json",
+      "filesize": 25447,
+      "checksum": "e90fec8eec3a2df1b3f8da21813f7f1006c7160f2b0a2d2b45219224e072074d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250331T033539_N0511_R061_T47PMK_20250331T072416.json",
+      "filesize": 25449,
+      "checksum": "0f8cf1625a233f68ef4af93461c1f7ec82bfdec2001f9eb96658c538b670e489",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250602T034539_N0511_R104_T47PMK_20250602T072429.json",
+      "filesize": 25455,
+      "checksum": "794452b5b8749d5788597c654cf96c24b57cc171ac46e3f95a1fa5b6aa9486dd",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250606T032519_N0511_R018_T47PRP_20250606T071450.json",
+      "filesize": 25548,
+      "checksum": "b88bb5377b780f223e8ac432f96ce2d9fdf9611a1803ea3b314ac0647499a09c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250609T033539_N0511_R061_T47NMJ_20250609T071418.json",
+      "filesize": 25432,
+      "checksum": "2069c45be5bc51406e75b98e63530d58481342b9fc67154aa6d92943c1e11746",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250609T033539_N0511_R061_T47NNJ_20250609T071418.json",
+      "filesize": 25431,
+      "checksum": "76c9d6f188c485dcd473d62b7b385fb628530b5b05ae54539d6c6497b469e5a9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250609T033539_N0511_R061_T47PMK_20250609T071418.json",
+      "filesize": 25454,
+      "checksum": "d1e6268525b84c13e4c92dd21883f999c19054b4d82b41b5ded27b04cb593641",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250609T033539_N0511_R061_T47PQQ_20250609T071418.json",
+      "filesize": 25465,
+      "checksum": "8783c7791a6a277d8be884623eed9871a5f706e2a38a64ca4e04c9dd48447842",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250609T033539_N0511_R061_T47PRQ_20250609T071418.json",
+      "filesize": 25468,
+      "checksum": "338e034ed8e249c8ad89dc5d85fe01ef204de7d9d0f83230e99da6ea2207aa2d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250616T032519_N0511_R018_T47NQH_20250616T070931.json",
+      "filesize": 25628,
+      "checksum": "9d71ccb2b3c2c6ff9dfe49064199f30e32233b19c2f3ac85f694d0cb4ca036ec",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250629T033539_N0511_R061_T47NMJ_20250629T063507.json",
+      "filesize": 25626,
+      "checksum": "8c96f1b0e94420562956fa8abe74ef3f06984afa74c9eb49c738c13b4fc36bc9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250629T033539_N0511_R061_T47NNJ_20250629T063507.json",
+      "filesize": 25620,
+      "checksum": "8ca050747a9fad5667e38be023598d80287440f440f09185fd5cdef493ff2dc2",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250629T033539_N0511_R061_T47NPH_20250629T063507.json",
+      "filesize": 25629,
+      "checksum": "338c948c0f955b204a097ce02c40b501f64812046afad433e19c91a9fba0cddb",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250629T033539_N0511_R061_T47PMK_20250629T063507.json",
+      "filesize": 25643,
+      "checksum": "12895cc533ba2678473d4e88f23b031893e34e8ba846268bb2596fe400864b17",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250629T033539_N0511_R061_T47PPK_20250629T063507.json",
+      "filesize": 25636,
+      "checksum": "7a02eed1b3c8c1b8fd647ba539aa78a5f45c2acc40e190b05a0ea530c46fa5e9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250629T033539_N0511_R061_T47PQQ_20250629T063507.json",
+      "filesize": 25651,
+      "checksum": "b5b9e4634871a6d39eb90d2562a58d48cdfe1bbc980bbbb9c518bb9035632f61",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925.json",
+      "filesize": 25648,
+      "checksum": "85249d03c2eec8f515c8e6595a22d88722b1f3bb55db4ce8936d57b109f46c5e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250924T032519_N0511_R018_T47PRP_20250924T071321.json",
+      "filesize": 25737,
+      "checksum": "e6dc7d8b939c14535a555a9d9b79d260f9e2b15325e5980a3f9416fafb6a9ef7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250924T032519_N0511_R018_T48PTU_20250924T071321.json",
+      "filesize": 25655,
+      "checksum": "d33b9f649a7f70aa618bb72e3b8182aa8201ceed9b87083eaf6a63391464c585",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20250927T033539_N0511_R061_T47NNJ_20250927T072544.json",
+      "filesize": 25621,
+      "checksum": "d8838fc4154e2eba94473a91393f55f5f7e607647f92cdd1a65ae2a906a3a9af",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20251203T033019_N0511_R018_T47NQH_20251203T070239.json",
+      "filesize": 25653,
+      "checksum": "45821191bc10ffe497e61a1b7958b199a745f2a71fc6bfd1bf494048b64f103a",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20251209T035049_N0511_R104_T47PMK_20251209T054856.json",
+      "filesize": 25662,
+      "checksum": "6821066417d4c0769bbacbb0bbff4cf53f7b0e9cbdf32188e9745ac5f11de02f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20251223T033049_N0511_R018_T47NQH_20251223T071315.json",
+      "filesize": 25653,
+      "checksum": "33886ffa8190bb730a37d221d4b55147e931592b59bd94b97545a80d789ce3b4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260303T032539_N0512_R018_T47PRP_20260303T085226.json",
+      "filesize": 25733,
+      "checksum": "ce12bab1a8ac0059bddf32431ef9989b3695f9c34345a966c641a73f343709d8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260316T033529_N0512_R061_T47NMJ_20260316T072001.json",
+      "filesize": 25616,
+      "checksum": "14e673f0c75e73853d65a97e9c619039343a58eb15b625179d1f89c67bc8ae35",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260323T032529_N0512_R018_T47PRP_20260323T071407.json",
+      "filesize": 25736,
+      "checksum": "d59c3bb3b3ef6d38bb9c77bb0d7aa4be29f01b729b7fad869c2f84c4f4c3a0a5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260329T034529_N0512_R104_T47PMK_20260329T073814.json",
+      "filesize": 25636,
+      "checksum": "5ac88e1987faf9903bffc9527394a2765cca5818aa5214dc6e2a3720b6b59464",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47NMJ_20260803T072631.json",
+      "filesize": 25620,
+      "checksum": "dfa908bab6d13cbc1898012dde421b8fdb2f1adb5829d62c2c4741e0498016d7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47NNJ_20260803T072631.json",
+      "filesize": 25617,
+      "checksum": "aac52ccee240a72c765c5050d67ce5b106de9c8cf0e61fe3a8391b3e46066f60",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47NPH_20260803T072631.json",
+      "filesize": 25632,
+      "checksum": "7ccd2e3766cd47b48a817fad084a922d5d31842e4e9ad7c489761dae9c73e2d9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PMK_20260803T072631.json",
+      "filesize": 25648,
+      "checksum": "bfa173bc923fc01fa41eb19b824c97ceef2c127a023cb29a23708ec4da0d3e42",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PNL_20260803T072631.json",
+      "filesize": 25628,
+      "checksum": "33a1ef1a8f0480d07da7b5ba725848b94601da8445a345a323f62ffa4985f66d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PNM_20260803T072631.json",
+      "filesize": 25643,
+      "checksum": "8e96e605d519b7021f2edd179dae758e3fab1d8cbac268ab1d459c5503705ca4",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PNN_20260803T072631.json",
+      "filesize": 25727,
+      "checksum": "e5d743181de8f062932e5cbbf00104da050e7f3b52f21d83747cd153eeb76a47",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PPK_20260803T072631.json",
+      "filesize": 25636,
+      "checksum": "8f47c0aa4d25fea32b8db225d8b5007b487450046df4383a8e50e85c41fd50d7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PQQ_20260803T072631.json",
+      "filesize": 25653,
+      "checksum": "78ebc8f1d2e3b8010ae9d17816f1665ebffc5df6c1872104cbde294448cb9eb1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PRP_20260803T072631.json",
+      "filesize": 25648,
+      "checksum": "34a9bc2e8413b8415d2d6d4ac8d3fe1c00d57f5970ae4625d8cfe79ea1b979de",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260803T033539_N0512_R061_T47PRQ_20260803T072631.json",
+      "filesize": 25658,
+      "checksum": "dd55f88e21f2d415214ae3ac9eaa75fc4d42b055e4910eedfeedbbe213b7ee58",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260806T034529_N0512_R104_T47PMK_20260806T073405.json",
+      "filesize": 25642,
+      "checksum": "5285ad6d33d74513c99c14c9a31abeb12780b0eb7b400ac7f0e8c43faf553ec9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260813T033529_N0512_R061_T47NNJ_20260813T072506.json",
+      "filesize": 25620,
+      "checksum": "cd34adea12c93dc3c50c9369b2dbb8a7b0406c10b1885a406061dec23987c2b9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260813T033529_N0512_R061_T47PNL_20260813T072506.json",
+      "filesize": 25636,
+      "checksum": "3cbfd3cb028fda1fbc18d99add5858a506f731cfbbcbad279fc1faf1a7478d27",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260813T033529_N0512_R061_T47PNM_20260813T072506.json",
+      "filesize": 25648,
+      "checksum": "a021f4a3e4f02881b2f98de6f3ecef56042b49ef7199926443ec1c78b538940e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260813T033529_N0512_R061_T47PNN_20260813T072506.json",
+      "filesize": 25731,
+      "checksum": "a791bbc0482961f7fb3924abd9a2fa6aac2c159b82918e18e4023402ae666052",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260813T033529_N0512_R061_T47PPK_20260813T072506.json",
+      "filesize": 25631,
+      "checksum": "a771828269cd952b292a81575a76322b7691a8d9857d92d675630e47cb833757",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260813T033529_N0512_R061_T47PQQ_20260813T072506.json",
+      "filesize": 25651,
+      "checksum": "654ce4b7fb56db0764150415d699396d0b71b69a8dcbb48ab279fa5db614825f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260816T034529_N0512_R104_T47PML_20260816T073343.json",
+      "filesize": 25641,
+      "checksum": "50a0721604aa19ba4be887b87df458b13367bc805dadaf78bb8c1c8c8f940126",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260823T033529_N0512_R061_T47NPH_20260823T072632.json",
+      "filesize": 25631,
+      "checksum": "0e239273ba2aa03073c9c77677add10758cc596eb09d56c55c3140bd3f8c86ee",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260823T033529_N0512_R061_T47PNP_20260823T072632.json",
+      "filesize": 25650,
+      "checksum": "b53a306dd3d4b7a4a6ce7ecbd86ab0a2cd76d56e1ae797ec6ec2bcc0d60be8ae",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260826T034529_N0512_R104_T47NMJ_20260826T073432.json",
+      "filesize": 25613,
+      "checksum": "9a4a6eb1c41b6f22ca3001ed5f38140e430903a2ab65233d1ecb0c1c7b98a988",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260826T034529_N0512_R104_T47PMK_20260826T073432.json",
+      "filesize": 25642,
+      "checksum": "f35f4026094c875b73f19eeb0bc3fb6386a7cecf9e0a78bb62d84b9ed8dcd7b5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2B_MSIL2A_20260830T032529_N0512_R018_T47NQH_20260830T071403.json",
+      "filesize": 25626,
+      "checksum": "12d4e5f637c268579d86e1854a2e9c68cf37bdbe85818b12a80c5ade46a1f355",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20241219T035612_N0511_R104_T47PMK_20260406T065007.json",
+      "filesize": 25669,
+      "checksum": "f6afa68cf63c496d3822439dd06f775dc2c0b27ceb6952be902d6065f7e37200",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250306T033641_N0511_R061_T47PQQ_20250306T085914.json",
+      "filesize": 25461,
+      "checksum": "e48a18a150f125fd248066bada7ca9fe5456d69a4318b79974699957b247dbdb",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250306T033641_N0511_R061_T47PRQ_20250306T085914.json",
+      "filesize": 25454,
+      "checksum": "c37d2581d945fde37d39728108d87604742d5fdfd3bb74d9056f81fec0686f4f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250316T033601_N0511_R061_T47PNK_20250316T090315.json",
+      "filesize": 25441,
+      "checksum": "0993140f3605d8da3d047bdc1915cf4f24cd559019ff8f9529b7203afd236054",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250316T033601_N0511_R061_T47PPK_20250316T090315.json",
+      "filesize": 25445,
+      "checksum": "fbf02fa6a0871350311f5ff4fd1c2aa890e807e0b3b1e2732119840f12b5bb4d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250326T033601_N0511_R061_T47PQQ_20250326T085914.json",
+      "filesize": 25466,
+      "checksum": "c11d269ee524112aa75f053aa525bf2d493911ba67556dc3ee19d0b4946a6c93",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250329T034601_N0511_R104_T47PMK_20250329T101612.json",
+      "filesize": 25452,
+      "checksum": "8d0193e3136d311e584c5d66c97c5cefca1fa997e691c7e877c0714166e559e8",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250601T032601_N0511_R018_T47NQH_20250601T081256.json",
+      "filesize": 25436,
+      "checksum": "d1df62202190a2d1ade0418facc9ba4b2ddafeae9d00cdd7422099a366dd45c1",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250601T032601_N0511_R018_T47PRP_20250601T074819.json",
+      "filesize": 25543,
+      "checksum": "109014e3cc54fd2ee63986c1c74ff800723a642d9b2b44e9babadc223d0eab30",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250601T032601_N0511_R018_T48PTU_20250601T074819.json",
+      "filesize": 25460,
+      "checksum": "d30054999e55c1778ca692edb38d350b01bbdd64bcc7872c20fcabe82b849cc6",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250604T033601_N0511_R061_T47NPH_20250604T084721.json",
+      "filesize": 25442,
+      "checksum": "b79c8d6ff8d9be09c736f8636d0c46ff055e4bed002a43e0140d4b75a085801d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250604T033601_N0511_R061_T47PNN_20250604T084721.json",
+      "filesize": 25538,
+      "checksum": "b6cde7134812b4dc83247b00cc98ce19e90e5f80649acf1184f4e03f4004dfa5",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250604T033601_N0511_R061_T47PNP_20250604T084721.json",
+      "filesize": 25461,
+      "checksum": "48117aa1fbffffa5bce1463dde10e36a0fe16ae6bb7c3c3cdb6520d768a22154",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250614T033551_N0511_R061_T47PMK_20250614T090546.json",
+      "filesize": 25645,
+      "checksum": "f9ae61b7d40907ae3f5483dbf5bb17e38a3e6f608d94bd7958b89880bec558c9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250617T034551_N0511_R104_T47NMJ_20250617T084215.json",
+      "filesize": 25618,
+      "checksum": "16cd35ce979ec0e863a41bdb1ec5c26d291a2781ea132110b0ee65babc1e41ee",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250617T034551_N0511_R104_T47PMK_20250617T084215.json",
+      "filesize": 25647,
+      "checksum": "914b21bfc30169199a1fb80c2de280c6b45e80b0388d09748aa07ff491d67b12",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250624T033551_N0511_R061_T47NPH_20250624T083123.json",
+      "filesize": 25630,
+      "checksum": "e2092e34ae13cba2078e58ad82ae0fa2016b4721804615980805129025469026",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250624T033551_N0511_R061_T47PPK_20250624T083123.json",
+      "filesize": 25634,
+      "checksum": "6756866f22f009861fae5e6064bfbe6f376ce8c6608e0d3e550cdd293c3eeb82",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250902T033551_N0511_R061_T47NNJ_20250902T085021.json",
+      "filesize": 25613,
+      "checksum": "d0e22b666e75ecd89bd180c7fdd71e228df86feb761c81854432b7ec95ae3655",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250912T033551_N0511_R061_T47NPH_20250912T090014.json",
+      "filesize": 25632,
+      "checksum": "e6471de065bb347c97a1e5d878a07f33338e7242f90d2b11145decb099e8502f",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250912T033551_N0511_R061_T47PNQ_20250912T090014.json",
+      "filesize": 25653,
+      "checksum": "64773f0133196082b33a7653afda67e154deed3f93056955300f2f431d35d9c9",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250915T034551_N0511_R104_T47PMK_20250915T102519.json",
+      "filesize": 25639,
+      "checksum": "7c8359f6b03099df2af049bd85158df76e1fad94bdd0836c3fedbf5125513c3b",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20250922T033551_N0511_R061_T47PNM_20250922T091415.json",
+      "filesize": 25645,
+      "checksum": "c9ad6adeed519e977ad7e6bdb181f417ef840746dafa711f2a67e5fbf6007e61",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260301T033701_N0512_R061_T47NMJ_20260301T091613.json",
+      "filesize": 25614,
+      "checksum": "2fd2ee886a71ad0060f09bdb4ce46a7a8f890c4130f09bed4eb0146af88761c3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260311T033551_N0512_R061_T47PQQ_20260311T091010.json",
+      "filesize": 25654,
+      "checksum": "7a63ea40b9012208a1fd012e0091a838f6aac9b75c71ebf95da71a54bc3a6ccb",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260321T033541_N0512_R061_T47PMK_20260321T090910.json",
+      "filesize": 25637,
+      "checksum": "e4e1abad2aa06f34660dd2c87f8a58b96c047811364c1cf652f1d5540917237e",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260328T032541_N0512_R018_T47PRP_20260328T083810.json",
+      "filesize": 25735,
+      "checksum": "c33f95b3d1a111bd42e6ec09ad64dfbc3a8cb9dd843774c2cd5b620ab6ba0c28",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260801T034531_N0512_R104_T47PMK_20260801T082610.json",
+      "filesize": 25645,
+      "checksum": "c09e40f8a158277779635001aec31698888ce4b2b76e07c7b6b83de7b7bdefc3",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260811T034531_N0512_R104_T47NMJ_20260811T084712.json",
+      "filesize": 25618,
+      "checksum": "ca519bd16130f6ac2a989a2a1a683bbdefbc860e6094b9f4e46308fe46dd98ca",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260811T034531_N0512_R104_T47PMK_20260811T084712.json",
+      "filesize": 25646,
+      "checksum": "90415eb63c9b11c21ceedec2be669adfb3c4d3b1402daa53ff1587536e67d924",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260811T034531_N0512_R104_T47PML_20260811T084712.json",
+      "filesize": 25644,
+      "checksum": "eb47610c8f92193f4d4618d73199fce31127fe9aad714ddf4b3d2f3e74ea750c",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260818T033531_N0512_R061_T47PRP_20260818T084111.json",
+      "filesize": 25647,
+      "checksum": "f45210e386aa871aafa94a0a05d85fe5ec4ce19a9dd9d4aded3e4a288493de54",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260828T033531_N0512_R061_T47NMJ_20260828T083911.json",
+      "filesize": 25622,
+      "checksum": "8d08267d534246c186a4b6ca69f8467aa4ad2a405be68d3b52c8bcf5260587fa",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260828T033531_N0512_R061_T47NNJ_20260828T083911.json",
+      "filesize": 25622,
+      "checksum": "e0a0a37e342c0ebdd0a0bee5e1e3235bbd4fbf9f6bae8c53860cf969f9e74b5d",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260828T033531_N0512_R061_T47PMK_20260828T083911.json",
+      "filesize": 25642,
+      "checksum": "7b42e1fa8b603726ba8bfd2caf259fd96920717bdbc414f58e95f92cb85837b7",
+      "integrity_status": "HASHED"
+    },
+    {
+      "source_id": "source-items/earth-search/S2C_MSIL2A_20260831T034531_N0512_R104_T47PMM_20260831T084412.json",
+      "filesize": 25727,
+      "checksum": "a5f612502d4666d1fe788a0d05538daaf12e42cea859cc3239c0a1e4f38b7a5e",
+      "integrity_status": "HASHED"
+    }
+  ],
+  "download_manifest_records": 2833,
+  "request_result_records": 761,
+  "inventory_basis": "actual decoded files; delivery manifests are incomplete and are not authoritative"
+}

@@ -1,0 +1,25 @@
+{
+  "products": 233,
+  "spectral_assets": 2330,
+  "radiometry_combinations": [
+    {
+      "scale": 0.0001,
+      "offset": -0.1,
+      "nodata": 0,
+      "assets": 2330
+    }
+  ],
+  "platform_counts": {
+    "sentinel-2a": 75,
+    "sentinel-2b": 122,
+    "sentinel-2c": 36
+  },
+  "baseline_counts": {
+    "05.09": 26,
+    "05.10": 69,
+    "05.11": 90,
+    "05.12": 48
+  },
+  "errors": [],
+  "formula": "DN*scale+offset after masking STAC nodata 0; categorical SCL1/0"
+}

@@ -70,3 +70,22 @@ Metadata-valid native reflectance does **not** establish comparability with the 
 QA refresh publishes only newly accepted keys. The canonical QA builder also keeps water references within the same radiometric family, so adding native observations cannot change legacy water medians. CI recomputes QA deterministically and verifies all original records and assets across sequential ingest batches. Reports from earlier ingests remain historical evidence; the latest batch alone supplies current totals.
 
 The 2026-10-05 delivery has 2,859 prepared TIFFs, 212 complete and 64 partial scenes, plus three readable repair TIFFs whose targets already have usable observations. It filled **32** missing slots across 29 plots, adding 64 images and preserving all 2,230 prior usable observations. The dataset now has **2,262 observed and 258 missing** registry slots. Ten new full-coverage slots retain radiometry review; 22 new slots remain coverage-insufficient. Detailed evidence is in `audit-artifacts/local-satellite-ingest-20261005/`.
+
+## Completed second delivery audit, 2026-10-06
+
+Run a new delivery with a separate index and report directory. The second reviewed exporter differs only in the `DELIVERY_ROOT` literal; the native encoder, grid and nodata handling are unchanged. The importer recognizes both exact reviewed script fingerprints and still rejects unknown encoders.
+
+```sh
+python tools/ingest_antigravity_satellite.py --source-dir /path/to/inputs-next-2 \
+  --index .local/next2-source-index-20261006.sqlite \
+  --report-dir .local/next2-dry-audit
+python tools/ingest_antigravity_satellite.py --source-dir /path/to/inputs-next-2 \
+  --index .local/next2-source-index-20261006.sqlite --reuse-index --apply \
+  --report-dir audit-artifacts/local-satellite-ingest-20261006
+```
+
+This delivery contains 6,685 files, including 6,207 prepared TIFFs and one held repair. Its 615 source scene representations include 474 complete and 141 partial scenes across 154 plots and 351 plot-months. **All 351 slots already have usable observations; none supplies a missing slot.** Applying and repeating the ingestion both accept zero observations. All 5,001 application data files, including all 2,262 usable observations, 4,524 RGB/NDVI images and 2,520 QA records, remain unchanged.
+
+The 761-entry request log contains historical claims. All 258 remaining slots have search timestamps dated 2026-10-04: 223 report no qualifying clear scene, while 35 refer to files in the previous delivery. Reprocessing those previous exact-month candidates reproduces 17 LOW_COVERAGE, eight NO_CLEAR_SCENE and ten NO_COMPLETE_SOURCE results. A completed downloader run therefore does not establish that the dataset's missing slots have usable scientific files.
+
+The actual inventory remains authoritative. All 6,207 prepared TIFFs match listed checksums; the unlisted repair is independently decoded and hashed. The checksum file also contains 2,675 stale paths, and the download manifest omits 3,374 actual prepared files. Independent mapping, footprint, radiometry, duplicate and unchanged-source checks agree with the importer. The portable latest report and `remaining_candidates.json` in `audit-artifacts/local-satellite-ingest-20261006/` distinguish current physical sources from historical search claims. The three-batch CI audit verifies the full preservation chain without downloading raw satellite files.

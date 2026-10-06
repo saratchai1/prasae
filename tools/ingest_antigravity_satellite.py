@@ -30,6 +30,11 @@ VERSION = 'earth-search-c1-local-v4-20261005'
 # This reviewed downloader exports unscaled uint16 native DN. A changed export
 # implementation needs a fresh encoding audit rather than inheriting this gate.
 NATIVE_EXPORT_SCRIPT_SHA256 = 'c1391c1a29013f28061cb47e29edd2e1acf8c0e85e307841adfd78ccdb9696e2'
+# The second delivery changes only DELIVERY_ROOT; its encoding is byte-identical.
+REVIEWED_NATIVE_EXPORT_SHA256 = frozenset((
+    NATIVE_EXPORT_SCRIPT_SHA256,
+    '967d2ed3185b7d8ada415fbc9ea0255089f082db423e80e8036e6e8d3a20a7db',
+))
 ASSET_KEYS = dict(zip(local.BANDS, ('blue', 'green', 'red', 'rededge1', 'rededge2',
                                   'rededge3', 'nir', 'nir08', 'swir16', 'swir22', 'scl')))
 
@@ -223,7 +228,7 @@ def main():
     parser.add_argument('--apply', action='store_true')
     args = parser.parse_args()
     root = args.source_dir.resolve()
-    require(local.file_hash(root / 'scripts/sentinel_pipeline.py') == NATIVE_EXPORT_SCRIPT_SHA256,
+    require(local.file_hash(root / 'scripts/sentinel_pipeline.py') in REVIEWED_NATIVE_EXPORT_SHA256,
             'export script differs from reviewed native DN encoder; a new encoding audit is required')
     catalog = {int(p['id']): p for p in local.read_json(R / 'data/plots_catalog.json')}
     series = {int(p['id']): p for p in local.read_json(R / 'data/timeseries_verified_12.json')}

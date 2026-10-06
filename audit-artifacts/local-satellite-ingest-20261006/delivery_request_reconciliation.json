@@ -1,0 +1,100 @@
+{
+  "request_records": 761,
+  "request_status_counts": {
+    "NO_CLEAR_SCENE_AFTER_EXHAUSTIVE_SEARCH": 223,
+    "REQUIRES_RADIOMETRIC_ADAPTER": 518,
+    "NO_SOURCE_IN_CATALOG": 15,
+    "NO_NEW_CANDIDATE": 5
+  },
+  "request_priority_counts": {
+    "1": 290,
+    "2": 422,
+    "3": 49
+  },
+  "request_scene_claims": 873,
+  "request_ids_unique": 761,
+  "all_physical_prepared_registry_mapping_matches_request_and_catalog": true,
+  "mapping_errors": [],
+  "physical_footprint_min_registry_area_coverage": 0.9999999999999989,
+  "physical_footprint_below999permille": 0,
+  "download_manifest_records": 2833,
+  "manifest_actual_matching_paths": 2833,
+  "manifest_unique_actual_paths": 2833,
+  "manifest_absent_paths": 0,
+  "manifest_unique_absent_paths": 0,
+  "manifest_actual_hash_conflicts": [],
+  "manifest_request_mapping_conflicts": [],
+  "actual_prepared_files_unlisted_in_download_manifest": 3374,
+  "search_records": 761,
+  "search_timestamp_dates": {
+    "2026-10-04": 350,
+    "2026-10-05": 200,
+    "2026-10-06": 211
+  },
+  "remaining258_requested": 258,
+  "remaining_delivery_status_counts": {
+    "NO_CLEAR_SCENE_AFTER_EXHAUSTIVE_SEARCH": 223,
+    "REQUIRES_RADIOMETRIC_ADAPTER": 35
+  },
+  "remaining_search_timestamp_dates": {
+    "2026-10-04": 258
+  },
+  "remaining_candidates_total": 2285,
+  "remaining_candidate_evaluation_counts": {
+    "EVALUATED": 2285
+  },
+  "remaining_rejection_counts": {
+    "CLEAR_PCT_0.0_BELOW_MIN_5": 2199,
+    "CLEAR_PCT_0.1_BELOW_MIN_5": 3,
+    "QUALIFYING_OR_UNSPECIFIED": 50,
+    "CLEAR_PCT_0.8_BELOW_MIN_5": 2,
+    "CLEAR_PCT_1.3_BELOW_MIN_5": 1,
+    "CLEAR_PCT_4.8_BELOW_MIN_5": 1,
+    "CLEAR_PCT_1.6_BELOW_MIN_5": 2,
+    "CLEAR_PCT_0.4_BELOW_MIN_5": 2,
+    "CLEAR_PCT_1.2_BELOW_MIN_5": 3,
+    "CLEAR_PCT_4.7_BELOW_MIN_5": 1,
+    "CLEAR_PCT_4.9_BELOW_MIN_5": 1,
+    "CLEAR_PCT_3.8_BELOW_MIN_5": 3,
+    "CLEAR_PCT_0.6_BELOW_MIN_5": 2,
+    "CLEAR_PCT_2.0_BELOW_MIN_5": 2,
+    "CLEAR_PCT_1.1_BELOW_MIN_5": 1,
+    "CLEAR_PCT_4.1_BELOW_MIN_5": 1,
+    "CLEAR_PCT_1.5_BELOW_MIN_5": 2,
+    "CLEAR_PCT_0.3_BELOW_MIN_5": 1,
+    "CLEAR_PCT_3.9_BELOW_MIN_5": 1,
+    "CLEAR_PCT_3.7_BELOW_MIN_5": 1,
+    "CLEAR_PCT_0.5_BELOW_MIN_5": 1,
+    "CLEAR_PCT_2.3_BELOW_MIN_5": 1,
+    "CLEAR_PCT_3.2_BELOW_MIN_5": 1,
+    "CLEAR_PCT_2.6_BELOW_MIN_5": 1,
+    "CLEAR_PCT_3.5_BELOW_MIN_5": 2
+  },
+  "remaining_candidate_known_counts": {
+    "known": 258,
+    "new": 2027
+  },
+  "remaining_clear_candidate_min": 0.0,
+  "remaining_clear_candidate_max": 100.0,
+  "remaining_downloaded_scene_claims": 49,
+  "remaining_download_band_status_counts": {
+    "EXISTING_VALID": 29,
+    "DOWNLOADED_VALID": 438,
+    "DOWNLOAD_ERROR": 72
+  },
+  "remaining_old_delivery_band_claims_present": 467,
+  "remaining_new_delivery_band_claims_present": 0,
+  "remaining_missing_band_claims": 72,
+  "remaining_claimed_no_clear_but_ge5_not_selected": 0,
+  "remaining_no_clear_max_clear_hist": {
+    "zero": 197,
+    "under5": 26
+  },
+  "remaining_requests_with_errors": 0,
+  "remaining_candidate_errors": [],
+  "remaining_stale_adapter_claims_canonical_previous_counts": {
+    "LOW_COVERAGE": 17,
+    "NO_COMPLETE_SOURCE": 10,
+    "NO_CLEAR_SCENE": 8
+  }
+}
