@@ -1,0 +1,58 @@
+{
+  "requests": 258,
+  "downloaded_requests": 52,
+  "downloader_statuses": {
+    "NO_CLEAR_SCENE_AFTER_EXHAUSTIVE_SEARCH": 206,
+    "REQUIRES_RADIOMETRIC_ADAPTER": 52
+  },
+  "canonical_errors": {
+    "'valid_pct'": 52
+  },
+  "canonical_recorded_coverage": {
+    "0.0": 206,
+    "None": 52
+  },
+  "full_native_plots": {
+    "3": [
+      "2024-09"
+    ],
+    "14": [
+      "2025-06"
+    ],
+    "48": [
+      "2026-08"
+    ],
+    "54": [
+      "2025-06"
+    ],
+    "99": [
+      "2023-09"
+    ],
+    "171": [
+      "2023-12"
+    ],
+    "173": [
+      "2023-12"
+    ],
+    "180": [
+      "2026-08"
+    ],
+    "189": [
+      "2025-09"
+    ],
+    "210": [
+      "2024-12"
+    ]
+  },
+  "potential_same_family_plot_overlaps": {
+    "189": {
+      "existing_full_months": [
+        "2025-09"
+      ],
+      "new_request": [
+        "2026-08",
+        1
+      ]
+    }
+  }
+}

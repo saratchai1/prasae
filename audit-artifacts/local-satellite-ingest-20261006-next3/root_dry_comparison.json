@@ -1,0 +1,323 @@
+{
+  "result": "PASS",
+  "independent_local_scope_slots_checked": 52,
+  "downloader_claim_zero_rejected": true,
+  "downloaded_targets_with_bad_field_error": 52,
+  "native_metadata_identity_and_formula": "PASS",
+  "canonical_threshold_unchanged": "PASS",
+  "matched_root_dry_audit": true,
+  "records": [
+    {
+      "plot_id": 9,
+      "month": "2025-09",
+      "coverage_pct": 4.14,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 12,
+      "month": "2025-09",
+      "coverage_pct": 4.0,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 12,
+      "month": "2026-08",
+      "coverage_pct": 2.5,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 13,
+      "month": "2023-09",
+      "coverage_pct": 1.9,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 23,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 25,
+      "month": "2024-03",
+      "coverage_pct": 100.0,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 29,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 39,
+      "month": "2025-09",
+      "coverage_pct": 2.77,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 44,
+      "month": "2024-09",
+      "coverage_pct": 2.19,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 49,
+      "month": "2023-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 50,
+      "month": "2024-06",
+      "coverage_pct": 2.0,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 52,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 55,
+      "month": "2025-09",
+      "coverage_pct": 4.38,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 59,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 62,
+      "month": "2025-09",
+      "coverage_pct": 1.73,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 63,
+      "month": "2024-09",
+      "coverage_pct": 20.78,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 64,
+      "month": "2024-09",
+      "coverage_pct": 1.73,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 64,
+      "month": "2025-06",
+      "coverage_pct": 2.77,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 65,
+      "month": "2024-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 68,
+      "month": "2025-09",
+      "coverage_pct": 2.15,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 70,
+      "month": "2023-09",
+      "coverage_pct": 3.05,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 71,
+      "month": "2024-09",
+      "coverage_pct": 3.86,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 75,
+      "month": "2026-08",
+      "coverage_pct": 3.89,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 76,
+      "month": "2024-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 76,
+      "month": "2025-06",
+      "coverage_pct": 48.4,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 79,
+      "month": "2025-06",
+      "coverage_pct": 1.8,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "coverage_pct": 4.07,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 87,
+      "month": "2025-09",
+      "coverage_pct": 20.05,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 89,
+      "month": "2024-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 89,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 90,
+      "month": "2024-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 97,
+      "month": "2024-12",
+      "coverage_pct": null,
+      "matched_result": "NO_COMPLETE_SOURCE"
+    },
+    {
+      "plot_id": 97,
+      "month": "2025-09",
+      "coverage_pct": 3.12,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 101,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 124,
+      "month": "2024-12",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "coverage_pct": 4.07,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-06",
+      "coverage_pct": 84.5,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "coverage_pct": 2.31,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 142,
+      "month": "2023-09",
+      "coverage_pct": 100.0,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 151,
+      "month": "2026-08",
+      "coverage_pct": 65.6,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 153,
+      "month": "2024-09",
+      "coverage_pct": 59.28,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 157,
+      "month": "2026-08",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 174,
+      "month": "2025-12",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 184,
+      "month": "2023-12",
+      "coverage_pct": 3.23,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 186,
+      "month": "2024-09",
+      "coverage_pct": 100.0,
+      "matched_result": "USABLE_DRY_RUN"
+    },
+    {
+      "plot_id": 189,
+      "month": "2026-08",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 191,
+      "month": "2025-06",
+      "coverage_pct": 2.78,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 203,
+      "month": "2025-09",
+      "coverage_pct": 3.03,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 204,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    },
+    {
+      "plot_id": 205,
+      "month": "2024-12",
+      "coverage_pct": 1.58,
+      "matched_result": "LOW_COVERAGE"
+    },
+    {
+      "plot_id": 208,
+      "month": "2025-09",
+      "coverage_pct": 0.0,
+      "matched_result": "NO_CLEAR_SCENE"
+    }
+  ]
+}

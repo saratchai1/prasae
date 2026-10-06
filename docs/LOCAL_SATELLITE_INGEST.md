@@ -89,3 +89,26 @@ This delivery contains 6,685 files, including 6,207 prepared TIFFs and one held 
 The 761-entry request log contains historical claims. All 258 remaining slots have search timestamps dated 2026-10-04: 223 report no qualifying clear scene, while 35 refer to files in the previous delivery. Reprocessing those previous exact-month candidates reproduces 17 LOW_COVERAGE, eight NO_CLEAR_SCENE and ten NO_COMPLETE_SOURCE results. A completed downloader run therefore does not establish that the dataset's missing slots have usable scientific files.
 
 The actual inventory remains authoritative. All 6,207 prepared TIFFs match listed checksums; the unlisted repair is independently decoded and hashed. The checksum file also contains 2,675 stale paths, and the download manifest omits 3,374 actual prepared files. Independent mapping, footprint, radiometry, duplicate and unchanged-source checks agree with the importer. The portable latest report and `remaining_candidates.json` in `audit-artifacts/local-satellite-ingest-20261006/` distinguish current physical sources from historical search claims. The three-batch CI audit verifies the full preservation chain without downloading raw satellite files.
+
+## Completed third delivery ingestion, 2026-10-06
+
+The third delivery adds **nine missing plot-months across nine plots**, with nine RGB and nine NDVI images. Current totals are **2,271 usable imagery observations / 249 missing / 4,542 RGB-NDVI assets**. All 2,262 previously usable observations and 4,524 images remain unchanged. Six new observations stay coverage-insufficient; three at 100% coverage stay `RADIOMETRY_REVIEW`. There is no newly verified cross-batch change metric.
+
+This delivery has 931 physical files, including 810 decoded TIFFs, 70 complete and four partial scene representations across 45 plots and 52 source slots. Fifteen prior partial scenes were repaired with 55 missing bands; all 110 retained bands match their previous bytes and all 165 repair grids match the packet. The saved metadata verifies 57 exact products and 570 spectral asset transforms, with the same native DN encoding and scale/offset/nodata rules.
+
+When the reviewed exporter is outside the delivery, pass `--export-script`. The new reviewed script changes acquisition/state/repair operations, while its `download_band` AST matches the previous encoder. Its portable ID/hash is stored separately as auxiliary supporting evidence: 931 physical delivery files plus one external exporter form 932 source evidence records. The exporter must still match the reviewed allowlist and remain unchanged before apply. Unknown encoders are rejected.
+
+```sh
+python tools/ingest_antigravity_satellite.py --source-dir /path/to/inputs-next-3 \
+  --index .local/next3-source-index-20261006.sqlite \
+  --export-script /path/to/reviewed/run_pipeline.py \
+  --report-dir .local/next3-dry-audit
+python tools/ingest_antigravity_satellite.py --source-dir /path/to/inputs-next-3 \
+  --index .local/next3-source-index-20261006.sqlite --reuse-index --apply \
+  --export-script /path/to/reviewed/run_pipeline.py \
+  --report-dir audit-artifacts/local-satellite-ingest-20261006-next3
+```
+
+The downloader's zero-usable claim was wrong: all 52 downloaded requests failed while reading nonexistent `valid_pct` instead of canonical `clear_pixel_pct`. Its coverage script also reads unscaled native DN without explicit nodata masking, uses a different grid, and replaces the calibrated threshold with 0.1. Fixing that field alone would not make its metrics canonical. Independent local recomputation with the existing v4 rules agrees on all available slots: nine accepted, 24 low coverage, 18 no clear scene and 207 without a complete local source. Of those 207, one has a partial scene; the other 206 have only downloader search claims, which are not independently verified exhaustive searches.
+
+The new report directory preserves the earlier audits. Four-batch provenance validation checks 39,786 evidence records and 42 total accepted slots against the original 2,229 baseline. Local checks pass 56 Python regressions, 43 Node tests, 16 browser checks covering imagery for every accepted slot, and deterministic QA regeneration. Reapplying adds zero observations and leaves all 9,192 files under `data/` byte-identical, including optional PDD assets. Detailed results and the 249 remaining candidates are in `audit-artifacts/local-satellite-ingest-20261006-next3/`.

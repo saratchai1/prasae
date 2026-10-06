@@ -3145,10 +3145,19 @@
       "other_good_month_water_median_pct": null
     },
     "25|2024-03": {
-      "status": "INSUFFICIENT",
-      "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "status": "RADIOMETRY_REVIEW",
+      "base_qa": "GOOD",
+      "coverage_pct": 100.0,
+      "reason": "ภาพครบ แต่ยังไม่ยืนยันความสอดคล้องของค่าสะท้อนแสงระหว่างชุดข้อมูล จึงยังไม่สรุปการเปลี่ยนแปลง",
+      "valid_pixels": 747,
+      "cloud_like_pct": 0.0,
+      "haze_like_pct": 0.0,
+      "bright_pct": 0.0,
+      "open_water_pct": 0.0,
+      "catalog_cloud_cover_max_pct": 57.141507,
+      "other_good_month_water_median_pct": null,
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING",
+      "visual_screening_status": "CLEAR"
     },
     "25|2024-06": {
       "status": "CLEAR",
@@ -8067,8 +8076,9 @@
     "63|2024-09": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 1.75,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "coverage_pct": 20.78,
+      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง",
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING"
     },
     "63|2024-12": {
       "status": "CLEAR",
@@ -9722,8 +9732,9 @@
     "76|2025-06": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 2.39,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "coverage_pct": 48.4,
+      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง",
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING"
     },
     "76|2025-09": {
       "status": "INSUFFICIENT",
@@ -11124,8 +11135,9 @@
     "87|2025-09": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "coverage_pct": 20.05,
+      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง",
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING"
     },
     "87|2025-12": {
       "status": "CLEAR",
@@ -17160,8 +17172,9 @@
     "131|2025-06": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "coverage_pct": 84.5,
+      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง",
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING"
     },
     "131|2025-09": {
       "status": "INSUFFICIENT",
@@ -18553,10 +18566,19 @@
       "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
     },
     "142|2023-09": {
-      "status": "INSUFFICIENT",
-      "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "status": "RADIOMETRY_REVIEW",
+      "base_qa": "GOOD",
+      "coverage_pct": 100.0,
+      "reason": "ภาพครบ แต่ยังไม่ยืนยันความสอดคล้องของค่าสะท้อนแสงระหว่างชุดข้อมูล จึงยังไม่สรุปการเปลี่ยนแปลง",
+      "valid_pixels": 78,
+      "cloud_like_pct": 0.0,
+      "haze_like_pct": 0.0,
+      "bright_pct": 0.0,
+      "open_water_pct": 0.0,
+      "catalog_cloud_cover_max_pct": 86.013603,
+      "other_good_month_water_median_pct": null,
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING",
+      "visual_screening_status": "CLEAR"
     },
     "142|2023-12": {
       "status": "CLEAR",
@@ -19871,8 +19893,9 @@
     "151|2026-08": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "coverage_pct": 65.6,
+      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง",
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING"
     },
     "152|2023-09": {
       "status": "INSUFFICIENT",
@@ -20050,8 +20073,9 @@
     "153|2024-09": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 3.59,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "coverage_pct": 59.28,
+      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง",
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING"
     },
     "153|2024-12": {
       "status": "CLEAR",
@@ -24625,10 +24649,19 @@
       "other_good_month_water_median_pct": null
     },
     "186|2024-09": {
-      "status": "INSUFFICIENT",
-      "base_qa": "INSUFFICIENT",
-      "coverage_pct": 0,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "status": "RADIOMETRY_REVIEW",
+      "base_qa": "GOOD",
+      "coverage_pct": 100.0,
+      "reason": "ภาพครบ แต่ยังไม่ยืนยันความสอดคล้องของค่าสะท้อนแสงระหว่างชุดข้อมูล จึงยังไม่สรุปการเปลี่ยนแปลง",
+      "valid_pixels": 32,
+      "cloud_like_pct": 0.0,
+      "haze_like_pct": 0.0,
+      "bright_pct": 0.0,
+      "open_water_pct": 0.0,
+      "catalog_cloud_cover_max_pct": 95.893455,
+      "other_good_month_water_median_pct": null,
+      "radiometry_status": "NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING",
+      "visual_screening_status": "CLEAR"
     },
     "186|2024-12": {
       "status": "CLEAR",
@@ -27902,8 +27935,8 @@
   "summary": {
     "ATMOSPHERE_REVIEW": 29,
     "CLEAR": 1759,
-    "INSUFFICIENT": 702,
-    "RADIOMETRY_REVIEW": 10,
+    "INSUFFICIENT": 699,
+    "RADIOMETRY_REVIEW": 13,
     "TIDE_WATER_REVIEW": 4,
     "VISUAL_REVIEW": 16
   }

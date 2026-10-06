@@ -1,0 +1,12 @@
+[
+  {
+    "script": "run_pipeline.py",
+    "sha256": "c8fea583ba320248dcbdd8198367ef1dbb50479790b10cd92a981698d94c1873",
+    "download_band_ast_identical_to_previous": true
+  },
+  {
+    "script": "sentinel_pipeline_modified.py",
+    "sha256": "967d2ed3185b7d8ada415fbc9ea0255089f082db423e80e8036e6e8d3a20a7db",
+    "download_band_ast_identical_to_previous": true
+  }
+]

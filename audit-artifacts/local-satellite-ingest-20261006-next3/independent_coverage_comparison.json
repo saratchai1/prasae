@@ -1,0 +1,13 @@
+{
+  "matched_values": 51,
+  "mismatched_values": [],
+  "root_accepted": 0,
+  "peer_accepted": 9,
+  "root_usable_dry_run": 9,
+  "root_overall_result_counts": {
+    "LOW_COVERAGE": 24,
+    "NO_CLEAR_SCENE": 18,
+    "NO_COMPLETE_SOURCE": 207,
+    "USABLE_DRY_RUN": 9
+  }
+}

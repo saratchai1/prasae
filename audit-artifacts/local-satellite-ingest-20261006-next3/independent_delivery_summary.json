@@ -1,0 +1,36 @@
+{
+  "physical_files": 931,
+  "bytes": 79170683,
+  "scientific_tifs": 810,
+  "support_files": 121,
+  "unique_products": 57,
+  "scenes": 74,
+  "complete_scenes": 70,
+  "partial_scenes": 4,
+  "requests": 258,
+  "request_status": {
+    "NO_CLEAR_SCENE_AFTER_EXHAUSTIVE_SEARCH": 206,
+    "REQUIRES_RADIOMETRIC_ADAPTER": 52
+  },
+  "downloaded_requests": 52,
+  "downloaded_scene_representations": 74,
+  "canonical_error_counts": {
+    "NONE": 206,
+    "'valid_pct'": 52
+  },
+  "successful_canonical_measurements": 0,
+  "repair_scenes": 15,
+  "repair_bands_requested": 55,
+  "repair_complete": 15,
+  "repair_exact_saved_products": 15,
+  "repair_old_bands_byte_preserved": 110,
+  "checksum_matching": 810,
+  "checksum_unlisted": 0,
+  "checksum_mismatched": 0,
+  "manifest_all_match": true,
+  "metadata_exact_products": 57,
+  "spectral_scale_offset_counts": {
+    "(0.0001, -0.1, 0)": 570
+  },
+  "metadata_conflicting_bands": 0
+}

@@ -34,6 +34,8 @@ NATIVE_EXPORT_SCRIPT_SHA256 = 'c1391c1a29013f28061cb47e29edd2e1acf8c0e85e307841a
 REVIEWED_NATIVE_EXPORT_SHA256 = frozenset((
     NATIVE_EXPORT_SCRIPT_SHA256,
     '967d2ed3185b7d8ada415fbc9ea0255089f082db423e80e8036e6e8d3a20a7db',
+    # Next3 changes acquisition/state/repair handling; download_band is unchanged.
+    'c8fea583ba320248dcbdd8198367ef1dbb50479790b10cd92a981698d94c1873',
 ))
 ASSET_KEYS = dict(zip(local.BANDS, ('blue', 'green', 'red', 'rededge1', 'rededge2',
                                   'rededge3', 'nir', 'nir08', 'swir16', 'swir22', 'scl')))
@@ -42,6 +44,21 @@ ASSET_KEYS = dict(zip(local.BANDS, ('blue', 'green', 'red', 'rededge1', 'rededge
 def require(condition, message):
     if not condition:
         raise ValueError(message)
+
+
+def exporter_evidence(root, export_script=None):
+    path = (export_script or root / 'scripts/sentinel_pipeline.py').resolve()
+    stat = path.stat()
+    checksum = local.file_hash(path)
+    require(checksum in REVIEWED_NATIVE_EXPORT_SHA256,
+            'export script differs from reviewed native DN encoder; a new encoding audit is required')
+    external = not path.is_relative_to(root)
+    source_id = ('export-scripts/' + path.name if external else path.relative_to(root).as_posix())
+    public = {'source_id': source_id, 'filesize': stat.st_size,
+              'checksum': checksum, 'integrity_status': 'HASHED'}
+    private = {**public, 'source_path': str(path), 'archive_path': None,
+               'member_path': None, 'mtime_ns': stat.st_mtime_ns}
+    return public, private, external
 
 
 def metadata_profile(root, scene_id):
@@ -224,12 +241,13 @@ def main():
     parser.add_argument('--source-dir', type=Path, required=True)
     parser.add_argument('--index', type=Path, default=R / '.local/next-source-index-20261005.sqlite')
     parser.add_argument('--report-dir', type=Path, default=R / '.local/next-ingest-audit')
+    parser.add_argument('--export-script', type=Path,
+                        help='Reviewed exporter evidence when supplied outside the scientific delivery')
     parser.add_argument('--reuse-index', action='store_true')
     parser.add_argument('--apply', action='store_true')
     args = parser.parse_args()
     root = args.source_dir.resolve()
-    require(local.file_hash(root / 'scripts/sentinel_pipeline.py') in REVIEWED_NATIVE_EXPORT_SHA256,
-            'export script differs from reviewed native DN encoder; a new encoding audit is required')
+    export_public, export_private, export_external = exporter_evidence(root, args.export_script)
     catalog = {int(p['id']): p for p in local.read_json(R / 'data/plots_catalog.json')}
     series = {int(p['id']): p for p in local.read_json(R / 'data/timeseries_verified_12.json')}
     require(len(catalog) == len(series) == 210 and catalog.keys() == series.keys(), 'registry identities differ')
@@ -251,10 +269,16 @@ def main():
     byslot = defaultdict(list)
     for scene in scenes:
         byslot[(scene['plot_id'], scene['month'])].append(scene)
+    auxiliary = [export_public] if export_external else []
     source_rows = sorted([{'source_id': r['source_id'], 'checksum': r['checksum']}
-                          for r in records + support + held], key=lambda r: r['source_id'])
+                          for r in records + support + held + auxiliary], key=lambda r: r['source_id'])
+    require(len({r['source_id'] for r in source_rows}) == len(source_rows),
+            'duplicate source evidence identity; disambiguate exporter from delivery files')
     source_inventory = {**{k: v for k, v in inventory.items() if k != 'archives'},
-                        'local_files_scanned': len(source_rows),
+                        'local_files_scanned': len(records) + len(support) + len(held),
+                        'source_evidence_files_scanned': len(source_rows),
+                        'auxiliary_files_scanned': len(auxiliary),
+                        'auxiliary_support_files': auxiliary,
                         'local_bytes': sum(r['filesize'] for r in records + support + held),
                         'scientific_tifs': len(records) + len(held), 'prepared_scientific_tifs': len(records),
                         'repair_scientific_tifs': len(held), 'held_scientific_files': held,
@@ -286,8 +310,8 @@ def main():
                  'method': 'exact-product native DN export + independent matching per-band STAC and sidecar metadata',
                  'validated_scene_count': len(scenes), 'validated_product_count': len(profiles),
                  'interpretation': 'Native Earth Search C1 metadata requires offset after scale. Legacy DN/10000 observations remain unchanged; this does not establish cross-batch radiometric harmonization.',
-                 'profiles': list(profiles.values()), 'export_script_source_id': 'scripts/sentinel_pipeline.py',
-                 'export_script_sha256': local.file_hash(root / 'scripts/sentinel_pipeline.py')}
+                 'profiles': list(profiles.values()), 'export_script_source_id': export_public['source_id'],
+                 'export_script_sha256': export_public['checksum']}
     local.write_json(report / 'radiometric_validation.json', radiometry)
     manifest, candidates = [], []
     for pid in sorted(catalog):
@@ -314,6 +338,7 @@ def main():
     # Check all supporting metadata again before the first application write.
     for record in support_private:
         local.verify_source_unchanged(record)
+    local.verify_source_unchanged(export_private)
     initial_bytes = (R / 'data/timeseries_verified_12.json').read_bytes()
     metadata_bytes = {pid: (R / 'data/plots' / str(pid) / 'metadata.json').read_bytes() for pid in catalog}
     results, accepted, accepted_keys = [], 0, []

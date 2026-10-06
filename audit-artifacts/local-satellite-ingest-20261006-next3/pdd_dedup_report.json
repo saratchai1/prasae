@@ -1,0 +1,72 @@
+{
+  "skipped_pdd_duplicates": 0,
+  "rule": "PDD scope is distinct; no equivalence proven and no PDD pixels used",
+  "records": [
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250917T033529_N0511_R061_T47PNM_20250917T080730",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47PNM_20250912T090014",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47PNM_20250922T091415",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 124,
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241208T033039_N0511_R018_T47NQH_20241208T071110",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250606T034201_N0511_R061_T47NMJ_20250606T073218",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250606T034201_N0511_R061_T47NNJ_20250606T073218",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NMJ_20250902T085021",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NNJ_20250902T085021",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47PNN_20250912T090014",
+      "action": "KEEP_REGISTRY_SOURCE"
+    }
+  ]
+}

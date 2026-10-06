@@ -228,6 +228,25 @@ def validate_qa_preservation(batches, qa, slots):
     return preserved_count
 
 
+def validate_inventory_source_rows(inventory, summary, source_rows):
+    """Count external encoder evidence separately from physical delivery files."""
+    auxiliary = inventory.get('auxiliary_support_files', [])
+    assert len(source_rows) == inventory['scientific_tifs'] + len(inventory.get('non_scientific_files', [])) + len(auxiliary)
+    assert len({source['source_id'] for source in source_rows}) == len(source_rows), 'duplicate inventory identity'
+    source_checksums = {source['source_id']: source['checksum'] for source in source_rows}
+    for source in auxiliary:
+        relative(source['source_id'])
+        assert valid_sha(source['checksum']) and source['filesize'] > 0
+        assert source['integrity_status'] == 'HASHED', 'external encoder evidence must be hashed'
+        assert source_checksums.get(source['source_id']) == source['checksum']
+    if auxiliary:
+        physical_count = len(source_rows) - len(auxiliary)
+        assert inventory['local_files_scanned'] == summary['local_files_scanned'] == physical_count, 'external evidence is not a delivery file'
+        assert inventory['source_evidence_files_scanned'] == summary['source_evidence_files_scanned'] == len(source_rows), 'incomplete source evidence count'
+    assert sha(sorted(source_rows, key=lambda source: source['source_id'])) == inventory['source_manifest_sha256'] == summary['source_manifest_sha256']
+    return source_checksums
+
+
 def audit_batch(batch, root, byid, slots):
     report = batch['path']
     summary = batch['final_summary']
@@ -297,10 +316,9 @@ def audit_batch(batch, root, byid, slots):
         assert source['integrity_status'] == 'VALID'
         assert source['action'] == 'EXISTING_REGISTRY_OBSERVATION'
         source_rows.append({'source_id': source['source_id'], 'checksum': source['checksum']})
-    assert len(source_rows) == inventory['scientific_tifs'] + len(inventory.get('non_scientific_files', []))
-    assert len({source['source_id'] for source in source_rows}) == len(source_rows), 'duplicate inventory identity'
-    assert sha(sorted(source_rows, key=lambda source: source['source_id'])) == inventory['source_manifest_sha256'] == summary['source_manifest_sha256']
-    source_checksums = {source['source_id']: source['checksum'] for source in source_rows}
+    source_rows.extend({'source_id': source['source_id'], 'checksum': source['checksum']}
+                       for source in inventory.get('auxiliary_support_files', []))
+    source_checksums = validate_inventory_source_rows(inventory, summary, source_rows)
     if metadata_backed:
         validate_metadata_profiles(radiometry, scenes, source_checksums)
     # Every historical baseline remains byte-identical in the current app.

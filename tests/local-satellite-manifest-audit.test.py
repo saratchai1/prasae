@@ -101,6 +101,71 @@ class MetadataRadiometryTests(unittest.TestCase):
             audit.validate_metadata_radiometry('B04', self.proof, self.checksums)
 
 
+class AuxiliarySourceEvidenceTests(unittest.TestCase):
+    def setUp(self):
+        auxiliary = {'source_id': 'export-scripts/run_pipeline.py', 'checksum': 'c' * 64,
+                     'filesize': 50000, 'integrity_status': 'HASHED'}
+        self.rows = [{'source_id': 'prepared/inputs/scene/B04.tif', 'checksum': 'a' * 64},
+                     {'source_id': 'source-items/scene.json', 'checksum': 'b' * 64},
+                     {'source_id': auxiliary['source_id'], 'checksum': auxiliary['checksum']}]
+        self.inventory = {'scientific_tifs': 1, 'non_scientific_files': [self.rows[1]],
+                          'auxiliary_support_files': [auxiliary], 'local_files_scanned': 2,
+                          'source_evidence_files_scanned': 3,
+                          'source_manifest_sha256': audit.sha(sorted(self.rows, key=lambda row: row['source_id']))}
+        self.summary = {key: self.inventory[key] for key in
+                        ('local_files_scanned', 'source_evidence_files_scanned', 'source_manifest_sha256')}
+
+    def validate(self):
+        return audit.validate_inventory_source_rows(self.inventory, self.summary, self.rows)
+
+    def test_external_encoder_is_evidence_but_not_a_physical_delivery_file(self):
+        checksums = self.validate()
+        self.assertEqual(checksums['export-scripts/run_pipeline.py'], 'c' * 64)
+
+    def test_historical_delivery_without_auxiliary_keeps_original_digest(self):
+        self.rows.pop()
+        self.inventory.pop('auxiliary_support_files')
+        self.inventory.pop('source_evidence_files_scanned')
+        self.summary.pop('source_evidence_files_scanned')
+        self.inventory['source_manifest_sha256'] = self.summary['source_manifest_sha256'] = audit.sha(sorted(self.rows, key=lambda row: row['source_id']))
+        self.assertEqual(len(self.validate()), 2)
+
+    def test_auxiliary_file_cannot_inflate_physical_delivery_count(self):
+        self.inventory['local_files_scanned'] = self.summary['local_files_scanned'] = 3
+        with self.assertRaisesRegex(AssertionError, 'not a delivery file'):
+            self.validate()
+
+    def test_source_evidence_count_must_include_external_encoder(self):
+        self.inventory['source_evidence_files_scanned'] = self.summary['source_evidence_files_scanned'] = 2
+        with self.assertRaisesRegex(AssertionError, 'source evidence count'):
+            self.validate()
+
+    def test_external_encoder_must_have_a_matching_hashed_row(self):
+        self.inventory['auxiliary_support_files'][0]['checksum'] = 'd' * 64
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_external_encoder_cannot_be_unhashed(self):
+        self.inventory['auxiliary_support_files'][0]['integrity_status'] = 'UNKNOWN'
+        with self.assertRaisesRegex(AssertionError, 'must be hashed'):
+            self.validate()
+
+    def test_external_encoder_source_id_must_be_portable(self):
+        self.inventory['auxiliary_support_files'][0]['source_id'] = '/private/run_pipeline.py'
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_duplicate_auxiliary_identity_cannot_hide_another_source(self):
+        self.rows[-1] = deepcopy(self.rows[0])
+        with self.assertRaisesRegex(AssertionError, 'duplicate inventory identity'):
+            self.validate()
+
+    def test_manifest_digest_binds_external_encoder_evidence(self):
+        self.rows[-1]['checksum'] = self.inventory['auxiliary_support_files'][0]['checksum'] = 'd' * 64
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+
 class MetadataProfileTests(unittest.TestCase):
     def setUp(self):
         product = 'S2A_MSIL2A_20230913T033541_N0509_R061_T47NNH_20230913T090759'

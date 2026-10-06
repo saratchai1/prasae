@@ -1,0 +1,2072 @@
+[
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NNJ_20250902T085021",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20240311T033541_N0510_R061_T47NNJ_20240311T075251",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20240321T033541_N0510_R061_T47NNJ_20240321T075552",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20240326T033539_N0510_R061_T47NNJ_20240326T073954",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250626T034201_N0511_R061_T47PQQ_20250626T073921",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250629T033539_N0511_R061_T47PQQ_20250629T063507",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47PNM_20250912T090014",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47PNM_20250922T091415",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47PMK_20250914T073413",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20230911T034539_N0509_R104_T47PMK_20230911T081554",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20260823T033529_N0512_R061_T47NNJ_20260823T072632",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20260828T033531_N0512_R061_T47NNJ_20260828T083911",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20240902T033539_N0511_R061_T47NPH_20240902T081330",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+    "bands": [
+      {
+        "band": "B02",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B03",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B04",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B05",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B06",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B07",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B08",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B8A",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B11",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "B12",
+        "exact_required_grid": true,
+        "dtype": "uint16",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      },
+      {
+        "band": "SCL",
+        "exact_required_grid": true,
+        "dtype": "uint8",
+        "scales": [
+          1.0
+        ],
+        "offsets": [
+          0.0
+        ],
+        "all_zero": false
+      }
+    ],
+    "all_grids_exact": true
+  }
+]

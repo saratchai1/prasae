@@ -1,0 +1,18 @@
+{
+  "result": "DOWNLOADER_ZERO_USABLE_CLAIM_REJECTED",
+  "audit_script_source_id": "export-scripts/audit_coverage.py",
+  "audit_script_sha256": "a2e5b7b79fb960aeb0c9ef5faa2e7de89e4459ab7765e357bfd21f2ea0ceeeed",
+  "downloaded_requests": 52,
+  "all_downloaded_requests_error": "'valid_pct'",
+  "canonical_field": "clear_pixel_pct",
+  "other_incompatibilities": [
+    "Reads native uint16 DN without per-band STAC scale/offset",
+    "Omits explicit STAC nodata=0 masking before resampling",
+    "Uses a custom floor-sized 0.0001-degree grid instead of the canonical grid",
+    "Overrides calibrated green threshold with 0.1"
+  ],
+  "replacement": "Independent canonical v4 processing using validated exact-product STAC metadata, original calibrated thresholds, canonical grid and masks",
+  "root_and_independent_usable_missing_slots": 9,
+  "absent_local_sources": 206,
+  "absent_source_search_claims_independently_verified": false
+}

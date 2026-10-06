@@ -1,0 +1,30 @@
+{
+  "index_rows": 810,
+  "independent_hash_index_mismatches": [],
+  "decode_status": {
+    "VALID": 810
+  },
+  "source_scope": {
+    "REGISTRY_CONTAINED": 810
+  },
+  "dtype_counts": {
+    "uint16": 736,
+    "uint8": 74
+  },
+  "header_nodata_counts": {
+    "None": 810
+  },
+  "header_radiometry_counts": {
+    "([1.0], [0.0])": 810
+  },
+  "radiometry_conflicts": [],
+  "all_zero_count": 0,
+  "repair_grids_exact": 15,
+  "repair_scientific_band_grids_exact": 165,
+  "duplicate_byte_hashes_old_next": 455,
+  "duplicate_byte_hashes_old_next2": 0,
+  "duplicate_byte_hashes_any": 455,
+  "novel_byte_hashes_any": 355,
+  "plots": 45,
+  "plot_months": 52
+}

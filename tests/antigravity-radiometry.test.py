@@ -111,6 +111,23 @@ class NativeRadiometry(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'new encoding audit'):
                 ingest.main()
 
+    def test_external_exporter_is_portably_bound_and_cannot_change_before_apply(self):
+        path = self.root / 'reviewed_exporter.py'
+        path.write_text('# reviewed native DN fixture\n')
+        checksum = ingest.local.file_hash(path)
+        delivery = self.root / 'delivery'
+        delivery.mkdir()
+        with patch.object(ingest, 'REVIEWED_NATIVE_EXPORT_SHA256', frozenset((checksum,))):
+            public, private, external = ingest.exporter_evidence(delivery, path)
+        self.assertTrue(external)
+        self.assertEqual(public['checksum'], checksum)
+        self.assertFalse(Path(public['source_id']).is_absolute())
+        self.assertNotIn(str(self.root), json.dumps(public))
+        ingest.local.verify_source_unchanged(private)
+        path.write_text('# changed encoder\n')
+        with self.assertRaisesRegex(RuntimeError, 'source changed'):
+            ingest.local.verify_source_unchanged(private)
+
     def test_new_qa_does_not_change_old_water_reference_or_admit_mixed_radiometry(self):
         previous = {'version': 'old', 'observations': {
             '1|2023-09': {'status': 'CLEAR', 'other_good_month_water_median_pct': 10},

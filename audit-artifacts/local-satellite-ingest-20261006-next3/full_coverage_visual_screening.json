@@ -1,0 +1,45 @@
+{
+  "result": "PASS",
+  "image_scope": "private verifier assets only; app assets untouched",
+  "records": [
+    {
+      "plot_id": 25,
+      "month": "2024-03",
+      "canonical_coverage_pct": 100.0,
+      "rgb_residual_metrics": {
+        "valid_pixels": 747,
+        "cloud_like_pct": 0.0,
+        "haze_like_pct": 0.0,
+        "bright_pct": 0.0
+      },
+      "catalog_cloud_cover_max_pct": 57.141507,
+      "expected_qa_without_water_anomaly": "RADIOMETRY_REVIEW"
+    },
+    {
+      "plot_id": 142,
+      "month": "2023-09",
+      "canonical_coverage_pct": 100.0,
+      "rgb_residual_metrics": {
+        "valid_pixels": 78,
+        "cloud_like_pct": 0.0,
+        "haze_like_pct": 0.0,
+        "bright_pct": 0.0
+      },
+      "catalog_cloud_cover_max_pct": 86.013603,
+      "expected_qa_without_water_anomaly": "RADIOMETRY_REVIEW"
+    },
+    {
+      "plot_id": 186,
+      "month": "2024-09",
+      "canonical_coverage_pct": 100.0,
+      "rgb_residual_metrics": {
+        "valid_pixels": 32,
+        "cloud_like_pct": 0.0,
+        "haze_like_pct": 0.0,
+        "bright_pct": 0.0
+      },
+      "catalog_cloud_cover_max_pct": 95.893455,
+      "expected_qa_without_water_anomaly": "RADIOMETRY_REVIEW"
+    }
+  ]
+}
