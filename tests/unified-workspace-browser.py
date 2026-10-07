@@ -60,6 +60,26 @@ try:
   assert 'Sentinel-2' in page.locator('.stage-hud.top-right .hud-tag').inner_text()
   checks.append('registry plot uses same per-plot map viewer with Sentinel-2 RGB')
 
+  def opacity(control,value):
+   page.locator(control).evaluate('(range,value)=>{range.value=value;range.dispatchEvent(new Event("input",{bubbles:true}))}',str(value))
+  page.wait_for_function('currentSentinelOverlay?.options.opacity===.94 && !pendingSentinelOverlay')
+  assert page.locator('#plot-image-opacity').input_value()=='94'
+  boundary_style=page.evaluate('()=>plotBoundaryLayer.getLayers().map(l=>[l.options.opacity,l.options.fillOpacity])')
+  for value in [35,0,100]:
+   opacity('#plot-image-opacity',value)
+   assert page.evaluate('()=>currentSentinelOverlay.options.opacity')==value/100
+   assert page.locator('#plot-image-opacity-value').inner_text()==f'{value}%'
+   assert page.evaluate('()=>plotBoundaryLayer.getLayers().map(l=>[l.options.opacity,l.options.fillOpacity])')==boundary_style
+   assert page.evaluate('()=>Object.values(plotSatelliteMap._layers).filter(l=>l instanceof L.TileLayer).every(l=>l.options.opacity===1)')
+  # Changing the preference while an image replacement is pending must apply
+  # to the new frame, without resetting it on a layer change.
+  page.evaluate('setPlotMapLayer("gee_ndvi")')
+  opacity('#plot-image-opacity',42)
+  page.wait_for_function('currentSentinelOverlay?.getElement().src.includes("ndvi_2024-03") && !pendingSentinelOverlay')
+  assert page.evaluate('()=>currentSentinelOverlay.options.opacity')==.42
+  opacity('#plot-image-opacity',94)
+  checks.append('single-image opacity covers 0–100%, survives frame replacement, and preserves basemap/boundary')
+
   # Newly ingested low-coverage observations have real imagery, while chart
   # metrics remain null until they satisfy the portfolio comparison QA gate.
   report_paths=sorted((R/'audit-artifacts').glob('local-satellite-ingest*/ingest_result.json'))
@@ -114,6 +134,24 @@ try:
   assert 'หลัง' in page.locator('#comp-label-after').inner_text() and 'NDVI' in page.locator('#comp-label-after').inner_text()
   bounds=page.evaluate('()=>[compareLeftOverlay.getBounds().toBBoxString(),compareRightOverlay.getBounds().toBBoxString()]')
   assert bounds[0]==bounds[1]
+  assert page.locator('#compare-image-opacity').input_value()=='100'
+  compare_boundary_style=page.evaluate('()=>compareLeftBoundary.getLayers().map(l=>[l.options.opacity,l.options.fillOpacity])')
+  def assert_compare_opacity(value):
+   assert page.evaluate('()=>[compareLeftOverlay.options.opacity,compareRightOverlay.options.opacity]')==[value/100,value/100]
+   assert page.evaluate('()=>compareLeftBoundary.getLayers().map(l=>[l.options.opacity,l.options.fillOpacity])')==compare_boundary_style
+   assert page.evaluate('()=>Object.values(compareLeftMap._layers).filter(l=>l instanceof L.TileLayer).every(l=>l.options.opacity===1)')
+  for value in [40,0,100]:
+   opacity('#compare-image-opacity',value);assert_compare_opacity(value)
+   assert page.locator('#compare-image-opacity-value').inner_text()==f'{value}%'
+  # The preference can change while the replacement pair is loading.
+  page.select_option('#comp-mode-select','ndvi')
+  opacity('#compare-image-opacity',23)
+  page.wait_for_function('document.querySelector("#compare-container").getAttribute("aria-busy")==="false" && document.querySelector(".compare-before-raster")?.src.includes("ndvi_2025-03")')
+  assert_compare_opacity(23)
+  page.select_option('#comp-mode-select','rgb_vs_ndvi')
+  opacity('#compare-image-opacity',40)
+  page.wait_for_function('document.querySelector("#compare-container").getAttribute("aria-busy")==="false" && document.querySelector(".compare-before-raster")?.src.includes("rgb_2025-03")')
+  assert_compare_opacity(40)
   stage=page.locator('#unified-compare-map').bounding_box()
   handle=page.locator('#unified-compare-handle')
   for target in [.25,.75]:
@@ -122,6 +160,9 @@ try:
    assert abs(float(page.locator('#compare-position').input_value())-target*100)<1
    assert page.evaluate('()=>compareLeftMap.dragging.enabled()')
   handle.focus();page.keyboard.press('ArrowLeft');assert float(page.locator('#compare-position').input_value())<75
+  assert_compare_opacity(40)
+  opacity('#compare-image-opacity',100)
+  checks.append('comparison opacity affects both dates equally and preserves basemap, boundary, and divider drag')
   checks.append('before/after uses aligned exact-month rasters; handle drags both ways and supports keyboard')
 
   def position(value):
@@ -172,6 +213,7 @@ try:
   checks.append('divider stays aligned during zoom/pan; boundary toggle works')
 
   # Index zero is a valid right-hand date, not a falsy fallback to month 11.
+  opacity('#compare-image-opacity',37)
   page.select_option('#comp-right-select','0')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
    document.querySelector('#comp-label-after').textContent.includes('2566')''')
@@ -203,6 +245,7 @@ try:
   page.locator('#unified-compare-status button').click()
   page.wait_for_function("document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&document.querySelector('.compare-before-raster')?.complete")
   assert failing_path in page.locator('.compare-before-raster').get_attribute('src')
+  assert_compare_opacity(37)
   checks.append('image request failure clears both old frames; retry restores the exact selected pair')
 
   # Optional PDD uses its own footprint and cannot retain registry frames.
@@ -224,13 +267,18 @@ try:
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
    document.querySelector('.compare-before-raster')?.src.includes('data/plots/')''')
   assert 'data/plots/' in page.locator('.compare-after-raster').get_attribute('src')
+  assert_compare_opacity(37)
   checks.append('registry/PDD scope changes replace both rasters with the selected footprint')
+  checks.append('comparison opacity persists across month changes, missing data, retries, and plot/scope changes')
 
   # Mobile resizing keeps one aligned map and a visible touch-sized handle.
   page.set_viewport_size({'width':390,'height':844})
   page.wait_for_timeout(150)
   assert handle.is_visible() and handle.bounding_box()['width']>=44
   assert page.locator('#compare-position').is_visible()
+  assert page.locator('#compare-image-opacity').is_visible()
+  page.locator('#compare-image-opacity').focus();page.keyboard.press('ArrowRight')
+  assert_compare_opacity(38)
   assert page.locator('#unified-compare-map').bounding_box()['width']>200
   checks.append('mobile comparison retains the handle and range control')
 

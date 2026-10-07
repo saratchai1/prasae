@@ -16,7 +16,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="styles.css?v=20260826-1410">
   <link rel="stylesheet" href="pdd22-review.css?v=20260930-1">
-  <link rel="stylesheet" href="pdd22-spectral.css?v=20260930-r2-release">\n  <link rel="stylesheet" href="unified-workspace.css?v=20261004-compare-swipe-1">
+  <link rel="stylesheet" href="pdd22-spectral.css?v=20260930-r2-release">\n  <link rel="stylesheet" href="unified-workspace.css?v=20261007-opacity-1">
 </head>
 <body>
   <header class="site-header"><div class="header-container">
@@ -54,6 +54,7 @@
               <button class="band-btn" data-layer="gee_rgb" onclick="setPlotMapLayer('gee_rgb')">Sentinel-2 RGB</button>
               <button class="band-btn" data-layer="gee_ndvi" onclick="setPlotMapLayer('gee_ndvi')">NDVI</button>
             </div><div class="boundary-toggle"><label><input type="checkbox" id="toggle-boundary-check" checked onchange="togglePlotBoundary(this.checked)"> เส้นขอบเขตแปลง</label></div></div>
+            <label class="satellite-opacity-control" for="plot-image-opacity">ความทึบภาพดาวเทียม<input id="plot-image-opacity" type="range" min="0" max="100" step="1" value="94" title="0% โปร่งใส · 100% ทึบ"><output id="plot-image-opacity-value" for="plot-image-opacity">94%</output></label>
             <div class="satellite-stage"><div id="plot-satellite-map" class="plot-satellite-map-container"></div>
               <div class="stage-hud top-left"><div class="hud-main" id="hud-month-label">กำลังโหลด</div><div class="hud-sub" id="hud-plot-label">—</div></div>
               <div class="stage-hud top-right"><div class="hud-tag">กำลังตรวจข้อมูล</div><div class="hud-sub">—</div></div>
@@ -70,7 +71,7 @@
           <div class="compare-selectors"><div class="select-group"><label for="comp-mode-select">ชั้นภาพ</label><select id="comp-mode-select" onchange="updateCompareView()"><option value="rgb">RGB vs RGB</option><option value="ndvi">NDVI vs NDVI</option><option value="rgb_vs_ndvi">RGB vs NDVI</option></select></div>
             <div class="select-group"><label for="comp-left-select">ก่อน</label><select id="comp-left-select" onchange="updateCompareView()"></select></div><div class="select-group"><label for="comp-right-select">หลัง</label><select id="comp-right-select" onchange="updateCompareView()"></select></div>
             <div class="select-group boundary-check-group"><label class="checkbox-label"><input type="checkbox" id="comp-boundary-toggle" checked onchange="toggleCompareBoundary(this.checked)"> เส้นขอบเขต</label></div>
-          </div><div class="compare-stage" id="compare-container"></div>
+          </div><label class="satellite-opacity-control" for="compare-image-opacity">ความทึบภาพดาวเทียม (ทั้งสองฝั่ง)<input id="compare-image-opacity" type="range" min="0" max="100" step="1" value="100" title="0% โปร่งใส · 100% ทึบ"><output id="compare-image-opacity-value" for="compare-image-opacity">100%</output></label><div class="compare-stage" id="compare-container"></div>
           <div class="compare-meta-bar"><div class="compare-stat-item"><span id="comp-in-stat-text">กำลังโหลด</span><span class="compare-stat-pill" id="comp-gain-pill">QA guardrail</span></div><div class="ndvi-legend-bar" id="comp-ndvi-legend"><span>NDVI -0.1</span><div class="ndvi-gradient-strip"></div><span>0.8</span></div></div>
           <p class="compare-hint">เปรียบเทียบภาพตามช่วงเวลาจริง</p>
         </div></div>
@@ -87,6 +88,6 @@
   <script src="pdd22-compare-swipe.js?v=20260930-1"></script>
   <script src="pdd22-spectral-core.js?v=20260930-r2-release"></script>
   <script src="pdd22-spectral-studio.js?v=20260930-r2-release"></script>
-  <script src="unified-workspace.js?v=20261005-native-review-1"></script>
+  <script src="unified-workspace.js?v=20261007-opacity-1"></script>
 </body>
 </html>

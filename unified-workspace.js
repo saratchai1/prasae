@@ -4,6 +4,7 @@
   const U=UnifiedData, C=AllPlotsCore, P=Pdd22Observations;
   const DATA_VERSION='20261004-local-ingest-1';
   let masters=[], masterById=new Map(), pair={before:'2024-03',after:'2026-03'}, visiblePlots=[];
+  let plotImageOpacity=.94,compareImageOpacity=1;
 
   const el=id=>document.getElementById(id);
   const text=(id,value)=>{const n=el(id);if(n)n.textContent=value;};
@@ -11,6 +12,13 @@
   const sign=v=>U.number(v)===null?'—':`${Number(v)>0?'+':''}${fmt(v)}`;
   const title=p=>`${p.code} · ${p.province||'ไม่ระบุ'}`;
   const masterFor=id=>masterById.get(Number(id))||null;
+  function bindImageOpacity(id,apply){
+    const range=el(id);if(!range)return;
+    range.oninput=()=>{
+      const percent=Math.max(0,Math.min(100,Number(range.value)||0));
+      text(`${id}-value`,`${percent}%`);apply(percent/100);
+    };
+  }
   const currentMaster=()=>activePlot?masterFor(activePlot.registryId??activePlot.id):null;
   const currentScope=()=>activePlot?.scope||'registry';
   const secondaryLabel=q=>({
@@ -219,7 +227,7 @@
     try{await preloadImage(url);}catch{if(token===sentinelSwapToken){clearOverlay();renderCurrentStatus('โหลดภาพไม่สำเร็จ');}return;}
     if(token!==sentinelSwapToken)return;
     const old=currentSentinelOverlay,next=L.imageOverlay(url,imageBoundsForPlot(activePlot),{opacity:0,interactive:false,className:'sentinel-overlay'});pendingSentinelOverlay=next;
-    next.once('load',()=>{if(token!==sentinelSwapToken)return;requestAnimationFrame(()=>next.setOpacity(.94));setTimeout(()=>{if(old&&old!==next&&plotSatelliteMap.hasLayer(old))plotSatelliteMap.removeLayer(old);currentSentinelOverlay=next;pendingSentinelOverlay=null;plotBoundaryLayer?.bringToFront();},260);});
+    next.once('load',()=>{if(token!==sentinelSwapToken)return;requestAnimationFrame(()=>next.setOpacity(plotImageOpacity));setTimeout(()=>{if(old&&old!==next&&plotSatelliteMap.hasLayer(old))plotSatelliteMap.removeLayer(old);currentSentinelOverlay=next;pendingSentinelOverlay=null;plotBoundaryLayer?.bringToFront();},260);});
     next.addTo(plotSatelliteMap);plotBoundaryLayer?.bringToFront();renderCurrentStatus();
   };
 
@@ -345,7 +353,7 @@
           const old=compareFrames;compareFrames=next;
           compareLeftOverlay=next.before.overlay;compareRightOverlay=next.after.overlay;
           showCompareBoundary(snapshot);setComparePosition(comparePercent);
-          next.before.overlay.setOpacity(1);next.after.overlay.setOpacity(1);old?.dispose();
+          next.before.overlay.setOpacity(compareImageOpacity);next.after.overlay.setOpacity(compareImageOpacity);old?.dispose();
         }else showCompareBoundary(snapshot);
         renderCompareSnapshot(snapshot,!!next);
         text('unified-compare-status',next?`${snapshot.plot.code} · ซ้าย: ก่อน ${snapshot.beforeLayer} · ขวา: หลัง ${snapshot.afterLayer}`:'ไม่มีภาพที่ใช้ได้ครบทั้งสองฝั่ง · ไม่ใช้ภาพจากเดือนอื่นแทน');
@@ -425,5 +433,16 @@
     renderSidebarList(f);visiblePlots=f;initTable(f);
   };
 
-  window.addEventListener('DOMContentLoaded',()=>{setTimeout(()=>{const allBtn=el('wtab-allplots');if(allBtn)allBtn.remove();const allPanel=el('panel-allplots');if(allPanel)allPanel.remove();},0);});
+  window.addEventListener('DOMContentLoaded',()=>{
+    bindImageOpacity('plot-image-opacity',opacity=>{
+      plotImageOpacity=opacity;currentSentinelOverlay?.setOpacity(opacity);
+      const image=pendingSentinelOverlay?.getElement();
+      if(image?.complete&&image.naturalWidth>0)pendingSentinelOverlay.setOpacity(opacity);
+    });
+    bindImageOpacity('compare-image-opacity',opacity=>{
+      compareImageOpacity=opacity;
+      compareFrames?.before.overlay.setOpacity(opacity);compareFrames?.after.overlay.setOpacity(opacity);
+    });
+    setTimeout(()=>{const allBtn=el('wtab-allplots');if(allBtn)allBtn.remove();const allPanel=el('panel-allplots');if(allPanel)allPanel.remove();},0);
+  });
 })();
