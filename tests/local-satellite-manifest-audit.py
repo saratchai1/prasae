@@ -22,6 +22,9 @@ BANDS = {'B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B8A', 'B11', 'B12', '
 EARTH_SEARCH_ASSETS = {'B02': 'blue', 'B03': 'green', 'B04': 'red', 'B05': 'rededge1',
                        'B06': 'rededge2', 'B07': 'rededge3', 'B08': 'nir', 'B8A': 'nir08',
                        'B11': 'swir16', 'B12': 'swir22', 'SCL': 'scl'}
+MULTI_PROVIDER_SCHEMA = 'native-multi-provider-v1'
+XML_BAND_IDS = dict(zip(('B02', 'B03', 'B04', 'B05', 'B06', 'B07', 'B08', 'B8A', 'B11', 'B12'),
+                        (1, 2, 3, 4, 5, 6, 7, 8, 11, 12)))
 REPORT_FILES = ('final_summary', 'source_inventory', 'scene_manifest', 'ingest_result',
                 'existing_observation_fingerprints', 'radiometric_validation')
 
@@ -144,8 +147,10 @@ def validate_metadata_radiometry(band, radiometry, source_checksums):
     assert isinstance(radiometry['asset_key'], str) and radiometry['asset_key']
 
 
-def validate_metadata_profiles(radiometry, scenes, source_checksums):
+def validate_metadata_profiles(radiometry, scenes, source_checksums, *, root=R):
     """Bind every full or partial scene to its exact provider-product profile."""
+    if radiometry.get('provider_schema') == MULTI_PROVIDER_SCHEMA:
+        return validate_multi_provider_profiles(radiometry, scenes, source_checksums, root=root)
     assert radiometry['status'] == radiometry['metadata_gate'] == 'PASS'
     assert radiometry['formula'] == 'DN * scale + offset'
     assert radiometry['validated_scene_count'] == len(scenes)
@@ -183,6 +188,232 @@ def validate_metadata_profiles(radiometry, scenes, source_checksums):
             assert scene['raster_grids'][asset['grid']]['dtype'] == asset['radiometry']['native_dtype']
 
 
+def validate_product_xml_profile(profile, source_checksums):
+    """Check the portable critical-node proof from the hashed exact-product XML."""
+    source_id = profile['product_metadata_source_id']
+    relative(source_id)
+    assert source_id == f"provider-metadata/planetary-computer/{profile['scene_id']}.xml"
+    checksum = profile['product_metadata_sha256']
+    assert valid_sha(checksum) and source_checksums.get(source_id) == checksum, 'product XML is not in hashed source inventory'
+    assert profile['product_metadata_filesize'] > 0
+    url = profile['product_metadata_url']
+    assert '?' not in url and url.startswith('https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/')
+    assert '/' + profile['scene_id'] + '.SAFE/MTD_MSIL2A.xml' in url
+    proof = profile['product_metadata_proof']
+    assert proof['status'] == 'PASS'
+    assert proof['product_uri'] == profile['product_uri']
+    assert proof['processing_baseline'] == profile['processing_baseline']
+    quantification = proof['boa_quantification_value']
+    assert isinstance(quantification, (int, float)) and not isinstance(quantification, bool)
+    assert math.isfinite(quantification) and quantification > 0
+    offsets = proof['boa_offsets_by_band_id']
+    assert {str(value) for value in XML_BAND_IDS.values()} <= offsets.keys()
+    assert all(isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value)
+               for value in offsets.values())
+    assert proof['special_values']['NODATA'] == 0
+    assert proof['critical_nodes'] == {'PRODUCT_URI': proof['product_uri'],
+                                    'PROCESSING_BASELINE': proof['processing_baseline'],
+                                    'BOA_QUANTIFICATION_VALUE': quantification,
+                                    'BOA_ADD_OFFSET': offsets,
+                                    'Special_Values': proof['special_values']}
+    for band, asset in profile['assets'].items():
+        assert asset['product_metadata_source_id'] == source_id and asset['product_metadata_sha256'] == checksum
+        if band != 'SCL':
+            band_id = XML_BAND_IDS[band]
+            assert asset['band_id'] == band_id and asset['boa_add_offset'] == offsets[str(band_id)]
+            assert asset['scale'] == 1 / quantification and asset['offset'] == offsets[str(band_id)] / quantification
+            assert asset['nodata'] == proof['special_values']['NODATA']
+
+
+def validate_reused_native_scene(scene, profile, prior_scene, prior_profile):
+    """A reused canonical crop must exactly match the already validated batch."""
+    namespace = 'reused/inputs-next/'
+    prior = scene['prior_validated_batch']
+    assert prior['id'] == profile['prior_batch_id'] == 'local-satellite-ingest-20261005'
+    assert profile['metadata_format'] == 'earth-search-c1-flat-sidecar' and profile['source_namespace'] == namespace
+    assert profile['provider'] == scene['provider'] == 'earth-search'
+    assert prior['source_group'] == prior_scene['source_group']
+    assert scene['source_group'] == namespace + prior_scene['source_group']
+    assert prior['fingerprint'] == scene['fingerprint'] == prior_scene['fingerprint']
+    assert scene['raster_grids'] == prior_scene['raster_grids'], 'reused raster grid differs from the validated prior crop'
+    assert not scene['native_grid_proofs'], 'reused canonical grid must retain its prior validation'
+    for key in ('scene_id', 'plot_id', 'month', 'acquisition_datetime', 'satellite', 'tile', 'scope'):
+        assert scene[key] == prior_scene[key], 'reused scene identity differs from prior batch'
+    assert scene['assets'].keys() == prior_scene['assets'].keys() == BANDS
+    for band, asset in scene['assets'].items():
+        previous = prior_scene['assets'][band]
+        assert asset['source_id'] == namespace + asset_source_id(prior_scene, previous)
+        assert all(asset[key] == previous[key] for key in ('filename', 'checksum', 'filesize', 'grid', 'integrity'))
+    for key in ('scene_id', 'stac_item_id', 'collection', 'product_uri', 'sensing_datetime', 'processing_baseline', 'platform',
+                'metadata_sha256', 'radiometry_sidecar_sha256'):
+        assert profile[key] == prior_profile[key], 'reused provider metadata differs from prior validation'
+    for key in ('metadata_source_id', 'radiometry_sidecar_source_id'):
+        assert profile[key] == namespace + prior_profile[key]
+    for band, previous in prior_profile['assets'].items():
+        current = profile['assets'][band]
+        for key, value in previous.items():
+            assert current[key] == (namespace + value if key in ('metadata_source_id', 'radiometry_sidecar_source_id') else value), 'reused band metadata differs from prior validation'
+
+
+def validate_multi_provider_profiles(radiometry, scenes, source_checksums, *, root=R):
+    """Native providers keep distinct identities and independently bound metadata."""
+    assert radiometry['status'] == radiometry['metadata_gate'] == 'PASS'
+    assert radiometry['formula'] == 'DN * scale + offset'
+    profiles = {(profile['provider'], profile['scene_id']): profile for profile in radiometry['profiles']}
+    assert len(profiles) == len(radiometry['profiles']), 'duplicate or conflicting provider/product profile'
+    assert radiometry['validated_product_count'] == len(profiles)
+    scripts = radiometry['export_scripts']
+    assert {script['source_id'] for script in scripts} == {'scripts/campaign_v2.py', 'scripts/campaign_pc.py', 'scripts/downloader.py'}
+    assert len(scripts) == 3
+    for script in scripts:
+        relative(script['source_id'])
+        assert valid_sha(script['checksum']) and source_checksums.get(script['source_id']) == script['checksum'], 'export script is not in hashed source inventory'
+    unvalidated = {record['source_group']: record for record in radiometry['unvalidated_scene_records']}
+    assert len(unvalidated) == len(radiometry['unvalidated_scene_records']), 'duplicate held metadata identity'
+    seen_profiles, seen_unvalidated = set(), set()
+    prior_reports = {}
+    validated_scene_count = 0
+    metadata_keys = ('metadata_source_id', 'metadata_sha256', 'radiometry_sidecar_source_id', 'radiometry_sidecar_sha256')
+    for scene in scenes:
+        provider = scene['provider']
+        assert provider in {'earth-search', 'planetary-computer'}
+        key = provider, scene['scene_id']
+        if key not in profiles:
+            assert scene['source_group'] in unvalidated, 'scene has no product profile or explicit metadata hold'
+            record = unvalidated[scene['source_group']]
+            assert record['provider'] == provider and record['scene_id'] == scene['scene_id']
+            assert record['reason'] == scene['metadata_status'] == 'HOLD_MISSING_PRODUCT_METADATA'
+            assert not scene['complete'] and scene['missing_bands'], 'complete product cannot lack saved provider metadata'
+            assert not scene['usable_source'], 'unvalidated provider metadata cannot be ingested'
+            assert not any('radiometry' in asset for asset in scene['assets'].values())
+            assert not scene.get('native_grid_proofs'), 'unvalidated source cannot claim a product-grid proof'
+            seen_unvalidated.add(scene['source_group'])
+            continue
+        assert scene['source_group'] not in unvalidated, 'validated scene also claims an unvalidated hold'
+        profile = profiles[key]
+        assert scene['metadata_status'] == 'VALIDATED'
+        seen_profiles.add(key)
+        validated_scene_count += 1
+        assert profile['profile_key'] == provider + '|' + scene['scene_id']
+        assert profile['collection'] == ('sentinel-2-c1-l2a' if provider == 'earth-search' else 'sentinel-2-l2a')
+        assert profile['product_uri'] == scene['scene_id'] + '.SAFE', 'profile refers to a different processing product'
+        reused = profile.get('metadata_format') == 'earth-search-c1-flat-sidecar'
+        namespace = profile.get('source_namespace', '') if reused else ''
+        assert profile['metadata_source_id'] == namespace + f"source-items/{provider}/{scene['scene_id']}.json"
+        expected_sidecar = f"metadata/{scene['scene_id']}/radiometry.json" if provider == 'earth-search' else f"metadata/{provider}/{scene['scene_id']}/radiometry.json"
+        assert profile['radiometry_sidecar_source_id'] == namespace + expected_sidecar
+        assert datetime.fromisoformat(profile['sensing_datetime']).strftime('%Y-%m') == scene['month']
+        assert profile['platform'].lower().replace('-', '') == 'sentinel2' + scene['satellite'][2:].lower()
+        assert f"_N{profile['processing_baseline'].replace('.', '')}_" in scene['scene_id']
+        if provider == 'earth-search':
+            stac_identity = re.fullmatch(r'(S2[ABC])_(T\d{2}[A-Z]{3})_(\d{8}T\d{6})_L2A', profile['stac_item_id'])
+            assert stac_identity and stac_identity[1] == scene['satellite'] and stac_identity[2] == scene['tile']
+            assert stac_identity[3][:8] == datetime.fromisoformat(scene['acquisition_datetime']).strftime('%Y%m%d')
+        else:
+            assert profile['stac_item_id'] == re.sub(r'_N\d{4}', '', scene['scene_id']), 'PC STAC identity must match the exact SAFE product'
+        assert profile['assets'].keys() == BANDS
+        if provider == 'planetary-computer':
+            validate_product_xml_profile(profile, source_checksums)
+        for band, proof in profile['assets'].items():
+            assert proof['provider'] == provider
+            common_proof = dict(proof)
+            if provider == 'planetary-computer' and band != 'SCL':
+                assert proof['formula'] == '(DN + BOA_ADD_OFFSET) / BOA_QUANTIFICATION_VALUE'
+                common_proof['formula'] = 'DN * scale + offset'
+            validate_metadata_radiometry(band, common_proof, source_checksums)
+            assert proof['nodata'] == 0
+            assert proof['native_dtype'] == ('uint8' if band == 'SCL' else 'uint16')
+            assert proof['asset_key'] == (EARTH_SEARCH_ASSETS[band] if provider == 'earth-search' else band)
+            assert all(proof[name] == profile[name] for name in metadata_keys)
+            url = proof['native_asset_url']
+            assert '?' not in url
+            if provider == 'earth-search':
+                assert url.startswith('https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/') and Path(url).name == band + '.tif'
+            else:
+                assert url.startswith('https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/') and '/' + scene['scene_id'] + '.SAFE/' in url
+                assert re.search(r'_' + band + r'_\d+m\.tif$', url)
+        for band, asset in scene['assets'].items():
+            assert asset['radiometry'] == profile['assets'][band], 'scene/profile radiometry conflict'
+            assert scene['raster_grids'][asset['grid']]['dtype'] == asset['radiometry']['native_dtype']
+        if reused:
+            prior_id = profile['prior_batch_id']
+            assert prior_id == 'local-satellite-ingest-20261005'
+            if prior_id not in prior_reports:
+                path = root / 'audit-artifacts' / prior_id
+                prior_reports[prior_id] = (read(path / 'scene_manifest.json'), read(path / 'radiometric_validation.json'))
+            prior_scenes, prior_radiometry = prior_reports[prior_id]
+            assert source_checksums.get(namespace + prior_radiometry['export_script_source_id']) == prior_radiometry['export_script_sha256'], 'reused encoder evidence differs from prior validation'
+            matching_scenes = [record for record in prior_scenes if record['source_group'] == scene['prior_validated_batch']['source_group']]
+            matching_profiles = [record for record in prior_radiometry['profiles'] if record['scene_id'] == scene['scene_id']]
+            assert len(matching_scenes) == len(matching_profiles) == 1, 'reused crop lacks unique prior source evidence'
+            validate_reused_native_scene(scene, profile, matching_scenes[0], matching_profiles[0])
+        else:
+            assert 'prior_validated_batch' not in scene, 'native crop cannot inherit canonical-grid validation'
+            validate_native_grid_proofs(scene)
+    assert seen_profiles == profiles.keys(), 'product profiles do not cover only audited scenes'
+    assert seen_unvalidated == unvalidated.keys(), 'unvalidated metadata hold is not an audited scene'
+    assert radiometry['validated_scene_count'] == validated_scene_count
+
+
+def validate_native_grid_proofs(scene):
+    """Reconstruct each native crop from its exact-product grid and integer window."""
+    proofs = scene['native_grid_proofs']
+    assert proofs.keys() == scene['assets'].keys(), 'every validated band requires its native product-grid proof'
+    for band, asset in scene['assets'].items():
+        proof = proofs[band]
+        grid = scene['raster_grids'][asset['grid']]
+        assert proof['crs'] == grid['crs'] and re.fullmatch(r'EPSG:\d+', proof['crs'])
+        assert proof['pixel_encoding'] == 'raw native DN'
+        assert isinstance(proof['metadata_transform_tags'], bool)
+        if band == 'SCL':
+            assert not proof['metadata_transform_tags'], 'SCL cannot carry spectral transform tags'
+        transform, product_shape, window = proof['product_transform'], proof['product_shape'], proof['window']
+        assert len(transform) == 6 and all(isinstance(value, (int, float)) and not isinstance(value, bool) and math.isfinite(value) for value in transform)
+        assert len(product_shape) == 2 and all(isinstance(value, int) and not isinstance(value, bool) and value > 0 for value in product_shape)
+        assert len(window) == 4 and all(isinstance(value, int) and not isinstance(value, bool) for value in window)
+        col, row, width, height = window
+        assert col >= 0 and row >= 0 and width > 0 and height > 0
+        assert (width, height) == (grid['width'], grid['height'])
+        assert col + width <= product_shape[1] and row + height <= product_shape[0], 'native crop outside original product grid'
+        a, b, x, d, e, y = transform
+        aa, bb, xx, dd, ee, yy = grid['transform']
+        assert a == aa and e == ee and b == bb == d == dd == 0 and a > 0 and e < 0, 'native crop pixel spacing or rotation differs from product'
+        assert math.isclose(xx, x + col * a, rel_tol=0, abs_tol=abs(a) * 1e-6) and math.isclose(yy, y + row * e, rel_tol=0, abs_tol=abs(e) * 1e-6), 'native crop origin differs from integer product window'
+        assert grid['dtype'] == asset['radiometry']['native_dtype']
+        assert grid['nodata'] is None or grid['nodata'] == asset['radiometry']['nodata']
+
+
+def validate_acquisition_selection(scenes):
+    """Retain reprocessing alternatives while contributing each acquisition once."""
+    by_group = {scene['source_group']: scene for scene in scenes}
+    assert len(by_group) == len(scenes), 'duplicate scene source group'
+    key = lambda scene: (scene['plot_id'], scene['month'], scene['acquisition_key'])
+    active = {}
+    alternatives = {}
+    for scene in scenes:
+        if scene['usable_source']:
+            acquisition = key(scene)
+            assert acquisition not in active, 'one acquisition cannot contribute twice'
+            active[acquisition] = scene
+        if scene['dedup_action'] == 'HOLD_REPROCESSING_ALTERNATIVE':
+            assert not scene['usable_source']
+            chosen = by_group.get(scene['selected_source_group'])
+            assert chosen and chosen['usable_source'] and key(chosen) == key(scene), 'held reprocessing must refer to an active matching acquisition'
+            assert chosen['dedup_action'] == 'KEEP_REVIEWED_LATEST_PRODUCT'
+            alternatives.setdefault(chosen['source_group'], []).append(scene)
+    for scene in scenes:
+        if scene['dedup_action'] != 'KEEP_REVIEWED_LATEST_PRODUCT':
+            assert not scene.get('selection_alternatives'), 'only an explicit reviewed selection can hold alternatives'
+            continue
+        held = alternatives.get(scene['source_group'], [])
+        listed = scene['selection_alternatives']
+        assert scene['usable_source'] and held and len(listed) == len(set(listed))
+        assert set(listed) == {record['source_group'] for record in held}, 'selection alternatives must retain every held source'
+        rank = lambda record: (record['scene_id'].split('_')[3], record['scene_id'].split('_')[-1],
+                               bool(record.get('native_grid_proofs')), record['source_group'])
+        assert max([scene] + held, key=rank)['source_group'] == scene['source_group'], 'reviewed selection must use the latest validated processing product'
+
+
 def validate_qa_preservation(batches, qa, slots):
     """Preserve unrelated QA, and block native/legacy trend comparisons."""
     observations = qa['observations']
@@ -215,7 +446,10 @@ def validate_qa_preservation(batches, qa, slots):
                 key = f"{record['plot_id']}|{record['month']}"
                 observation = slots[slot_key(record)]
                 current_qa = observations[key]
-                assert current_qa['radiometry_status'] == 'NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING'
+                expected_marker = ('NATIVE_MULTI_PROVIDER_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING'
+                                   if batch['radiometric_validation'].get('provider_schema') == MULTI_PROVIDER_SCHEMA else
+                                   'NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING')
+                assert current_qa['radiometry_status'] == expected_marker
                 assert abs(current_qa['coverage_pct'] - observation['clear_pixel_pct']) <= .01
                 if observation['clear_pixel_pct'] < 95:
                     assert current_qa['status'] == 'INSUFFICIENT', 'low coverage must remain insufficient'
@@ -239,12 +473,31 @@ def validate_inventory_source_rows(inventory, summary, source_rows):
         assert valid_sha(source['checksum']) and source['filesize'] > 0
         assert source['integrity_status'] == 'HASHED', 'external encoder evidence must be hashed'
         assert source_checksums.get(source['source_id']) == source['checksum']
+    reused_count = inventory.get('reused_scientific_tifs', 0)
+    if reused_count:
+        assert isinstance(reused_count, int) and not isinstance(reused_count, bool) and reused_count > 0
+        assert inventory['scientific_tifs'] == inventory['physical_scientific_tifs'] + reused_count
+        reused_rows = [source for source in source_rows if source['source_id'].startswith('reused/')
+                       and Path(source['source_id']).suffix.lower() in {'.tif', '.tiff'}]
+        assert len(reused_rows) == reused_count, 'reused scientific count must match hashed reused TIFF identities'
     if auxiliary:
-        physical_count = len(source_rows) - len(auxiliary)
+        physical_count = len(source_rows) - len(auxiliary) - reused_count
         assert inventory['local_files_scanned'] == summary['local_files_scanned'] == physical_count, 'external evidence is not a delivery file'
         assert inventory['source_evidence_files_scanned'] == summary['source_evidence_files_scanned'] == len(source_rows), 'incomplete source evidence count'
     assert sha(sorted(source_rows, key=lambda source: source['source_id'])) == inventory['source_manifest_sha256'] == summary['source_manifest_sha256']
     return source_checksums
+
+
+def validate_held_scientific_source(source, *, multi_provider=False):
+    relative(source['source_id'])
+    assert valid_sha(source['checksum']) and source['filesize'] > 0
+    assert source['integrity_status'] == 'VALID'
+    if multi_provider and source['action'] == 'HOLD_UNASSIGNED_SOURCE':
+        assert source['source_id'] == 'test_B04.tif', 'unassigned raster needs an explicit identity audit'
+        assert not {'plot_id', 'month', 'scene_id'} & source.keys(), 'unassigned raster cannot claim an observation identity'
+        assert isinstance(source['reason'], str) and source['reason']
+    else:
+        assert source['action'] == 'EXISTING_REGISTRY_OBSERVATION'
 
 
 def audit_batch(batch, root, byid, slots):
@@ -259,9 +512,11 @@ def audit_batch(batch, root, byid, slots):
     assert dict(sorted(Counter(scene['scope'] for scene in scenes).items())) == summary['scope_counts']
     assert radiometry['status'] == 'PASS'
     metadata_backed = 'metadata_gate' in radiometry
+    multi_provider = radiometry.get('provider_schema') == MULTI_PROVIDER_SCHEMA
     if metadata_backed:
         assert radiometry['metadata_gate'] == 'PASS'
-        assert isinstance(radiometry['validated_scene_count'], int) and radiometry['validated_scene_count'] == len(scenes)
+        expected_validated = len(scenes) - len(radiometry['unvalidated_scene_records']) if multi_provider else len(scenes)
+        assert isinstance(radiometry['validated_scene_count'], int) and radiometry['validated_scene_count'] == expected_validated
     else:
         # Historic DN encoding was validated on matching acquisitions.
         assert radiometry['samples'] >= 20
@@ -311,16 +566,15 @@ def audit_batch(batch, root, byid, slots):
         assert valid_sha(source['checksum'])
         source_rows.append({'source_id': source['source_id'], 'checksum': source['checksum']})
     for source in inventory.get('held_scientific_files', []):
-        relative(source['source_id'])
-        assert valid_sha(source['checksum']) and source['filesize'] > 0
-        assert source['integrity_status'] == 'VALID'
-        assert source['action'] == 'EXISTING_REGISTRY_OBSERVATION'
+        validate_held_scientific_source(source, multi_provider=multi_provider)
         source_rows.append({'source_id': source['source_id'], 'checksum': source['checksum']})
     source_rows.extend({'source_id': source['source_id'], 'checksum': source['checksum']}
                        for source in inventory.get('auxiliary_support_files', []))
     source_checksums = validate_inventory_source_rows(inventory, summary, source_rows)
     if metadata_backed:
-        validate_metadata_profiles(radiometry, scenes, source_checksums)
+        validate_metadata_profiles(radiometry, scenes, source_checksums, root=root)
+    if multi_provider:
+        validate_acquisition_selection(scenes)
     # Every historical baseline remains byte-identical in the current app.
     for key, proof in baseline['observations'].items():
         pid, month = key.split('|')
@@ -339,7 +593,15 @@ def audit_batch(batch, root, byid, slots):
         assert provenance['processing_version'] == 'v4_site_calibrated_green_cover'
         assert provenance['reflectance_formula'] == ('DN * scale + offset' if metadata_backed else 'DN / 10000')
         if metadata_backed:
-            assert observation['source'] == 'Earth Search / Sentinel-2 C1 L2A'
+            if multi_provider:
+                providers = {scene['provider'] for scene in provenance['scenes']}
+                expected_source = ('Planetary Computer / Sentinel-2 L2A' if providers == {'planetary-computer'} else
+                                   'Earth Search / Sentinel-2 C1 L2A' if providers == {'earth-search'} else
+                                   'Earth Search + Planetary Computer / Sentinel-2 L2A')
+                assert providers <= {'earth-search', 'planetary-computer'} and providers
+                assert observation['source'] == expected_source
+            else:
+                assert observation['source'] == 'Earth Search / Sentinel-2 C1 L2A'
         assert provenance['source_manifest_sha256'] == inventory['source_manifest_sha256']
         assert observation['scene_ids'] == [scene['scene_id'] for scene in provenance['scenes']]
         assert provenance['scenes']
@@ -360,7 +622,11 @@ def audit_batch(batch, root, byid, slots):
                 relative(asset['source_id'])
                 if metadata_backed:
                     assert asset['radiometry'] == source_asset['radiometry']
-                    validate_metadata_radiometry(band, asset['radiometry'], source_checksums)
+                    common_radiometry = dict(asset['radiometry'])
+                    if multi_provider and scene['provider'] == 'planetary-computer' and band != 'SCL':
+                        assert common_radiometry['formula'] == '(DN + BOA_ADD_OFFSET) / BOA_QUANTIFICATION_VALUE'
+                        common_radiometry['formula'] = 'DN * scale + offset'
+                    validate_metadata_radiometry(band, common_radiometry, source_checksums)
         assert record['derived_assets'].keys() == {'rgb', 'ndvi'}
         for layer, asset in record['derived_assets'].items():
             relative(asset['path'])

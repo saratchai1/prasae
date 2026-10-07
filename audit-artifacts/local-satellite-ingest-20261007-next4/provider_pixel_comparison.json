@@ -1,0 +1,4834 @@
+[
+  {
+    "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 167521,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 167521
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 167521,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 167521
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 167521,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 167521
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 167521,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 167521
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 167521,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 167521
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 167521,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 167521
+    }
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 167521,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 167521
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "B03",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B03.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B03.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 768020,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 768020
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 192654,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 192654
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 192654,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 192654
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 192654,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 192654
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 192654,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 192654
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 192654,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 192654
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 192654,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 192654
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 192654,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 192654
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B02",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B02.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B02.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 739962,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 739962
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B03",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B03.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B03.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 739962,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 739962
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B04",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B04.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B04.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 739962,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 739962
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 185629,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 185629
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 185629,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 185629
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 185629,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 185629
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B08",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B08.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B08.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 739962,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 739962
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 185629,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 185629
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 185629,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 185629
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 185629,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 185629
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 185629,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 185629
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B02",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B02.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B02.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        10980,
+        10980
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        499980.0,
+        0.0,
+        -10.0,
+        1200000.0
+      ],
+      "nodata": 0.0,
+      "scales": [
+        0.0001
+      ],
+      "offsets": [
+        -0.1
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": false
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B03",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B03.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B03.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 525856,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 525856
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B04",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B04.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B04.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 525856,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 525856
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 132002,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 132002
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 132002,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 132002
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 132002,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 132002
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B08",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B08.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B08.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 525856,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 525856
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 132002,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 132002
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 132002,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 132002
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 132002,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 132002
+    }
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 132002,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 132002
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B02",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B02.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B02.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 17617017,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 17617017
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B03",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B03.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B03.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 17617017,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 17617017
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B04",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B04.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B04.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 17617017,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 17617017
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B08",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B08.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B08.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 17617017,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 17617017
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 4401824,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 4401824
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B02",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B02.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B02.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 520524,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 520524
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B03",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B03.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B03.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 520524,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 520524
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B04",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B04.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B04.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 520524,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 520524
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 130666,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 130666
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 130666,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 130666
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 130666,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 130666
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B08",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B08.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B08.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 520524,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 520524
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 130666,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 130666
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 130666,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 130666
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 130666,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 130666
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 130666,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 130666
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "B03",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B03.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B03.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 718658,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 718658
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 180294,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 180294
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 180294,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 180294
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 180294,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 180294
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 180294,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 180294
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 180294,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 180294
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 180294,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 180294
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 180294,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 180294
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B02",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B02.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B02.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 524026,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 524026
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B03",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B03.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B03.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 524026,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 524026
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B04",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B04.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B04.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 524026,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 524026
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B05",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B05.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B05.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 131543,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 131543
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B06",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B06.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B06.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 131543,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 131543
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B07",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B07.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B07.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 131543,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 131543
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B08",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B08.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B08.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        7313,
+        2409
+      ],
+      "transform": [
+        10.0,
+        0.0,
+        513270.0,
+        0.0,
+        -10.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 524026,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 524026
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B11",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B11.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B11.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 131543,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 131543
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B12",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B12.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B12.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 131543,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 131543
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "B8A",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B8A.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/B8A.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint16",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 131543,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 131543
+    }
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+    "band": "SCL",
+    "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/SCL.tif",
+    "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100/SCL.tif",
+    "earth_search_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "planetary_computer_header": {
+      "crs": "EPSG:32647",
+      "dtype": "uint8",
+      "shape": [
+        3656,
+        1204
+      ],
+      "transform": [
+        20.0,
+        0.0,
+        513260.0,
+        0.0,
+        -20.0,
+        1183940.0
+      ],
+      "nodata": null,
+      "scales": [
+        1.0
+      ],
+      "offsets": [
+        0.0
+      ]
+    },
+    "grid_equal": true,
+    "all_pixels_equal": true,
+    "valid_pixels": 131543,
+    "different_nodata_pixels": 0,
+    "valid_delta_counts": {
+      "0": 131543
+    }
+  }
+]

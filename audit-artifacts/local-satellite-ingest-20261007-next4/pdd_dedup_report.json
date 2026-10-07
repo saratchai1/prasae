@@ -1,0 +1,768 @@
+{
+  "skipped_pdd_duplicates": 0,
+  "rule": "PDD scope is distinct; no equivalence proven and no PDD pixels used",
+  "records": [
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47PNM_20250914T073413",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250917T035201_N0511_R104_T47PNM_20250917T084415",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250907T033539_N0511_R061_T47PNM_20250907T072207",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250910T034529_N0511_R104_T47PNM_20250910T072303",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PNM_20250920T062925",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47PNM_20250927T072544",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNM_20250902T085021",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250905T034551_N0511_R104_T47PNM_20250905T091613",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250915T034551_N0511_R104_T47PNM_20250915T102519",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 86,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250925T034551_N0511_R104_T47PNM_20250925T091100",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 120,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47NPH_20250914T073413",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 120,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250907T033539_N0511_R061_T47NPH_20250907T072207",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 120,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250917T033529_N0511_R061_T47NPH_20250917T080730",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 120,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47NPH_20250927T072544",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 120,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NPH_20250902T085021",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 124,
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241203T033121_N0511_R018_T47NQH_20241203T064651",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 124,
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241213T033141_N0511_R018_T47NQH_20241213T063949",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 124,
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241223T033151_N0511_R018_T47NQH_20241223T064849",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 124,
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241218T033049_N0511_R018_T47NQH_20241218T100110",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 124,
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241228T033049_N0511_R018_T47NQH_20241228T061536",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0509_R061_T47NNJ_20230903T111333",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0509_R061_T47NNJ_20230913T115058",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NNJ_20230923T095424",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0509_R061_T47NNJ_20230908T105248",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T102312",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230910T032521_N0509_R018_T47NQH_20230910T091753",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230910T032521_N0510_R018_T47NQH_20241019T200721",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230920T032521_N0509_R018_T47NQH_20230920T102735",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230920T032521_N0510_R018_T47NQH_20241018T151912",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T101103",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230905T032519_N0509_R018_T47NQH_20230905T101249",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230905T032519_N0510_R018_T47NQH_20241104T191229",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230915T032519_N0509_R018_T47NQH_20230915T113253",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230915T032519_N0510_R018_T47NQH_20241024T150944",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47NQH_20230925T084345",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250613T033201_N0511_R018_T47NQH_20250613T074105",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250606T032519_N0511_R018_T47NQH_20250606T071450",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250616T032519_N0511_R018_T47NQH_20250616T070931",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250626T032519_N0511_R018_T47NQH_20250626T070922",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 128,
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250621T032531_N0511_R018_T47NQH_20250621T083715",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230910T032521_N0509_R018_T47NQH_20230910T091753",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230910T032521_N0510_R018_T47NQH_20241019T200721",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230920T032521_N0509_R018_T47NQH_20230920T102735",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230920T032521_N0510_R018_T47NQH_20241018T151912",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T101103",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230905T032519_N0509_R018_T47NQH_20230905T101249",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230905T032519_N0510_R018_T47NQH_20241104T191229",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230915T032519_N0509_R018_T47NQH_20230915T113253",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230915T032519_N0510_R018_T47NQH_20241024T150944",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47NQH_20230925T084345",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250613T033201_N0511_R018_T47NQH_20250613T074105",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250606T032519_N0511_R018_T47NQH_20250606T071450",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250616T032519_N0511_R018_T47NQH_20250616T070931",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250626T032519_N0511_R018_T47NQH_20250626T070922",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 129,
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250621T032531_N0511_R018_T47NQH_20250621T083715",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0509_R061_T47NMJ_20230903T111323",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0509_R061_T47NNJ_20230903T111333",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NMJ_20241106T073433",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0509_R061_T47NMJ_20230913T115342",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0509_R061_T47NNJ_20230913T115058",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NMJ_20241105T180357",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T095434",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NNJ_20230923T095424",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NMJ_20241105T101720",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0509_R061_T47NMJ_20230908T104956",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0509_R061_T47NNJ_20230908T105248",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NMJ_20241104T232445",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NMJ_20230918T102757",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T102312",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NMJ_20241013T024531",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NMJ_20230928T092523",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230928T033539_N0510_R061_T47NMJ_20241026T135513",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47NNJ_20250914T073413",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250907T033539_N0511_R061_T47NMJ_20250907T072207",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250907T033539_N0511_R061_T47NNJ_20250907T072207",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250917T033529_N0511_R061_T47NMJ_20250917T080730",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250917T033529_N0511_R061_T47NNJ_20250917T080730",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47NMJ_20250927T072544",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47NNJ_20250927T072544",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47NMJ_20250912T090014",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47NNJ_20250912T090014",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240609T033541_N0510_R061_T47PNN_20240609T101752",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240619T033541_N0510_R061_T47PNN_20240619T094142",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240629T033541_N0510_R061_T47PNN_20240629T092729",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240604T033539_N0510_R061_T47PNN_20240604T082010",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240614T033539_N0510_R061_T47PNN_20240614T091814",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240624T033539_N0510_R061_T47PNN_20240624T090818",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47PNN_20250914T073413",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250907T033539_N0511_R061_T47PNN_20250907T072207",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250917T033529_N0511_R061_T47PNN_20250917T080730",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250927T033539_N0511_R061_T47PNN_20250927T072544",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47PNN_20250902T085021",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 163,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47PNN_20250922T091415",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230910T032521_N0509_R018_T47NQH_20230910T091753",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230910T032521_N0510_R018_T47NQH_20241019T200721",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230920T032521_N0509_R018_T47NQH_20230920T102735",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230920T032521_N0510_R018_T47NQH_20241018T151912",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T101103",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230905T032519_N0509_R018_T47NQH_20230905T101249",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230905T032519_N0510_R018_T47NQH_20241104T191229",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230915T032519_N0509_R018_T47NQH_20230915T113253",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230915T032519_N0510_R018_T47NQH_20241024T150944",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 165,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47NQH_20230925T084345",
+      "action": "KEEP_REGISTRY_SOURCE"
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+      "action": "KEEP_REGISTRY_SOURCE"
+    }
+  ]
+}

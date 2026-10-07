@@ -1,0 +1,26 @@
+{
+  "indexed_tifs": 20718,
+  "independent_hash_mismatches": [],
+  "integrity_counts": {
+    "VALID": 20718
+  },
+  "scope_counts": {
+    "REGISTRY_CONTAINED": 19651,
+    "HOLD_PARTIAL_SCOPE_FOR_REVIEW": 1067
+  },
+  "dtype_counts": {
+    "uint16": 18831,
+    "uint8": 1887
+  },
+  "header_transform_counts": {
+    "(None, [1.0], [0.0])": 20717,
+    "(0.0, [0.0001], [-0.1])": 1
+  },
+  "all_zero_tifs": 0,
+  "resolved_plots": 136,
+  "resolved_plot_months": 246,
+  "source_provider_counts": {
+    "planetary-computer": 20636,
+    "earth-search": 82
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "products": 475,
+  "passed": 475,
+  "failed": 0,
+  "xml_bytes": 26254799,
+  "processing_baselines": {
+    "05.09": 60,
+    "05.10": 90,
+    "05.11": 273,
+    "05.12": 52
+  },
+  "boa_quantification_values": {
+    "10000.0": 475
+  },
+  "spectral_offsets": {
+    "-0.1": 4750
+  },
+  "nodata_values": {
+    "0.0": 4750
+  },
+  "actual_source_profiles_pass": 480,
+  "provider_counts": {
+    "planetary-computer": 475,
+    "earth-search": 5
+  },
+  "same_exact_product_cross_provider_band_pairs": 82,
+  "same_exact_product_cross_provider_all_raw_pixels_equal": 82,
+  "native_read_tag_rule": "Rasterio raw DN reads do not apply scale/offset tags; matching tags are verified and per-band product transform is applied exactlyonce."
+}

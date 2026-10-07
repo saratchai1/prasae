@@ -1,0 +1,63 @@
+{
+  "result": "PASS",
+  "python_regressions": 100,
+  "python_suites": {
+    "local_satellite_ingest": 10,
+    "antigravity_radiometry": 10,
+    "multi_provider_radiometry": 14,
+    "manifest_audit": 66
+  },
+  "node_tests": 43,
+  "browser_checks": 16,
+  "browser_result": {
+    "result": "PASS",
+    "checks": [
+      "single workspace lists exactly 210 registry identities",
+      "sidebar search and province filter preserve registry identities",
+      "PDD plot remains one identity with explicit registry/PDD scope switch",
+      "non-PDD plot uses registry scope and FCD is disabled",
+      "registry plot uses same per-plot map viewer with Sentinel-2 RGB",
+      "new local RGB/NDVI loads for its exact month; low coverage stays excluded from charts",
+      "missing registry months remain missing in viewer and chart",
+      "GIS and analysis table both cover 210 plots",
+      "before/after uses aligned exact-month rasters; handle drags both ways and supports keyboard",
+      "rendered left pixels are before RGB and right pixels are after NDVI",
+      "divider stays aligned during zoom/pan; boundary toggle works",
+      "right selector accepts first month without substituting the last month",
+      "missing comparison dates clear old imagery and state the gap honestly",
+      "image request failure clears both old frames; retry restores the exact selected pair",
+      "registry/PDD scope changes replace both rasters with the selected footprint",
+      "mobile comparison retains the handle and range control"
+    ]
+  },
+  "source_audit": "PASS",
+  "unified_catalog_audit": "PASS",
+  "five_batch_manifest": "PASS",
+  "manifest_source_evidence_files": 61968,
+  "accepted_across_pr": 43,
+  "qa_rebuild_byte_identical": "PASS",
+  "js_syntax": "PASS",
+  "git_diff_check": "PASS",
+  "application_preservation": {
+    "old_files": 9192,
+    "old_files_byte_identical": 9189,
+    "old_modified_json_files": 3,
+    "new_png_files": 2,
+    "deleted_files": 0
+  },
+  "raw_source_preservation": {
+    "delivery_files": 21693,
+    "xml_metadata_files": 475,
+    "changed_files": 0
+  },
+  "reapply": {
+    "result": "PASS",
+    "accepted": 0,
+    "app_files_checked": 9194,
+    "changed_files": 0,
+    "observed_before": 2272,
+    "observed_after": 2272
+  },
+  "branch": "feat/local-satellite-ingest-20261004",
+  "base_sha": "007cbbd82c5f3935fdcdf15ec3975b68116abacd"
+}

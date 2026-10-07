@@ -165,6 +165,29 @@ class AuxiliarySourceEvidenceTests(unittest.TestCase):
         with self.assertRaises(AssertionError):
             self.validate()
 
+    def include_reused_source(self):
+        self.rows.append({'source_id': 'reused/inputs-next/prepared/inputs/scene/B04.tif', 'checksum': 'd' * 64})
+        self.inventory.update(scientific_tifs=2, physical_scientific_tifs=1, reused_scientific_tifs=1,
+                              source_evidence_files_scanned=4,
+                              source_manifest_sha256=audit.sha(sorted(self.rows, key=lambda row: row['source_id'])))
+        self.summary.update(source_evidence_files_scanned=4, source_manifest_sha256=self.inventory['source_manifest_sha256'])
+
+    def test_reused_scientific_evidence_does_not_inflate_physical_delivery_count(self):
+        self.include_reused_source()
+        self.assertEqual(len(self.validate()), 4)
+
+    def test_reused_scientific_count_must_match_portable_tiff_identities(self):
+        self.include_reused_source()
+        self.rows[-1]['source_id'] = 'prepared/inputs/extra/B04.tif'
+        with self.assertRaisesRegex(AssertionError, 'reused scientific count'):
+            self.validate()
+
+    def test_physical_and_reused_scientific_totals_must_reconcile(self):
+        self.include_reused_source()
+        self.inventory['physical_scientific_tifs'] = 2
+        with self.assertRaises(AssertionError):
+            self.validate()
+
 
 class MetadataProfileTests(unittest.TestCase):
     def setUp(self):
@@ -236,6 +259,261 @@ class MetadataProfileTests(unittest.TestCase):
             self.validate()
 
 
+class MultiProviderProfileTests(unittest.TestCase):
+    def setUp(self):
+        original = MetadataProfileTests()
+        original.setUp()
+        self.product = original.scenes[0]['scene_id']
+        self.checksums = deepcopy(original.checksums)
+        self.profiles, self.scenes = [], []
+        scripts = [{'source_id': name, 'checksum': str(index) * 64} for index, name in enumerate(
+            ('scripts/campaign_v2.py', 'scripts/campaign_pc.py', 'scripts/downloader.py'), start=1)]
+        self.checksums.update({record['source_id']: record['checksum'] for record in scripts})
+        for provider in ('earth-search', 'planetary-computer'):
+            profile = deepcopy(original.report['profiles'][0])
+            profile.update(provider=provider, profile_key=provider + '|' + self.product)
+            if provider == 'planetary-computer':
+                profile.update(collection='sentinel-2-l2a', platform='Sentinel-2A',
+                               stac_item_id=self.product.replace('_N0509', ''),
+                               metadata_source_id=f'source-items/{provider}/{self.product}.json', metadata_sha256='d' * 64,
+                               radiometry_sidecar_source_id=f'metadata/{provider}/{self.product}/radiometry.json',
+                               radiometry_sidecar_sha256='e' * 64,
+                               product_metadata_source_id=f'provider-metadata/{provider}/{self.product}.xml',
+                               product_metadata_sha256='f' * 64, product_metadata_filesize=2000,
+                               product_metadata_url=f'https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/test/{self.product}.SAFE/MTD_MSIL2A.xml')
+                offsets = {str(band_id): -1000 for band_id in audit.XML_BAND_IDS.values()}
+                proof = {'status': 'PASS', 'product_uri': profile['product_uri'], 'processing_baseline': '05.09',
+                         'boa_quantification_value': 10000, 'boa_offsets_by_band_id': offsets,
+                         'special_values': {'NODATA': 0, 'SATURATED': 65535}}
+                proof['critical_nodes'] = {'PRODUCT_URI': proof['product_uri'], 'PROCESSING_BASELINE': proof['processing_baseline'],
+                                          'BOA_QUANTIFICATION_VALUE': 10000, 'BOA_ADD_OFFSET': offsets,
+                                          'Special_Values': proof['special_values']}
+                profile['product_metadata_proof'] = proof
+                self.checksums.update({profile['metadata_source_id']: profile['metadata_sha256'],
+                                       profile['radiometry_sidecar_source_id']: profile['radiometry_sidecar_sha256'],
+                                       profile['product_metadata_source_id']: profile['product_metadata_sha256']})
+            for band, asset in profile['assets'].items():
+                asset.update(provider=provider, **{key: profile[key] for key in
+                             ('metadata_source_id', 'metadata_sha256', 'radiometry_sidecar_source_id', 'radiometry_sidecar_sha256')})
+                if provider == 'earth-search':
+                    asset['native_asset_url'] = 'https://e84-earth-search-sentinel-data.s3.us-west-2.amazonaws.com/sentinel-2-c1-l2a/test/' + band + '.tif'
+                else:
+                    asset.update(asset_key=band,
+                                 native_asset_url=f'https://sentinel2l2a01.blob.core.windows.net/sentinel2-l2/test/{self.product}.SAFE/T47NNH_{band}_10m.tif',
+                                 product_metadata_source_id=profile['product_metadata_source_id'],
+                                 product_metadata_sha256=profile['product_metadata_sha256'])
+                    if band != 'SCL':
+                        asset.update(band_id=audit.XML_BAND_IDS[band], boa_add_offset=-1000,
+                                     formula='(DN + BOA_ADD_OFFSET) / BOA_QUANTIFICATION_VALUE')
+            grids = [{'crs': 'EPSG:32647', 'dtype': dtype, 'nodata': 0, 'width': 2, 'height': 2,
+                      'transform': [resolution, 0, 500000 + resolution, 0, -resolution, 1000000 - 2 * resolution]}
+                     for dtype, resolution in (('uint16', 10), ('uint8', 20))]
+            assets, grid_proofs = {}, {}
+            for band, asset in profile['assets'].items():
+                grid_index = 1 if band == 'SCL' else 0
+                resolution = 20 if band == 'SCL' else 10
+                assets[band] = {'grid': grid_index, 'radiometry': deepcopy(asset)}
+                grid_proofs[band] = {'crs': 'EPSG:32647', 'product_transform': [resolution, 0, 500000, 0, -resolution, 1000000],
+                                     'product_shape': [10980, 10980], 'window': [1, 2, 2, 2],
+                                     'metadata_transform_tags': False, 'pixel_encoding': 'raw native DN'}
+            scene = {**deepcopy(original.scenes[0]), 'provider': provider, 'source_group': 'prepared/' + provider + '/scene',
+                     'metadata_status': 'VALIDATED', 'usable_source': True, 'complete': True, 'missing_bands': [],
+                     'raster_grids': grids, 'assets': assets, 'native_grid_proofs': grid_proofs}
+            self.profiles.append(profile)
+            self.scenes.append(scene)
+        self.report = {'status': 'PASS', 'metadata_gate': 'PASS', 'formula': 'DN * scale + offset',
+                       'provider_schema': audit.MULTI_PROVIDER_SCHEMA, 'profiles': self.profiles,
+                       'validated_scene_count': 2, 'validated_product_count': 2,
+                       'export_scripts': scripts, 'unvalidated_scene_records': []}
+
+    def validate(self):
+        audit.validate_metadata_profiles(self.report, self.scenes, self.checksums)
+
+    def test_same_product_from_two_providers_keeps_distinct_valid_profiles(self):
+        self.validate()
+
+    def test_duplicate_provider_product_profile_rejected(self):
+        self.report['profiles'].append(deepcopy(self.profiles[0]))
+        with self.assertRaisesRegex(AssertionError, 'duplicate or conflicting'):
+            self.validate()
+
+    def test_unhashed_product_xml_rejected(self):
+        del self.checksums[self.profiles[1]['product_metadata_source_id']]
+        with self.assertRaisesRegex(AssertionError, 'product XML'):
+            self.validate()
+
+    def test_xml_quantification_cannot_disagree_with_band_transform(self):
+        proof = self.profiles[1]['product_metadata_proof']
+        proof['boa_quantification_value'] = proof['critical_nodes']['BOA_QUANTIFICATION_VALUE'] = 20000
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_xml_offsets_cannot_be_swapped_between_band_ids(self):
+        self.profiles[1]['assets']['B04']['band_id'] = audit.XML_BAND_IDS['B03']
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_pc_collection_and_item_identity_cannot_inherit_earth_search_rules(self):
+        self.profiles[1]['stac_item_id'] = self.profiles[0]['stac_item_id']
+        with self.assertRaisesRegex(AssertionError, 'PC STAC identity'):
+            self.validate()
+
+    def test_provider_asset_mapping_cannot_cross_between_providers(self):
+        self.profiles[1]['assets']['B04']['asset_key'] = 'red'
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_signed_native_asset_url_rejected(self):
+        self.profiles[1]['assets']['B04']['native_asset_url'] += '?sig=private'
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_changed_exporter_checksum_rejected(self):
+        self.report['export_scripts'][0]['checksum'] = '9' * 64
+        with self.assertRaisesRegex(AssertionError, 'export script'):
+            self.validate()
+
+    def test_missing_metadata_is_held_only_for_explicit_incomplete_scene(self):
+        scene = deepcopy(self.scenes[0])
+        scene.update(scene_id=self.product.replace('20230913', '20230923'),
+                     source_group='prepared/held/scene', metadata_status='HOLD_MISSING_PRODUCT_METADATA',
+                     complete=False, missing_bands=list(audit.BANDS - {'SCL'}), usable_source=False,
+                     assets={'SCL': {'grid': 1}}, native_grid_proofs={})
+        self.scenes.append(scene)
+        self.report['unvalidated_scene_records'].append({'provider': 'earth-search', 'scene_id': scene['scene_id'],
+                                                        'source_group': scene['source_group'], 'reason': 'HOLD_MISSING_PRODUCT_METADATA'})
+        self.validate()
+        scene['usable_source'] = True
+        with self.assertRaisesRegex(AssertionError, 'cannot be ingested'):
+            self.validate()
+
+    def test_unreported_missing_metadata_rejected(self):
+        self.scenes[0]['scene_id'] = self.product.replace('20230913', '20230923')
+        with self.assertRaisesRegex(AssertionError, 'no product profile'):
+            self.validate()
+
+    def test_off_grid_crop_origin_rejected(self):
+        self.scenes[1]['raster_grids'][0]['transform'][2] += 1
+        with self.assertRaisesRegex(AssertionError, 'origin differs'):
+            self.validate()
+
+    def test_outside_product_window_rejected(self):
+        self.scenes[1]['native_grid_proofs']['B04']['window'][0] = 10979
+        with self.assertRaisesRegex(AssertionError, 'outside original'):
+            self.validate()
+
+    def test_resampled_native_grid_rejected(self):
+        self.scenes[1]['raster_grids'][0]['transform'][0] = 5
+        with self.assertRaisesRegex(AssertionError, 'pixel spacing'):
+            self.validate()
+
+    def test_every_bound_band_requires_its_grid_proof(self):
+        del self.scenes[1]['native_grid_proofs']['B04']
+        with self.assertRaisesRegex(AssertionError, 'every validated band'):
+            self.validate()
+
+    def test_categorical_scl_cannot_carry_transform_tags(self):
+        self.scenes[1]['native_grid_proofs']['SCL']['metadata_transform_tags'] = True
+        with self.assertRaisesRegex(AssertionError, 'SCL cannot'):
+            self.validate()
+
+
+class HeldScientificSourceTests(unittest.TestCase):
+    def setUp(self):
+        self.source = {'source_id': 'test_B04.tif', 'checksum': 'a' * 64, 'filesize': 100,
+                       'integrity_status': 'VALID', 'action': 'HOLD_UNASSIGNED_SOURCE',
+                       'reason': 'standalone test raster lacks registry/month/product identity'}
+
+    def test_unassigned_test_raster_is_valid_held_evidence_only(self):
+        audit.validate_held_scientific_source(self.source, multi_provider=True)
+
+    def test_historical_batches_cannot_inherit_new_hold_rule(self):
+        with self.assertRaises(AssertionError):
+            audit.validate_held_scientific_source(self.source)
+
+    def test_unassigned_raster_cannot_claim_plot_month_identity(self):
+        self.source.update(plot_id=1, month='2023-09')
+        with self.assertRaisesRegex(AssertionError, 'observation identity'):
+            audit.validate_held_scientific_source(self.source, multi_provider=True)
+
+
+class ReusedNativeSourceTests(unittest.TestCase):
+    def setUp(self):
+        original = MultiProviderProfileTests()
+        original.setUp()
+        namespace = 'reused/inputs-next/'
+        self.prior_scene = deepcopy(original.scenes[0])
+        self.prior_scene.update(plot_id=131, fingerprint='a' * 64, scope='REGISTRY_CONTAINED')
+        self.prior_profile = deepcopy(original.profiles[0])
+        for band, asset in self.prior_scene['assets'].items():
+            asset.update(source_id=self.prior_scene['source_group'] + '/' + band + '.tif',
+                         filename=band + '.tif', checksum='b' * 64, filesize=100, integrity='VALID')
+        self.scene = deepcopy(self.prior_scene)
+        self.scene.update(source_group=namespace + self.prior_scene['source_group'], native_grid_proofs={},
+                          prior_validated_batch={'id': 'local-satellite-ingest-20261005',
+                                                 'fingerprint': self.prior_scene['fingerprint'],
+                                                 'source_group': self.prior_scene['source_group']})
+        self.profile = deepcopy(self.prior_profile)
+        self.profile.update(metadata_format='earth-search-c1-flat-sidecar', source_namespace=namespace,
+                            prior_batch_id='local-satellite-ingest-20261005')
+        for key in ('metadata_source_id', 'radiometry_sidecar_source_id'):
+            self.profile[key] = namespace + self.profile[key]
+        for band, asset in self.scene['assets'].items():
+            asset['source_id'] = namespace + asset['source_id']
+            for key in ('metadata_source_id', 'radiometry_sidecar_source_id'):
+                self.profile['assets'][band][key] = namespace + self.profile['assets'][band][key]
+            asset['radiometry'] = deepcopy(self.profile['assets'][band])
+
+    def validate(self):
+        audit.validate_reused_native_scene(self.scene, self.profile, self.prior_scene, self.prior_profile)
+
+    def test_reused_canonical_crop_requires_exact_prior_grid_and_metadata(self):
+        self.validate()
+
+    def test_reused_crop_cannot_change_grid(self):
+        self.scene['raster_grids'][0]['transform'][2] += 1
+        with self.assertRaisesRegex(AssertionError, 'raster grid differs'):
+            self.validate()
+
+    def test_reused_band_cannot_inherit_another_checksum(self):
+        self.scene['assets']['B04']['checksum'] = 'c' * 64
+        with self.assertRaises(AssertionError):
+            self.validate()
+
+    def test_reused_profile_cannot_reinterpret_radiometry(self):
+        self.profile['assets']['B04']['offset'] = 0
+        with self.assertRaisesRegex(AssertionError, 'band metadata differs'):
+            self.validate()
+
+
+class AcquisitionSelectionTests(unittest.TestCase):
+    def setUp(self):
+        latest = 'S2A_MSIL2A_20230913T033541_N0510_R061_T47NNH_20241106T073433'
+        prior = latest.replace('_N0510', '_N0509').replace('20241106T073433', '20230913T090759')
+        self.scenes = [{'plot_id': 1, 'month': '2023-09', 'acquisition_key': 'same-acquisition',
+                        'scene_id': latest, 'source_group': 'prepared/latest', 'usable_source': True,
+                        'dedup_action': 'KEEP_REVIEWED_LATEST_PRODUCT', 'selection_alternatives': ['prepared/prior'],
+                        'native_grid_proofs': {'B04': {}}},
+                       {'plot_id': 1, 'month': '2023-09', 'acquisition_key': 'same-acquisition',
+                        'scene_id': prior, 'source_group': 'prepared/prior', 'usable_source': False,
+                        'dedup_action': 'HOLD_REPROCESSING_ALTERNATIVE', 'selected_source_group': 'prepared/latest',
+                        'native_grid_proofs': {'B04': {}}}]
+
+    def test_latest_product_retains_alternative_without_double_counting(self):
+        audit.validate_acquisition_selection(self.scenes)
+
+    def test_same_acquisition_cannot_contribute_twice(self):
+        self.scenes[1]['usable_source'] = True
+        self.scenes[1]['dedup_action'] = 'KEEP'
+        with self.assertRaisesRegex(AssertionError, 'contribute twice'):
+            audit.validate_acquisition_selection(self.scenes)
+
+    def test_older_reprocessing_cannot_claim_latest_selection(self):
+        self.scenes[0]['scene_id'], self.scenes[1]['scene_id'] = self.scenes[1]['scene_id'], self.scenes[0]['scene_id']
+        with self.assertRaisesRegex(AssertionError, 'latest validated processing'):
+            audit.validate_acquisition_selection(self.scenes)
+
+
 class QaPreservationTests(unittest.TestCase):
     def setUp(self):
         month = '2024-09'
@@ -286,6 +564,13 @@ class QaPreservationTests(unittest.TestCase):
         self.qa['observations'][self.text_keys[2]]['status'] = 'RADIOMETRY_REVIEW'
         with self.assertRaises(AssertionError):
             self.validate()
+
+    def test_multi_provider_low_coverage_uses_distinct_metadata_gate(self):
+        self.batches[0]['radiometric_validation']['provider_schema'] = audit.MULTI_PROVIDER_SCHEMA
+        pending = 'NATIVE_MULTI_PROVIDER_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING'
+        for key in self.text_keys[1:]:
+            self.qa['observations'][key]['radiometry_status'] = pending
+        self.assertEqual(self.validate(), 1)
 
     def test_existing_visual_review_gate_retained(self):
         self.qa['observations'][self.text_keys[1]].update(status='ATMOSPHERE_REVIEW', visual_screening_status='ATMOSPHERE_REVIEW')

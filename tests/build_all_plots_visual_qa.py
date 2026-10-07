@@ -10,6 +10,8 @@ plots=json.loads((R/'data/timeseries_verified_12.json').read_text(encoding='utf-
 
 def radiometry_family(o):
     provenance=o.get('source_provenance') or {}
+    if provenance.get('version')=='native-multi-provider-local-v4-20261007':
+        return 'NATIVE_MULTI_PROVIDER'
     return 'NATIVE_C1' if provenance.get('version')=='earth-search-c1-local-v4-20261005' else 'LEGACY'
 
 def num(v):
@@ -56,7 +58,7 @@ out={'version':'20261003-qa2','method':{
 counts={}
 for p in plots:
     pid=int(p['id']); series=p.get('timeseries') or []
-    good_waters={family:[num(o.get('open_water_pct')) for o in series if radiometry_family(o)==family and o.get('status') in {'observed_single_scene','observed_monthly_composite'} and (num(o.get('clear_pixel_pct')) or 0)>=95 and num(o.get('open_water_pct')) is not None] for family in ('LEGACY','NATIVE_C1')}
+    good_waters={family:[num(o.get('open_water_pct')) for o in series if radiometry_family(o)==family and o.get('status') in {'observed_single_scene','observed_monthly_composite'} and (num(o.get('clear_pixel_pct')) or 0)>=95 and num(o.get('open_water_pct')) is not None] for family in ('LEGACY','NATIVE_C1','NATIVE_MULTI_PROVIDER')}
     for o in series:
         month=o['month']; key=f'{pid}|{month}'
         coverage=num(o.get('clear_pixel_pct')) or 0
@@ -81,8 +83,8 @@ for p in plots:
                 rec['status']='VISUAL_REVIEW';rec['reason']='ภาพมีสัญญาณสว่าง/เป็นกลางผิดปกติ ควรตรวจด้วยตาก่อนใช้ค่าเปลี่ยนแปลง'
             else:
                 rec['status']='CLEAR';rec['reason']='ผ่าน coverage และ secondary visual screening สำหรับการคัดกรอง'
-        if radiometry_family(o)=='NATIVE_C1':
-            rec['radiometry_status']='NATIVE_C1_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING'
+        if radiometry_family(o) in ('NATIVE_C1','NATIVE_MULTI_PROVIDER'):
+            rec['radiometry_status']=radiometry_family(o)+'_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING'
             if rec['status']=='CLEAR':
                 rec['visual_screening_status']='CLEAR'
                 rec['status']='RADIOMETRY_REVIEW'

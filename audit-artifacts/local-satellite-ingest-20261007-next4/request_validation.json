@@ -1,0 +1,49 @@
+{
+  "requests": 249,
+  "targets": 249,
+  "duplicate_request_ids": 0,
+  "missing_target_requests": [],
+  "unexpected_request_ids": [],
+  "status_counts": {
+    "INSUFFICIENT_COVERAGE": 245,
+    "SEARCH_ERROR": 3,
+    "READY_FOR_LOCAL_INGEST": 1
+  },
+  "ready": [
+    {
+      "request_id": "missing-249-20261007:registry:131:2023-09",
+      "registry_plot_id": 131,
+      "month": "2023-09",
+      "status": "READY_FOR_LOCAL_INGEST",
+      "canonical_clear_pixel_pct": 6.77,
+      "errors": []
+    }
+  ],
+  "search_errors": [
+    {
+      "request_id": "missing-249-20261007:registry:70:2023-09",
+      "status": "SEARCH_ERROR",
+      "errors": [
+        "HTTPSConnectionPool(host='planetarycomputer.microsoft.com', port=443): Read timed out. (read timeout=None)"
+      ]
+    },
+    {
+      "request_id": "missing-249-20261007:registry:106:2025-09",
+      "status": "SEARCH_ERROR",
+      "errors": [
+        "HTTPSConnectionPool(host='planetarycomputer.microsoft.com', port=443): Read timed out. (read timeout=None)"
+      ]
+    },
+    {
+      "request_id": "missing-249-20261007:registry:50:2026-08",
+      "status": "SEARCH_ERROR",
+      "errors": [
+        "HTTPSConnectionPool(host='planetarycomputer.microsoft.com', port=443): Read timed out. (read timeout=None)"
+      ]
+    }
+  ],
+  "search_log_files": 0,
+  "source_inventory_is_request_results": true,
+  "repair_requests": 2,
+  "repair_missing_bands": 2
+}

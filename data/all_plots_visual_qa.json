@@ -17109,8 +17109,9 @@
     "131|2023-09": {
       "status": "INSUFFICIENT",
       "base_qa": "INSUFFICIENT",
-      "coverage_pct": 3.46,
-      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง"
+      "coverage_pct": 7.52,
+      "reason": "ข้อมูลไม่ผ่านเกณฑ์ coverage/observation สำหรับการเปรียบเทียบเต็มแปลง",
+      "radiometry_status": "NATIVE_MULTI_PROVIDER_METADATA_VALIDATED_LEGACY_HARMONIZATION_PENDING"
     },
     "131|2023-12": {
       "status": "CLEAR",
