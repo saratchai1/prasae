@@ -1,0 +1,106 @@
+{
+  "result": "PASS",
+  "python_regressions": {
+    "result": "PASS",
+    "tests": 56,
+    "suites": [
+      {
+        "command": "python tests/local-satellite-ingest.test.py",
+        "tests": 10,
+        "result": "PASS"
+      },
+      {
+        "command": "python tests/antigravity-radiometry.test.py",
+        "tests": 10,
+        "result": "PASS"
+      },
+      {
+        "command": "python tests/local-satellite-manifest-audit.test.py",
+        "tests": 36,
+        "result": "PASS"
+      }
+    ]
+  },
+  "four_batch_manifest_audit": {
+    "result": "PASS",
+    "registry_identities": 210,
+    "batches": 4,
+    "source_files": 39786,
+    "preserved_observations": 2229,
+    "accepted": 42,
+    "observed_after": 2271,
+    "preserved_qa_records": 2511,
+    "no_nearest_month_substitution": "PASS",
+    "no_synthetic_imagery": "PASS",
+    "registry_pdd_scope_boundary": "PASS",
+    "expected_derived_files": "PASS"
+  },
+  "source_audit": {
+    "result": "PASS",
+    "plots": 210,
+    "observed_entries": 2271,
+    "images_checked": 4542,
+    "area_rai": 42162.41
+  },
+  "unified_catalog_audit": {
+    "result": "PASS",
+    "registry_identities": 210,
+    "duplicate_registry_ids": 0,
+    "pdd_count": 22,
+    "pdd_scope_not_extra_plots": "PASS"
+  },
+  "independent_canonical_coverage": {
+    "result": "PASS",
+    "slots_checked": 52,
+    "all_root_dry_results_and_coverage_matched": true,
+    "usable_missing_slots": 9,
+    "full_coverage_missing_slots": 3,
+    "downloader_false_zero_claims_with_valid_pct_error": 52
+  },
+  "current_batch_preservation": {
+    "result": "PASS",
+    "existing_observations": 2262,
+    "existing_rgb_ndvi_files": 4524,
+    "unrelated_qa_records": 2511,
+    "newly_accepted_keys": 9
+  },
+  "node_regressions": {
+    "result": "PASS",
+    "tests": 43
+  },
+  "javascript_syntax": "PASS",
+  "unified_browser": {
+    "result": "PASS",
+    "checks": 16,
+    "accepted_slots_tested": 42,
+    "all_rgb_ndvi_requests_verified": true,
+    "checks_detail": [
+      "single workspace lists exactly 210 registry identities",
+      "sidebar search and province filter preserve registry identities",
+      "PDD plot remains one identity with explicit registry/PDD scope switch",
+      "non-PDD plot uses registry scope and FCD is disabled",
+      "registry plot uses same per-plot map viewer with Sentinel-2 RGB",
+      "new local RGB/NDVI loads for its exact month; low coverage stays excluded from charts",
+      "missing registry months remain missing in viewer and chart",
+      "GIS and analysis table both cover 210 plots",
+      "before/after uses aligned exact-month rasters; handle drags both ways and supports keyboard",
+      "rendered left pixels are before RGB and right pixels are after NDVI",
+      "divider stays aligned during zoom/pan; boundary toggle works",
+      "right selector accepts first month without substituting the last month",
+      "missing comparison dates clear old imagery and state the gap honestly",
+      "image request failure clears both old frames; retry restores the exact selected pair",
+      "registry/PDD scope changes replace both rasters with the selected footprint",
+      "mobile comparison retains the handle and range control"
+    ]
+  },
+  "canonical_qa_rebuild_byte_match": "PASS",
+  "idempotence": {
+    "result": "PASS",
+    "reapply_newly_accepted": 0,
+    "all_data_files_checked": 9192,
+    "registry_workspace_files_checked": 5023,
+    "app_files_changed": 0,
+    "observed": 2271,
+    "missing": 249
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scene_id": "S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330",
+  "band": "B02",
+  "earth_search_source_id": "prepared/inputs/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B02.tif",
+  "planetary_computer_source_id": "prepared/alternative-providers/planetary-computer/19-VSD/2025-09/S2B_MSIL2A_20250930T034539_N0511_R104_T47PNM_20250930T073330/B02.tif",
+  "aligned_window": [
+    1329,
+    1606,
+    2409,
+    7313
+  ],
+  "aligned_transform_exact": true,
+  "shape_exact": true,
+  "all_pixels_equal": true,
+  "valid_pixels": 525856,
+  "different_nodata_pixels": 0,
+  "valid_delta_counts": {
+    "0": 525856
+  }
+}

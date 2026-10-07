@@ -1,0 +1,3885 @@
+{
+  "skipped_pdd_duplicates": 0,
+  "records": [
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0509_R061_T47PNM_20230903T090458",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PNM_20241013T024531",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47PNM_20231222T065853",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": false,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240311T033541_R061_T47PNM_20240311T115048",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240614T033539_N0510_R061_T47PNM_20240614T072828",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47PNM_20240927T085345",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47PNM_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241231T034049_R061_T47PNM_20241231T063102",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250316T033601_R061_T47PNM_20250316T090315",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250606T034201_N0511_R061_T47PNM_20250606T073218",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47PNM_20250922T091415",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47PNM_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2025-12",
+      "scene_id": "S2C_MSIL2A_20251201T034131_R061_T47PNM_20251201T063318",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260316T033529_R061_T47PNM_20260316T072001",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260326T033529_R061_T47PNM_20260326T072041",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 86,
+      "code": "19-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47PNM_20260803T072631",
+      "scope": "PDD_ONLY_FOOTPRINT",
+      "same_acquisition_in_pdd": true,
+      "action": "HOLD_FOR_REVIEW",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_R061_T47PMK_20241105T180357",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PMK_20230918T102758",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231205T035121_R104_T47PMK_20231205T081126",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231222T034151_R061_T47PMK_20231222T082250",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240306T033609_R061_T47PMK_20240306T080805",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240619T033541_R061_T47PMK_20240619T093857",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240629T033541_R061_T47PMK_20240629T102845",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47PMK_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241231T034049_N0511_R061_T47PMK_20241231T063102",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250326T033601_R061_T47PMK_20250326T085914",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250614T033551_R061_T47PMK_20250614T090546",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251209T035049_N0511_R104_T47PMK_20251209T054856",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 117,
+      "code": "41-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47PMK_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230923T033541_R061_T47PMK_20230923T095448",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PMK_20241013T024531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231205T035121_R104_T47PMK_20231205T081126",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231222T034151_R061_T47PMK_20231222T082250",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240319T034529_R104_T47PMK_20240319T082045",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240612T034541_R104_T47PMK_20240612T092031",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240629T033541_R061_T47PMK_20240629T102845",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47PMK_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241219T035151_R104_T47PMK_20241219T070750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241211T034049_R061_T47PMK_20241211T082736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250329T034601_R104_T47PMK_20250329T101612",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250614T033551_R061_T47PMK_20250614T090546",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47PMK_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2025-12",
+      "scene_id": "S2C_MSIL2A_20251231T034151_R061_T47PMK_20251231T062811",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 118,
+      "code": "42-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47PMK_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47PMK_20230918T081422",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231205T035121_R104_T47PMK_20231205T081126",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231207T034129_R061_T47PMK_20231207T081425",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240314T034531_R104_T47PMK_20240314T092007",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240612T034541_R104_T47PMK_20240612T092031",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240614T033539_R061_T47PMK_20240614T080605",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47PMK_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241221T034059_R061_T47PMK_20241221T072432",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250324T034539_R104_T47PMK_20250324T072707",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250617T034551_R104_T47PMK_20250617T084215",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47PMK_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251209T035049_R104_T47PMK_20251209T054856",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47PMK_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 119,
+      "code": "43-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_R061_T47PMK_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_R061_T47NPH_20230913T120045",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47NPH_20241013T024531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231217T061943",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240311T033541_R061_T47NPH_20240311T110031",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47NPH_20240321T091048",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240609T033541_R061_T47NPH_20240609T101744",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240604T033539_R061_T47NPH_20240604T082004",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47NPH_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47NPH_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241221T034059_R061_T47NPH_20241221T072432",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250301T033559_R061_T47NPH_20250301T071311",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250331T033539_R061_T47NPH_20250331T072416",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_R061_T47NPH_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47NPH_20250922T091415",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47NPH_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47NPH_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260321T033541_R061_T47NPH_20260321T090910",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 120,
+      "code": "85-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47NPH_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230913T033541_R061_T47NNJ_20241105T180357",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T081422",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231222T034151_R061_T47NNJ_20231222T082259",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47NNJ_20240321T091057",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240609T033541_R061_T47NNJ_20240609T102000",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240604T033539_R061_T47NNJ_20240604T082008",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240912T033539_R061_T47NNJ_20240912T082434",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240922T033529_R061_T47NNJ_20240922T081602",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241231T034049_N0511_R061_T47NNJ_20241231T063102",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250301T033559_R061_T47NNJ_20250301T071311",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250606T034201_R061_T47NNJ_20250606T073218",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_N0511_R061_T47NNJ_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47NNJ_20250922T091415",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47NNJ_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260321T033541_R061_T47NNJ_20260321T090910",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47NNJ_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 121,
+      "code": "97-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260823T033529_R061_T47NNJ_20260823T072632",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T081422",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NNJ_20231217T061943",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47NNJ_20240301T092124",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47NNJ_20240321T091057",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240604T033539_R061_T47NNJ_20240604T082008",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240614T033539_R061_T47NNJ_20240614T091814",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47NNJ_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241231T034049_N0511_R061_T47NNJ_20241231T063102",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250311T033539_R061_T47NNJ_20250311T072242",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_N0511_R061_T47NNJ_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_R061_T47NNJ_20250902T085021",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47NNJ_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260316T033529_R061_T47NNJ_20260316T072001",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 122,
+      "code": "98-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47NNJ_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47NMJ_20230918T102757",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47NMJ_20241013T024531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231205T035121_R104_T47NMJ_20231205T081122",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231217T034149_R061_T47NMJ_20231220T054418",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47NMJ_20240301T092117",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240326T033539_R061_T47NMJ_20240326T091647",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240612T034541_R104_T47NMJ_20240612T092034",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_R061_T47NMJ_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241219T035151_R104_T47NMJ_20241219T070750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47NMJ_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250301T033559_R061_T47NMJ_20250301T071311",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250304T034549_R104_T47NMJ_20250304T063849",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_N0511_R061_T47NMJ_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_R104_T47NMJ_20250920T062925",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251206T034029_R061_T47NMJ_20251206T055750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251219T035059_R104_T47NMJ_20251219T054917",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47NMJ_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260314T034541_R104_T47NMJ_20260314T091810",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 123,
+      "code": "102-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260826T034529_N0512_R104_T47NMJ_20260826T073432",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231219T033141_R018_T47NQH_20231220T115023",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240303T032629_R018_T47NQH_20240303T080627",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240606T032521_R018_T47NQH_20240606T093306",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240929T032519_R018_T47NQH_20240929T075334",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241208T033039_N0511_R018_T47NQH_20241208T071110",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250325T033151_R018_T47NQH_20250325T111922",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250601T032601_N0511_R018_T47NQH_20250601T081256",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250921T033201_N0511_R018_T47NQH_20250921T073013",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251230T033201_R018_T47NQH_20251230T072310",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251203T033019_R018_T47NQH_20251203T070239",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260330T033201_R018_T47NQH_20260330T081616",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 124,
+      "code": "88-VSD",
+      "month": "2026-08",
+      "scene_id": "S2A_MSIL2A_20260827T033201_N0512_R018_T47NQH_20260827T102111",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T081422",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NNJ_20231217T061943",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47NNJ_20240321T091057",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240614T033539_N0510_R061_T47NNJ_20240614T072828",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_R061_T47NNJ_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241231T034049_N0511_R061_T47NNJ_20241231T063102",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250301T033559_R061_T47NNJ_20250301T071311",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_N0511_R061_T47NNJ_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47NNJ_20250922T091415",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47NNJ_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2025-12",
+      "scene_id": "S2C_MSIL2A_20251221T034201_R061_T47NNJ_20251221T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260321T033541_R061_T47NNJ_20260321T090910",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 125,
+      "code": "100-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47NNJ_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230908T033539_R061_T47NNJ_20230908T105248",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230928T033539_R061_T47NNJ_20230928T091915",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231217T034149_R061_T47NNJ_20231220T054654",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47NNJ_20240301T092124",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240316T033539_R061_T47NNJ_20240316T081224",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240604T033539_R061_T47NNJ_20240604T082008",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240624T033539_R061_T47NNJ_20240624T085241",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_R061_T47NNJ_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47NNJ_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250311T033539_R061_T47NNJ_20250311T072242",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250326T033601_R061_T47NNJ_20250326T085914",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_R061_T47NNJ_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250624T033551_R061_T47NNJ_20250624T083123",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250914T034201_R061_T47NNJ_20250914T073413",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_R061_T47NNJ_20250922T091415",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47NNJ_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2025-12",
+      "scene_id": "S2C_MSIL2A_20251221T034201_R061_T47NNJ_20251221T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47NNJ_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 126,
+      "code": "66-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_R061_T47NNJ_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231209T033131_R018_T47NQH_20231209T071026",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231204T033119_R018_T47NQH_20241023T142531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240611T032519_R018_T47NQH_20240611T080750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240929T032519_R018_T47NQH_20240929T075334",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241208T033039_R018_T47NQH_20241208T071110",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250308T032519_R018_T47NQH_20250308T062224",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250303T032701_R018_T47NQH_20250303T084755",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250601T032601_N0511_R018_T47NQH_20250601T081256",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250901T033151_R018_T47NQH_20250901T073157",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250919T032551_R018_T47NQH_20250919T085615",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251203T033019_R018_T47NQH_20251203T070239",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 127,
+      "code": "89-VSD",
+      "month": "2026-08",
+      "scene_id": "S2C_MSIL2A_20260805T032521_R018_T47NQH_20260805T083109",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231209T033131_R018_T47NQH_20231209T071026",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231204T033119_R018_T47NQH_20241023T142531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240606T032521_R018_T47NQH_20240606T093306",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240611T032519_R018_T47NQH_20240611T080750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240929T032519_R018_T47NQH_20240929T075334",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241208T033039_N0511_R018_T47NQH_20241208T071110",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250325T033151_R018_T47NQH_20250325T111922",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250601T032601_N0511_R018_T47NQH_20250601T081256",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250921T033201_R018_T47NQH_20250921T073013",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251203T033019_N0511_R018_T47NQH_20251203T070239",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 128,
+      "code": "93-VSD",
+      "month": "2026-08",
+      "scene_id": "S2C_MSIL2A_20260805T032521_R018_T47NQH_20260805T083109",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231219T033141_R018_T47NQH_20231220T115023",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231204T033119_R018_T47NQH_20241023T142531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240606T032521_R018_T47NQH_20240606T093306",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240929T032519_R018_T47NQH_20240929T075334",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241208T033039_R018_T47NQH_20241208T071110",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250325T033151_R018_T47NQH_20250325T111922",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250601T032601_N0511_R018_T47NQH_20250601T081256",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250901T033151_R018_T47NQH_20250901T073157",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250921T033201_R018_T47NQH_20250921T073013",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251203T033019_N0511_R018_T47NQH_20251203T070239",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 129,
+      "code": "94-VSD",
+      "month": "2026-08",
+      "scene_id": "S2C_MSIL2A_20260805T032521_R018_T47NQH_20260805T083109",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231209T033131_R018_T47NQH_20231209T071026",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240611T032519_R018_T47NQH_20240611T080750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240929T032519_R018_T47NQH_20240929T075334",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241208T033039_N0511_R018_T47NQH_20241208T071110",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250318T032519_R018_T47NQH_20250318T071834",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250313T032541_R018_T47NQH_20250313T091913",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250601T032601_N0511_R018_T47NQH_20250601T081256",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250901T033151_R018_T47NQH_20250901T073157",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251230T033201_R018_T47NQH_20251230T072310",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251203T033019_R018_T47NQH_20251203T070239",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 130,
+      "code": "95-VSD",
+      "month": "2026-08",
+      "scene_id": "S2C_MSIL2A_20260805T032521_R018_T47NQH_20260805T083109",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T081422",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231222T034151_R061_T47NMJ_20231222T082251",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231217T034149_R061_T47NNJ_20231220T054654",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47NNJ_20240321T091057",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240326T033539_N0510_R061_T47NMJ_20240326T073954",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240614T033539_N0510_R061_T47NMJ_20240614T072828",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_R061_T47NMJ_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240912T033539_R061_T47NNJ_20240912T082434",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241206T034131_R061_T47NNJ_20241206T070059",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_N0511_R061_T47NMJ_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250318T034201_R061_T47NMJ_20250318T114518",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250316T033601_R061_T47NNJ_20250316T090315",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_N0511_R061_T47NMJ_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NMJ_20250902T085021",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47NNJ_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251206T034029_R061_T47NMJ_20251206T055750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260316T033529_N0512_R061_T47NMJ_20260316T072001",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260326T033529_R061_T47NNJ_20260326T072041",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_R061_T47NMJ_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 131,
+      "code": "99-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_R061_T47NNJ_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PMK_20230918T102758",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PMK_20241013T024531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231205T035121_R104_T47PMK_20231205T081126",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231207T034129_R061_T47PMK_20231207T081425",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240326T033539_R061_T47PMK_20240326T091645",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240612T034541_R104_T47PMK_20240612T092031",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240629T033541_R061_T47PMK_20240629T102845",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_R061_T47PMK_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47PMK_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241231T034049_R061_T47PMK_20241231T063102",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250324T034539_R104_T47PMK_20250324T072707",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250614T033551_R061_T47PMK_20250614T090546",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47PMK_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251209T035049_R104_T47PMK_20251209T054856",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47PMK_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260326T035211_R104_T47PMK_20260326T084309",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 160,
+      "code": "40-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_R061_T47PMK_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47PMK_20230918T081422",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231205T035121_R104_T47PMK_20231205T081126",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231207T034129_R061_T47PMK_20231207T081425",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47PMK_20240301T092116",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47PMK_20240321T091052",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240619T033541_R061_T47PMK_20240619T093857",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240629T033541_R061_T47PMK_20240629T102845",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_R061_T47PMK_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47PMK_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241231T034049_N0511_R061_T47PMK_20241231T063102",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250318T034201_R061_T47PMK_20250318T114518",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250331T033539_R061_T47PMK_20250331T072416",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250629T035201_R104_T47PMK_20250629T084417",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47PMK_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260319T034529_R104_T47PMK_20260319T073036",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260321T033541_R061_T47PMK_20260321T090910",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 161,
+      "code": "44-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47PMK_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PNN_20230918T102816",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PNN_20241013T024531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231222T034151_R061_T47PNN_20231222T082256",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231227T034149_R061_T47PNN_20231227T081836",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47PNN_20240301T092120",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240331T033531_R061_T47PNN_20240331T093338",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240604T033539_N0510_R061_T47PNN_20240604T065104",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47PNN_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47PNN_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241211T034049_R061_T47PNN_20241211T082736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250318T034201_R061_T47PNN_20250318T114518",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250316T033601_R061_T47PNN_20250316T090315",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250604T033601_N0511_R061_T47PNN_20250604T084721",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47PNN_20250912T090014",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47PNN_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2025-12",
+      "scene_id": "S2C_MSIL2A_20251201T034131_R061_T47PNN_20251201T063318",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260306T033539_R061_T47PNN_20260306T072603",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260326T033529_R061_T47PNN_20260326T072041",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 163,
+      "code": "18-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47PNN_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230903T033541_R061_T47PNQ_20230903T111318",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47PNQ_20241013T024531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231212T034141_R061_T47PNQ_20231213T024524",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231227T034149_R061_T47PNQ_20231227T081827",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240301T033651_R061_T47PNQ_20240301T092116",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240326T033539_R061_T47PNQ_20240326T091647",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240614T033539_N0510_R061_T47PNQ_20240614T072828",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_R061_T47PNQ_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47PNQ_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241201T034029_R061_T47PNQ_20241201T063331",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-03",
+      "scene_id": "S2A_MSIL2A_20250318T034201_R061_T47PNQ_20250318T114518",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250326T033601_R061_T47PNQ_20250326T085914",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-06",
+      "scene_id": "S2A_MSIL2A_20250626T034201_R061_T47PNQ_20250626T073921",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-06",
+      "scene_id": "S2C_MSIL2A_20250604T033601_R061_T47PNQ_20250604T084721",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47PNQ_20250912T090014",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250912T033551_R061_T47PNQ_20250912T090014",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47PNQ_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2025-12",
+      "scene_id": "S2C_MSIL2A_20251201T034131_R061_T47PNQ_20251201T063318",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47PNQ_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260301T033701_R061_T47PNQ_20260301T091613",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 164,
+      "code": "87-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_R061_T47PNQ_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2023-09",
+      "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47NQH_20230930T075101",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231209T033131_R018_T47NQH_20231209T071026",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2023-12",
+      "scene_id": "S2A_MSIL2A_20231219T033141_R018_T47NQH_20231220T115023",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240318T032521_R018_T47NQH_20240318T091629",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2024-03",
+      "scene_id": "S2B_MSIL2A_20240323T032519_R018_T47NQH_20240323T080736",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240626T032521_R018_T47NQH_20240626T093510",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2024-06",
+      "scene_id": "S2B_MSIL2A_20240611T032519_R018_T47NQH_20240611T080750",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2024-09",
+      "scene_id": "S2B_MSIL2A_20240929T032519_R018_T47NQH_20240929T075334",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241208T033039_N0511_R018_T47NQH_20241208T071110",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250308T032519_R018_T47NQH_20250308T062224",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250323T032541_R018_T47NQH_20250323T091110",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250616T032519_R018_T47NQH_20250616T070931",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250921T033201_R018_T47NQH_20250921T073013",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251203T033019_N0511_R018_T47NQH_20251203T070239",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2026-03",
+      "scene_id": "S2B_MSIL2A_20260303T032539_R018_T47NQH_20260303T085226",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 165,
+      "code": "90-VSD",
+      "month": "2026-08",
+      "scene_id": "S2A_MSIL2A_20260827T033201_N0512_R018_T47NQH_20260827T102111",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47NPH_20230918T102802",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230918T033539_R061_T47NPH_20241013T024531",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2023-12",
+      "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231217T061943",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240311T033541_R061_T47NPH_20240311T110031",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2024-03",
+      "scene_id": "S2A_MSIL2A_20240321T033541_R061_T47NPH_20240321T091048",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2024-06",
+      "scene_id": "S2A_MSIL2A_20240609T033541_R061_T47NPH_20240609T101744",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47NPH_20240927T085345",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241226T034151_R061_T47NPH_20241226T064949",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2024-12",
+      "scene_id": "S2B_MSIL2A_20241221T034059_R061_T47NPH_20241221T072432",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2025-03",
+      "scene_id": "S2B_MSIL2A_20250301T033559_R061_T47NPH_20250301T071311",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2025-03",
+      "scene_id": "S2C_MSIL2A_20250326T033601_R061_T47NPH_20250326T085914",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2025-06",
+      "scene_id": "S2B_MSIL2A_20250629T033539_R061_T47NPH_20250629T063507",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47NPH_20250922T091415",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2025-12",
+      "scene_id": "S2A_MSIL2A_20251203T034201_R061_T47NPH_20251203T073813",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2026-03",
+      "scene_id": "S2A_MSIL2A_20260313T034201_R061_T47NPH_20260313T083010",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": false,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2026-03",
+      "scene_id": "S2C_MSIL2A_20260321T033541_R061_T47NPH_20260321T090910",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    },
+    {
+      "plot_id": 166,
+      "code": "86-VSD",
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_R061_T47NPH_20260803T072631",
+      "scope": "REGISTRY_CONTAINED",
+      "same_acquisition_in_pdd": true,
+      "action": "KEEP_REGISTRY_SOURCE",
+      "reason": "PDD required scientific-band and output-footprint equivalence is not proven; no PDD imagery substitution or deduplication"
+    }
+  ]
+}

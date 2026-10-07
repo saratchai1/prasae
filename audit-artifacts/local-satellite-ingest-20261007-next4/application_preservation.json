@@ -1,0 +1,66 @@
+{
+  "status": "PASS",
+  "baseline_files": 9192,
+  "current_files": 9194,
+  "unchanged_baseline_files": 9189,
+  "changed": [
+    "data/all_plots_visual_qa.json",
+    "data/plots/131/metadata.json",
+    "data/timeseries_verified_12.json"
+  ],
+  "added": [
+    "data/plots/131/ndvi_2023-09.png",
+    "data/plots/131/rgb_2023-09.png"
+  ],
+  "deleted": [],
+  "previous_missing_slots": 249,
+  "accepted_slots": [
+    "131|2023-09"
+  ],
+  "observed_before": 2271,
+  "observed_after": 2272,
+  "still_missing": 248,
+  "result_counts": {
+    "NO_CLEAR_SCENE": 240,
+    "LOW_COVERAGE": 5,
+    "NO_COMPLETE_SOURCE": 3,
+    "ACCEPTED": 1
+  },
+  "qa_preserved": 2519,
+  "qa_changed": [
+    "131|2023-09"
+  ],
+  "qa_summary": {
+    "INSUFFICIENT": 699,
+    "CLEAR": 1759,
+    "RADIOMETRY_REVIEW": 13,
+    "ATMOSPHERE_REVIEW": 29,
+    "VISUAL_REVIEW": 16,
+    "TIDE_WATER_REVIEW": 4
+  },
+  "new_observation_coverage_pct": 7.52,
+  "new_images": {
+    "rgb": {
+      "width": 173,
+      "height": 177,
+      "alpha_pixels": 248,
+      "polygon_pixels": 3296,
+      "alpha_coverage_pct": 7.524271844660194,
+      "outside_polygon_alpha_pixels": 0,
+      "sha256": "1963416b777033c9538dda72af4bfbcbffadb105f9beee754ad06e160a1b5f40"
+    },
+    "ndvi": {
+      "width": 173,
+      "height": 177,
+      "alpha_pixels": 248,
+      "polygon_pixels": 3296,
+      "alpha_coverage_pct": 7.524271844660194,
+      "outside_polygon_alpha_pixels": 0,
+      "sha256": "3cd7c9c85621498e0d23d62662541a68c8f8ec7402fe50cb5e706fc949e0230d"
+    }
+  },
+  "used_scene_fingerprints": {
+    "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531": "be1541449c7889117fe9a0119b589bfd9ccd9106ae5a0106285ce26b96d19720",
+    "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900": "676102c2f11db3890a10ff04e7380d08388e769fa5bc36e221b2263396a3746b"
+  }
+}

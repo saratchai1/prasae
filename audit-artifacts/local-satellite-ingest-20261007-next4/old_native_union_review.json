@@ -1,0 +1,1060 @@
+{
+  "result": "PASS",
+  "metadata_formula": "old exact STAC; new exact product XML quantification/BOAoffset/nodata",
+  "scope": "every band >=99.9% full registry; no partial tile or legacy DN family",
+  "records": [
+    {
+      "plot_id": 13,
+      "month": "2023-09",
+      "old_full_registry_native_scenes_available": 2,
+      "new_full_registry_native_scenes_available": 10,
+      "scenarios": {
+        "OLD_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 1.9,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327",
+              "delivery": "inputs-next",
+              "source_group": "5-STC/2023-09/S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327",
+              "fingerprint": "4b6e86c3bbc9521bc1dc63c63293bb3d64c88040a8f0633b2bd415e41529c7a3"
+            }
+          ]
+        },
+        "OLD_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 1.9,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327",
+              "delivery": "inputs-next",
+              "source_group": "5-STC/2023-09/S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327",
+              "fingerprint": "4b6e86c3bbc9521bc1dc63c63293bb3d64c88040a8f0633b2bd415e41529c7a3"
+            }
+          ]
+        },
+        "NEW_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 1.9,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "fingerprint": "a7292899b6804df2a274c4937f1e4dd278c13a7f426272e39f184b2a8a41282b"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929",
+              "fingerprint": "f125147b6f1e06fa77b5751d2e0d76e77134e03b3660a1a7914f6aff8e4fc5c4"
+            }
+          ]
+        },
+        "NEW_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 1.9,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230910T032521_N0510_R018_T47PRP_20241019T200721",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230910T032521_N0510_R018_T47PRP_20241019T200721",
+              "fingerprint": "8c7822084e127a632e105364a952d087ea97ad0078a87b3f8f243d44b4fa5518"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230920T032521_N0510_R018_T47PRP_20241018T151912",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230920T032521_N0510_R018_T47PRP_20241018T151912",
+              "fingerprint": "4f132e09ee2806db1aae1a6bb4b382290d82bc412eed1ad9a1733f2f144b1273"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "fingerprint": "a7292899b6804df2a274c4937f1e4dd278c13a7f426272e39f184b2a8a41282b"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230905T032519_N0510_R018_T47PRP_20241104T191229",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2B_MSIL2A_20230905T032519_N0510_R018_T47PRP_20241104T191229",
+              "fingerprint": "0e5e713ee88672ed9a1d4d7c2cd7bbb29c6ee41ee01e0bbb734c293c776d3d03"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230915T032519_N0510_R018_T47PRP_20241024T150944",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2B_MSIL2A_20230915T032519_N0510_R018_T47PRP_20241024T150944",
+              "fingerprint": "a4c3e7b626ecc26f28df1ce6953f6a29a38d9f1375841e8de4d6616c2ba954bb"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929",
+              "fingerprint": "f125147b6f1e06fa77b5751d2e0d76e77134e03b3660a1a7914f6aff8e4fc5c4"
+            }
+          ]
+        },
+        "UNION:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "fingerprint": "a7292899b6804df2a274c4937f1e4dd278c13a7f426272e39f184b2a8a41282b"
+            }
+          ]
+        },
+        "UNION:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 1.9,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T085929",
+              "fingerprint": "f125147b6f1e06fa77b5751d2e0d76e77134e03b3660a1a7914f6aff8e4fc5c4"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230910T032521_N0510_R018_T47PRP_20241019T200721",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230910T032521_N0510_R018_T47PRP_20241019T200721",
+              "fingerprint": "8c7822084e127a632e105364a952d087ea97ad0078a87b3f8f243d44b4fa5518"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230920T032521_N0510_R018_T47PRP_20241018T151912",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230920T032521_N0510_R018_T47PRP_20241018T151912",
+              "fingerprint": "4f132e09ee2806db1aae1a6bb4b382290d82bc412eed1ad9a1733f2f144b1273"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2A_MSIL2A_20230930T032521_N0509_R018_T47PRP_20230930T100431",
+              "fingerprint": "a7292899b6804df2a274c4937f1e4dd278c13a7f426272e39f184b2a8a41282b"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230905T032519_N0510_R018_T47PRP_20241104T191229",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2B_MSIL2A_20230905T032519_N0510_R018_T47PRP_20241104T191229",
+              "fingerprint": "0e5e713ee88672ed9a1d4d7c2cd7bbb29c6ee41ee01e0bbb734c293c776d3d03"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230915T032519_N0510_R018_T47PRP_20241024T150944",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/5-STC/2023-09/S2B_MSIL2A_20230915T032519_N0510_R018_T47PRP_20241024T150944",
+              "fingerprint": "a4c3e7b626ecc26f28df1ce6953f6a29a38d9f1375841e8de4d6616c2ba954bb"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "plot_id": 50,
+      "month": "2024-06",
+      "old_full_registry_native_scenes_available": 3,
+      "new_full_registry_native_scenes_available": 6,
+      "scenarios": {
+        "OLD_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 2.0,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058",
+              "delivery": "inputs-next",
+              "source_group": "29-STC/2024-06/S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058",
+              "fingerprint": "65ebbc24f1351be216ef1cc6ef50bc6e13c73fba1e9d7d819345ad7bab5b3b51"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T084402",
+              "delivery": "inputs-next-3",
+              "source_group": "29-STC/2024-06/S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T084402",
+              "fingerprint": "62b6e4bb898451af05da6da36dcdbde0a9bd05c9f3d44bb960c7ba97b7b1ffd4"
+            }
+          ]
+        },
+        "OLD_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 2.0,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058",
+              "delivery": "inputs-next",
+              "source_group": "29-STC/2024-06/S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T064058",
+              "fingerprint": "65ebbc24f1351be216ef1cc6ef50bc6e13c73fba1e9d7d819345ad7bab5b3b51"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T084402",
+              "delivery": "inputs-next-3",
+              "source_group": "29-STC/2024-06/S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T084402",
+              "fingerprint": "62b6e4bb898451af05da6da36dcdbde0a9bd05c9f3d44bb960c7ba97b7b1ffd4"
+            }
+          ]
+        },
+        "NEW_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 2.0,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T093306",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T093306",
+              "fingerprint": "78cabe5bd41cd858c4117d7d1736b272209c3f615b8b46890a5f0445b52e4805"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "fingerprint": "5bce9cde6ab45de8c7d0c3badfa82e15bdcb7f1517eabc55f1e29ad2dbad9cc3"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "fingerprint": "6dfd1d06721407b8ba3ffd1a85d73d34dcaa9b9d8661a4993f5d456585ae3a28"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "fingerprint": "9579e425e0a2daa1f717a1aa9a5b9e92e8ce9f8be6960b42bd188cf5d2941158"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750",
+              "fingerprint": "0241fa2f05a4a0c7c1d23d7e736433bdab0945ccf985af74bd54546147d54afd"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "fingerprint": "cb4a2fc5909d5a60a9314d50a699fd0cebe8e922fdc073c7b15ac89e9bd4e559"
+            }
+          ]
+        },
+        "NEW_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 2.0,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T093306",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T093306",
+              "fingerprint": "78cabe5bd41cd858c4117d7d1736b272209c3f615b8b46890a5f0445b52e4805"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "fingerprint": "5bce9cde6ab45de8c7d0c3badfa82e15bdcb7f1517eabc55f1e29ad2dbad9cc3"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "fingerprint": "6dfd1d06721407b8ba3ffd1a85d73d34dcaa9b9d8661a4993f5d456585ae3a28"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "fingerprint": "9579e425e0a2daa1f717a1aa9a5b9e92e8ce9f8be6960b42bd188cf5d2941158"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750",
+              "fingerprint": "0241fa2f05a4a0c7c1d23d7e736433bdab0945ccf985af74bd54546147d54afd"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "fingerprint": "cb4a2fc5909d5a60a9314d50a699fd0cebe8e922fdc073c7b15ac89e9bd4e559"
+            }
+          ]
+        },
+        "UNION:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "fingerprint": "5bce9cde6ab45de8c7d0c3badfa82e15bdcb7f1517eabc55f1e29ad2dbad9cc3"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "fingerprint": "6dfd1d06721407b8ba3ffd1a85d73d34dcaa9b9d8661a4993f5d456585ae3a28"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "fingerprint": "9579e425e0a2daa1f717a1aa9a5b9e92e8ce9f8be6960b42bd188cf5d2941158"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "fingerprint": "cb4a2fc5909d5a60a9314d50a699fd0cebe8e922fdc073c7b15ac89e9bd4e559"
+            }
+          ]
+        },
+        "UNION:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 2.0,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240611T032519_N0510_R018_T47NQH_20240611T080750",
+              "fingerprint": "0241fa2f05a4a0c7c1d23d7e736433bdab0945ccf985af74bd54546147d54afd"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T093306",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240606T032521_N0510_R018_T47NQH_20240606T093306",
+              "fingerprint": "78cabe5bd41cd858c4117d7d1736b272209c3f615b8b46890a5f0445b52e4805"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T47NQH_20240616T101324",
+              "fingerprint": "5bce9cde6ab45de8c7d0c3badfa82e15bdcb7f1517eabc55f1e29ad2dbad9cc3"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2A_MSIL2A_20240626T032521_N0510_R018_T47NQH_20240626T093510",
+              "fingerprint": "6dfd1d06721407b8ba3ffd1a85d73d34dcaa9b9d8661a4993f5d456585ae3a28"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240601T032519_N0510_R018_T47NQH_20240601T083134",
+              "fingerprint": "9579e425e0a2daa1f717a1aa9a5b9e92e8ce9f8be6960b42bd188cf5d2941158"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/29-STC/2024-06/S2B_MSIL2A_20240621T032519_N0510_R018_T47NQH_20240621T082202",
+              "fingerprint": "cb4a2fc5909d5a60a9314d50a699fd0cebe8e922fdc073c7b15ac89e9bd4e559"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "plot_id": 125,
+      "month": "2023-09",
+      "old_full_registry_native_scenes_available": 0,
+      "new_full_registry_native_scenes_available": 11,
+      "scenarios": {
+        "OLD_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0,
+          "status": "NO_UNAMBIGUOUS_COMPLETE_SOURCE",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": []
+        },
+        "OLD_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 0,
+          "status": "NO_UNAMBIGUOUS_COMPLETE_SOURCE",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": []
+        },
+        "NEW_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "6683dc2d37f86657345f55048302b05fa8c14ee17d04444935925b2ae7745ff5"
+            }
+          ]
+        },
+        "NEW_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 2.44,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "fingerprint": "62511817cecef8e9dfc25c0b9edb8e78991ebe0f504631c8972cc1b3581d3b27"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "fingerprint": "4c07cd5d5769a17538198d10e376c305d94344ea0baccc5f782643fd70c8a259"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "fingerprint": "1d54c9853905cd8cdbd6c4b50f7362235d9fa197894b07b115c7a00e1b577101"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "fingerprint": "920243a97d5e45468c835e93c45df36a5fec62baf009aab28d903afcbb3c27dc"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "fingerprint": "481686cf33ac45b93df754c246baea04de3ff029b59643df39feae3e7ba2b96a"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "6683dc2d37f86657345f55048302b05fa8c14ee17d04444935925b2ae7745ff5"
+            }
+          ]
+        },
+        "UNION:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "6683dc2d37f86657345f55048302b05fa8c14ee17d04444935925b2ae7745ff5"
+            }
+          ]
+        },
+        "UNION:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 2.44,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "fingerprint": "62511817cecef8e9dfc25c0b9edb8e78991ebe0f504631c8972cc1b3581d3b27"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "fingerprint": "4c07cd5d5769a17538198d10e376c305d94344ea0baccc5f782643fd70c8a259"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "fingerprint": "1d54c9853905cd8cdbd6c4b50f7362235d9fa197894b07b115c7a00e1b577101"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "fingerprint": "920243a97d5e45468c835e93c45df36a5fec62baf009aab28d903afcbb3c27dc"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "fingerprint": "481686cf33ac45b93df754c246baea04de3ff029b59643df39feae3e7ba2b96a"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/100-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "6683dc2d37f86657345f55048302b05fa8c14ee17d04444935925b2ae7745ff5"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "plot_id": 131,
+      "month": "2023-09",
+      "old_full_registry_native_scenes_available": 2,
+      "new_full_registry_native_scenes_available": 11,
+      "scenarios": {
+        "OLD_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 4.07,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "delivery": "inputs-next",
+              "source_group": "99-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "fingerprint": "676102c2f11db3890a10ff04e7380d08388e769fa5bc36e221b2263396a3746b"
+            }
+          ]
+        },
+        "OLD_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 4.07,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "delivery": "inputs-next",
+              "source_group": "99-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "fingerprint": "676102c2f11db3890a10ff04e7380d08388e769fa5bc36e221b2263396a3746b"
+            }
+          ]
+        },
+        "NEW_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "928f9c9df2ff88e912e9c4290a2b8a423ea05a08fa020b1d9d4c39f89fa3ba14"
+            }
+          ]
+        },
+        "NEW_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 3.46,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "fingerprint": "753a83708b7f115bd3d4ed40b51f774dd204d231e27941df0168d46b1b6bd2fa"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "fingerprint": "fd80b08cb6c9179f889b7fe04dd868717f40baeaf1a69e33258f21a6d09ba298"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "fingerprint": "ec5b2e2a70c95d24eaf5cd347a5f131e8a6c55e79d5bd990a2b01ab01eee4f10"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "fingerprint": "d5c7ab407bcec16301ac421af94597becd31b76e0a17ba71ac2143109dae2782"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "fingerprint": "be1541449c7889117fe9a0119b589bfd9ccd9106ae5a0106285ce26b96d19720"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "928f9c9df2ff88e912e9c4290a2b8a423ea05a08fa020b1d9d4c39f89fa3ba14"
+            }
+          ]
+        },
+        "UNION:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 4.07,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "delivery": "inputs-next",
+              "source_group": "99-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "fingerprint": "676102c2f11db3890a10ff04e7380d08388e769fa5bc36e221b2263396a3746b"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "928f9c9df2ff88e912e9c4290a2b8a423ea05a08fa020b1d9d4c39f89fa3ba14"
+            }
+          ]
+        },
+        "UNION:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 7.52,
+          "status": "observed_monthly_composite",
+          "usable": true,
+          "scenes_used": [
+            "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+            "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "delivery": "inputs-next",
+              "source_group": "99-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+              "fingerprint": "676102c2f11db3890a10ff04e7380d08388e769fa5bc36e221b2263396a3746b"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+              "fingerprint": "753a83708b7f115bd3d4ed40b51f774dd204d231e27941df0168d46b1b6bd2fa"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+              "fingerprint": "fd80b08cb6c9179f889b7fe04dd868717f40baeaf1a69e33258f21a6d09ba298"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+              "fingerprint": "ec5b2e2a70c95d24eaf5cd347a5f131e8a6c55e79d5bd990a2b01ab01eee4f10"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+              "fingerprint": "d5c7ab407bcec16301ac421af94597becd31b76e0a17ba71ac2143109dae2782"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+              "fingerprint": "be1541449c7889117fe9a0119b589bfd9ccd9106ae5a0106285ce26b96d19720"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/99-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+              "fingerprint": "928f9c9df2ff88e912e9c4290a2b8a423ea05a08fa020b1d9d4c39f89fa3ba14"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "plot_id": 134,
+      "month": "2023-09",
+      "old_full_registry_native_scenes_available": 0,
+      "new_full_registry_native_scenes_available": 11,
+      "scenarios": {
+        "OLD_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0,
+          "status": "NO_UNAMBIGUOUS_COMPLETE_SOURCE",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": []
+        },
+        "OLD_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 0,
+          "status": "NO_UNAMBIGUOUS_COMPLETE_SOURCE",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": []
+        },
+        "NEW_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "fingerprint": "03162ee0ba5954b5e4e36c8311823538fa3e30b7a354adc4fadd38c8e5b16e8a"
+            }
+          ]
+        },
+        "NEW_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 4.09,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230918T033539_N0510_R061_T47PPK_20241013T024531"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47PPK_20241106T073433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2A_MSIL2A_20230903T033541_N0510_R061_T47PPK_20241106T073433",
+              "fingerprint": "4c4ecd3f82e4428136474e8e7735b65ca8ff8f0e4548d14eeb260af4a4a1c0a4"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47PPK_20241105T180357",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2A_MSIL2A_20230913T033541_N0510_R061_T47PPK_20241105T180357",
+              "fingerprint": "f85879352dc54a002ec5caf600de5cdf851c310201c90d8edf1486f84122bbbd"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47PPK_20241105T101720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0510_R061_T47PPK_20241105T101720",
+              "fingerprint": "24c0942ad1c2f6300c1cdf7565b9fd5649fc6ab2b24b60329914f91b39c36681"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47PPK_20241104T232445",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230908T033539_N0510_R061_T47PPK_20241104T232445",
+              "fingerprint": "630813f2e474b143a1a00355fc4d2fa0578284ed72b89c4145da3f2a81128b27"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47PPK_20241013T024531",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230918T033539_N0510_R061_T47PPK_20241013T024531",
+              "fingerprint": "570de61a10a3a751a875bd7318710482c2aa44ded800154c2e698ca71ae41a50"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "fingerprint": "03162ee0ba5954b5e4e36c8311823538fa3e30b7a354adc4fadd38c8e5b16e8a"
+            }
+          ]
+        },
+        "UNION:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "fingerprint": "03162ee0ba5954b5e4e36c8311823538fa3e30b7a354adc4fadd38c8e5b16e8a"
+            }
+          ]
+        },
+        "UNION:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 4.09,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2B_MSIL2A_20230918T033539_N0510_R061_T47PPK_20241013T024531"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47PPK_20241106T073433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2A_MSIL2A_20230903T033541_N0510_R061_T47PPK_20241106T073433",
+              "fingerprint": "4c4ecd3f82e4428136474e8e7735b65ca8ff8f0e4548d14eeb260af4a4a1c0a4"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47PPK_20241105T180357",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2A_MSIL2A_20230913T033541_N0510_R061_T47PPK_20241105T180357",
+              "fingerprint": "f85879352dc54a002ec5caf600de5cdf851c310201c90d8edf1486f84122bbbd"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47PPK_20241105T101720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2A_MSIL2A_20230923T033541_N0510_R061_T47PPK_20241105T101720",
+              "fingerprint": "24c0942ad1c2f6300c1cdf7565b9fd5649fc6ab2b24b60329914f91b39c36681"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47PPK_20241104T232445",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230908T033539_N0510_R061_T47PPK_20241104T232445",
+              "fingerprint": "630813f2e474b143a1a00355fc4d2fa0578284ed72b89c4145da3f2a81128b27"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47PPK_20241013T024531",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230918T033539_N0510_R061_T47PPK_20241013T024531",
+              "fingerprint": "570de61a10a3a751a875bd7318710482c2aa44ded800154c2e698ca71ae41a50"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/23-VSD/2023-09/S2B_MSIL2A_20230928T033539_N0509_R061_T47PPK_20230928T091846",
+              "fingerprint": "03162ee0ba5954b5e4e36c8311823538fa3e30b7a354adc4fadd38c8e5b16e8a"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "plot_id": 184,
+      "month": "2023-12",
+      "old_full_registry_native_scenes_available": 1,
+      "new_full_registry_native_scenes_available": 7,
+      "scenarios": {
+        "OLD_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 3.23,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853",
+              "delivery": "inputs-next-3",
+              "source_group": "PLOT_184/2023-12/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853",
+              "fingerprint": "4f3c09f5b00cb72e206ae820e17640db631280299e740357863448a510f65d45"
+            }
+          ]
+        },
+        "OLD_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 3.23,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853",
+              "delivery": "inputs-next-3",
+              "source_group": "PLOT_184/2023-12/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853",
+              "fingerprint": "4f3c09f5b00cb72e206ae820e17640db631280299e740357863448a510f65d45"
+            }
+          ]
+        },
+        "NEW_ONLY:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 3.23,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "fingerprint": "b1577724b8303bb54a578f21f81e3f1b15ffbf5f5bd0d52107219e5090e42d0e"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433",
+              "fingerprint": "f7ac6d7d8c9240dc786692c29ffa9173f888d0cc329874ccbc6f6e6dfe0f2fe0"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "fingerprint": "91d7d52fa3451e2b4fe4a7f1568e1f0f3f34a2ca2b961c9c0c389e0af89aed42"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "fingerprint": "c9473ba69ace58d7cd33bc3c54260b2af2ef95fc9d9ce77b0fe9dedb413d3a4c"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "fingerprint": "a1b62e3c36d327a4b79e27992b15f9bdaec445ab5fd85c3ca667817923b6310e"
+            }
+          ]
+        },
+        "NEW_ONLY:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 3.23,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "fingerprint": "b1577724b8303bb54a578f21f81e3f1b15ffbf5f5bd0d52107219e5090e42d0e"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20231212T034141_N0510_R061_T47NPH_20241016T114720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231212T034141_N0510_R061_T47NPH_20241016T114720",
+              "fingerprint": "d91915747bd336a007504e65b0fe33c67e7c2e431a0fcc2009b203bbd7766323"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433",
+              "fingerprint": "f7ac6d7d8c9240dc786692c29ffa9173f888d0cc329874ccbc6f6e6dfe0f2fe0"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "fingerprint": "91d7d52fa3451e2b4fe4a7f1568e1f0f3f34a2ca2b961c9c0c389e0af89aed42"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "fingerprint": "c9473ba69ace58d7cd33bc3c54260b2af2ef95fc9d9ce77b0fe9dedb413d3a4c"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "fingerprint": "a1b62e3c36d327a4b79e27992b15f9bdaec445ab5fd85c3ca667817923b6310e"
+            }
+          ]
+        },
+        "UNION:STRICT_HOLD_NON_EQUIVALENT": {
+          "coverage_pct": 0.0,
+          "status": "no_data",
+          "usable": false,
+          "scenes_used": [],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "fingerprint": "b1577724b8303bb54a578f21f81e3f1b15ffbf5f5bd0d52107219e5090e42d0e"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "fingerprint": "91d7d52fa3451e2b4fe4a7f1568e1f0f3f34a2ca2b961c9c0c389e0af89aed42"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "fingerprint": "c9473ba69ace58d7cd33bc3c54260b2af2ef95fc9d9ce77b0fe9dedb413d3a4c"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "fingerprint": "a1b62e3c36d327a4b79e27992b15f9bdaec445ab5fd85c3ca667817923b6310e"
+            }
+          ]
+        },
+        "UNION:LATEST_PRODUCT_PREFER_NATIVE_GRID": {
+          "coverage_pct": 3.23,
+          "status": "insufficient_clear_pixels",
+          "usable": false,
+          "scenes_used": [
+            "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433"
+          ],
+          "selected_source_records": [
+            {
+              "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T082433",
+              "fingerprint": "f7ac6d7d8c9240dc786692c29ffa9173f888d0cc329874ccbc6f6e6dfe0f2fe0"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231202T034111_N0509_R061_T47NPH_20231202T072320",
+              "fingerprint": "b1577724b8303bb54a578f21f81e3f1b15ffbf5f5bd0d52107219e5090e42d0e"
+            },
+            {
+              "scene_id": "S2A_MSIL2A_20231212T034141_N0510_R061_T47NPH_20241016T114720",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2A_MSIL2A_20231212T034141_N0510_R061_T47NPH_20241016T114720",
+              "fingerprint": "d91915747bd336a007504e65b0fe33c67e7c2e431a0fcc2009b203bbd7766323"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231207T034129_N0509_R061_T47NPH_20231207T081306",
+              "fingerprint": "91d7d52fa3451e2b4fe4a7f1568e1f0f3f34a2ca2b961c9c0c389e0af89aed42"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231217T034149_N0510_R061_T47NPH_20231220T053748",
+              "fingerprint": "c9473ba69ace58d7cd33bc3c54260b2af2ef95fc9d9ce77b0fe9dedb413d3a4c"
+            },
+            {
+              "scene_id": "S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "delivery": "inputs-next-4",
+              "source_group": "alternative-providers/planetary-computer/PLOT_184/2023-12/S2B_MSIL2A_20231227T034149_N0510_R061_T47NPH_20231227T081834",
+              "fingerprint": "a1b62e3c36d327a4b79e27992b15f9bdaec445ab5fd85c3ca667817923b6310e"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

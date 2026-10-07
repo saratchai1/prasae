@@ -6,8 +6,8 @@
 })(typeof globalThis!=='undefined'?globalThis:this,function(C,M){
   'use strict';
   const number=M.number;
-  const labels={REVIEW:'ควรตรวจการเปลี่ยนแปลง',NO_DECREASE:'ไม่พบการลดลงในคู่นี้',INSUFFICIENT:'ข้อมูลไม่พอ',NOT_COMPARABLE:'ยังเปรียบเทียบไม่ได้',ATMOSPHERE_REVIEW:'ต้องตรวจเมฆ / หมอก',TIDE_WATER_REVIEW:'ต้องตรวจสภาพน้ำ',VISUAL_REVIEW:'ต้องตรวจภาพเพิ่มเติม',MISSING_ANALYSIS:'ยังไม่มีผลวิเคราะห์ชนิดนี้'};
-  const reviewStatuses=new Set(['ATMOSPHERE_REVIEW','TIDE_WATER_REVIEW','VISUAL_REVIEW']);
+  const labels={REVIEW:'ควรตรวจการเปลี่ยนแปลง',NO_DECREASE:'ไม่พบการลดลงในคู่นี้',INSUFFICIENT:'ข้อมูลไม่พอ',NOT_COMPARABLE:'ยังเปรียบเทียบไม่ได้',ATMOSPHERE_REVIEW:'ต้องตรวจเมฆ / หมอก',TIDE_WATER_REVIEW:'ต้องตรวจสภาพน้ำ',VISUAL_REVIEW:'ต้องตรวจภาพเพิ่มเติม',RADIOMETRY_REVIEW:'ต้องตรวจความสอดคล้องสูตรสะท้อนแสง',MISSING_ANALYSIS:'ยังไม่มีผลวิเคราะห์ชนิดนี้'};
+  const reviewStatuses=new Set(['ATMOSPHERE_REVIEW','TIDE_WATER_REVIEW','VISUAL_REVIEW','RADIOMETRY_REVIEW']);
   const method=p=>p.scope==='pdd'?'FCD_EQUIVALENT':'GREEN_COVER_PROXY';
   const methodLabel=p=>p.scope==='pdd'?'FCD พื้นที่เทียบเท่า PDD':'พื้นที่พืชโดยประมาณ (Green Cover Proxy)';
   const scopeLabel=p=>p.scope==='pdd'?'พื้นที่เข้าร่วม PDD':'ขอบเขตทะเบียนแปลง';
@@ -56,7 +56,7 @@
             return {month,year:Number(month.slice(0,4)),month_num:Number(month.slice(5)),qa:r.qa||'NO_DATA',status:r.qa||'NO_DATA',
               clear_pixel_pct:number(r.coverage_pct),mean_ndvi_inside:number(r.mean_ndvi),median_ndvi_inside:number(r.median_ndvi),
               analysis_mode:r.analysis_mode||'no_data',scenes_used:number(r.scene_count)||0,
-              secondary:reviewStatuses.has(related?.status)?{...related,reason:`ต้องตรวจภาพบริเวณเดียวกันเพิ่มเติม: ${related.reason}`}:{status:'COVERAGE_ONLY',reason:'QA ของ PDD เป็นความครอบคลุมภาพ ไม่ใช่การยืนยันสภาพจริงภาคสนาม'}};
+              secondary:related?.status!=='RADIOMETRY_REVIEW'&&reviewStatuses.has(related?.status)?{...related,reason:`ต้องตรวจภาพบริเวณเดียวกันเพิ่มเติม: ${related.reason}`}:{status:'COVERAGE_ONLY',reason:'QA ของ PDD เป็นความครอบคลุมภาพ ไม่ใช่การยืนยันสภาพจริงภาคสนาม'}};
           })};
       }
       return {id,code,registry,pdd};

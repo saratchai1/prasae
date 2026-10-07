@@ -1,0 +1,144 @@
+{
+  "result": "PASS",
+  "plot_id": 131,
+  "month": "2023-09",
+  "scope": "new source every band fully contains registry; old source exact-STAC validated native family",
+  "old_native_source_scenes": [
+    "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+  ],
+  "records": [
+    {
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0509_R061_T47NNJ_20230903T111333",
+      "acquisition_key": "S2A_20230903T033541_R061_T47NNJ",
+      "baseline": "N0509",
+      "processing_datetime": "20230903T111333",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL2A_20230903T033541_N0510_R061_T47NNJ_20241106T073433",
+      "acquisition_key": "S2A_20230903T033541_R061_T47NNJ",
+      "baseline": "N0510",
+      "processing_datetime": "20241106T073433",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0509_R061_T47NNJ_20230913T115058",
+      "acquisition_key": "S2A_20230913T033541_R061_T47NNJ",
+      "baseline": "N0509",
+      "processing_datetime": "20230913T115058",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL2A_20230913T033541_N0510_R061_T47NNJ_20241105T180357",
+      "acquisition_key": "S2A_20230913T033541_R061_T47NNJ",
+      "baseline": "N0510",
+      "processing_datetime": "20241105T180357",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0509_R061_T47NNJ_20230923T095424",
+      "acquisition_key": "S2A_20230923T033541_R061_T47NNJ",
+      "baseline": "N0509",
+      "processing_datetime": "20230923T095424",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2A_MSIL2A_20230923T033541_N0510_R061_T47NNJ_20241105T101720",
+      "acquisition_key": "S2A_20230923T033541_R061_T47NNJ",
+      "baseline": "N0510",
+      "processing_datetime": "20241105T101720",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0509_R061_T47NNJ_20230908T105248",
+      "acquisition_key": "S2B_20230908T033539_R061_T47NNJ",
+      "baseline": "N0509",
+      "processing_datetime": "20230908T105248",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL2A_20230908T033539_N0510_R061_T47NNJ_20241104T232445",
+      "acquisition_key": "S2B_20230908T033539_R061_T47NNJ",
+      "baseline": "N0510",
+      "processing_datetime": "20241104T232445",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0509_R061_T47NNJ_20230918T102312",
+      "acquisition_key": "S2B_20230918T033539_R061_T47NNJ",
+      "baseline": "N0509",
+      "processing_datetime": "20230918T102312",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531",
+      "acquisition_key": "S2B_20230918T033539_R061_T47NNJ",
+      "baseline": "N0510",
+      "processing_datetime": "20241013T024531",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 3.46,
+      "union_old_native_coverage_pct": 7.52,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900",
+        "S2B_MSIL2A_20230918T033539_N0510_R061_T47NNJ_20241013T024531"
+      ]
+    },
+    {
+      "scene_id": "S2B_MSIL2A_20230928T033539_N0509_R061_T47NNJ_20230928T091915",
+      "acquisition_key": "S2B_20230928T033539_R061_T47NNJ",
+      "baseline": "N0509",
+      "processing_datetime": "20230928T091915",
+      "registry_footprint_coverage_min": 1.0,
+      "single_coverage_pct": 0.0,
+      "union_old_native_coverage_pct": 4.07,
+      "union_scenes_used": [
+        "S2A_MSIL2A_20230923T033541_N0509_R061_T47NMJ_20230923T075900"
+      ]
+    }
+  ]
+}

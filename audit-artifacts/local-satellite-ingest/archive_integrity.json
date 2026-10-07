@@ -1,0 +1,10 @@
+{
+  "zip_count": 0,
+  "zip_valid": 0,
+  "zip_corrupt": 0,
+  "zip_duplicate_source": 0,
+  "total_members": 0,
+  "archive_scientific_tifs": 0,
+  "archives": [],
+  "note": "No ZIP under source root means archive integrity is not available; extracted raster decoding and SHA-256 are audited separately."
+}

@@ -1,0 +1,1322 @@
+[
+  {
+    "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NNJ_20250902T085021",
+    "registry_plot_id": 23,
+    "month": "2025-09",
+    "missing_bands": [
+      "B04"
+    ],
+    "source_group": "prepared/inputs/46-STC/2025-09/S2C_MSIL2A_20250902T033551_N0511_R061_T47NNJ_20250902T085021",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20240311T033541_N0510_R061_T47NNJ_20240311T075251",
+    "registry_plot_id": 25,
+    "month": "2024-03",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/48-STC/2024-03/S2A_MSIL2A_20240311T033541_N0510_R061_T47NNJ_20240311T075251",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20240321T033541_N0510_R061_T47NNJ_20240321T075552",
+    "registry_plot_id": 25,
+    "month": "2024-03",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/48-STC/2024-03/S2A_MSIL2A_20240321T033541_N0510_R061_T47NNJ_20240321T075552",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20240326T033539_N0510_R061_T47NNJ_20240326T073954",
+    "registry_plot_id": 25,
+    "month": "2024-03",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/48-STC/2024-03/S2B_MSIL2A_20240326T033539_N0510_R061_T47NNJ_20240326T073954",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250626T034201_N0511_R061_T47PQQ_20250626T073921",
+    "registry_plot_id": 76,
+    "month": "2025-06",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/13-STC/2025-06/S2A_MSIL2A_20250626T034201_N0511_R061_T47PQQ_20250626T073921",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250629T033539_N0511_R061_T47PQQ_20250629T063507",
+    "registry_plot_id": 76,
+    "month": "2025-06",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/13-STC/2025-06/S2B_MSIL2A_20250629T033539_N0511_R061_T47PQQ_20250629T063507",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250912T033551_N0511_R061_T47PNM_20250912T090014",
+    "registry_plot_id": 86,
+    "month": "2025-09",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250912T033551_N0511_R061_T47PNM_20250912T090014",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20250922T033551_N0511_R061_T47PNM_20250922T091415",
+    "registry_plot_id": 86,
+    "month": "2025-09",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/19-VSD/2025-09/S2C_MSIL2A_20250922T033551_N0511_R061_T47PNM_20250922T091415",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20250914T034201_N0511_R061_T47PMK_20250914T073413",
+    "registry_plot_id": 87,
+    "month": "2025-09",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/101-VSD/2025-09/S2A_MSIL2A_20250914T034201_N0511_R061_T47PMK_20250914T073413",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20230911T034539_N0509_R104_T47PMK_20230911T081554",
+    "registry_plot_id": 142,
+    "month": "2023-09",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/36-VSD/2023-09/S2B_MSIL2A_20230911T034539_N0509_R104_T47PMK_20230911T081554",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20260823T033529_N0512_R061_T47NNJ_20260823T072632",
+    "registry_plot_id": 151,
+    "month": "2026-08",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/96-VSD/2026-08/S2B_MSIL2A_20260823T033529_N0512_R061_T47NNJ_20260823T072632",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2C_MSIL2A_20260828T033531_N0512_R061_T47NNJ_20260828T083911",
+    "registry_plot_id": 151,
+    "month": "2026-08",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/96-VSD/2026-08/S2C_MSIL2A_20260828T033531_N0512_R061_T47NNJ_20260828T083911",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853",
+    "registry_plot_id": 184,
+    "month": "2023-12",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/PLOT_184/2023-12/S2A_MSIL2A_20231222T034151_N0510_R061_T47NPH_20231222T065853",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20240902T033539_N0511_R061_T47NPH_20240902T081330",
+    "registry_plot_id": 186,
+    "month": "2024-09",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B08"
+    ],
+    "source_group": "prepared/inputs/PLOT_186/2024-09/S2B_MSIL2A_20240902T033539_N0511_R061_T47NPH_20240902T081330",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  },
+  {
+    "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+    "registry_plot_id": 203,
+    "month": "2025-09",
+    "missing_bands": [
+      "B02",
+      "B03",
+      "B04"
+    ],
+    "source_group": "prepared/inputs/PLOT_203/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+    "exact_saved_product": true,
+    "bands": [
+      {
+        "band": "B02",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B03",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B04",
+        "new_exists": true,
+        "old_exists": false,
+        "requested_new": true
+      },
+      {
+        "band": "B05",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B06",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B07",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B08",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B8A",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B11",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "B12",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      },
+      {
+        "band": "SCL",
+        "new_exists": true,
+        "old_exists": true,
+        "requested_new": false,
+        "byte_identical_to_old": true
+      }
+    ]
+  }
+]

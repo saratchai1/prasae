@@ -1,0 +1,25 @@
+{
+  "source_id": "test_B04.tif",
+  "checksum": "9eafb67568fcd4735338d81d7045f13292e45ca569f87d738d004cdb9f2c613e",
+  "filesize": 1959008,
+  "integrity": "VALID_DECODED",
+  "scope": "UNASSIGNED_TEST_ASSET",
+  "scientific_role": "HELD_NOT_AN_OBSERVATION",
+  "crs": "EPSG:32647",
+  "shape": [
+    7313,
+    2409
+  ],
+  "dtype": "uint16",
+  "nodata": null,
+  "scales": [
+    1.0
+  ],
+  "offsets": [
+    0.0
+  ],
+  "all_zero": false,
+  "minimum": 0.0,
+  "maximum": 9016.0,
+  "exporter_source_id": "scripts/test_crop.py"
+}

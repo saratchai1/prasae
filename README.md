@@ -31,6 +31,11 @@ The dashboard separates:
 
 See `METRICS.md` for definitions and limitations.
 
+Local scientific TIFF ingestion for the unified 210-identity registry is documented
+in [LOCAL_SATELLITE_INGEST.md](docs/LOCAL_SATELLITE_INGEST.md). It audits source
+checksums and scope before filling exact-month gaps; normal CI verifies committed
+provenance and assets without downloading the raw satellite batch.
+
 ## Spectral Studio
 
 `Spectral Studio` is a browser-side visualization mixer. It uses six lightweight, cloud-masked, polygon-clipped Sentinel-2 visualization bands:

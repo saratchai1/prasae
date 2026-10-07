@@ -1,0 +1,322 @@
+{
+  "source_audit": {
+    "plots": 210,
+    "area_rai": 42162.41,
+    "provinces": {
+      "กระบี่": 39,
+      "จันทบุรี": 13,
+      "ฉะเชิงเทรา": 1,
+      "ชุมพร": 2,
+      "ตรัง": 3,
+      "ตราด": 8,
+      "นครศรีธรรมราช": 2,
+      "ประจวบคีรีขันธ์": 1,
+      "ปัตตานี": 11,
+      "พังงา": 41,
+      "ภูเก็ต": 10,
+      "ระนอง": 4,
+      "ระยอง": 11,
+      "สตูล": 22,
+      "สมุทรสงคราม": 16,
+      "สุราษฎร์ธานี": 1,
+      "ไม่ระบุ": 25
+    },
+    "observed_entries": 2230,
+    "images_checked": 4460
+  },
+  "unified_catalog_audit": {
+    "general_count": 210,
+    "pdd_count": 22,
+    "mapping": [
+      {
+        "code": "18-VSD",
+        "candidates": [
+          {
+            "id": 163,
+            "area": 3917.53,
+            "province": "ชุมพร",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "19-VSD",
+        "candidates": [
+          {
+            "id": 86,
+            "area": 2080.51,
+            "province": "ชุมพร",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "40-VSD",
+        "candidates": [
+          {
+            "id": 160,
+            "area": 566.44,
+            "province": "พังงา",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "41-VSD",
+        "candidates": [
+          {
+            "id": 117,
+            "area": 360.42,
+            "province": "พังงา",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "42-VSD",
+        "candidates": [
+          {
+            "id": 118,
+            "area": 451.89,
+            "province": "พังงา",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "43-VSD",
+        "candidates": [
+          {
+            "id": 119,
+            "area": 246.73,
+            "province": "พังงา",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "44-VSD",
+        "candidates": [
+          {
+            "id": 161,
+            "area": 444.56,
+            "province": "พังงา",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "66-VSD",
+        "candidates": [
+          {
+            "id": 126,
+            "area": 194.34,
+            "province": "ตรัง",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "85-VSD",
+        "candidates": [
+          {
+            "id": 120,
+            "area": 1207.16,
+            "province": "สตูล",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "86-VSD",
+        "candidates": [
+          {
+            "id": 166,
+            "area": 2304.43,
+            "province": "สตูล",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "87-VSD",
+        "candidates": [
+          {
+            "id": 164,
+            "area": 194.54,
+            "province": "สมุทรสงคราม",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "88-VSD",
+        "candidates": [
+          {
+            "id": 124,
+            "area": 565.07,
+            "province": "ปัตตานี",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "89-VSD",
+        "candidates": [
+          {
+            "id": 127,
+            "area": 51.44,
+            "province": "ปัตตานี",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "90-VSD",
+        "candidates": [
+          {
+            "id": 165,
+            "area": 83.06,
+            "province": "ปัตตานี",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "93-VSD",
+        "candidates": [
+          {
+            "id": 128,
+            "area": 165.26,
+            "province": "ปัตตานี",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "94-VSD",
+        "candidates": [
+          {
+            "id": 129,
+            "area": 281.74,
+            "province": "ปัตตานี",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "95-VSD",
+        "candidates": [
+          {
+            "id": 130,
+            "area": 400.76,
+            "province": "ปัตตานี",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "97-VSD",
+        "candidates": [
+          {
+            "id": 121,
+            "area": 370.22,
+            "province": "กระบี่",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "98-VSD",
+        "candidates": [
+          {
+            "id": 122,
+            "area": 304.28,
+            "province": "กระบี่",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "99-VSD",
+        "candidates": [
+          {
+            "id": 131,
+            "area": 411.56,
+            "province": "กระบี่",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "100-VSD",
+        "candidates": [
+          {
+            "id": 125,
+            "area": 583.02,
+            "province": "กระบี่",
+            "overlap_fraction": 1.0
+          }
+        ]
+      },
+      {
+        "code": "102-VSD",
+        "candidates": [
+          {
+            "id": 123,
+            "area": 68.29,
+            "province": "ภูเก็ต",
+            "overlap_fraction": 1.0
+          }
+        ]
+      }
+    ],
+    "duplicates": {},
+    "registry_identities": 210,
+    "duplicate_registry_ids": 0,
+    "pdd_scope_not_extra_plots": "PASS"
+  },
+  "browser_uat": {
+    "result": "PASS",
+    "checks": [
+      "single workspace lists exactly 210 registry identities",
+      "sidebar search and province filter preserve registry identities",
+      "PDD plot remains one identity with explicit registry/PDD scope switch",
+      "non-PDD plot uses registry scope and FCD is disabled",
+      "registry plot uses same per-plot map viewer with Sentinel-2 RGB",
+      "new local RGB/NDVI loads for its exact month; low coverage stays excluded from charts",
+      "missing registry months remain missing in viewer and chart",
+      "GIS and analysis table both cover 210 plots",
+      "before/after remains in the same workspace"
+    ]
+  },
+  "manifest_provenance_audit": {
+    "result": "PASS",
+    "registry_identities": 210,
+    "source_files": 29083,
+    "preserved_observations": 2229,
+    "accepted": 1,
+    "no_nearest_month_substitution": "PASS",
+    "no_synthetic_imagery": "PASS",
+    "registry_pdd_scope_boundary": "PASS",
+    "expected_derived_files": "PASS"
+  },
+  "ingest_regression_tests": {
+    "result": "PASS",
+    "tests": 10
+  },
+  "node_tests": {
+    "result": "PASS",
+    "tests": 30
+  },
+  "qa_regeneration_matches_committed": "PASS",
+  "syntax_checks": "PASS",
+  "git_diff_check": "PASS",
+  "idempotence": {
+    "result": "PASS",
+    "source_index_reused": true,
+    "observed_before": 2230,
+    "observed_after": 2230,
+    "newly_accepted": 0
+  }
+}

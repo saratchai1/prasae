@@ -1,0 +1,32 @@
+{
+  "physical_files": 21693,
+  "bytes": 1965605661,
+  "scientific_tifs": 20719,
+  "prepared_tifs": 20718,
+  "held_tifs": 1,
+  "support_files": 974,
+  "scene_representations": 1887,
+  "scene_by_provider": {
+    "planetary-computer": 1877,
+    "earth-search": 10
+  },
+  "complete_scenes": 1878,
+  "partial_scenes": 9,
+  "prepared_unique_products": 485,
+  "prepared_plot_months": 246,
+  "metadata_records": 480,
+  "metadata_by_provider": {
+    "earth-search": 5,
+    "planetary-computer": 475
+  },
+  "scenes_missing_metadata": 5,
+  "scenes_metadata_product_mismatch": 0,
+  "checksum_matching": 20718,
+  "checksum_mismatches": 0,
+  "manifest_hash_errors": 0,
+  "request_status": {
+    "INSUFFICIENT_COVERAGE": 245,
+    "SEARCH_ERROR": 3,
+    "READY_FOR_LOCAL_INGEST": 1
+  }
+}

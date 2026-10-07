@@ -1,0 +1,7 @@
+{
+  "old_sha256": "c1391c1a29013f28061cb47e29edd2e1acf8c0e85e307841adfd78ccdb9696e2",
+  "new_sha256": "967d2ed3185b7d8ada415fbc9ea0255089f082db423e80e8036e6e8d3a20a7db",
+  "equal_ast_after_delivery_root_normalization": true,
+  "only_text_change_delivery_root": true,
+  "native_encoding": "unsigned provider DN unchanged; spectral bilinear warp on EPSG:4326 canonical grid; SCL uint8 nearest; output header nodata None when value0; no scale/offset application; explicit saved STAC metadata required; raw-native crop failure tolerated by exporter"
+}

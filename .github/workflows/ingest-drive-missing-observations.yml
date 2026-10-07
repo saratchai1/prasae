@@ -1,12 +1,7 @@
 name: Ingest missing Drive observations
 on:
-  push:
-    branches: [gh-pages]
-    paths:
-      - tools/ingest_drive_missing_observations.py
-      - .github/workflows/ingest-drive-missing-observations.yml
   workflow_dispatch:
-permissions: {contents: write}
+permissions: {contents: read}
 jobs:
   ingest:
     runs-on: ubuntu-latest
@@ -35,17 +30,11 @@ jobs:
       - name: Verify source integrity
         run: |
           python tests/all-plots-source-audit.py
-      - name: Commit accepted observations
+      # Manual processing exports a reviewable data patch instead of pushing production.
+      - name: Export accepted observations for review
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/timeseries_verified_12.json data/all_plots_visual_qa.json data/plots
-          if git diff --cached --quiet; then
-            echo "No data changes"
-          else
-            git commit -m "data: ingest exact-month Drive observations into missing registry slots"
-            git push origin HEAD:gh-pages
-          fi
+          git diff --cached --binary > audit-artifacts/accepted-observations.patch
       - uses: actions/upload-artifact@v4
         with:
           name: drive-missing-observation-ingest

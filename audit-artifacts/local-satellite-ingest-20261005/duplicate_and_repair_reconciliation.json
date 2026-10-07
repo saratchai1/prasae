@@ -1,0 +1,822 @@
+{
+  "peer_summary": {
+    "prepared_files": 2859,
+    "prepared_scene_directories": 276,
+    "canonical_plot_month_scene_groups": 276,
+    "complete_groups": 212,
+    "partial_groups": 64,
+    "read_errors": 0,
+    "all_zero_bands": 0,
+    "file_checksum_present_old": 910,
+    "scope_issues": 0,
+    "aliased_duplicate_bands": 0,
+    "aliased_duplicate_array_conflicts": 0,
+    "same_product_band_comparisons": 1049,
+    "same_grid_band_comparisons": 976,
+    "equal_array_band_comparisons": 976,
+    "unequal_matching_grid_band_comparisons": 0,
+    "all_present_bands_equal_old_scene_groups": 93,
+    "partial_groups_salvageable_by_old": 21,
+    "old_missing_band_reuse_count": 47,
+    "download_manifest_records": 712,
+    "request_results_records": 390,
+    "source_items": 106,
+    "repairs": [
+      {
+        "plot_id": 75,
+        "month": "2024-06",
+        "old_scene_id": "S2B_MSIL2A_20240614T033539_N0510_R061_T47PQQ_20240614T072828",
+        "stac_product": "S2B_MSIL2A_20240614T033539_N0510_R061_T47PQQ_20240614T072828",
+        "same_acquisition_and_processing_id": true,
+        "old_baseline": "0510",
+        "new_baseline": "0510",
+        "bands": [
+          {
+            "band": "B11",
+            "sha256": "1cabfd3b8d8c0d277d1a426a65010d6cad9efe30e18248b241916a798e4cb721",
+            "full_grid_equal": true,
+            "scales": [
+              1.0
+            ],
+            "offsets": [
+              0.0
+            ],
+            "nodata": null,
+            "all_zero": false,
+            "min": 1268,
+            "max": 5561,
+            "registry_coverage": 1.0
+          }
+        ]
+      },
+      {
+        "plot_id": 121,
+        "month": "2024-09",
+        "old_scene_id": "S2B_MSIL2A_20240922T033529_R061_T47NNJ_20240922T081602",
+        "stac_product": "S2B_MSIL2A_20240922T033529_N0511_R061_T47NNJ_20240922T081602",
+        "same_acquisition_and_processing_id": true,
+        "old_baseline": null,
+        "new_baseline": "0511",
+        "bands": [
+          {
+            "band": "B02",
+            "sha256": "d979e969561d113f1778f8219bee350798c9de7529fb4693714bc5ae15c000cf",
+            "full_grid_equal": true,
+            "scales": [
+              1.0
+            ],
+            "offsets": [
+              0.0
+            ],
+            "nodata": null,
+            "all_zero": false,
+            "min": 1268,
+            "max": 3288,
+            "registry_coverage": 0.9999999999999993
+          },
+          {
+            "band": "B08",
+            "sha256": "7849944efc57688b62a9fc836e3a1e615dbdede1f99783caad1e86de79dd21da",
+            "full_grid_equal": true,
+            "scales": [
+              1.0
+            ],
+            "offsets": [
+              0.0
+            ],
+            "nodata": null,
+            "all_zero": false,
+            "min": 1399,
+            "max": 6665,
+            "registry_coverage": 0.9999999999999993
+          }
+        ]
+      }
+    ],
+    "prepared_distinct_slots": 178,
+    "existing_observed_slots_touched_by_source_delivery": 111,
+    "currently_missing_slots_represented": 67,
+    "currently_missing_slots_with_complete_new_source": 57,
+    "salvageable_partial_sources_in_existing_observed_slots": 20,
+    "salvageable_partial_sources_in_current_missing_slots": 1,
+    "repairs_already_observed": true
+  },
+  "complete_duplicates_in_missing_slots": [
+    {
+      "plot_id": 12,
+      "month": "2025-09",
+      "scene_id": "S2A_MSIL2A_20250921T033201_N0511_R018_T47PRP_20250921T073013",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 4.0,
+      "previous_eligible_scene_ids": [
+        "S2A_MSIL2A_20250921T033201_N0511_R018_T47PRP_20250921T073013"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 4.0
+    },
+    {
+      "plot_id": 12,
+      "month": "2026-08",
+      "scene_id": "S2B_MSIL2A_20260803T033539_N0512_R061_T47PRP_20260803T072631",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 2.5,
+      "previous_eligible_scene_ids": [
+        "S2B_MSIL2A_20260803T033539_N0512_R061_T47PRP_20260803T072631"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 2.5
+    },
+    {
+      "plot_id": 13,
+      "month": "2023-09",
+      "scene_id": "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 1.9,
+      "previous_eligible_scene_ids": [
+        "S2B_MSIL2A_20230925T032519_N0509_R018_T47PRP_20230925T064327"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 1.9
+    },
+    {
+      "plot_id": 39,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 2.77,
+      "previous_eligible_scene_ids": [
+        "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 2.77
+    },
+    {
+      "plot_id": 90,
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240930T034541_N0511_R104_T47PMM_20240930T074749",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "NO_CLEAR_SCENE",
+      "previous_coverage_pct": 0.0,
+      "previous_eligible_scene_ids": [
+        "S2A_MSIL2A_20240930T034541_N0511_R104_T47PMM_20240930T074749"
+      ],
+      "current_repo_status": "no_data",
+      "current_repo_coverage_pct": 0.0
+    },
+    {
+      "plot_id": 97,
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241219T035151_N0511_R104_T47PMK_20241219T070750",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "NO_CLEAR_SCENE",
+      "previous_coverage_pct": 0.0,
+      "previous_eligible_scene_ids": [
+        "S2A_MSIL2A_20241219T035151_N0511_R104_T47PMK_20241219T070750"
+      ],
+      "current_repo_status": "no_data",
+      "current_repo_coverage_pct": 0.0
+    },
+    {
+      "plot_id": 131,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NMJ_20250902T085021",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 2.31,
+      "previous_eligible_scene_ids": [
+        "S2C_MSIL2A_20250902T033551_N0511_R061_T47NMJ_20250902T085021"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 2.31
+    },
+    {
+      "plot_id": 137,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 2.8,
+      "previous_eligible_scene_ids": [
+        "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 2.8
+    },
+    {
+      "plot_id": 153,
+      "month": "2024-09",
+      "scene_id": "S2A_MSIL2A_20240927T033541_N0511_R061_T47NPH_20240927T085345",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 3.59,
+      "previous_eligible_scene_ids": [
+        "S2A_MSIL2A_20240927T033541_N0511_R061_T47NPH_20240927T085345"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 3.59
+    },
+    {
+      "plot_id": 174,
+      "month": "2025-12",
+      "scene_id": "S2B_MSIL2A_20251203T033019_N0511_R018_T47NQH_20251203T070239",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "NO_CLEAR_SCENE",
+      "previous_coverage_pct": 0.0,
+      "previous_eligible_scene_ids": [
+        "S2B_MSIL2A_20251203T033019_N0511_R018_T47NQH_20251203T070239"
+      ],
+      "current_repo_status": "no_data",
+      "current_repo_coverage_pct": 0.0
+    },
+    {
+      "plot_id": 189,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "NO_CLEAR_SCENE",
+      "previous_coverage_pct": 0.0,
+      "previous_eligible_scene_ids": [
+        "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925"
+      ],
+      "current_repo_status": "no_data",
+      "current_repo_coverage_pct": 0.0
+    },
+    {
+      "plot_id": 203,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "bands": [
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "complete": false,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [
+        {
+          "band": "B02",
+          "source_path": "inputs/PLOT_203/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925/B02.tif",
+          "old_scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+          "old_checksum": "6f3a0268238c959bd89d79e5cd45fbf8569b559369529683138aa7c6fc9818d4",
+          "baseline_omitted_old_name": false
+        },
+        {
+          "band": "B03",
+          "source_path": "inputs/PLOT_203/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925/B03.tif",
+          "old_scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+          "old_checksum": "0be36ee7eb5450d68aefdfafaa45ef8094b1a45aa4f22a4e2b04081a8ee8e772",
+          "baseline_omitted_old_name": false
+        },
+        {
+          "band": "B04",
+          "source_path": "inputs/PLOT_203/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925/B04.tif",
+          "old_scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+          "old_checksum": "34f279a92ac48c5c8c2ed41d741b0f9048d1a4c6eea7c8cfd75b6db1c6097e94",
+          "baseline_omitted_old_name": false
+        }
+      ],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "LOW_COVERAGE",
+      "previous_coverage_pct": 3.03,
+      "previous_eligible_scene_ids": [
+        "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925"
+      ],
+      "current_repo_status": "insufficient_clear_pixels",
+      "current_repo_coverage_pct": 3.03
+    },
+    {
+      "plot_id": 208,
+      "month": "2025-09",
+      "scene_id": "S2C_MSIL2A_20250902T033551_N0511_R061_T47NMJ_20250902T085021",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "NO_CLEAR_SCENE",
+      "previous_coverage_pct": 0.0,
+      "previous_eligible_scene_ids": [
+        "S2C_MSIL2A_20250902T033551_N0511_R061_T47NMJ_20250902T085021"
+      ],
+      "current_repo_status": "no_data",
+      "current_repo_coverage_pct": 0.0
+    },
+    {
+      "plot_id": 209,
+      "month": "2024-12",
+      "scene_id": "S2A_MSIL2A_20241219T035151_N0511_R104_T47PMK_20241219T070750",
+      "bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [],
+      "complete": true,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B02",
+        "B03",
+        "B04",
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [],
+      "unsalvageable_missing_bands": [],
+      "previous_result": "NO_CLEAR_SCENE",
+      "previous_coverage_pct": 0.0,
+      "previous_eligible_scene_ids": [
+        "S2A_MSIL2A_20241219T035151_N0511_R104_T47PMK_20241219T070750"
+      ],
+      "current_repo_status": "no_data",
+      "current_repo_coverage_pct": 0.0
+    }
+  ],
+  "salvage_in_missing_slot": [
+    {
+      "plot_id": 203,
+      "month": "2025-09",
+      "scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+      "bands": [
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "missing_bands": [
+        "B02",
+        "B03",
+        "B04"
+      ],
+      "complete": false,
+      "all_present_bands_equal_old": true,
+      "equal_old_bands": [
+        "B05",
+        "B06",
+        "B07",
+        "B08",
+        "B11",
+        "B12",
+        "B8A",
+        "SCL"
+      ],
+      "salvageable_missing_bands": [
+        {
+          "band": "B02",
+          "source_path": "inputs/PLOT_203/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925/B02.tif",
+          "old_scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+          "old_checksum": "6f3a0268238c959bd89d79e5cd45fbf8569b559369529683138aa7c6fc9818d4",
+          "baseline_omitted_old_name": false
+        },
+        {
+          "band": "B03",
+          "source_path": "inputs/PLOT_203/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925/B03.tif",
+          "old_scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+          "old_checksum": "0be36ee7eb5450d68aefdfafaa45ef8094b1a45aa4f22a4e2b04081a8ee8e772",
+          "baseline_omitted_old_name": false
+        },
+        {
+          "band": "B04",
+          "source_path": "inputs/PLOT_203/2025-09/S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925/B04.tif",
+          "old_scene_id": "S2B_MSIL2A_20250920T034529_N0511_R104_T47PMK_20250920T062925",
+          "old_checksum": "34f279a92ac48c5c8c2ed41d741b0f9048d1a4c6eea7c8cfd75b6db1c6097e94",
+          "baseline_omitted_old_name": false
+        }
+      ],
+      "unsalvageable_missing_bands": []
+    }
+  ],
+  "source_snapshot_recheck": {
+    "source_snapshot_stable": true,
+    "prepared_and_repair_tiffs_checked": 2862,
+    "missing_paths": [],
+    "extra_paths": [],
+    "changed_hashes": [],
+    "source_files_are_unmodified_by_peer_audit": true
+  },
+  "radiometry_review": {
+    "status": "NATIVE_C1_SCALE_OFFSET_REQUIRED_FOR_NEW_PHYSICAL_REFLECTANCE",
+    "source_items": 106,
+    "spectral_assets_with_scale_offset": 1060,
+    "all_native_spectral_assets_scale_0001_offset_minus01": true,
+    "correct_native_reflectance_formula": "reflectance = DN * 0.0001 - 0.1; exclude DN=0 NODATA before conversion; do not apply to SCL",
+    "exporter_applies_scale_offset": false,
+    "exporter_preserves_radiometric_tiff_headers": false,
+    "pixel_compatibility_is_not_proof_of_correct_physical_reflectance": true,
+    "primary_sources": [
+      {
+        "title": "Earth Search owner README: Gain/Offset",
+        "url": "https://github.com/Element84/earth-search#gainoffset-in-items-after-jan-25-2022",
+        "quote": "If the offset is anything other than 0, then it should be applied after the scale factor to correct the data."
+      },
+      {
+        "title": "Earth Search owner discussion26: C1 preview decision",
+        "url": "https://github.com/Element84/earth-search/discussions/26",
+        "quote": "For the preview dataset, we have decided not to apply scale or offset."
+      },
+      {
+        "title": "Official Sentinel2 L2A reflectance encoding",
+        "url": "https://sentiwiki.copernicus.eu/web/s2-products",
+        "formula": "L2A_SR_i = (L2A_DN_i + BOA_ADD_OFFSET_i) / QUANTIFICATION_VALUE"
+      }
+    ]
+  },
+  "policy": "111 already usable delivery slots skipped; repair75 and121 kept as evidence without replacing observations. Plot203 partial is equivalent to its previously rejected complete source (3.03% coverage); no new eligible observation is fabricated."
+}

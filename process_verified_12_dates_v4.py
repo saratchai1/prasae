@@ -80,31 +80,39 @@ def empty_month(key, year, month, status, scenes=0, scene_meta=None, *, plot=Non
     return result
 
 
-def build_month_v4(catalog, plot, geom, grid, inside, year, month):
+def build_month_v4(catalog, plot, geom, grid, inside, year, month, *,
+                   items=None, read_asset=None, output_dir=None, write_assets=True):
+    """Use the same v4 equations for STAC or validated, exact-month local items.
+
+    Local ingestion supplies an asset reader and a staging directory. Validation
+    can disable asset writes so it never removes or replaces committed imagery.
+    """
     key = base.month_key(year, month)
-    plot_dir = base.PLOTS_DIR / str(plot["id"])
-    plot_dir.mkdir(parents=True, exist_ok=True)
+    plot_dir = output_dir if output_dir is not None else base.PLOTS_DIR / str(plot["id"])
+    if write_assets:
+        plot_dir.mkdir(parents=True, exist_ok=True)
     rgb_path = plot_dir / f"rgb_{key}.png"
     ndvi_path = plot_dir / f"ndvi_{key}.png"
     green_threshold, calibration_status, calibration_source = threshold_info(plot)
 
-    items = base.search_month(catalog, grid, year, month)
+    items = base.search_month(catalog, grid, year, month) if items is None else items
+    read_asset = base.read_asset_to_grid if read_asset is None else read_asset
     scenes = []
     scene_meta = []
 
     for item in items:
         try:
-            scl = base.read_asset_to_grid(item, "SCL", grid, Resampling.nearest)
-            b02 = base.read_asset_to_grid(item, "B02", grid, Resampling.bilinear)
-            b03 = base.read_asset_to_grid(item, "B03", grid, Resampling.bilinear)
-            b04 = base.read_asset_to_grid(item, "B04", grid, Resampling.bilinear)
-            b05 = base.read_asset_to_grid(item, "B05", grid, Resampling.bilinear)
-            b06 = base.read_asset_to_grid(item, "B06", grid, Resampling.bilinear)
-            b07 = base.read_asset_to_grid(item, "B07", grid, Resampling.bilinear)
-            b08 = base.read_asset_to_grid(item, "B08", grid, Resampling.bilinear)
-            b8a = base.read_asset_to_grid(item, "B8A", grid, Resampling.bilinear)
-            b11 = base.read_asset_to_grid(item, "B11", grid, Resampling.bilinear)
-            b12 = base.read_asset_to_grid(item, "B12", grid, Resampling.bilinear)
+            scl = read_asset(item, "SCL", grid, Resampling.nearest)
+            b02 = read_asset(item, "B02", grid, Resampling.bilinear)
+            b03 = read_asset(item, "B03", grid, Resampling.bilinear)
+            b04 = read_asset(item, "B04", grid, Resampling.bilinear)
+            b05 = read_asset(item, "B05", grid, Resampling.bilinear)
+            b06 = read_asset(item, "B06", grid, Resampling.bilinear)
+            b07 = read_asset(item, "B07", grid, Resampling.bilinear)
+            b08 = read_asset(item, "B08", grid, Resampling.bilinear)
+            b8a = read_asset(item, "B8A", grid, Resampling.bilinear)
+            b11 = read_asset(item, "B11", grid, Resampling.bilinear)
+            b12 = read_asset(item, "B12", grid, Resampling.bilinear)
 
             clear = base.cloud_clear_mask(
                 scl, b02, b03, b04, b05, b06, b07, b08, b8a, b11, b12
@@ -139,8 +147,9 @@ def build_month_v4(catalog, plot, geom, grid, inside, year, month):
             print(f"    {plot['code']} {key} scene {item.id}: {exc}")
 
     if not scenes:
-        base.remove_stale(rgb_path)
-        base.remove_stale(ndvi_path)
+        if write_assets:
+            base.remove_stale(rgb_path)
+            base.remove_stale(ndvi_path)
         return empty_month(key, year, month, "no_data", plot=plot)
 
     def med(name):
@@ -164,8 +173,9 @@ def build_month_v4(catalog, plot, geom, grid, inside, year, month):
     valid_rgb = inside & np.isfinite(composite_rgb).all(axis=0)
     clear_ratio = float(valid.sum() / max(1, int(inside.sum())))
     if clear_ratio < base.MIN_VALID_INSIDE_RATIO:
-        base.remove_stale(rgb_path)
-        base.remove_stale(ndvi_path)
+        if write_assets:
+            base.remove_stale(rgb_path)
+            base.remove_stale(ndvi_path)
         result = empty_month(
             key, year, month, "insufficient_clear_pixels",
             len(scenes), scene_meta, plot=plot
@@ -182,8 +192,9 @@ def build_month_v4(catalog, plot, geom, grid, inside, year, month):
         -1,
     )
     ndvi_rgb = base.palette_ndvi(np.nan_to_num(composite_ndvi, nan=-0.1))
-    base.save_rgba(rgb_path, rgb_uint8, valid_rgb)
-    base.save_rgba(ndvi_path, ndvi_rgb, valid)
+    if write_assets:
+        base.save_rgba(rgb_path, rgb_uint8, valid_rgb)
+        base.save_rgba(ndvi_path, ndvi_rgb, valid)
 
     ndvi_values = composite_ndvi[valid]
     mndwi_values = composite_mndwi[valid]

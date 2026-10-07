@@ -2,3 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 test_visual.png
+.local/
+incoming/
+audit-artifacts/all_plots_visual_qa.json

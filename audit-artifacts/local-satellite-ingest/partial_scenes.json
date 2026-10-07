@@ -1,0 +1,292 @@
+[
+  {
+    "plot_id": 75,
+    "code": "21-STC",
+    "month": "2024-06",
+    "scene_id": "S2B_MSIL2A_20240614T033539_N0510_R061_T47PQQ_20240614T072828",
+    "acquisition_key": "S2B_20240614T033539_R061_T47PQQ",
+    "acquisition_datetime": "2024-06-14T03:35:39+00:00",
+    "satellite": "S2B",
+    "tile": "T47PQQ",
+    "source_group": "21-STC/2024-06/S2B_MSIL2A_20240614T033539_N0510_R061_T47PQQ_20240614T072828",
+    "scope": "REGISTRY_CONTAINED",
+    "complete": false,
+    "usable_source": false,
+    "missing_bands": [
+      "B11"
+    ],
+    "duplicate_bands": [],
+    "dimensions": [
+      [
+        156,
+        157
+      ]
+    ],
+    "dimension_mismatch": false,
+    "errors": [],
+    "all_zero_bands": [],
+    "registry_footprint_coverage_min": 1.0,
+    "pdd_footprint_coverage_min": null,
+    "dedup_action": "KEEP",
+    "equivalent_sources": [],
+    "fingerprint": "730b6f9d394e028f28076c71585c81b6ca97eea520eb912d0778dfff0b104b3a",
+    "raster_grids": [
+      {
+        "crs": "EPSG:4326",
+        "bounds": [
+          101.7835415405577,
+          12.751372295118319,
+          101.7979170608537,
+          12.7654866616744
+        ],
+        "width": 156,
+        "height": 157,
+        "dtype": "uint16",
+        "nodata": null,
+        "transform": [
+          9.215077112820142e-05,
+          0.0,
+          101.7835415405577,
+          0.0,
+          -8.990042392408142e-05,
+          12.7654866616744
+        ]
+      },
+      {
+        "crs": "EPSG:4326",
+        "bounds": [
+          101.7835415405577,
+          12.751372295118319,
+          101.7979170608537,
+          12.7654866616744
+        ],
+        "width": 156,
+        "height": 157,
+        "dtype": "uint8",
+        "nodata": null,
+        "transform": [
+          9.215077112820142e-05,
+          0.0,
+          101.7835415405577,
+          0.0,
+          -8.990042392408142e-05,
+          12.7654866616744
+        ]
+      }
+    ],
+    "assets": {
+      "B02": {
+        "filename": "B02.tif",
+        "filesize": 48949,
+        "checksum": "ae05047aaf9056178b77d8b264ff3d4a0e95c53fac081283f417d9a2bb8e0ef4",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B03": {
+        "filename": "B03.tif",
+        "filesize": 49640,
+        "checksum": "72341132fa5b21fa82070455fcbdd59c449b815e9579ac0ac66f531b53f4543f",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B04": {
+        "filename": "B04.tif",
+        "filesize": 50039,
+        "checksum": "6570631fe4537212138144fb57c0d9d5ac675f46c22afa2a9b5aa51ae37e0c38",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B05": {
+        "filename": "B05.tif",
+        "filesize": 49561,
+        "checksum": "89df362de9a4bb797444d3e0478afe4069a82341d3b28fb1f57b8761f1ce19b3",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B06": {
+        "filename": "B06.tif",
+        "filesize": 53640,
+        "checksum": "ec712867fb2af54bea3566f3373729ed2287dd2c15d6ebc2999844a3a939b3aa",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B07": {
+        "filename": "B07.tif",
+        "filesize": 54951,
+        "checksum": "5447b673ed089e55344ca668cce8e15b6d4fce1358b09b46c47f082463e35678",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B08": {
+        "filename": "B08.tif",
+        "filesize": 55471,
+        "checksum": "8e29bde9ba1ef3c626b3fc8f9de19ff5057aebc4e35b608f713a858b745b2f64",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B12": {
+        "filename": "B12.tif",
+        "filesize": 49687,
+        "checksum": "586ddc44bacf2f073e2126946349782febc611d7ff55e2e26060b97cad76cbb7",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B8A": {
+        "filename": "B8A.tif",
+        "filesize": 55556,
+        "checksum": "3f196eeac9e8aa880c95fb71880b3af20cb26a4a264c31360fadf7515b14c864",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "SCL": {
+        "filename": "SCL.tif",
+        "filesize": 3479,
+        "checksum": "d87763c90eb3957f7f3764b6fc0a8c5520c912d47994dadc1d983c239c0a4be3",
+        "grid": 1,
+        "integrity": "VALID"
+      }
+    }
+  },
+  {
+    "plot_id": 121,
+    "code": "97-VSD",
+    "month": "2024-09",
+    "scene_id": "S2B_MSIL2A_20240922T033529_R061_T47NNJ_20240922T081602",
+    "acquisition_key": "S2B_20240922T033529_R061_T47NNJ",
+    "acquisition_datetime": "2024-09-22T03:35:29+00:00",
+    "satellite": "S2B",
+    "tile": "T47NNJ",
+    "source_group": "97-VSD/2024-09/S2B_MSIL2A_20240922T033529_R061_T47NNJ_20240922T081602",
+    "scope": "REGISTRY_CONTAINED",
+    "complete": false,
+    "usable_source": false,
+    "missing_bands": [
+      "B02",
+      "B08"
+    ],
+    "duplicate_bands": [],
+    "dimensions": [
+      [
+        155,
+        170
+      ]
+    ],
+    "dimension_mismatch": false,
+    "errors": [],
+    "all_zero_bands": [],
+    "registry_footprint_coverage_min": 1.0,
+    "pdd_footprint_coverage_min": 1.0,
+    "dedup_action": "KEEP",
+    "equivalent_sources": [],
+    "fingerprint": "f7bf5e9cf47991876f7932692049014a61aea24b0713fea13766c6b24c261737",
+    "raster_grids": [
+      {
+        "crs": "EPSG:4326",
+        "bounds": [
+          99.08978287213193,
+          7.898249439410148,
+          99.10388612709315,
+          7.913601813123215
+        ],
+        "width": 155,
+        "height": 170,
+        "dtype": "uint16",
+        "nodata": null,
+        "transform": [
+          9.098874168524808e-05,
+          0.0,
+          99.08978287213193,
+          0.0,
+          -9.03080806650985e-05,
+          7.913601813123215
+        ]
+      },
+      {
+        "crs": "EPSG:4326",
+        "bounds": [
+          99.08978287213193,
+          7.898249439410148,
+          99.10388612709315,
+          7.913601813123215
+        ],
+        "width": 155,
+        "height": 170,
+        "dtype": "uint8",
+        "nodata": null,
+        "transform": [
+          9.098874168524808e-05,
+          0.0,
+          99.08978287213193,
+          0.0,
+          -9.03080806650985e-05,
+          7.913601813123215
+        ]
+      }
+    ],
+    "assets": {
+      "B03": {
+        "filename": "B03.tif",
+        "filesize": 42878,
+        "checksum": "0e063954aa3609de9b6c5cb40bc80b227638511e2a6cbcae952f1b375e6eff7c",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B04": {
+        "filename": "B04.tif",
+        "filesize": 41517,
+        "checksum": "6b230629d34e8c894b1d491bd3059eabe26e43f8aed78d26e39fa69a36a91556",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B05": {
+        "filename": "B05.tif",
+        "filesize": 43541,
+        "checksum": "436934aff3bb8191400a75dcecacf1a414befc9d5d9c95738376f1fb8ed39209",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B06": {
+        "filename": "B06.tif",
+        "filesize": 50797,
+        "checksum": "455e6c36398e10d9d8dfce37a95f0c0e961ec834c75cc79950acdcc821630034",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B07": {
+        "filename": "B07.tif",
+        "filesize": 52929,
+        "checksum": "532a89be8dfa628e4f3cf160d96974900fe2a43e714ef8791e2c0f0a792a7a31",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B11": {
+        "filename": "B11.tif",
+        "filesize": 47432,
+        "checksum": "34403c45670b8a1cdd6409dd733f98ba2bca1810e38baa118dac26fa954b8ee6",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B12": {
+        "filename": "B12.tif",
+        "filesize": 42120,
+        "checksum": "a42913ee09fd0ef7915f06ab6ef86ac066b1c7e949fa9577be8759142a44c610",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "B8A": {
+        "filename": "B8A.tif",
+        "filesize": 53260,
+        "checksum": "654fd07f091b5ff5d06ae0d97b7dc1c8299fce38367852bb2b96076d204b7d15",
+        "grid": 0,
+        "integrity": "VALID"
+      },
+      "SCL": {
+        "filename": "SCL.tif",
+        "filesize": 1582,
+        "checksum": "d5c8aaa9f72dc079c114e95fbb57b6114b2f075228b3f788afca16a867265fcb",
+        "grid": 1,
+        "integrity": "VALID"
+      }
+    }
+  }
+]

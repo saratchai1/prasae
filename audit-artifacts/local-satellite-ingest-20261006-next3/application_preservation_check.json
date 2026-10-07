@@ -1,0 +1,40 @@
+{
+  "result": "PASS",
+  "scope": "All files recursively under data/ including optional PDD assets",
+  "baseline_files": 9174,
+  "unchanged_baseline_files": 9163,
+  "changed_files": [
+    "data/all_plots_visual_qa.json",
+    "data/plots/131/metadata.json",
+    "data/plots/142/metadata.json",
+    "data/plots/151/metadata.json",
+    "data/plots/153/metadata.json",
+    "data/plots/186/metadata.json",
+    "data/plots/25/metadata.json",
+    "data/plots/63/metadata.json",
+    "data/plots/76/metadata.json",
+    "data/plots/87/metadata.json",
+    "data/timeseries_verified_12.json"
+  ],
+  "added_assets": [
+    "data/plots/131/ndvi_2025-06.png",
+    "data/plots/131/rgb_2025-06.png",
+    "data/plots/142/ndvi_2023-09.png",
+    "data/plots/142/rgb_2023-09.png",
+    "data/plots/151/ndvi_2026-08.png",
+    "data/plots/151/rgb_2026-08.png",
+    "data/plots/153/ndvi_2024-09.png",
+    "data/plots/153/rgb_2024-09.png",
+    "data/plots/186/ndvi_2024-09.png",
+    "data/plots/186/rgb_2024-09.png",
+    "data/plots/25/ndvi_2024-03.png",
+    "data/plots/25/rgb_2024-03.png",
+    "data/plots/63/ndvi_2024-09.png",
+    "data/plots/63/rgb_2024-09.png",
+    "data/plots/76/ndvi_2025-06.png",
+    "data/plots/76/rgb_2025-06.png",
+    "data/plots/87/ndvi_2025-09.png",
+    "data/plots/87/rgb_2025-09.png"
+  ],
+  "accepted_metadata_files": 9
+}

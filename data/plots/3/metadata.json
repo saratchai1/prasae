@@ -246,75 +246,806 @@
       "month": "2024-06",
       "year": 2024,
       "month_num": 6,
-      "status": "insufficient_clear_pixels",
-      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "status": "observed_single_scene",
+      "source": "Earth Search / Sentinel-2 C1 L2A",
       "proxy_version": "v4_site_calibrated_green_cover",
-      "scenes_used": 1,
-      "scene_ids": [
-        "S2A_MSIL2A_20240616T032521_R018_T48PTU_20240616T101330"
-      ],
-      "scene_metadata": [
-        {
-          "id": "S2A_MSIL2A_20240616T032521_R018_T48PTU_20240616T101330",
-          "datetime": "2024-06-16T03:25:21.024000+00:00",
-          "catalog_cloud_cover_pct": 62.467927,
-          "clear_inside_pct": 3.08,
-          "processing_baseline": "05.10"
-        }
-      ],
-      "clear_pixel_pct": 3.08,
-      "mean_ndvi_inside": null,
-      "median_ndvi_inside": null,
-      "ndvi_p10_inside": null,
-      "ndvi_p90_inside": null,
-      "canopy_ndvi_median": null,
-      "ndre_median": null,
-      "evi_median": null,
-      "mfi_median": null,
-      "mfi_positive_pct": null,
-      "mndwi_median": null,
-      "vegetation_coverage_proxy_pct": null,
-      "open_water_pct": null,
-      "open_nonvegetated_pct": null,
-      "proxy_area_rai": null,
-      "open_water_area_rai": null,
       "green_proxy_threshold": 0.25,
       "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
       "green_proxy_calibration_source": "portfolio conservative default",
-      "submerged_mangrove_signal_pct": null,
-      "mfi_only_signal_pct": null
+      "scenes_used": 1,
+      "scene_ids": [
+        "S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952",
+          "datetime": "2024-06-16T03:25:21+00:00",
+          "catalog_cloud_cover_pct": 62.488413,
+          "clear_inside_pct": 5.04,
+          "processing_baseline": "0510"
+        }
+      ],
+      "clear_pixel_pct": 5.04,
+      "mean_ndvi_inside": 0.3613,
+      "median_ndvi_inside": 0.3307,
+      "ndvi_p10_inside": 0.23,
+      "ndvi_p90_inside": 0.5481,
+      "canopy_ndvi_median": 0.36,
+      "ndre_median": 0.2404,
+      "evi_median": 0.2305,
+      "mfi_median": 0.08918,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 22.2,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.236,
+      "vegetation_coverage_proxy_pct": 77.8,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 22.2,
+      "proxy_area_rai": 29.49,
+      "open_water_area_rai": 0.0,
+      "ingest_provenance": "local native Earth Search C1 TIFF; exact month; registry scope; explicit radiometry",
+      "source_provenance": {
+        "version": "earth-search-c1-local-v4-20261005",
+        "processing_version": "v4_site_calibrated_green_cover",
+        "ingested_at": "2026-10-05T11:27:01.094935+00:00",
+        "registry_plot_id": 3,
+        "registry_code": "7-STC",
+        "exact_month": "2024-06",
+        "scope": "REGISTRY",
+        "scope_classification": "REGISTRY_CONTAINED",
+        "reflectance_formula": "DN * scale + offset",
+        "source_manifest_sha256": "06f772f857e2693cfb41e20515e9608e44343553bbb1ad376c12910356a6b4d9",
+        "radiometry_interpretation": "native Earth Search C1 per-band STAC metadata; legacy observations preserved without reinterpretation",
+        "scenes": [
+          {
+            "scene_id": "S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952",
+            "acquisition_datetime": "2024-06-16T03:25:21+00:00",
+            "source_fingerprint": "56e34336e6d27b48c10069e5bd3616006c5e2902fe41cd53834d0e578d43853f",
+            "assets": {
+              "B02": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B02.tif",
+                "original_filename": "B02.tif",
+                "member_path": null,
+                "sha256": "20ce10b451bed125d21cd269efd1e71b8609a7d10d974af27e36791ccf2dafa1",
+                "filesize": 15593,
+                "raster_signature": "5b7638fa73fcc91b2b1aafbc720f8e4aa5607b75b01091f73856c3af1443cde1",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "blue",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B03": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B03.tif",
+                "original_filename": "B03.tif",
+                "member_path": null,
+                "sha256": "d556935e0b24be7f317584f5b5045ea7b789a8435aa785e8ffb8f35478eb93c1",
+                "filesize": 16469,
+                "raster_signature": "afe83a6b9166cb100df90c85e0b31a1982acbe731ff7472ffb2b587e09148ff5",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "green",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B04": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B04.tif",
+                "original_filename": "B04.tif",
+                "member_path": null,
+                "sha256": "a96bfe9f1745481c9108a1cc0320427a9bf630ab1ede8710d86e1c2b9e6b200d",
+                "filesize": 16493,
+                "raster_signature": "dbac879838bb403857e5ab7cb8a24cb7a236707ba60bd35d511998c211d9b1fd",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "red",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B05": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B05.tif",
+                "original_filename": "B05.tif",
+                "member_path": null,
+                "sha256": "c5ee94c46049248a5b26f77dbe3c67bed9d600fb64becc399bb9d4be66beccf6",
+                "filesize": 17192,
+                "raster_signature": "4d55433796ba16624501d91ffea41668d8996deac92d6a5fe8ebc5ce61835074",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge1",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B06": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B06.tif",
+                "original_filename": "B06.tif",
+                "member_path": null,
+                "sha256": "f9a9b27fa96ed0e41ae836e2d8b3a24793e6e30cf83d2f4d264748d679b70e28",
+                "filesize": 20690,
+                "raster_signature": "575506ec3a35524237afb88f5cf2ef80984ac21209d1fec70e29b47f47cfb62e",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge2",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B07": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B07.tif",
+                "original_filename": "B07.tif",
+                "member_path": null,
+                "sha256": "f08a9f7fa41682e87fd75cfba1efe0add57d0f08db94e88e36eb7c293a628a61",
+                "filesize": 21070,
+                "raster_signature": "baae026d1b190f00d9ce3793180f051387ae684b40cf4e461b2fcbbbdf7068bd",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge3",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B08": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B08.tif",
+                "original_filename": "B08.tif",
+                "member_path": null,
+                "sha256": "1a42448fee3c73997647a3a93748a36e3a3f7bf2a47fe8834914a1b3ddb26e9a",
+                "filesize": 21087,
+                "raster_signature": "658eb005c3ad02e5e9bde920ce11df1facd41bc032d4f764aca415bb0c4cb73d",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "nir",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B11": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B11.tif",
+                "original_filename": "B11.tif",
+                "member_path": null,
+                "sha256": "0705024663f953d832db607d795b75213623a8e8f68e8a392f9aa449121823df",
+                "filesize": 19065,
+                "raster_signature": "cf27404c7e10286eaba152b1a6edc60a5df67e529429dd3de7e33cbfaa287986",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "swir16",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B12": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B12.tif",
+                "original_filename": "B12.tif",
+                "member_path": null,
+                "sha256": "e1baca6a9e87cf214ca0b90d2c20f9cb7ee3056292579740c21c4c51c2b14d5b",
+                "filesize": 17382,
+                "raster_signature": "944bb3682a5188cf4a15df48151eab5fd857c2ba21f592c1e13d6bf8cbadae56",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "swir22",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "B8A": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/B8A.tif",
+                "original_filename": "B8A.tif",
+                "member_path": null,
+                "sha256": "da0183026f20248f9c55a14c0c90e473968f143ad2ecd68b93abe30ef5758f7c",
+                "filesize": 21211,
+                "raster_signature": "52012101b163b467bd94134d5e80ce681147c8d1f7d0e1ea0e0a29305cbe7f8f",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "nir08",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              },
+              "SCL": {
+                "source_id": "prepared/inputs/7-STC/2024-06/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/SCL.tif",
+                "original_filename": "SCL.tif",
+                "member_path": null,
+                "sha256": "3579c089484dea0002b4d5e43c532e9cfe15a58d8851a4a884d0db72c447b9cf",
+                "filesize": 1322,
+                "raster_signature": "066bd34db002f5b641c9a3e714fcad426e61cf713cef56c101bd4992b0c771e7",
+                "radiometry": {
+                  "scale": 1,
+                  "offset": 0,
+                  "nodata": 0,
+                  "formula": "SCL categorical",
+                  "asset_key": "scl",
+                  "native_dtype": "uint8",
+                  "metadata_source_id": "source-items/earth-search/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952.json",
+                  "metadata_sha256": "626a28b2363df9991823c8f4a47e2179ef5bb685420e39d3b1fda038bde1c042",
+                  "radiometry_sidecar_source_id": "metadata/S2A_MSIL2A_20240616T032521_N0510_R018_T48PTU_20240616T091952/radiometry.json",
+                  "radiometry_sidecar_sha256": "6f514cf328f126289266d3026e8edb35af62d216659710e390305f535d0f2838"
+                }
+              }
+            }
+          }
+        ]
+      }
     },
     {
       "month": "2024-09",
       "year": 2024,
       "month_num": 9,
-      "status": "no_data",
-      "source": "Microsoft Planetary Computer / Sentinel-2 L2A",
+      "status": "observed_monthly_composite",
+      "source": "Earth Search / Sentinel-2 C1 L2A",
       "proxy_version": "v4_site_calibrated_green_cover",
-      "scenes_used": 0,
-      "scene_ids": [],
-      "scene_metadata": [],
-      "clear_pixel_pct": 0.0,
-      "mean_ndvi_inside": null,
-      "median_ndvi_inside": null,
-      "ndvi_p10_inside": null,
-      "ndvi_p90_inside": null,
-      "canopy_ndvi_median": null,
-      "ndre_median": null,
-      "evi_median": null,
-      "mfi_median": null,
-      "mfi_positive_pct": null,
-      "mndwi_median": null,
-      "vegetation_coverage_proxy_pct": null,
-      "open_water_pct": null,
-      "open_nonvegetated_pct": null,
-      "proxy_area_rai": null,
-      "open_water_area_rai": null,
       "green_proxy_threshold": 0.25,
       "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
       "green_proxy_calibration_source": "portfolio conservative default",
-      "submerged_mangrove_signal_pct": null,
-      "mfi_only_signal_pct": null
+      "scenes_used": 2,
+      "scene_ids": [
+        "S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944",
+        "S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944"
+      ],
+      "scene_metadata": [
+        {
+          "id": "S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944",
+          "datetime": "2024-09-19T03:25:29+00:00",
+          "catalog_cloud_cover_pct": 88.224596,
+          "clear_inside_pct": 93.0,
+          "processing_baseline": "0511"
+        },
+        {
+          "id": "S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944",
+          "datetime": "2024-09-19T03:25:29+00:00",
+          "catalog_cloud_cover_pct": 85.438418,
+          "clear_inside_pct": 82.07,
+          "processing_baseline": "0511"
+        }
+      ],
+      "clear_pixel_pct": 95.8,
+      "mean_ndvi_inside": 0.2439,
+      "median_ndvi_inside": 0.2343,
+      "ndvi_p10_inside": 0.1612,
+      "ndvi_p90_inside": 0.3381,
+      "canopy_ndvi_median": 0.2993,
+      "ndre_median": 0.2403,
+      "evi_median": 0.2473,
+      "mfi_median": 0.08622,
+      "mfi_positive_pct": 100.0,
+      "mfi_only_signal_pct": 59.6,
+      "submerged_mangrove_signal_pct": 0.0,
+      "mndwi_median": -0.1139,
+      "vegetation_coverage_proxy_pct": 40.4,
+      "open_water_pct": 0.0,
+      "open_nonvegetated_pct": 59.6,
+      "proxy_area_rai": 15.3,
+      "open_water_area_rai": 0.0,
+      "ingest_provenance": "local native Earth Search C1 TIFF; exact month; registry scope; explicit radiometry",
+      "source_provenance": {
+        "version": "earth-search-c1-local-v4-20261005",
+        "processing_version": "v4_site_calibrated_green_cover",
+        "ingested_at": "2026-10-05T11:27:01.094935+00:00",
+        "registry_plot_id": 3,
+        "registry_code": "7-STC",
+        "exact_month": "2024-09",
+        "scope": "REGISTRY",
+        "scope_classification": "REGISTRY_CONTAINED",
+        "reflectance_formula": "DN * scale + offset",
+        "source_manifest_sha256": "06f772f857e2693cfb41e20515e9608e44343553bbb1ad376c12910356a6b4d9",
+        "radiometry_interpretation": "native Earth Search C1 per-band STAC metadata; legacy observations preserved without reinterpretation",
+        "scenes": [
+          {
+            "scene_id": "S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944",
+            "acquisition_datetime": "2024-09-19T03:25:29+00:00",
+            "source_fingerprint": "faa9bc9958caa72586f750442505067061f176b4334769d1f24efaad77094d70",
+            "assets": {
+              "B02": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B02.tif",
+                "original_filename": "B02.tif",
+                "member_path": null,
+                "sha256": "3fdbd9a2d74f32ea10ed23fe0154850db0d51273c41c5e8ea0b3c687c07352d1",
+                "filesize": 18333,
+                "raster_signature": "d47de24693dfbf74b354eb8ec272a36f1cfb4428de66aba635771a0f4a09ccf8",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "blue",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B03": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B03.tif",
+                "original_filename": "B03.tif",
+                "member_path": null,
+                "sha256": "ce218b39727de08d8a7fdcdb963227aaf09e1e752f4bb38f028f611f227e97c7",
+                "filesize": 17748,
+                "raster_signature": "ca3e32af1553daa1be5442228f37ca3ade557370bb4136b5d6d21f940f12a7a5",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "green",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B04": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B04.tif",
+                "original_filename": "B04.tif",
+                "member_path": null,
+                "sha256": "4923fe9afaf5f8165814dab9acec5b6a7919161ba7da9e43674f556961ad4b41",
+                "filesize": 17712,
+                "raster_signature": "6c6a56e43277a0bf5f28ee3c584c75e8f7e111b5b563d3ab642d8e2d0d98299c",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "red",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B05": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B05.tif",
+                "original_filename": "B05.tif",
+                "member_path": null,
+                "sha256": "e87f1aadaf5411f00e757c3cab838be36872748ed113b3b888fe3dc68d0ab97f",
+                "filesize": 17519,
+                "raster_signature": "b6b58d0deab8401221b29e0aeb8789402c215dcbf3eb5a64d13fb6a460e98a50",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge1",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B06": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B06.tif",
+                "original_filename": "B06.tif",
+                "member_path": null,
+                "sha256": "a54b5a6ef673b853d2f838b190f0a3ddec6a8d23fea9c491a8d4bc4a16a5cf49",
+                "filesize": 17754,
+                "raster_signature": "d59cb10743d4beda8645622636efe1f0dcf6651ab85b174eff04488c2d3d8da9",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge2",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B07": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B07.tif",
+                "original_filename": "B07.tif",
+                "member_path": null,
+                "sha256": "1e0dc468f789558e56d74d5c85b72749217486db43886622bba6a280a47b279e",
+                "filesize": 18151,
+                "raster_signature": "cb0d2fb2a01682c68c07ab6ecacaca95c8b77577b28eb5099e035b27e61ed5fe",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge3",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B08": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B08.tif",
+                "original_filename": "B08.tif",
+                "member_path": null,
+                "sha256": "d816f0bd78edeaa577141e5d3097da0cee9eca8bd3ca0c71db73c29758fc17f4",
+                "filesize": 18584,
+                "raster_signature": "b3ca74b03eb824c8067112c6e1ad1947364ded563a17b8991c983874e9c909f9",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "nir",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B11": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B11.tif",
+                "original_filename": "B11.tif",
+                "member_path": null,
+                "sha256": "526d93b93ead1f539e3e4589ed96c6786f081307a56425b4c15a9abad161314e",
+                "filesize": 16825,
+                "raster_signature": "d155dc62540b93ac55fe1de08a5b9eb6f9648f4fd2deaa7b6d35903e97ef32a1",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "swir16",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B12": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B12.tif",
+                "original_filename": "B12.tif",
+                "member_path": null,
+                "sha256": "020cfec197309f7a5ae46bfbe0ab522c296b8811bb4ac687fbd1f08732a94177",
+                "filesize": 16803,
+                "raster_signature": "8ab1738ed73edc73e75307e81a9620563b56f7c698c4605decef36a24aa7ec99",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "swir22",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "B8A": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/B8A.tif",
+                "original_filename": "B8A.tif",
+                "member_path": null,
+                "sha256": "162c10b20f40642184b41a2b83123733ef7190b1bef6da1275b63b3bb6530a19",
+                "filesize": 18227,
+                "raster_signature": "be66d811cf7f67d8613922a36d903fca6397e5fe7f2cf5a270f700c5042d877b",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "nir08",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              },
+              "SCL": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/SCL.tif",
+                "original_filename": "SCL.tif",
+                "member_path": null,
+                "sha256": "1a723cd26f5eb7abe2da8c38219ee8471add495dd705aa2686273ef2f162537d",
+                "filesize": 1249,
+                "raster_signature": "590be0f802ca1c4aadfa36af83ef0d83edcf312754908fdbac53ed3e739593f4",
+                "radiometry": {
+                  "scale": 1,
+                  "offset": 0,
+                  "nodata": 0,
+                  "formula": "SCL categorical",
+                  "asset_key": "scl",
+                  "native_dtype": "uint8",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944.json",
+                  "metadata_sha256": "da3946b3099789c2cfa77f966d329687f01ce9ecc2876d70edd53323726b7af7",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T47PRP_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "bbf3aa57a0d8e3e46ebb54eeea2b6607b4da7845fc2e77ebaa19cf0fdd74b52f"
+                }
+              }
+            }
+          },
+          {
+            "scene_id": "S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944",
+            "acquisition_datetime": "2024-09-19T03:25:29+00:00",
+            "source_fingerprint": "60ef939c082c0deb24a28315b2c1ee3a501b60f19b1a5781ea1bfc43e13e67b1",
+            "assets": {
+              "B02": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B02.tif",
+                "original_filename": "B02.tif",
+                "member_path": null,
+                "sha256": "7bf7cc636007628aac7dd6ec090c28c3f7eaaefc315d8e9016c2bf4a4025deea",
+                "filesize": 18025,
+                "raster_signature": "cf514ed2ee240287bcf0354a74ce8edefb45f0ef4181a15f2d037c54422f20aa",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "blue",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B03": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B03.tif",
+                "original_filename": "B03.tif",
+                "member_path": null,
+                "sha256": "8aa3d40d8d1f60d6543eb7c2b3fdf52a2970a9dd800d8816346c83a285172d23",
+                "filesize": 17451,
+                "raster_signature": "9af999b623a48b61fb1c7b9ecc76a8531df7e83ed3138eecffd9661755fea205",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "green",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B04": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B04.tif",
+                "original_filename": "B04.tif",
+                "member_path": null,
+                "sha256": "99110fb8ab3649db8f1a7fc1478b1ec1bcf625497b41f2c268f301fc4e428f8c",
+                "filesize": 17352,
+                "raster_signature": "b607f07469fa1a21527cfb1730f783bb794a0064d5b6b91d59588f3ec127a94b",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "red",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B05": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B05.tif",
+                "original_filename": "B05.tif",
+                "member_path": null,
+                "sha256": "9b3b1f55a2ae8339786734c46a5ff1c17aff50d29d42346207110305b3d0925a",
+                "filesize": 17351,
+                "raster_signature": "4ef527a84bdb515fbeb2077ba2c39481ca1de2a74842db6f04f50a593e727fa1",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge1",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B06": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B06.tif",
+                "original_filename": "B06.tif",
+                "member_path": null,
+                "sha256": "6ab16b88584070ef0147edce3ccd89327b56454fc82a03b1b1870dc5e53819d7",
+                "filesize": 17652,
+                "raster_signature": "9ef3d7e86d41040b3dcd3ff80dfbff403f93ede70004c029aafeacaee727f259",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge2",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B07": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B07.tif",
+                "original_filename": "B07.tif",
+                "member_path": null,
+                "sha256": "81d6257a53fe7ccb6cb2c0d0426a2c1ea369b3a983aefe009afd88415c0241ce",
+                "filesize": 18089,
+                "raster_signature": "462639c3716278a7d067a389a115361d6d1fe8cde7cc6e77265ecea7c5968a5e",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "rededge3",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B08": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B08.tif",
+                "original_filename": "B08.tif",
+                "member_path": null,
+                "sha256": "4437875398f280f083257ca795fac28b35e890017815fb28b3d15e84a8143a3e",
+                "filesize": 18361,
+                "raster_signature": "77bae2661578654d1e63644035b1de4299e404da1a257bf5c0c7aaa26c253a86",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "nir",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B11": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B11.tif",
+                "original_filename": "B11.tif",
+                "member_path": null,
+                "sha256": "31705abe44cf448db2e6edb3d78899b2e0ceddcb700596bd8325c4b14a1119a6",
+                "filesize": 16811,
+                "raster_signature": "00cf20307fafc8b79cd6d8412c1cfac00e4ab60683c49762ee6242ce41f072f3",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "swir16",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B12": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B12.tif",
+                "original_filename": "B12.tif",
+                "member_path": null,
+                "sha256": "205242d951f97eda4655bdf0f022dce48f11f90a73745318e890297d75503b6f",
+                "filesize": 16730,
+                "raster_signature": "a41293ec48df663b3275048691cc5cb701c51b515e1cb06ca3f2669f6e7fadd4",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "swir22",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "B8A": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/B8A.tif",
+                "original_filename": "B8A.tif",
+                "member_path": null,
+                "sha256": "3751dc29626d65fc9db045a189407e19a272ac3970e078d85d4cee7e8ff735ec",
+                "filesize": 18085,
+                "raster_signature": "deae94caedb956afb5478e8fe43eb68e61ff2cb07afb8b27a42d3b29904723bd",
+                "radiometry": {
+                  "scale": 0.0001,
+                  "offset": -0.1,
+                  "nodata": 0,
+                  "formula": "DN * scale + offset",
+                  "asset_key": "nir08",
+                  "native_dtype": "uint16",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              },
+              "SCL": {
+                "source_id": "prepared/inputs/7-STC/2024-09/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/SCL.tif",
+                "original_filename": "SCL.tif",
+                "member_path": null,
+                "sha256": "19f9b7dc77dbe7ec6759cb14b0046b3ae930e844616d02157aeeebc15cbcce15",
+                "filesize": 1191,
+                "raster_signature": "dc6829e06daafe9b4058dc53b56dd9ba706f1ec0719792fbc26a568ff5f400d8",
+                "radiometry": {
+                  "scale": 1,
+                  "offset": 0,
+                  "nodata": 0,
+                  "formula": "SCL categorical",
+                  "asset_key": "scl",
+                  "native_dtype": "uint8",
+                  "metadata_source_id": "source-items/earth-search/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944.json",
+                  "metadata_sha256": "9c457ba9d4f22657eb4b6d7cbe4410ab7ec2e2199193bac24bbbf2ecfb831e75",
+                  "radiometry_sidecar_source_id": "metadata/S2B_MSIL2A_20240919T032529_N0511_R018_T48PTU_20240919T073944/radiometry.json",
+                  "radiometry_sidecar_sha256": "7ccbb831750d744273936bd4b329214411bdc2f9bb15bd629cf1bdc71fafdfc5"
+                }
+              }
+            }
+          }
+        ]
+      }
     },
     {
       "month": "2024-12",
@@ -664,5 +1395,19 @@
   "proxy_version": "v4_site_calibrated_green_cover",
   "green_proxy_threshold": 0.25,
   "green_proxy_calibration_status": "DEFAULT_UNCALIBRATED",
-  "green_proxy_calibration_source": "portfolio conservative default"
+  "green_proxy_calibration_source": "portfolio conservative default",
+  "ingest_notes": [
+    {
+      "month": "2024-06",
+      "source": "local Sentinel-2 L2A scientific TIFF",
+      "rule": "missing registry observation only; exact month; no substitution",
+      "version": "earth-search-c1-local-v4-20261005"
+    },
+    {
+      "month": "2024-09",
+      "source": "local Sentinel-2 L2A scientific TIFF",
+      "rule": "missing registry observation only; exact month; no substitution",
+      "version": "earth-search-c1-local-v4-20261005"
+    }
+  ]
 }

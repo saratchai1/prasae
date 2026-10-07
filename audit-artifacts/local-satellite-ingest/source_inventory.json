@@ -1,0 +1,33 @@
+{
+  "local_files_scanned": 29083,
+  "local_bytes": 1246322536,
+  "scientific_tifs": 29081,
+  "zip_count": 0,
+  "zip_valid": 0,
+  "zip_corrupt": 0,
+  "zip_duplicate_source": 0,
+  "total_members": 0,
+  "archive_scientific_tifs": 0,
+  "processing_version": "local-registry-v4-20261004",
+  "integrity_counts": {
+    "NON_SCIENTIFIC": 2,
+    "VALID": 29081
+  },
+  "resolved_plots": 210,
+  "unique_scientific_checksums": 28345,
+  "source_manifest_sha256": "96fcd8ca94e998607b6b727eff036b9a1b1d70a498a529df357e4eb3eb9f1439",
+  "non_scientific_files": [
+    {
+      "source_id": ".DS_Store",
+      "filesize": 6148,
+      "checksum": "59a85c22a51749f958f6ca7eb1676adda0276c78ba738fff759b0f27a4325aa6",
+      "integrity_status": "NON_SCIENTIFIC"
+    },
+    {
+      "source_id": "1-STC/.DS_Store",
+      "filesize": 8196,
+      "checksum": "fc7acfbd033e384a5c3dc06628b933ba741f1bc136bee70eed761a00e4cc1359",
+      "integrity_status": "NON_SCIENTIFIC"
+    }
+  ]
+}
