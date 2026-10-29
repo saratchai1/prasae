@@ -1,5 +1,18 @@
 name: Unified 210 workspace check
 on:
+  pull_request:
+    branches: [gh-pages]
+    paths:
+      - unified-data.js
+      - unified-workspace.js
+      - unified-workspace.css
+      - index.html
+      - pdd22-spectral-studio.js
+      - tests/unified-workspace-browser.py
+      - data/timeseries_verified_12.json
+      - data/all_plots_visual_qa.json
+      - data/plots/**
+      - .github/workflows/unified-workspace-check.yml
   push:
     branches: [gh-pages]
     paths:
@@ -32,7 +45,7 @@ jobs:
           python tests/all-plots-source-audit.py
       - name: Chromium
         run: |
-          python -m pip install playwright==1.55.0 Pillow==11.3.0
+          python -m pip install playwright==1.64.0 Pillow==11.3.0
           python -m playwright install --with-deps chromium
           python -c "from playwright.sync_api import sync_playwright; p=sync_playwright().start(); print('CHROMIUM_PATH='+p.chromium.executable_path); p.stop()" >> "$GITHUB_ENV"
       - name: Actual 210-plot browser verification
