@@ -34,7 +34,7 @@ permissions: {contents: read}
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -64,6 +64,26 @@ jobs:
         with:
           name: drive-satellite-batch-inventory-pr-check
           path: audit-artifacts/drive_batch_inventory.*
+          retention-days: 2
+      - name: Install dependencies for exact-month Drive ingestion
+        run: |
+          python -m pip install --quiet numpy==2.2.6 Pillow==11.3.0 rasterio==1.4.3 shapely==2.1.1 pyproj==3.7.2 pystac-client==0.9.0 planetary-computer==1.0.0
+      - name: Ingest genuinely missing registry observations (review artifact only)
+        run: python tools/ingest_drive_missing_observations.py
+      - name: Regenerate conservative visual QA
+        run: |
+          python tests/build_all_plots_visual_qa.py
+          cp audit-artifacts/all_plots_visual_qa.json data/all_plots_visual_qa.json
+      - name: Verify source integrity after ingestion
+        run: python tests/all-plots-source-audit.py
+      - name: Export reviewable patch without production writes
+        run: |
+          git add data/timeseries_verified_12.json data/all_plots_visual_qa.json data/plots
+          git diff --cached --binary > audit-artifacts/accepted-observations.patch
+      - uses: actions/upload-artifact@v4
+        with:
+          name: drive-missing-observation-ingest-pr-check
+          path: audit-artifacts/
           retention-days: 2
       - name: Chromium
         run: |
