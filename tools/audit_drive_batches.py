@@ -9,22 +9,22 @@ IN = Path(os.environ.get("DRIVE_BATCH_INPUT", str(ROOT / "incoming")))
 OUT = Path(os.environ.get("DRIVE_BATCH_OUTPUT", str(ROOT / "audit-artifacts")))
 OUT.mkdir(parents=True, exist_ok=True)
 
-CODE_RE = re.compile(r"(?<!\\d)(\\d{1,3})\\s*[-_]\\s*(STC|VSD|EVR)(?![A-Za-z])", re.I)
-PLOT_RE = re.compile(r"PLOT[_-]?(\\d{1,3})", re.I)
-MONTH_RE = re.compile(r"(20\\d{2})[-_](0[1-9]|1[0-2])")
+CODE_RE = re.compile(r"(?<!\d)(\d{1,3})\s*[-_]\s*(STC|VSD|EVR)(?![A-Za-z])", re.I)
+PLOT_RE = re.compile(r"PLOT[_-]?(\d{1,3})", re.I)
+MONTH_RE = re.compile(r"(20\d{2})[-_](0[1-9]|1[0-2])")
 SCENE_RE = re.compile(r"(S2[ABC]_MSIL2A_[A-Z0-9_]+)", re.I)
 BANDS = {"B02", "B03", "B04", "B05", "B06", "B07", "B08", "B8A", "B11", "B12", "SCL"}
 
 
 def is_macos_metadata(name):
     """Recognize AppleDouble files and the __MACOSX mirror directory."""
-    parts = name.replace("\\\\", "/").split("/")
+    parts = name.replace("\\", "/").split("/")
     return "__MACOSX" in parts or any(part.startswith("._") for part in parts)
 
 
 def parse_name(name):
     """Parse source TIFF paths only; AppleDouble sidecars are never imagery."""
-    norm = name.replace("\\\\", "/")
+    norm = name.replace("\\", "/")
     if is_macos_metadata(norm) or not norm.lower().endswith(".tif"):
         return None, None, None, None, None
 
@@ -63,7 +63,7 @@ for zp in zips:
             ext = Counter(Path(i.filename).suffix.lower() or "[none]" for i in infos)
             row["extensions"] = dict(ext.most_common(20))
             row["top_level"] = dict(Counter(
-                i.filename.replace("\\\\", "/").split("/")[0] for i in infos
+                i.filename.replace("\\", "/").split("/")[0] for i in infos
             ).most_common(20))
             for i in infos:
                 metadata = is_macos_metadata(i.filename)
@@ -166,9 +166,10 @@ for x in summary:
         f"{x.get('other_files', 0):,} | {x.get('bytes', 0)/1048576:.1f} | "
         f"{x.get('uncompressed_bytes', 0)/1048576:.1f} |"
     )
-md += ["", "## Source TIFF bands", "", json.dumps(dict(sorted(by_band.items()), ensure_ascii=False),
-       ensure_ascii=False), "", "## Source TIFF months", "",
-       json.dumps(dict(sorted(by_month.items()), ensure_ascii=False), ensure_ascii=False)]
+md += ["", "## Source TIFF bands", "",
+       json.dumps(dict(sorted(by_band.items())), ensure_ascii=False), "",
+       "## Source TIFF months", "",
+       json.dumps(dict(sorted(by_month.items())), ensure_ascii=False)]
 (OUT / "drive_batch_inventory.md").write_text("\n".join(md), encoding="utf-8")
 print(json.dumps({
     k: report[k] for k in [
