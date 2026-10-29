@@ -9,6 +9,8 @@ on:
       - index.html
       - pdd22-spectral-studio.js
       - tests/unified-workspace-browser.py
+      - tests/test_drive_batch_audit.py
+      - tools/audit_drive_batches.py
       - data/timeseries_verified_12.json
       - data/all_plots_visual_qa.json
       - data/plots/**
@@ -21,6 +23,8 @@ on:
       - unified-workspace.css
       - index.html
       - pdd22-spectral-studio.js
+      - tests/test_drive_batch_audit.py
+      - tools/audit_drive_batches.py
       - tests/unified-workspace-browser.py
       - data/timeseries_verified_12.json
       - data/all_plots_visual_qa.json
@@ -43,6 +47,8 @@ jobs:
           node --check unified-workspace.js
           node --check pdd22-spectral-studio.js
           python tests/all-plots-source-audit.py
+      - name: Drive batch inventory parser regression
+        run: python tests/test_drive_batch_audit.py
       - name: Chromium
         run: |
           python -m pip install playwright==1.64.0 Pillow==11.3.0
