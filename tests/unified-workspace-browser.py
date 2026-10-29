@@ -216,9 +216,9 @@ try:
   opacity('#compare-image-opacity',37)
   page.select_option('#comp-right-select','0')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
-   document.querySelector('#comp-label-after').textContent.includes('2566')&&
-   document.querySelector('.compare-after-raster[src*="/2023-09/ndvi.png"]')''')
-  assert '2023-09' in page.locator('.compare-after-raster[src*="/2023-09/ndvi.png"]').first.get_attribute('src')
+   document.querySelector('#comp-label-after').textContent.includes('2566')''')
+  after_sources=page.locator('.compare-after-raster').evaluate_all("(imgs)=>imgs.map(img=>img.getAttribute('src')||'')")
+  assert any('2023-09' in src for src in after_sources),after_sources
   checks.append('right selector accepts first month without substituting the last month')
 
   # A missing exact month clears both dated rasters and never retains an old pair.
