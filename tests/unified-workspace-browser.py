@@ -217,7 +217,7 @@ try:
   page.select_option('#comp-right-select','0')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
    document.querySelector('#comp-label-after').textContent.includes('2566')&&
-   window.compareRightOverlay?._url.includes('/2023-09/ndvi.png')''')
+   compareRightOverlay?._url.includes('/2023-09/ndvi.png')''')
   assert '2023-09' in page.evaluate('()=>compareRightOverlay?._url||"')
   checks.append('right selector accepts first month without substituting the last month')
 
@@ -260,14 +260,14 @@ try:
   page.select_option('#comp-left-select',str(scope_index));page.select_option('#comp-right-select',str(scope_index))
   page.select_option('#comp-mode-select','rgb')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
-   window.compareLeftOverlay?._url.includes('data/pdd22_satellite')&&
-   window.compareRightOverlay?._url.includes('data/pdd22_satellite')''')
+   compareLeftOverlay?._url.includes('data/pdd22_satellite')&&
+   compareRightOverlay?._url.includes('data/pdd22_satellite')''')
   assert 'data/pdd22_satellite' in page.evaluate('()=>compareRightOverlay?._url||"')
   assert page.locator('#comp-ndvi-legend').is_hidden()
   page.evaluate('setAnalysisScope("registry")')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
-   window.compareLeftOverlay?._url.includes('data/plots/')&&
-   window.compareRightOverlay?._url.includes('data/plots/')''')
+   compareLeftOverlay?._url.includes('data/plots/')&&
+   compareRightOverlay?._url.includes('data/plots/')''')
   assert 'data/plots/' in page.evaluate('()=>compareRightOverlay?._url||"')
   assert_compare_opacity(37)
   checks.append('registry/PDD scope changes replace both rasters with the selected footprint')
