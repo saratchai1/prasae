@@ -216,9 +216,10 @@ try:
   opacity('#compare-image-opacity',37)
   page.select_option('#comp-right-select','0')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
-   document.querySelector('#comp-label-after').textContent.includes('2566')''')
-  if page.locator('.compare-after-raster').count():
-   assert '2023-09' in page.locator('.compare-after-raster').get_attribute('src')
+   document.querySelector('#comp-label-after').textContent.includes('2566')&&
+   document.querySelectorAll('.compare-after-raster').length===1&&
+   document.querySelector('.compare-after-raster')?.src.includes('/2023-09/ndvi.png')''')
+  assert '2023-09' in page.locator('.compare-after-raster').get_attribute('src')
   checks.append('right selector accepts first month without substituting the last month')
 
   # A missing exact month clears both dated rasters and never retains an old pair.
@@ -260,12 +261,18 @@ try:
   page.select_option('#comp-left-select',str(scope_index));page.select_option('#comp-right-select',str(scope_index))
   page.select_option('#comp-mode-select','rgb')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
-   document.querySelector('.compare-before-raster')?.src.includes('data/pdd22_satellite')''')
+   document.querySelectorAll('.compare-before-raster').length===1&&
+   document.querySelector('.compare-before-raster')?.src.includes('data/pdd22_satellite')&&
+   document.querySelectorAll('.compare-after-raster').length===1&&
+   document.querySelector('.compare-after-raster')?.src.includes('data/pdd22_satellite')''')
   assert 'data/pdd22_satellite' in page.locator('.compare-after-raster').get_attribute('src')
   assert page.locator('#comp-ndvi-legend').is_hidden()
   page.evaluate('setAnalysisScope("registry")')
   page.wait_for_function('''()=>document.querySelector('#compare-container').getAttribute('aria-busy')==='false'&&
-   document.querySelector('.compare-before-raster')?.src.includes('data/plots/')''')
+   document.querySelectorAll('.compare-before-raster').length===1&&
+   document.querySelector('.compare-before-raster')?.src.includes('data/plots/')&&
+   document.querySelectorAll('.compare-after-raster').length===1&&
+   document.querySelector('.compare-after-raster')?.src.includes('data/plots/')''')
   assert 'data/plots/' in page.locator('.compare-after-raster').get_attribute('src')
   assert_compare_opacity(37)
   checks.append('registry/PDD scope changes replace both rasters with the selected footprint')
