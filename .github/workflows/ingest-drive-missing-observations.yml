@@ -1,12 +1,6 @@
 name: Ingest missing Drive observations
 on:
   workflow_dispatch:
-  # Temporary, branch-scoped trigger to evaluate the current Drive batch without touching production.
-  push:
-    branches:
-      - fix/drive-batch-audit-sidecars-20261029
-    paths:
-      - .github/workflows/ingest-drive-missing-observations.yml
 permissions: {contents: read}
 jobs:
   ingest:
