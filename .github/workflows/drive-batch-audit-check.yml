@@ -1,0 +1,27 @@
+name: Drive batch audit regression tests
+on:
+  pull_request:
+    branches: [gh-pages]
+    paths:
+      - tools/audit_drive_batches.py
+      - tests/test_drive_batch_audit.py
+      - .github/workflows/drive-batch-audit-check.yml
+  push:
+    branches: [gh-pages]
+    paths:
+      - tools/audit_drive_batches.py
+      - tests/test_drive_batch_audit.py
+      - .github/workflows/drive-batch-audit-check.yml
+permissions:
+  contents: read
+jobs:
+  audit-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run Drive inventory parser regression test
+        run: python tests/test_drive_batch_audit.py
